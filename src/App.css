@@ -1,0 +1,381 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+  color: #000000;
+}
+
+
+
+/* Full-page wrapper if needed */
+#root {
+  height: 100vh;
+}
+
+.about-section,
+.project-section {
+  background-color: white;
+}
+
+.nav-button {
+  text-decoration: none; /* removes underline */
+  /* keep other styles you have here */
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 200px;
+  border-bottom: 2px solid #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 100;
+}
+
+/* Left Section */
+.left-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-inner {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace; /* only here */
+}
+
+.title {
+  font-size: 0.7rem;
+  color: #555555;
+  margin-top: 5px;
+}
+
+.left-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.name-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Center Section */
+.center-section {
+  display: flex;
+  gap: 8px;
+  background-color: #8383831e;
+  padding: 4px;
+  border-radius: 9999px;
+  border: 1px solid #dedede;
+}
+
+.nav-button {
+  background: transparent;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 800px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  color: black;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 200px;
+  background-color: #282828;
+  color: #000;
+  border-top: 1px solid #ccc;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  max-width: 300px;
+}
+
+.footer-email {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.footer-thankyou {
+  font-size: 0.95rem;
+  color: #b9b6b6;
+
+}
+
+.footer-right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  font-family: 'IBM Plex Mono', monospace; /* only here */
+  color: white;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #888;
+}
+
+
+.nav-button:hover {
+  background-color: #eaeaea;
+  border: 1px solid #dedede;
+}
+
+.nav-button.active {
+  background-color: #e0e0e0;
+  border: 1px solid #dedede;
+}
+
+/* Right Section */
+.right-section {
+  display: flex;
+  gap: 24px;
+  font-family: 'IBM Plex Mono', monospace; /* only here */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.project-section {
+  margin-top: 200px;
+  padding: 0 200px 100px;
+}
+
+.project-card {
+  background-color: #6b6b6b;
+  color: #e4e6f0;
+  border-radius: 20px;
+  border: 1px solid #c6c6c6;
+  overflow: hidden;
+  margin-bottom: 80px;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-link {
+  text-decoration: none;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-link:hover .project-card {
+  transform: scale(1.01);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+
+.about-section {
+  max-width: 800px;
+  margin: 180px auto 80px;
+  padding: 0 20px;
+  font-family: 'IBM Plex Mono', monospace; /* only here */
+  font-size: 20px;
+  color: #8d8d8d;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.status-section {
+  max-width: 800px;
+  margin: -40px auto 0px;
+  padding: 0 20px;
+  font-family: 'IBM Plex Mono', monospace; /* only here */
+  font-size: 15px;
+  color: #454545;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.sandbox-image {
+    display: block;
+    margin: -2px auto 0; /* top margin gives some space from text */
+    width: 40px; /* or adjust to your needs */
+    height: 40px;
+    border-radius: 6px; /* <- soft rounded corners */
+    opacity: 0.8; /* optional: makes it subtle */
+}
+
+.highlight {
+  color: #000000; /* your highlight color, e.g. blue */
+  font-weight: 600;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.project-section {
+  margin-top: 50px;
+  background-color: white;
+}
+
+
+.project-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0; /* ensures no spacing at top */
+}
+
+
+.section-heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 10px 0 60px;
+  color: #000000;
+}
+
+
+.project-content {
+  padding: 40px;
+  border-top: 5px solid #ffffff00;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  margin: 20px 0px 20px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+
+.about-divider {
+  width: 70%;
+  margin: 50px auto 80px;
+  border: none;
+  border-top: 1px solid #e9e7e7;
+}
+
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.tag {
+  background-color: #353535;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+}
+
+.project-meta h4 {
+  margin: 0 0 4px;
+  font-weight: 600;
+  color: #cdcdcd;
+}
+
+.project-meta p {
+  margin: 0;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.rotating-icon-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotate 4s linear infinite;
+}
+
+.rotating-icon {
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns contents to the left side */
+  gap: 8px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.rotating-icon-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.page-wrapper {
+  transition: opacity 900ms ease-in-out;
+  opacity: 1;
+}
+
+
+
+.page-wrapper.fade-out {
+  opacity: 0;
+}
+
+.page-wrapper.fade-in {
+  opacity: 1;
+}
+
+
+
