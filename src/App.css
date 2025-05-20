@@ -562,7 +562,7 @@ body, html {
 }
 
 .cartoon-image {
-  max-width: 250px;
+  max-width: 170px;
   width: 80%;
   height: auto;
   border-radius: 50rem;
@@ -712,5 +712,31 @@ a:hover {
 .fade-out {
   opacity: 0;
   transform: translateY(10px); /* or -10px for swipe up */
+}
+
+/* App.css */
+.emoji-wrapper {
+  position: absolute;
+  cursor: pointer;
+}
+
+.emoji-tooltip {
+  display: none;
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: #333;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.7rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.emoji-wrapper:hover .emoji-tooltip {
+  display: block;
 }
 
