@@ -1,6 +1,5 @@
 // About.jsx
 import './About.css';
-import icon2 from './assets/om.png';
 import profileImage from './assets/profile.jpg'; // Replace with your actual image
 import img1 from './assets/cornell.jpg';
 import img2 from './assets/studio1.jpg';
@@ -195,18 +194,18 @@ function About() {
 
         <div className="footer-right">
           <div className="footer-links">
-            <a href="#" className="footer-link">GITHUB</a>
+            <a href="https://github.com/tissuepy" className="footer-link">GITHUB</a>
             <span>/</span>
-            <a href="#" className="footer-link">DRIBBLE</a>
+            <a href="https://dribbble.com/ngannu2" className="footer-link">DRIBBBLE</a>
             <span>/</span>
-            <a href="#" className="footer-link">NOTION ARCHIVE</a>
+            <a href="https://easy-iron-95a.notion.site/Nitish-s-UX-Design-Archive-19534c722e428091bdd8cec96de8dd65" className="footer-link">NOTION ARCHIVE</a>
             <span>/</span>
-            <a href="#" className="footer-link">PHOTOS</a>
+            <a href="https://vsco.co/nitissue/gallery" className="footer-link">PHOTOS</a>
           </div>
 
           <div className="rotating-icon-wrapper">
             <div className="rotating-icon-container">
-              <img src={icon2} alt="rotating icon" className="rotating-icon" />
+              <h1>🐢</h1>
             </div>
           </div>
         </div>

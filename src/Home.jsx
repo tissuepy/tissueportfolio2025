@@ -141,34 +141,32 @@ function Home() {
           ))}
         </div>
 
-        <div className="more-projects-text" style={{ position: 'absolute', top: '96%', transform: 'translateY(-50%)', padding: '0 1rem', fontSize: '1rem', color: '#464646', fontFamily: 'monospace' }}>
-          WANT TO SEE MORE? CHECK OUT MY <a href="https://your-notion-link.com" target="_blank" rel="noopener noreferrer">NOTION ARCHIVE</a>.
+        <p className="more-projects-text">
+        <p style={{ position: 'absolute', top: '96%', transform: 'translateY(-50%)', padding: '0 1rem', fontSize: '1rem', color: '#464646',  fontFamily: 'monospace' , margin: 0 }}> WANT TO SEE MORE? CHECK OUT MY <a href="https://easy-iron-95a.notion.site/Nitish-s-UX-Design-Archive-19534c722e428091bdd8cec96de8dd65" target="_blank"> NOTION ARCHIVE</a>. </p>
+        </p>
         </div>
-      </div>
 
       <footer className="footer">
         <div className="footer-left">
           <p className="footer-thankyou">reach out to me at ↓</p>
           <p className="footer-email">
-            <a href="mailto:ng545@cornell.edu" className="email-link">ng545@cornell.edu↗</a>
+            <p className="email-link">ng545@cornell.edu↗</p>
           </p>
           <p className="footer-email">ⓒ 2025</p>
         </div>
 
         <div className="footer-right">
           <div className="footer-links">
-            <a href="https://github.com/yourusername" className="footer-link" target="_blank" rel="noopener noreferrer">GITHUB</a>
+            <a href="https://github.com/tissuepy" className="footer-link" target="_blank" rel="noopener noreferrer">GITHUB</a>
             <span>/</span>
-            <a href="https://dribbble.com/yourusername" className="footer-link" target="_blank" rel="noopener noreferrer">DRIBBBLE</a>
+            <a href="https://dribbble.com/ngannu2" className="footer-link" target="_blank" rel="noopener noreferrer">DRIBBBLE</a>
             <span>/</span>
-            <a href="https://your-notion-link.com" className="footer-link" target="_blank" rel="noopener noreferrer">NOTION ARCHIVE</a>
-            <span>/</span>
-            <a href="https://photoslink.com" className="footer-link" target="_blank" rel="noopener noreferrer">PHOTOS</a>
+            <a href="https://vsco.co/nitissue/gallery" className="footer-link" target="_blank" rel="noopener noreferrer">PHOTOS</a>
           </div>
 
           <div className="rotating-icon-wrapper">
             <div className="rotating-icon-container">
-              <h1>🌷</h1>
+              <h1>🐢</h1>
             </div>
           </div>
         </div>
