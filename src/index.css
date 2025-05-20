@@ -66,3 +66,10 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+.highlight-matcha {
+  background-color: #b5d3b0;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}

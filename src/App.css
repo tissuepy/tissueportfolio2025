@@ -1,10 +1,11 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: #fff;
   color: #000000;
 }
+
 
 
 
@@ -16,6 +17,17 @@ body, html {
 .about-section,
 .project-section {
   background-color: white;
+}
+
+.about-section {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.about-section-container {
+  position: relative;
+  overflow: hidden;
 }
 
 .nav-button {
@@ -36,6 +48,7 @@ body, html {
   right: 0;
   background: white;
   z-index: 100;
+  transition: transform 1s ease;
 }
 
 /* Left Section */
@@ -58,15 +71,53 @@ body, html {
 }
 
 .title {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   color: #555555;
   margin-top: 5px;
 }
+
+
 
 .left-content {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+
+.page-wrapper {
+  transition: opacity 900ms ease-in-out;
+  opacity: 1;
+}
+
+.page-wrapper.fade-out {
+  opacity: 0;
+}
+
+.navbar-visible {
+  transform: translateY(0);
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+
+.page-wrapper.fade-in {
+  opacity: 1;
+}
+
+.right-section {
+  /* Example: */
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: inherit;
+  text-decoration: none;
+  /* Make sure they’re visible */
 }
 
 .name-title {
@@ -78,11 +129,13 @@ body, html {
 /* Center Section */
 .center-section {
   display: flex;
-  gap: 8px;
+  gap: 5px;
   background-color: #8383831e;
   padding: 4px;
   border-radius: 9999px;
   border: 1px solid #dedede;
+  font-family: 'IBM Plex Mono', monospace; /* only here */
+
 }
 
 .nav-button {
@@ -176,10 +229,10 @@ body, html {
 }
 
 .project-card {
-  background-color: #6b6b6b;
-  color: #e4e6f0;
+  background-color: #343434;
+  color: #f7f7f7;
   border-radius: 20px;
-  border: 1px solid #c6c6c6;
+  border: 1.2px solid #dadada;
   overflow: hidden;
   margin-bottom: 80px;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
@@ -199,23 +252,33 @@ body, html {
 
 
 .about-section {
-  max-width: 800px;
-  margin: 180px auto 80px;
+  max-width: 1000px;
+  margin: 150px auto 80px;
   padding: 0 20px;
-  font-family: 'IBM Plex Mono', monospace; /* only here */
-  font-size: 20px;
-  color: #8d8d8d;
+  font-size:33px;
+  color: #515050;
   text-align: center;
   line-height: 1.6;
+  font-weight: 500;
 }
 
+
+.divider-section {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+}
+
+
+
 .status-section {
-  max-width: 800px;
-  margin: -40px auto 0px;
+  max-width: 900px;
+  margin: -100px auto 0px;
   padding: 0 20px;
-  font-family: 'IBM Plex Mono', monospace; /* only here */
-  font-size: 15px;
-  color: #454545;
+  font-size: 19px;
+  color: #464646;
   text-align: center;
   line-height: 1.6;
 }
@@ -278,7 +341,7 @@ body, html {
   width: 70%;
   margin: 50px auto 80px;
   border: none;
-  border-top: 1px solid #e9e7e7;
+  border-top: 1px solid #c7c7c7;
 }
 
 
@@ -299,14 +362,15 @@ body, html {
 
 .project-meta {
   display: flex;
-  flex-wrap: wrap;
-  gap: 100px;
+  flex-wrap: nowrap;
+  margin-top: 120px;
+  gap: 10px; /* previously 100px, reduce this */
 }
 
 .project-meta h4 {
-  margin: 0 0 4px;
+  margin: -80px 0 4px;
   font-weight: 600;
-  color: #cdcdcd;
+  color: #707070;
 }
 
 .project-meta p {
@@ -315,13 +379,21 @@ body, html {
   color: #000000;
 }
 
+.project-meta {
+  display: flex;
+  flex-wrap: nowrap;
+  column-gap: 100px; /* keep generous horizontal gap */
+  row-gap: -100px;
+}
+
 .rotating-icon-container {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #ffffff;
+  border: 3px solid white ;
   display: flex;
+  margin-top: 10px;
   align-items: center;
   justify-content: center;
   animation: rotate 4s linear infinite;
@@ -333,6 +405,7 @@ body, html {
   object-fit: cover;
   border-radius: 50%;
 }
+
 
 @keyframes rotate {
   from {
@@ -367,8 +440,6 @@ body, html {
   opacity: 1;
 }
 
-
-
 .page-wrapper.fade-out {
   opacity: 0;
 }
@@ -377,5 +448,269 @@ body, html {
   opacity: 1;
 }
 
+.project-card {
+  width: 350px;               /* fixed width for layout consistency */
+  min-height: 480px;          /* adjust as needed for stable height */
+}
 
+.project-card:hover {
+    text-decoration: none;
+}
+
+.project-title,
+.project-tags,
+.project-meta h4 {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.project-meta p {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Optional: prevent huge zoom from shifting layout too much */
+.project-content {
+  min-width: 0;
+}
+
+.project-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-card {
+  width: 100%;
+  max-width: 1000px; /* keeps it wide on large screens */
+  margin: 0 auto 80px;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+}
+
+/* When wrapped (zoomed in or smaller screens), reduce gap and stack nicely */
+@media (max-width: 100px) {
+  .project-meta {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 800px) {
+  .project-meta {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .project-meta > div {
+    width: 100%;
+  }
+}
+
+
+.emoji-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.emoji-scatter {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.5;
+  user-select: none;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(5px, -5px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+
+
+.emoji-scatter {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.9;
+  user-select: none;
+  pointer-events: none;
+  transform-origin: center;
+  animation: float 5s ease-in-out infinite;
+}
+
+.cartoon-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 160px;
+  margin-bottom: -130px
+}
+
+.cartoon-image {
+  max-width: 250px;
+  width: 80%;
+  height: auto;
+  border-radius: 50rem;
+  box-shadow: 0 5px 20px rgba(69, 69, 69, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.cartoon-image:hover {
+  transform: scale(1.05);
+}
+
+.emoji-tooltip-wrapper {
+  position: absolute;
+  display: inline-block;
+}
+
+.emoji-tooltip {
+  visibility: hidden;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 10;
+  bottom: 120%; /* places it above the emoji */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.emoji-tooltip-wrapper:hover .emoji-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.cartoon-tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cartoon-tooltip-wrapper:hover .cartoon-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.notion-cta {
+  margin-top: 2rem;
+  padding-left: 2rem; /* aligns with cards if they have padding */
+}
+
+.notion-cta h4 {
+  font-size: 1rem;
+  color: #3b3b3b;
+  font-weight: 500;
+}
+
+.bottom-half {
+  position: relative;
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.project-section {
+  /* your existing styles */
+  margin-bottom: 2rem; /* add space between projects and text */
+}
+
+.more-projects-text {
+  font-size: 1rem;
+  color: #464646;
+  font-family: monospace;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 0 1rem;
+}
+
+.rotating-identity {
+  transition: opacity 0.4s ease;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+
+.more-projects-text {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+
+.more-projects-text a {
+  color: #464646; /* text color */
+  text-decoration: none; /* remove default underline */
+  padding: 0 0.15rem; /* some horizontal padding */
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.more-projects-text a:hover {
+  color: #74A662; /* light green fill on hover */
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #74A662;
+}
+
+.rotating-identity {
+  color: #74A662;
+  display: inline-block;
+  transition: opacity 0.9s ease-in-out, transform 0.9s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0.5);
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(10px); /* or -10px for swipe up */
+}
 
