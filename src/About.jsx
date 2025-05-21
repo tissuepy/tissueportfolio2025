@@ -121,7 +121,9 @@ function About() {
 <div className="collage-section">
   <div className="collage-container">
     <div className="collage-text">
-      <h3> My College Metamorphosis</h3>
+      <div className="h3-title">
+      <h3> COLLEGE METAMORPHOSIS</h3>
+            </div>
       <p>
         Before I came to college, I was a nervous and introverted kid. My first week of college encouraged me step out of my comfort zone and meet new people from different parts of the world.
       </p>
@@ -168,7 +170,7 @@ function About() {
       <img src={sg4} alt="Collage 4" className="collage-img small" />
     </div>
     <div className="collage-text collage-text-reverse">
-      <h3 className="collage-title">Why Design?</h3>
+      <h3 className="collage-title">WHY DESIGN?</h3>
       <p className="collage-description">
        During high school, I developed a passion for drawing and was deeply inspired by the Studio Ghibli films. This sparked my curiosity in Graphic Design.
       </p>

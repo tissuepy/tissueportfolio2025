@@ -45,7 +45,7 @@ function App() {
         <div className="left-section">
           <h1 className="name">Nitish Gannu</h1>
           <p className="title">
-            <span className="highlight-matcha">Data Scientist & Designer</span>
+            Data Scientist & Designer
           </p>
         </div>
 

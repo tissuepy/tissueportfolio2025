@@ -1,50 +1,62 @@
 // Home.jsx
 import project1 from './assets/safehubthumb.jpg';
-import project2 from './assets/searchthumbnails.jpg';
 import project3 from './assets/wardrobethumbnails.jpg';
 import project5 from './assets/calorie-thumbnail.jpg';
 import './App.css';
 import cartoon from './assets/cartoon.png';
 import React, { useState, useEffect } from 'react';
+import project2tut1 from './assets/searchneutut.png';
+import project2tut2 from './assets/searchneutut2.png';
+import project22 from './assets/searchthumbnails.png';
+import peoplesafe from './assets/peoplesafe.png';
+// import wardrobe1 from './assets/wardy1.png'
+// import wardrobe2 from './assets/wardy2.jpg'
+import search4 from './assets/search4.png'
+import safe from './assets/safe.png'
+
 
 const projects = [
   {
-    image: project2,
+    image: project22,
+    extraImages: [project2tut1, project2tut2], // add 2 images here
     title: "SearchNEU",
-    tags: ["Campus", "Student Tools", "Course Info", "User Research"],
-    duration: "Jan 2025 - June 2025",
-    overview: "A fast and intuitive app for finding courses, professors, and campus information.",
+    tags: ["Student Tools", "Course Info", "User Research"],
+    duration: "SearchNEU is a sleek, user-friendly web app to quickly discover courses, professors, and essential campus details for better academic planning and preperation for academic semesters.",
+    overview: "Product Designer, Jan 2025 - June 2025",
     link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
-    bgColor: "#FFFFFF"
+    bgColor: "#FFFFFF",
+    extraLargeImage: [search4]
   },
   {
     image: project1,
+    extraImages: [safe, peoplesafe],
     title: "Safehub",
-    tags: ["Emergency Response", "Safety", "0 to 1", "Technical", "User Research"],
-    duration: "December 2023 – June 2024",
-    overview: "A mobile app that improves campus safety at Stamford High School.",
+    tags: ["Safety", "0 to 1", "User Research"],
+    duration: "Safehub is a mobile app enhances campus safety with real-time alerts, emergency SOS features, and intuitive design to empower Stamford High students in critical situations.",
+    overview: "Founding Designer, December 2023 – June 2024",
     link: "https://easy-iron-95a.notion.site/Safehub-19534c722e4280a69ff3e3b0650b9136",
-    bgColor: "#FFFFFF"
+    bgColor: "#FFFFFF",
   },
   {
     image: project3,
     title: "Wardrobe",
-    tags: ["User Research", "E-Commerce", "iOS", "Shopping"],
-    duration: "June 2024 – August 2024",
-    overview: "A one-stop online shopping center for clothing from top brands—all in one app.",
-    link: "https://your-link.com/wardrobe", // updated placeholder
+    tags: ["User Research", "E-Commerce"],
+    duration: "Wardrobe is a mobile application that offers a seamless online shopping experience, aggregating top fashion brands with intuitive browsing, personalized recommendations, and effortless checkout.",
+    overview: "Founding Designer, June 2024 – August 2024",
+    link: "https://your-link.com/wardrobe",
     bgColor: "#FFFFFF"
   },
   {
     image: project5,
     title: "Calori.e",
-    tags: ["Rapid Prototyping", "Competition", "UX"],
-    duration: "December 2022",
-    overview: "An AI-based calorie tracking application.",
-    link: "https://your-link.com/calorie", // updated placeholder
+    tags: ["Rapid Prototyping", "UX"],
+    duration: "An AI-powered app that accurately tracks your daily calorie intake, helping you maintain a balanced diet and reach health goals.",
+    overview: "Product Designer, December 2022",
+    link: "https://your-link.com/calorie",
     bgColor: "#FFFFFF"
   }
 ];
+
 
 function Home() {
   const emojiStyles = [
@@ -142,7 +154,6 @@ function Home() {
         </div>
 
         <p className="more-projects-text">
-        <p style={{ position: 'absolute', top: '96%', transform: 'translateY(-50%)', padding: '0 1rem', fontSize: '1rem', color: '#464646',  fontFamily: 'monospace' , margin: 0 }}> WANT TO SEE MORE? CHECK OUT MY <a href="https://easy-iron-95a.notion.site/Nitish-s-UX-Design-Archive-19534c722e428091bdd8cec96de8dd65" target="_blank"> NOTION ARCHIVE</a>. </p>
         </p>
         </div>
 
@@ -161,6 +172,8 @@ function Home() {
             <span>/</span>
             <a href="https://dribbble.com/ngannu2" className="footer-link" target="_blank" rel="noopener noreferrer">DRIBBBLE</a>
             <span>/</span>
+            <a href="https://easy-iron-95a.notion.site/Nitish-s-UX-Design-Archive-19534c722e428091bdd8cec96de8dd65" className="footer-link" target="_blank" rel="noopener noreferrer">DESIGN ARCHIVE</a>
+            <span>/</span>
             <a href="https://vsco.co/nitissue/gallery" className="footer-link" target="_blank" rel="noopener noreferrer">PHOTOS</a>
           </div>
 
@@ -175,13 +188,10 @@ function Home() {
   );
 }
 
-function ProjectCard({ image, title, tags, duration, overview, link, bgColor }) {
+function ProjectCard({ image, extraImages = [], extraLargeImage, title, tags, duration, overview, link, bgColor }) {
   return (
     <a href={link} className="project-link" target="_blank" rel="noopener noreferrer">
       <div className="project-card" style={{ backgroundColor: bgColor }}>
-        <div className="project-image-container">
-          <img src={image} alt={`${title} thumbnail`} className="project-image" />
-        </div>
         <div className="project-content">
           <h2 className="project-title">{title}</h2>
           <div className="project-tags">
@@ -190,19 +200,41 @@ function ProjectCard({ image, title, tags, duration, overview, link, bgColor }) 
             ))}
           </div>
           <div className="project-meta">
-            <div>
-              <h4>Duration</h4>
-              <p>{duration}</p>
+            <p className="project-overview">{duration}</p>
+            <p className="project-date">{overview}</p>
+          </div>
+
+          <div className="project-image-container">
+            {/* Main large image */}
+            <img src={image} alt={`${title} thumbnail`} className="project-image" />
+
+            {/* Smaller extra images side-by-side */}
+            <div className="extra-images-container">
+              {extraImages.map((extraImg, idx) => (
+                <img
+                  key={idx}
+                  src={extraImg}
+                  alt={`${title} extra thumbnail ${idx + 1}`}
+                  className="extra-project-image"
+                />
+              ))}
             </div>
-            <div>
-              <h4>Project Overview</h4>
-              <p>{overview}</p>
-            </div>
+
+            {/* New large image below smaller images */}
+            {extraLargeImage && (
+              <img
+                src={extraLargeImage}
+                alt={`${title} extra large thumbnail`}
+                className="extra-large-project-image"
+              />
+            )}
           </div>
         </div>
       </div>
     </a>
   );
 }
+
+
 
 export default Home;
