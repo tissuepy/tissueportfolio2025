@@ -1,6 +1,6 @@
 // Home.jsx
 import project1 from './assets/safehubthumb.jpg';
-import project3 from './assets/wardrobethumbnails.jpg';
+//import project3 from './assets/wardrobethumbnails.jpg';
 import project5 from './assets/calorie-thumbnail.jpg';
 import './App.css';
 import cartoon from './assets/cartoon.png';
@@ -36,15 +36,6 @@ const projects = [
     overview: "Founding Designer, December 2023 – June 2024",
     link: "https://easy-iron-95a.notion.site/Safehub-19534c722e4280a69ff3e3b0650b9136",
     bgColor: "#FFFFFF",
-  },
-  {
-    image: project3,
-    title: "Wardrobe",
-    tags: ["User Research", "E-Commerce"],
-    duration: "Wardrobe is a mobile application that offers a seamless online shopping experience, aggregating top fashion brands with intuitive browsing, personalized recommendations, and effortless checkout.",
-    overview: "Founding Designer, June 2024 – August 2024",
-    link: "https://your-link.com/wardrobe",
-    bgColor: "#FFFFFF"
   },
   {
     image: project5,
@@ -179,7 +170,7 @@ function Home() {
 
           <div className="rotating-icon-wrapper">
             <div className="rotating-icon-container">
-              <h1>🐢</h1>
+              <h1>🍄</h1>
             </div>
           </div>
         </div>
