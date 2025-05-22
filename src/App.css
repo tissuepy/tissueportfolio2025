@@ -905,3 +905,72 @@ body, html {
   border-radius: 8px;
   /* optionally add box-shadow, border-radius etc */
 }
+
+.city-container {
+  position: relative;
+  margin-top: 110px;
+  text-align: center;
+}
+
+.city-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Base class for all floating images */
+.floating-image {
+  position: absolute;
+  width: 20px; /* adjust size as needed */
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Individual positions */
+.float1 {
+  top: 40%;
+  left: 45%;
+  animation-delay: 0s;
+}
+
+.float2 {
+  top: 40%;
+  left: 70%;
+  animation-delay: 2s;
+}
+
+.float3 {
+  top: 10%;
+  left: 55%;
+  animation-delay: 5s;
+}
+
+.float4 {
+  top: 80%;
+  left: 50%;
+  animation-delay: 3s;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.city-container figure {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.city-caption {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #aeaeae;
+}

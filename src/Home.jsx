@@ -13,6 +13,8 @@ import peoplesafe from './assets/peoplesafe.png';
 // import wardrobe2 from './assets/wardy2.jpg'
 import search4 from './assets/search4.png'
 import safe from './assets/safe.png'
+import cityImage from './assets/city.png'
+import person1 from './assets/grey guy.png'
 
 
 const projects = [
@@ -126,6 +128,19 @@ function Home() {
           </span>{" "}
           @ Cornell 🐻
         </p>
+
+          <div className="city-container">
+            <figure>
+    <img src={cityImage} alt="Hand drawn city" className="city-image" />
+        <figcaption className="city-caption">ISOMETRIC CITY (DRAWN BY ME)</figcaption>
+        </figure>
+
+    {/* Floating images */}
+    <img src={person1} className="floating-image float1" alt="floating emoji 1" />
+    <img src={person1} className="floating-image float2" alt="floating emoji 2" />
+    <img src={person1} className="floating-image float3" alt="floating emoji 3" />
+    <img src={person1} className="floating-image float4" alt="floating emoji 4" />
+  </div>
       </div>
 
       <div className="divider-section">

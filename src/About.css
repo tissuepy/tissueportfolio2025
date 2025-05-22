@@ -1,6 +1,11 @@
 /* About.css */
 
 .about-page {
+  overflow-x: hidden;
+}
+
+
+.about-page {
     padding: 200px 2rem;
     background-color: white;
   }
@@ -283,5 +288,32 @@
   border-radius: 4px;
 }
 
-  
-  
+.interactive-matcha-wrapper {
+  text-align: center;
+  margin-top: -100px;
+}
+
+.matcha-heading {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 100;
+  font-size: 1.2rem;
+  margin-bottom: -20px;
+}
+
+.custom-dropdown-toggle {
+  width: 220px; /* Adjust width as needed */
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.custom-dropdown-toggle:hover {
+  background-color: #eee;
+}
+

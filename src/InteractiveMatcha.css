@@ -1,0 +1,64 @@
+.outer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  border: 2px solid #ccc;
+  border-radius: 16px;
+  max-width: 800px;
+  background-color: #f9f9f9;
+  margin-bottom: 200px;
+}
+
+.dropdown {
+  margin-bottom: 1rem;
+  padding: 0.6rem 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 220px; /* wider dropdown */
+}
+
+.matcha {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem; /* Add padding to prevent image from hitting border */
+  border-radius: 12px;
+}
+
+.matcha-img {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  transition: opacity 0.9s ease-in-out;
+  border-radius: 8px;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0.1;
+}
+
+.caption {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem; /* smaller text */
+  text-align: center;
+  margin-top: 0px;
+  color: #555; /* optional, for a subtle look */
+}
+
+.cafe-title {
+    font-family: "IBM Plex Mono", monospace;
+}

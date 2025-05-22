@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
+import InteractiveMatcha from './InteractiveMatcha'; // Added
 
 function App() {
   const location = useLocation();
@@ -24,29 +25,24 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY.current) {
-        // Scrolling down — hide navbar
-        setShowNavbar(false);
+        setShowNavbar(false); // hide navbar
       } else {
-        // Scrolling up — show navbar
-        setShowNavbar(true);
+        setShowNavbar(true); // show navbar
       }
       lastScrollY.current = window.scrollY;
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <>
-      {/* Navbar: Add CSS class to hide or show based on scroll */}
+      {/* Navbar */}
       <div className={`navbar ${showNavbar ? 'navbar-visible' : 'navbar-hidden'}`}>
         <div className="left-section">
           <h1 className="name">Nitish Gannu</h1>
-          <p className="title">
-            Data Scientist & Designer
-          </p>
+          <p className="title">Data Scientist & Designer</p>
         </div>
 
         <div className="center-section">
@@ -64,7 +60,14 @@ function App() {
       <div className={`page-wrapper ${fadeClass}`}>
         <Routes location={{ pathname: currentPath }}>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route
+            path="/about"
+            element={
+              <>
+                <About />
+              </>
+            }
+          />
         </Routes>
       </div>
     </>

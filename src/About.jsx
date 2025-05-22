@@ -1,6 +1,5 @@
 // About.jsx
 import './About.css';
-import profileImage from './assets/profile.jpg'; // Replace with your actual image
 import img1 from './assets/cornell.jpg';
 import img2 from './assets/studio1.jpg';
 import img3 from './assets/aesthetic1.jpg';
@@ -32,6 +31,10 @@ import hotpot from './assets/hotpot.jpg'
 import shiki from './assets/shiki.jpg'
 import darksun from './assets/darksun.jpg'
 import robert from './assets/robert.jpg'
+import sandbox from './assets/sandbox.JPG'
+
+import InteractiveMatcha from './InteractiveMatcha'; // adjust path if necessary
+
 
 
 
@@ -52,7 +55,7 @@ function About() {
         </p>
       </div>
       <div className="about-image">
-        <img src={profileImage} alt="Nitish Gannu" />
+        <img src={sandbox} alt="Nitish Gannu" />
       </div>
     </div>
   </div>
@@ -160,29 +163,33 @@ function About() {
   </div>
 </div>
 
-
-<div className="collage-section reverse">
+<div className="collage-section">
   <div className="collage-container">
+    <div className="collage-text">
+      <div className="h3-title">
+      <h3>WHY DESIGN?</h3>
+            </div>
+      <p>
+       During high school, I developed a passion for drawing and was deeply inspired by the Studio Ghibli films. This sparked my curiosity in Graphic Design.
+      </p>
+      <p>
+        Over time, I realized I wanted to use design to create meaningful experiences, which led me to pursue Product Design — a field where creativity meets real-world impact.
+      </p>
+    </div>
+
     <div className="collage-images">
       <img src={sg1} alt="Collage 1" className="collage-img small" />
       <img src={sg2} alt="Collage 2" className="collage-img large" />
       <img src={sg3} alt="Collage 3" className="collage-img large" />
       <img src={sg4} alt="Collage 4" className="collage-img small" />
     </div>
-    <div className="collage-text collage-text-reverse">
-      <h3 className="collage-title">WHY DESIGN?</h3>
-      <p className="collage-description">
-       During high school, I developed a passion for drawing and was deeply inspired by the Studio Ghibli films. This sparked my curiosity in Graphic Design.
-      </p>
-      <p className="collage-description">
-        Over time, I realized I wanted to use design to create meaningful experiences, which led me to pursue Product Design — a field where creativity meets real-world impact.
-      </p>
-    </div>
   </div>
 </div>
 
 
-
+<div className="interactive-matcha-wrapper">
+  <InteractiveMatcha />
+</div>
 
 
 
