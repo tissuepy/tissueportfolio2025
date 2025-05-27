@@ -243,7 +243,6 @@ body, html {
 }
 
 .project-link:hover .project-card {
-  transform: scale(1.01);
   cursor: pointer;
 }
 
@@ -894,7 +893,6 @@ body, html {
   margin-bottom: 2rem;
   padding: 1.5rem;
   box-sizing: border-box;
-  transition: transform 0.3s ease;
 }
 
 .extra-large-project-image {
