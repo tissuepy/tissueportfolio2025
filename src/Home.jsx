@@ -21,6 +21,7 @@ import comp2 from './chatgptproj/comp 2.png'
 import gpt2 from './chatgptproj/modal 1.png'
 import gptlogo from './chatgptproj/gpt logo.png'
 import sandboxlogo from './chatgptproj/sandbx.png'
+import largegpt from './chatgptproj/large-gpt.png'
 
 
 const projects = [
@@ -34,7 +35,7 @@ const projects = [
     overview: "Product Designer, May 2025 - Present",
     link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
     bgColor: "#FFFFFF",
-    extraLargeImage: [gpt2],
+    extraLargeImage: [largegpt],
     subtitle: "ChatGPT",
   },
   {
