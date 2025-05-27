@@ -15,29 +15,51 @@ import search4 from './assets/search4.png'
 import safe from './assets/safe.png'
 import cityImage from './assets/city.png'
 import person1 from './assets/grey guy.png'
+import gpt1 from './chatgptproj/Home Chat Page.png'
+import comp1 from './chatgptproj/comp 1.png'
+import comp2 from './chatgptproj/comp 2.png'
+import gpt2 from './chatgptproj/modal 1.png'
+import gptlogo from './chatgptproj/gpt logo.png'
+import sandboxlogo from './chatgptproj/sandbx.png'
 
 
 const projects = [
+    {
+    image: gpt1,
+    extraImages: [comp1, comp2], // add 2 images here
+    icon: gptlogo,
+    title: "Integrating Memory Timeline Visualizations in ChatGPT",
+    tags: ["Generative AI", "Feature Implementation", "Redesign"],
+    duration: "Designed and implemented a persistent Context Timeline Panel for — a visual sidebar that surfaces the model’s active memory—allowing users to view recalled information, audit memory usage, control memory state with inline actions, and organize memories by user-defined categories within ChatGPT.",
+    overview: "Product Designer, May 2025 - Present",
+    link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
+    bgColor: "#FFFFFF",
+    extraLargeImage: [gpt2],
+    subtitle: "ChatGPT",
+  },
   {
     image: project22,
     extraImages: [project2tut1, project2tut2], // add 2 images here
-    title: "SearchNEU",
+    title: "SearchFAQs and User Experience Team",
+    icon: sandboxlogo,
     tags: ["Student Tools", "Course Info", "User Research"],
-    duration: "SearchNEU is a sleek, user-friendly web app to quickly discover courses, professors, and essential campus details for better academic planning and preperation for academic semesters.",
+    duration: "Designed and developed an interactive tutorials system for SearchNEU that guides users through the platform’s features in a hands-on way, helping them navigate courses, professors, and campus resources more effectively. ",
     overview: "Product Designer, Jan 2025 - June 2025",
     link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
     bgColor: "#FFFFFF",
-    extraLargeImage: [search4]
+    extraLargeImage: [search4],
+    subtitle: "SearchNEU"
   },
   {
     image: project1,
     extraImages: [safe, peoplesafe],
-    title: "Safehub",
+    title: "Improving Emergency Response in Schools with SafeHub",
     tags: ["Safety", "0 to 1", "User Research"],
     duration: "Safehub is a mobile app enhances campus safety with real-time alerts, emergency SOS features, and intuitive design to empower Stamford High students in critical situations.",
     overview: "Founding Designer, December 2023 – June 2024",
     link: "https://easy-iron-95a.notion.site/Safehub-19534c722e4280a69ff3e3b0650b9136",
     bgColor: "#FFFFFF",
+    subtitle: "SafeHub"
   },
   {
     image: project5,
@@ -194,52 +216,81 @@ function Home() {
   );
 }
 
-function ProjectCard({ image, extraImages = [], extraLargeImage, title, tags, duration, overview, link, bgColor }) {
+function ProjectCard({ image, extraImages = [], extraLargeImage, title, subtitle, tags, duration, overview, link, bgColor, icon }) {
   return (
     <a href={link} className="project-link" target="_blank" rel="noopener noreferrer">
       <div className="project-card" style={{ backgroundColor: bgColor }}>
         <div className="project-content">
-          <h2 className="project-title">{title}</h2>
+          
+          {/* Icon and subtitle in a row */}
+          <div className="project-header">
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
+              {icon && (
+                <img
+                  src={icon}
+                  alt={`${title} icon`}
+                  className="project-title-icon"
+                  style={{ width: '24px', height: '24px', marginRight: '8px' }}
+                />
+              )}
+              <span className="project-subtitle" style={{ fontSize: '0.8rem', color: '#777' }}>
+                {subtitle}
+              </span>
+            </div>
+
+            <h2 className="project-title" style={{ fontSize: '1.1rem', fontWeight: '600', marginTop: '0.25rem' }}>
+              {title}
+            </h2>
+          </div>
+
+          {/* Tags */}
           <div className="project-tags">
             {tags.map((tag, index) => (
               <span key={index} className="tag">{tag}</span>
             ))}
           </div>
+
+          {/* Meta info */}
           <div className="project-meta">
             <p className="project-overview">{duration}</p>
             <p className="project-date">{overview}</p>
           </div>
 
-          <div className="project-image-container">
-            {/* Main large image */}
-            <img src={image} alt={`${title} thumbnail`} className="project-image" />
+          {/* Images */}
+          <div className="project-image-description-container">
+            <div className="project-image-container">
+              <img src={image} alt={`${title} thumbnail`} className="project-image" />
 
-            {/* Smaller extra images side-by-side */}
-            <div className="extra-images-container">
-              {extraImages.map((extraImg, idx) => (
+              <div className="extra-images-container">
+                {extraImages.map((extraImg, idx) => (
+                  <img
+                    key={idx}
+                    src={extraImg}
+                    alt={`${title} extra thumbnail ${idx + 1}`}
+                    className="extra-project-image"
+                  />
+                ))}
+              </div>
+
+              {extraLargeImage && (
                 <img
-                  key={idx}
-                  src={extraImg}
-                  alt={`${title} extra thumbnail ${idx + 1}`}
-                  className="extra-project-image"
+                  src={extraLargeImage}
+                  alt={`${title} extra large thumbnail`}
+                  className="extra-large-project-image"
                 />
-              ))}
+              )}
             </div>
-
-            {/* New large image below smaller images */}
-            {extraLargeImage && (
-              <img
-                src={extraLargeImage}
-                alt={`${title} extra large thumbnail`}
-                className="extra-large-project-image"
-              />
-            )}
           </div>
+
         </div>
       </div>
     </a>
   );
 }
+
+
+
+
 
 
 

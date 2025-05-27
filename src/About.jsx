@@ -34,6 +34,7 @@ import robert from './assets/robert.jpg'
 import sandbox from './assets/sandbox.JPG'
 
 import InteractiveMatcha from './InteractiveMatcha'; // adjust path if necessary
+import AiNitish from './chatgptproj/vegas tissue.jpg'
 
 
 
@@ -55,7 +56,7 @@ function About() {
         </p>
       </div>
       <div className="about-image">
-        <img src={sandbox} alt="Nitish Gannu" />
+        <img src={AiNitish} alt="Nitish Gannu" />
       </div>
     </div>
   </div>
@@ -187,9 +188,6 @@ function About() {
 </div>
 
 
-<div className="interactive-matcha-wrapper">
-  <InteractiveMatcha />
-</div>
 
 
 

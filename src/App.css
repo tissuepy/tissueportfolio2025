@@ -974,3 +974,9 @@ body, html {
   font-size: 0.85rem;
   color: #aeaeae;
 }
+
+.project-title-icon {
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
