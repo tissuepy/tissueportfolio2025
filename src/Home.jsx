@@ -22,6 +22,7 @@ import gpt2 from './chatgptproj/modal 1.png'
 import gptlogo from './chatgptproj/gpt logo.png'
 import sandboxlogo from './chatgptproj/sandbx.png'
 import largegpt from './chatgptproj/large-gpt.png'
+import safelogo from './assets/SafehubLogo.png'
 
 
 const projects = [
@@ -55,6 +56,7 @@ const projects = [
     image: project1,
     extraImages: [safe, peoplesafe],
     title: "Improving Emergency Response in Schools with SafeHub",
+    icon: safelogo,
     tags: ["Safety", "0 to 1", "User Research"],
     duration: "Safehub is a mobile app enhances campus safety with real-time alerts, emergency SOS features, and intuitive design to empower Stamford High students in critical situations.",
     overview: "Founding Designer, December 2023 – June 2024",
@@ -155,7 +157,6 @@ function Home() {
           <div className="city-container">
             <figure>
     <img src={cityImage} alt="Hand drawn city" className="city-image" />
-        <figcaption className="city-caption">ISOMETRIC CITY (DRAWN BY ME)</figcaption>
         </figure>
 
     {/* Floating images */}

@@ -35,7 +35,7 @@ import sandbox from './assets/sandbox.JPG'
 
 import InteractiveMatcha from './InteractiveMatcha'; // adjust path if necessary
 import AiNitish from './chatgptproj/vegas tissue.jpg'
-
+import profile from './assets/profile.jpg'
 
 
 

@@ -28,7 +28,7 @@
   
   .about-text {
     flex: 1;
-    color: #3d3d3d; /* Light grey text */
+    color: #4e4e4e; /* Light grey text */
     padding-left: 10rem; /* Add this line */
     
   }
@@ -56,14 +56,14 @@
     margin-bottom: 1rem;
     font-size: 2rem;
     font-weight: 600;
-    color: #3d3d3d;
+    color: #000000;
   }
   
   .about-description {
     font-size: 16px;
     line-height: 1.8;
     max-width: 500px;/* only here */
-    color:rgb(141, 141, 141);
+    color:rgb(54, 54, 54);
     font-family: 'IBM Plex Mono', monospace; /* only here */
   }
   
@@ -106,7 +106,7 @@
   .about-info-title {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #555;
+    color: #080808;
     margin-bottom: 0.5rem;
     letter-spacing: 0.05em;
   }
@@ -114,7 +114,7 @@
   .about-info-text {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #777;
+    color: #353535;
     font-family: 'IBM Plex Mono', monospace;
   }
   
@@ -133,7 +133,7 @@
   
   .gallery-description {
     font-size: 0.95rem;
-    color: #7a7a7a;
+    color: #404040;
     font-family: 'IBM Plex Mono', monospace;
     margin-bottom: 2rem;
   }
@@ -317,3 +317,7 @@
   background-color: #eee;
 }
 
+
+body, html {
+  overflow-x: hidden;
+}

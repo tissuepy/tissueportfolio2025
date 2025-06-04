@@ -574,11 +574,10 @@ body, html {
 }
 
 .cartoon-image {
-  max-width: 170px;
+  max-width: 220px;
   width: 80%;
   height: auto;
   border-radius: 50rem;
-  box-shadow: 0 5px 20px rgba(69, 69, 69, 0.1);
   transition: transform 0.3s ease;
 }
 
