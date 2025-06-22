@@ -36,6 +36,7 @@ import sandbox from './assets/sandbox.JPG'
 import InteractiveMatcha from './InteractiveMatcha'; // adjust path if necessary
 import AiNitish from './chatgptproj/vegas tissue.jpg'
 import profile from './assets/profile.jpg'
+import sunlight from './assets/sunrise.jpg'
 
 
 
@@ -56,7 +57,7 @@ function About() {
         </p>
       </div>
       <div className="about-image">
-        <img src={AiNitish} alt="Nitish Gannu" />
+        <img src={sunlight} alt="Nitish Gannu" />
       </div>
     </div>
   </div>
