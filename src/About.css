@@ -506,3 +506,24 @@ body, html {
     margin-right: auto !important;      /* center container */
   }
 }
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;   /* stack vertically */
+    align-items: flex-start;  /* align all content to the left */
+    padding: 20px 1rem;       /* reduce padding on sides for mobile */
+  }
+
+  .footer-left,
+  .footer-right {
+    max-width: 100%;  /* let containers fill width */
+    width: 100%;
+  }
+
+  .footer-right {
+    flex-direction: column;  /* stack footer-right items vertically */
+    align-items: flex-start; /* align text to left */
+    gap: 8px;
+  }
+}
+
