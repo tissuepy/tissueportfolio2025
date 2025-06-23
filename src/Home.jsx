@@ -1,78 +1,60 @@
 // Home.jsx
 import project1 from './assets/safehubthumb.jpg';
-//import project3 from './assets/wardrobethumbnails.jpg';
-import project5 from './assets/calorie-thumbnail.jpg';
 import './App.css';
+import './About.jsx';
 import cartoon from './assets/cartoon.png';
 import React, { useState, useEffect } from 'react';
-import project2tut1 from './assets/searchneutut.png';
-import project2tut2 from './assets/searchneutut2.png';
-import project22 from './assets/searchthumbnails.png';
-import peoplesafe from './assets/peoplesafe.png';
-// import wardrobe1 from './assets/wardy1.png'
-// import wardrobe2 from './assets/wardy2.jpg'
-import search4 from './assets/search4.png'
-import safe from './assets/safe.png'
-import cityImage from './assets/city.png'
-import person1 from './assets/grey guy.png'
-import gpt1 from './chatgptproj/Home Chat Page.png'
-import comp1 from './chatgptproj/comp 1.png'
-import comp2 from './chatgptproj/comp 2.png'
 import gptlogo from './chatgptproj/gpt logo.png'
 import sandboxlogo from './chatgptproj/sandbx.png'
-import largegpt from './chatgptproj/large-gpt.png'
 import safelogo from './assets/SafehubLogo.png'
+import search1 from './assets/searchy.png'
+import gpt1 from './chatgptproj/Home Chat Page.png'
 
 
 const projects = [
-    {
+  {
     image: gpt1,
-    extraImages: [comp1, comp2], // add 2 images here
+    extraImages: [], // add 2 images here
     icon: gptlogo,
-    title: "Integrating Memory Timeline Visualizations in ChatGPT",
+    title: "Memory Timeline Visualizations",
     tags: ["Generative AI", "Feature Implementation", "Redesign"],
-    duration: "Designed and implemented a persistent Context Timeline Panel for — a visual sidebar that surfaces the model’s active memory—allowing users to view recalled information, audit memory usage, control memory state with inline actions, and organize memories by user-defined categories within ChatGPT.",
+    duration:
+      "Designed a persistent Context Timeline Panel in ChatGPT to visualize recalled memories, enable inline memory controls, and organize memory by user-defined categories.",
     overview: "Product Designer, May 2025 - Present",
     link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
     bgColor: "#FFFFFF",
-    extraLargeImage: [largegpt],
     subtitle: "ChatGPT",
   },
   {
-    image: project22,
-    extraImages: [project2tut1, project2tut2], // add 2 images here
+    image: search1,
+    // extraImages: [project2tut1, project2tut2],
     title: "SearchFAQs and User Experience Team",
     icon: sandboxlogo,
     tags: ["Student Tools", "Course Info", "User Research"],
-    duration: "Designed and developed an interactive tutorials system for SearchNEU that guides users through the platform’s features in a hands-on way, helping them navigate courses, professors, and campus resources more effectively. ",
+    duration:
+      "Built interactive tutorials for SearchNEU to help students explore courses, professors, and campus resources more intuitively.",
     overview: "Product Designer, Jan 2025 - June 2025",
     link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
     bgColor: "#FFFFFF",
-    extraLargeImage: [search4],
-    subtitle: "SearchNEU"
+    // extraLargeImage: [search4],
+    subtitle: "SearchNEU",
   },
   {
     image: project1,
-    extraImages: [safe, peoplesafe],
-    title: "Improving Emergency Response in Schools with SafeHub",
+    // extraImages: [safe, peoplesafe],
+    title: "Improving Emergency Response in Schools",
     icon: safelogo,
     tags: ["Safety", "0 to 1", "User Research"],
-    duration: "Safehub is a mobile app enhances campus safety with real-time alerts, emergency SOS features, and intuitive design to empower Stamford High students in critical situations.",
-    overview: "Founding Designer, December 2023 – June 2024",
+    duration: "Designed a mobile application with SOS features, real-time alerts, and improved security guard contact to improve campus safety for Stamford High students.",
+    overview: "Founding Designer, Dec 2023 – June 2024",
     link: "https://easy-iron-95a.notion.site/Safehub-19534c722e4280a69ff3e3b0650b9136",
     bgColor: "#FFFFFF",
-    subtitle: "SafeHub"
+    subtitle: "SafeHub",
   },
-  {
-    image: project5,
-    title: "Calori.e",
-    tags: ["Rapid Prototyping", "UX"],
-    duration: "An AI-powered app that accurately tracks your daily calorie intake, helping you maintain a balanced diet and reach health goals.",
-    overview: "Product Designer, December 2022",
-    link: "https://your-link.com/calorie",
-    bgColor: "#FFFFFF"
-  }
+  
+
 ];
+
 
 
 function Home() {
@@ -151,29 +133,44 @@ function Home() {
             {disciplines[currentDiscipline]}
           </span>{" "}
           @ Cornell 🐻
+          
         </p>
 
-          <div className="city-container">
-            <figure>
-    <img src={cityImage} alt="Hand drawn city" className="city-image" />
-        </figure>
-
-    {/* Floating images */}
-    <img src={person1} className="floating-image float1" alt="floating emoji 1" />
-    <img src={person1} className="floating-image float2" alt="floating emoji 2" />
-    <img src={person1} className="floating-image float3" alt="floating emoji 3" />
-    <img src={person1} className="floating-image float4" alt="floating emoji 4" />
-  </div>
       </div>
 
-      <div className="divider-section">
+      <div className="about-info-container">
+<div className="about-info-section">
+  <div className="about-info-block">
+    <h3 className="about-info-title">working as a ✏️</h3>
+    <p className="about-info-text">summer 2025 AI R&D product management intern @<span className="matcha-highlight"><a href="https://www.thinkneuro.org/" className="matcha-link">ThinkNeuro</a></span></p>
+  </div>
+
+  <div className="about-info-block">
+    <h3 className="about-info-title">currently binging 📺</h3>
+    <p className="about-info-text">suits; a show about the most impressive lawyers in nyc! </p>
+  </div>
+
+  <div className="about-info-block">
+    <h3 className="about-info-title">hobbies 💭</h3>
+    <p className="about-info-text">playing animal crossing new horizons and blogging on <span className="matcha-highlight"><a href="https://medium.com/@nitishgannu" className="matcha-link">medium</a></span></p>
+  </div>
+
+
+  <div className="about-info-block">
+    <h3 className="about-info-title"></h3>
+    <p className="about-info-text"></p>
+  </div>
+</div>
+</div>
+
+    {/*  <div className="divider-section">
         <hr className="about-divider" />
         <div className="text-seperator">
           <p style={{ position: 'absolute', top: '50%', left: 194, transform: 'translateY(-50%)', background: 'white', padding: '0 1rem', fontSize: '0.7rem', color: '#464646', fontFamily: 'sans-serif', margin: 0 }}>
             SCROLL TO SEE PROJECTS ↓
           </p>
         </div>
-      </div>
+      </div> */}
 
       <div className="bottom-half">
         <div className="project-section">
@@ -194,7 +191,6 @@ function Home() {
           </p>
           <p className="footer-email">ⓒ 2025</p>
         </div>
-
         <div className="footer-right">
           <div className="footer-links">
             <a href="https://github.com/tissuepy" className="footer-link" target="_blank" rel="noopener noreferrer">GITHUB</a>
@@ -208,7 +204,7 @@ function Home() {
 
           <div className="rotating-icon-wrapper">
             <div className="rotating-icon-container">
-              <h1>🍄</h1>
+              <h1>🍵</h1>
             </div>
           </div>
         </div>
@@ -217,77 +213,70 @@ function Home() {
   );
 }
 
-function ProjectCard({ image, extraImages = [], extraLargeImage, title, subtitle, tags, duration, overview, link, bgColor, icon }) {
+function ProjectCard({ image, extraImages = [], extraLargeImage, title, subtitle, duration, overview, link, bgColor, icon }) {
   return (
-    <a href={link} className="project-link" target="_blank" rel="noopener noreferrer">
-      <div className="project-card" style={{ backgroundColor: bgColor }}>
-        <div className="project-content">
-          
-          {/* Icon and subtitle in a row */}
-          <div className="project-header">
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
-              {icon && (
-                <img
-                  src={icon}
-                  alt={`${title} icon`}
-                  className="project-title-icon"
-                  style={{ width: '24px', height: '24px', marginRight: '8px' }}
-                />
-              )}
-              <span className="project-subtitle" style={{ fontSize: '0.8rem', color: '#777' }}>
-                {subtitle}
-              </span>
-            </div>
-
-            <h2 className="project-title" style={{ fontSize: '1.1rem', fontWeight: '600', marginTop: '0.25rem' }}>
-              {title}
-            </h2>
+    <div className="project-card" style={{ backgroundColor: bgColor }}>
+      <div className="project-content">
+        {/* Icon and subtitle in a row */}
+        <div className="project-header">
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+            {icon && (
+              <img
+                src={icon}
+                alt={`${title} icon`}
+                className="project-title-icon"
+                style={{ width: '24px', height: '24px', marginRight: '8px' }}
+              />
+            )}
+            <span className="project-subtitle" style={{ fontSize: '0.8rem', color: '#777' }}>
+              {subtitle}
+            </span>
           </div>
 
-          {/* Tags */}
-          <div className="project-tags">
-            {tags.map((tag, index) => (
-              <span key={index} className="tag">{tag}</span>
-            ))}
-          </div>
+          <h2 className="project-title" style={{ fontSize: '1.1rem', fontWeight: '500', marginTop: '0.25rem' }}>
+            {title}
+          </h2>
+        </div>
 
-          {/* Meta info */}
-          <div className="project-meta">
-            <p className="project-overview">{duration}</p>
-            <p className="project-date">{overview}</p>
-          </div>
+        {/* Meta info */}
+        <div className="project-meta">
+          <p className="project-overview">{duration}</p>
+          <p className="project-date">{overview}</p>
+        </div>
 
-          {/* Images */}
-          <div className="project-image-description-container">
-            <div className="project-image-container">
+        {/* Images */}
+        <div className="project-image-description-container">
+          <div className="project-image-container">
+            {/* 🔗 Image is now clickable with hover effect */}
+            <a href={link} target="_blank" rel="noopener noreferrer" className="project-image-link">
               <img src={image} alt={`${title} thumbnail`} className="project-image" />
+            </a>
 
-              <div className="extra-images-container">
-                {extraImages.map((extraImg, idx) => (
-                  <img
-                    key={idx}
-                    src={extraImg}
-                    alt={`${title} extra thumbnail ${idx + 1}`}
-                    className="extra-project-image"
-                  />
-                ))}
-              </div>
-
-              {extraLargeImage && (
+            <div className="extra-images-container">
+              {extraImages.map((extraImg, idx) => (
                 <img
-                  src={extraLargeImage}
-                  alt={`${title} extra large thumbnail`}
-                  className="extra-large-project-image"
+                  key={idx}
+                  src={extraImg}
+                  alt={`${title} extra thumbnail ${idx + 1}`}
+                  className="extra-project-image"
                 />
-              )}
+              ))}
             </div>
-          </div>
 
+            {extraLargeImage && (
+              <img
+                src={extraLargeImage}
+                alt={`${title} extra large thumbnail`}
+                className="extra-large-project-image"
+              />
+            )}
+          </div>
         </div>
       </div>
-    </a>
+    </div>
   );
 }
+
 
 
 
