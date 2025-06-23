@@ -46,13 +46,13 @@ function App() {
         </div>
 
         <div className="center-section">
-          <NavLink to="/" end className={({ isActive }) => (isActive ? 'nav-button active' : 'nav-button')}>WORK</NavLink>
-          <NavLink to="/about" className={({ isActive }) => (isActive ? 'nav-button active' : 'nav-button')}>ABOUT</NavLink>
+          <NavLink to="/" end className={({ isActive }) => (isActive ? 'nav-button active' : 'nav-button')}>work</NavLink>
+          <NavLink to="/about" className={({ isActive }) => (isActive ? 'nav-button active' : 'nav-button')}>about</NavLink>
         </div>
 
         <div className="right-section">
-          <a href="https://www.linkedin.com/in/nitishgannu/" className="nav-link" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
-          <a href="https://drive.google.com/file/d/1_vjyTs1EiPsSgN1kA2THg9ZFmGpn3Qm2/view?usp=sharing" className="nav-link" target="_blank" rel="noopener noreferrer">RESUME</a>
+          <a href="https://www.linkedin.com/in/nitishgannu/" className="nav-link" target="_blank" rel="noopener noreferrer">medium</a>
+          <a href="https://drive.google.com/file/d/1_vjyTs1EiPsSgN1kA2THg9ZFmGpn3Qm2/view?usp=sharing" className="nav-link" target="_blank" rel="noopener noreferrer">resume</a>
         </div>
       </div>
 

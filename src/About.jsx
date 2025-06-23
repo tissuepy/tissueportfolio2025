@@ -41,6 +41,7 @@ function About() {
     <div className="about-hero">
       <div className="about-text">
         <h1 className="about-title">My Story 🌤️</h1>
+       <h1 className="caption-title"><span className="gradient-about-text">// meet my curious mind</span></h1>
 <p className="about-description">
   Growing up, I was always drawn to how things looked — from the layout of video game menus to the design of cereal boxes. I cared not just about what something did, but how it felt. 
 </p>
@@ -62,7 +63,7 @@ function About() {
 
 <div class="gallery-container">
 <div className="gallery-section">
-<h2 className="about-title">My Gallery 📷</h2>
+<h2 className="about-title">The Gallery 📷</h2>
   <p className="gallery-description">A curation of everything I love including food 🍜, friends 🫂, and nature 🌷!</p>
   
     <div className="masonry-gallery">
@@ -106,7 +107,7 @@ function About() {
   But stepping onto campus changed that. I began meeting people beyond the screen—classmates, creatives, designers from around the world—and it pushed me to grow socially. I became more extroverted, more confident, and more open to collaboration.
 </p>
 <p>
-  Being surrounded by other designers also deepened my appreciation for design and even <span className="matcha-highlight"><a href="https://your-url-here.com" className="matcha-link">photography</a></span>. Seeing the diversity of their work inspired me to refine my own style and values, and made me realize that design is as much about community and shared perspective as it is about aesthetics.
+  Being surrounded by other designers also deepened my appreciation for design and even <span className="matcha-highlight"><a href="https://your-url-here.com" className="matcha-link">photography</a></span>.
 </p>
     </div>
 
@@ -123,13 +124,13 @@ function About() {
   <div className="about-info-section">
     <div className="about-info-block2">
       
-      <h3 className="about-info-title"><span className="highlight-matcha">\\ designing with empathy</span></h3>
+      <h3 className="about-info-title"><span className="highlight-matcha">\\ designing with empathy 🫶</span></h3>
       <p className="about-info-text">I believe that thoughtful design begins with empathy. Before pixels, prototypes, or personas — it starts with listening. My process always begins by understanding the real needs behind a problem: how users feel, what they struggle with, and what brings them joy.</p>
     </div>
 
 
     <div className="about-info-block2">
-      <h3 className="about-info-title"><span className="highlight-matcha">\\ design process</span></h3>
+      <h3 className="about-info-title"><span className="highlight-matcha">\\ design process 🖌️</span></h3>
       <p className="about-info-text">I iterate intentionally — mapping out user flows, wireframing with clarity, and prototyping experiences that feel intuitive and human. For me, design is not just about solving problems; it’s about doing so with care and context.</p>
     </div>
   </div>
@@ -186,7 +187,7 @@ function About() {
             <span>/</span>
             <a href="https://easy-iron-95a.notion.site/Nitish-s-UX-Design-Archive-19534c722e428091bdd8cec96de8dd65" className="footer-link">NOTION ARCHIVE</a>
             <span>/</span>
-            <a href="https://vsco.co/nitissue/gallery" className="footer-link">PHOTOS</a>
+            <a href="https://www.linkedin.com/in/nitishgannu/" className="footer-link">LINKEDIN</a>
           </div>
 
           <div className="rotating-icon-wrapper">

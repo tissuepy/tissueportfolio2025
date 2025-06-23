@@ -199,7 +199,7 @@ function Home() {
             <span>/</span>
             <a href="https://easy-iron-95a.notion.site/Nitish-s-UX-Design-Archive-19534c722e428091bdd8cec96de8dd65" className="footer-link" target="_blank" rel="noopener noreferrer">DESIGN ARCHIVE</a>
             <span>/</span>
-            <a href="https://vsco.co/nitissue/gallery" className="footer-link" target="_blank" rel="noopener noreferrer">PHOTOS</a>
+            <a href="https://www.linkedin.com/in/nitishgannu/" className="footer-link" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
           </div>
 
           <div className="rotating-icon-wrapper">

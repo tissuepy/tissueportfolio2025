@@ -65,7 +65,7 @@
   .about-title {
     font-size: 25px;
     margin-bottom: 1rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #000000;
   }
@@ -75,6 +75,7 @@
     line-height: 1.8;
     max-width: 500px;/* only here */
     color:rgb(54, 54, 54);
+    
   }
   
   .about-image {
@@ -152,6 +153,12 @@
     color: #404040;
     font-family: 'IBM Plex Mono', monospace;
     margin-bottom: 2rem;
+  }
+
+  .caption-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 30px;
+
   }
   
   /* Masonry layout */
@@ -245,21 +252,18 @@
 .collage-img.small {
   width: 200px;
   height: 200px;
-  border: 1px solid #686868;
 
 }
 
 .collage-img.medium {
   width: 270px;
   height: 200px;
-  border: 1px solid #686868;
 
 }
 
 .collage-img.large {
   width: 300px;
   height: 180px;
-  border: 1px solid #b6b6b6;
 
 }
 
@@ -334,4 +338,10 @@
 
 body, html {
   overflow-x: hidden;
+}
+
+.gradient-about-text {
+  background: linear-gradient(to bottom right, rgb(0, 0, 0), rgb(191, 191, 191));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
