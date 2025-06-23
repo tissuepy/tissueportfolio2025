@@ -157,7 +157,7 @@ function About() {
     alt="Animal Crossing Inspired Design"
     style={{
       width: '100%',
-      maxWidth: '250px',
+      maxWidth: '450px',
       height: 'auto',
       borderRadius: '12px',
       objectFit: 'cover'
