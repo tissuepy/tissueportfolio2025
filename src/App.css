@@ -1107,3 +1107,10 @@ body, html {
     margin-bottom: 10px;
   }
 }
+
+/* Hide the right nav section on mobile */
+@media (max-width: 768px) {
+  .right-section {
+    display: none !important;
+  }
+}
