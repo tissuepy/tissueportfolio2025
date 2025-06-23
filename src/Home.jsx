@@ -9,6 +9,7 @@ import sandboxlogo from './chatgptproj/sandbx.png'
 import safelogo from './assets/SafehubLogo.png'
 import search1 from './assets/searchy.png'
 import gpt1 from './chatgptproj/Home Chat Page.png'
+import acgreen from './assets/ac green.png'
 
 
 const projects = [
@@ -60,9 +61,9 @@ const projects = [
 function Home() {
   const emojiStyles = [
     { top: '25%', left: '57%', rotate: '15deg', emoji: '☁️', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
-    { top: '10%', left: '63%', rotate: '0deg', emoji: '🌿', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
-    { top: '10%', left: '35%', rotate: '-10deg', emoji: '🌱', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
-    { top: '25%', left: '40%', rotate: '10deg', emoji: '🍵', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." }
+    { top: '10%', left: '60%', rotate: '0deg', emoji: '🌿', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
+    { top: '10%', left: '41%', rotate: '-10deg', emoji: '🌱', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
+    { top: '25%', left: '45%', rotate: '10deg', emoji: '🍵', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." }
   ];
 
   const identities = ["matcha enthusiast 🍵", "curious explorer 🧠", "problem solver 🧩"];
@@ -98,7 +99,7 @@ function Home() {
   return (
     <>
       <div className="cartoon-container">
-        <img src={cartoon} alt="Cartoon of Nitish" className="cartoon-image" />
+        <img src={acgreen} alt="Cartoon of Nitish" className="cartoon-image" />
       </div>
 
       <div className="about-section-container">

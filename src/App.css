@@ -567,10 +567,10 @@ body, html {
 }
 
 .cartoon-image {
-  max-width: 220px;
-  width: 80%;
+  max-width: 300px;
+  width: 100%;
   height: auto;
-  border-radius: 50rem;
+  border-radius: 0rem;
   transition: transform 0.3s ease;
 }
 
@@ -1039,7 +1039,6 @@ body, html {
   }
 
   .cartoon-image {
-    max-width: 160px;
   }
 
   .left-content,
@@ -1208,5 +1207,42 @@ body, html {
   .extra-images-container {
     flex-direction: column;
     gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    width: 94vw; /* almost full screen */
+    margin: 0 auto 2rem; /* centers and gives vertical spacing */
+    padding: 1rem;
+  }
+
+  .project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .project-content {
+    padding: 1rem 0.5rem;
+    text-align: left;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-meta {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .project-meta p,
+  .project-meta h4 {
+    font-size: 0.9rem;
+    margin: 0;
   }
 }

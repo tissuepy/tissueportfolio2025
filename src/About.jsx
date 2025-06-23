@@ -124,7 +124,7 @@ function About() {
   <div className="about-info-section">
     <div className="about-info-block2">
       
-      <h3 className="about-info-title"><span className="highlight-matcha">\\ designing with empathy 🫶</span></h3>
+      <h3 className="about-info-title"><span className="highlight-matcha">\\ designing with empathy</span></h3>
       <p className="about-info-text">I believe that thoughtful design begins with empathy. Before pixels, prototypes, or personas — it starts with listening. My process always begins by understanding the real needs behind a problem: how users feel, what they struggle with, and what brings them joy.</p>
     </div>
 

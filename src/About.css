@@ -419,3 +419,10 @@ body, html {
     gap: 0.5rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .masonry-gallery {
+    display: none;
+  }
+}
+
