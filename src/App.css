@@ -1063,52 +1063,7 @@ body, html {
   }
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    padding: 16px 20px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
 
-  .left-content,
-  .right-section,
-  .center-section {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  .nav-button {
-    width: 100%;
-    text-align: left;
-    padding: 10px 0;
-    font-size: 1rem;
-  }
-
-  .center-section {
-    gap: 0.5rem;
-    justify-content: flex-start;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-  }
-
-  .right-section {
-    gap: 0.5rem;
-  }
-
-  .nav-link {
-    font-size: 1rem;
-    padding: 8px 0;
-  }
-
-  .name-title {
-    margin-bottom: 10px;
-  }
-}
-
-/* Hide the right nav section on mobile */
 @media (max-width: 768px) {
   .right-section {
     display: none !important;
