@@ -19,6 +19,17 @@
 
   }
 
+.matcha-highlight {
+  color: #629e57; /* soft matcha green */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 400;
+}
+
+.matcha-bottom-space {
+  margin-bottom: 5rem; /* adjust as needed */
+}
+
   .about-hero-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -29,7 +40,7 @@
   .about-text {
     flex: 1;
     color: #4e4e4e; /* Light grey text */
-    padding-left: 10rem; /* Add this line */
+    padding-left: 0rem; /* Add this line */
     
   }
 
@@ -54,7 +65,7 @@
   .about-title {
     font-size: 25px;
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: #000000;
   }
@@ -64,7 +75,6 @@
     line-height: 1.8;
     max-width: 500px;/* only here */
     color:rgb(54, 54, 54);
-    font-family: 'IBM Plex Mono', monospace; /* only here */
   }
   
   .about-image {
@@ -75,7 +85,7 @@
   
   .about-image img {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     height: auto;
     border-radius: 1rem;
     object-fit: cover;
@@ -93,7 +103,7 @@
   display: flex;
   justify-content: space-between;
   padding: 5rem 2rem;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: nowrap; /* no wrapping */
 }
 
@@ -102,20 +112,26 @@
   max-width: 300px;
 }
 
+.about-info-block2 {
+  flex: 0 0 500px;  /* fixed width, no shrinking */
+  max-width: 400px;
+}
+
   
-  .about-info-title {
-    font-size: 0.85rem;
+.about-info-title {
+    font-size: 1rem;
     font-weight: 600;
     color: #080808;
     margin-bottom: 0.5rem;
     letter-spacing: 0.05em;
+
+    font-family: 'IBM Plex Mono', monospace;
   }
   
   .about-info-text {
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.6;
     color: #353535;
-    font-family: 'IBM Plex Mono', monospace;
   }
   
   .gallery-section {
@@ -202,8 +218,6 @@
 .collage-text p {
   font-size: 1rem;
   color: #454545;
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 100;
   line-height: 1.6;
 }
 

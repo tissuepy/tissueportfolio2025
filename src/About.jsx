@@ -20,24 +20,16 @@ import img17 from './assets/friends2.jpg';
 import img18 from './assets/friends3.jpg';
 import img19 from './assets/friends4.jpg';
 
-import sg1 from './assets/sghibli1.jpg';
-import sg2 from './assets/sghibli2.jpg';
-import sg3 from './assets/sghibli3.jpg';
-import sg4 from './assets/sghibli4.jpg';
-
 import ramen1 from './assets/lamen1.jpg'
 import ramen2 from './assets/lamen2.jpg'
 import hotpot from './assets/hotpot.jpg'
 import shiki from './assets/shiki.jpg'
 import darksun from './assets/darksun.jpg'
 import robert from './assets/robert.jpg'
-import sandbox from './assets/sandbox.JPG'
-
 import InteractiveMatcha from './InteractiveMatcha'; // adjust path if necessary
 import AiNitish from './chatgptproj/vegas tissue.jpg'
-import profile from './assets/profile.jpg'
 import sunlight from './assets/sunrise.jpg'
-
+import greenac from './assets/ac green.png'
 
 
 
@@ -48,13 +40,18 @@ function About() {
   <div className="about-hero-container">
     <div className="about-hero">
       <div className="about-text">
-        <h1 className="about-title">Hey, I'm Nitish 👋</h1>
-        <p className="about-description">
-          I’m a product designer and data scientist who loves turning chaos into clarity through intuitive, data-driven experiences. 
-        </p>
-        <p className="about-description">
-          I'm currently studying Statistics, Data Science, and Information Science at Cornell University and I'm interested in careers in UX Research, Data Science, Data Engineering, and Product Management.
-        </p>
+        <h1 className="about-title">My Story 🌤️</h1>
+<p className="about-description">
+  Growing up, I was always drawn to how things looked — from the layout of video game menus to the design of cereal boxes. I cared not just about what something did, but how it felt. 
+</p>
+<p className="about-description">
+  At the same time, I loved math and statistics — finding patterns, drawing insights, solving puzzles. What excited me most was how those insights were presented: the clarity of a well-made graph, the story told through a dashboard. That blend of logic and aesthetics led me to product design.
+</p>
+<p className="about-description">
+  Today, I study Statistics, Data Science, and Information Science at <span className="matcha-highlight"><a href="https://www.cornell.edu/" className="matcha-link">Cornell University</a></span>, working at the intersection of analysis and design — where numbers make sense, and products make people feel something.
+</p>
+
+
       </div>
       <div className="about-image">
         <img src={sunlight} alt="Nitish Gannu" />
@@ -63,37 +60,10 @@ function About() {
   </div>
 </div>
 
-
-      <hr className="about-divider2" />
-
-<div className="about-info-container">
-<div className="about-info-section">
-  <div className="about-info-block">
-    <h3 className="about-info-title"><span className="highlight-matcha">GO-TO FOOD 🍟</span></h3>
-    <p className="about-info-text">Rose Tteokbokki and Hotpot from Happy Lamb in Chinatown!</p>
-  </div>
-
-  <div className="about-info-block">
-    <h3 className="about-info-title"><span className="highlight-matcha">CURRENTLY BINGING 📺</span></h3>
-    <p className="about-info-text">Suits; A show about the most talented lawyers in New York City! </p>
-  </div>
-
-  <div className="about-info-block">
-    <h3 className="about-info-title"><span className="highlight-matcha">MY HOBBIES 🎳</span></h3>
-    <p className="about-info-text">Video Games, Video Editing, Gardening, Cooking, and Badminton.</p>
-  </div>
-
-
-  <div className="about-info-block">
-    <h3 className="about-info-title"></h3>
-    <p className="about-info-text"></p>
-  </div>
-</div>
-</div>
 <div class="gallery-container">
 <div className="gallery-section">
-  <h2 className="gallery-title">My Gallery 📷</h2>
-  <p className="gallery-description">A curation of everything I love - from food to friends and nature.</p>
+<h2 className="about-title">My Gallery 📷</h2>
+  <p className="gallery-description">A curation of everything I love including food 🍜, friends 🫂, and nature 🌷!</p>
   
     <div className="masonry-gallery">
     <img src={img1} alt="Gallery 1" />
@@ -127,14 +97,17 @@ function About() {
   <div className="collage-container">
     <div className="collage-text">
       <div className="h3-title">
-      <h3> COLLEGE METAMORPHOSIS</h3>
+      <h3>// college metamorphasis 🦋</h3>
             </div>
       <p>
-        Before I came to college, I was a nervous and introverted kid. My first week of college encouraged me step out of my comfort zone and meet new people from different parts of the world.
-      </p>
-      <p>
-        In fact, one of my college best friends is from Canada! I started trying new things like playing basketball, going to art museums, and trying new cuisines.
-      </p>
+  Before college, I was an introverted gamer who found comfort in virtual worlds and online friendships. I spent most of my time indoors, drawn to the creativity of games and the solitude they offered.
+</p>
+<p>
+  But stepping onto campus changed that. I began meeting people beyond the screen—classmates, creatives, designers from around the world—and it pushed me to grow socially. I became more extroverted, more confident, and more open to collaboration.
+</p>
+<p>
+  Being surrounded by other designers also deepened my appreciation for design and even <span className="matcha-highlight"><a href="https://your-url-here.com" className="matcha-link">photography</a></span>. Seeing the diversity of their work inspired me to refine my own style and values, and made me realize that design is as much about community and shared perspective as it is about aesthetics.
+</p>
     </div>
 
     <div className="collage-images">
@@ -148,46 +121,51 @@ function About() {
 
 <div className="about-info-container">
   <div className="about-info-section">
-    <div className="about-info-block">
-      <h3 className="about-info-title"><span className="highlight-matcha">GROWING MUSIC TASTE 🎵</span></h3>
-      <p className="about-info-text">I recently started listening to Tyler the Creator, Quadeca, and other niche R&B artists.</p>
+    <div className="about-info-block2">
+      
+      <h3 className="about-info-title"><span className="highlight-matcha">\\ designing with empathy</span></h3>
+      <p className="about-info-text">I believe that thoughtful design begins with empathy. Before pixels, prototypes, or personas — it starts with listening. My process always begins by understanding the real needs behind a problem: how users feel, what they struggle with, and what brings them joy.</p>
     </div>
 
-    <div className="about-info-block">
-      <h3 className="about-info-title"><span className="highlight-matcha">MY SANCTUARY 📍</span></h3>
-      <p className="about-info-text">One of my favorite places to go is the "Sanctuary Cafe" in Boston; it's a cozy cat cafe with amazing Coffee! </p>
-    </div>
 
-    <div className="about-info-block">
-      <h3 className="about-info-title"><span className="highlight-matcha">NEW SHOW 👀</span></h3>
-      <p className="about-info-text">A new show that I started watching is "Severance"; never heard about it till my college friend told me. </p>
+    <div className="about-info-block2">
+      <h3 className="about-info-title"><span className="highlight-matcha">\\ design process</span></h3>
+      <p className="about-info-text">I iterate intentionally — mapping out user flows, wireframing with clarity, and prototyping experiences that feel intuitive and human. For me, design is not just about solving problems; it’s about doing so with care and context.</p>
     </div>
   </div>
-</div>
+</div> 
 
+<div className="collage-section matcha-bottom-space">
 <div className="collage-section">
-  <div className="collage-container">
-    <div className="collage-text">
+  <div className="collage-container" style={{ display: 'flex', flexDirection: 'row', gap: '2rem', alignItems: 'center' }}>
+    <div className="collage-text" style={{ flex: 1 }}>
       <div className="h3-title">
-      <h3>WHY DESIGN?</h3>
-            </div>
-      <p>
-       During high school, I developed a passion for drawing and was deeply inspired by the Studio Ghibli films. This sparked my curiosity in Graphic Design.
+        <h3>// animal crossing roots 🦊</h3>
+      </div>
+<p>
+        My love for design started long before high school — in the quiet, pixelated world of <span className="matcha-highlight"><a href="https://animalcrossing.nintendo.com/" className="matcha-link">Animal Crossing</a></span>. I was fascinated by the game’s interior design features, endlessly rearranging furniture, customizing layouts, and curating cozy spaces that felt uniquely mine.
       </p>
       <p>
-        Over time, I realized I wanted to use design to create meaningful experiences, which led me to pursue Product Design — a field where creativity meets real-world impact.
+        That sense of creativity and freedom led me to explore real-world design in high school, from sketching layouts to experimenting with color theory. What began as decorating virtual homes soon evolved into a deeper passion for building meaningful, customizable experiences for others.
       </p>
     </div>
 
-    <div className="collage-images">
-      <img src={sg1} alt="Collage 1" className="collage-img small" />
-      <img src={sg2} alt="Collage 2" className="collage-img large" />
-      <img src={sg3} alt="Collage 3" className="collage-img large" />
-      <img src={sg4} alt="Collage 4" className="collage-img small" />
-    </div>
+    <div className="collage-image" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+  <img
+    src={greenac} // or whatever image variable you're using
+    alt="Animal Crossing Inspired Design"
+    style={{
+      width: '100%',
+      maxWidth: '250px',
+      height: 'auto',
+      borderRadius: '12px',
+      objectFit: 'cover'
+    }}
+  />
+</div>
   </div>
 </div>
-
+</div>
 
 
 
@@ -197,7 +175,7 @@ function About() {
         <div className="footer-left">
           <p className="footer-thankyou">reach out to me at ↓</p>
           <p className="footer-email">ng545@cornell.edu↗</p>
-          <p className="footer-email"> ⓒ 2025 </p> 
+          <p className="footer-email"> ⓒ 2025</p> 
         </div>
 
         <div className="footer-right">
@@ -213,7 +191,7 @@ function About() {
 
           <div className="rotating-icon-wrapper">
             <div className="rotating-icon-container">
-              <h1>🐢</h1>
+              <h1>🍵</h1>
             </div>
           </div>
         </div>

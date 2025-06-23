@@ -8,9 +8,7 @@ body, html {
 
 
 /* Full-page wrapper if needed */
-#root {
-  height: 100vh;
-}
+
 
 .about-section,
 .project-section {
@@ -233,7 +231,7 @@ body, html {
   border-radius: 20px;
   border: 1.2px solid #cccccc00;
   overflow: hidden;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
 }
 
 .project-link {
@@ -311,7 +309,6 @@ body, html {
   border-radius: 10px;
   margin: 0; /* ensures no spacing at top */
   margin-bottom: 20px;
-  border: 1px solid #cdcdcd; /* Example: orange border */
 
 }
 
@@ -331,11 +328,11 @@ body, html {
 }
 
 .project-title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin: -30px 0px 20px;
   color: rgb(0, 0, 0);
   font-weight: 550;
-  margin-bottom: 10px;
+  margin-bottom: -20px;
 }
 
 .about-divider {
@@ -346,11 +343,6 @@ body, html {
 }
 
 
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
 
 .tag {
   background-color: #e6e6e691;
@@ -386,8 +378,9 @@ body, html {
 
 .project-meta p {
   margin: 0;
-  font-size: 1rem;
-  color: #292929;
+  font-size: 1em;
+  color: #4c4c4c;
+  font-family: 'IBM Plex Mono', monospace;
 
 }
 
@@ -889,7 +882,7 @@ body, html {
 .project-card {
   width: 100%;
   max-width: 1600px;
-  margin-bottom: 2rem;
+  margin-bottom: -4rem;
   padding: 1.5rem;
   box-sizing: border-box;
 }
@@ -977,3 +970,25 @@ body, html {
   border-radius: 2px;
 }
 
+.project-image-link {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+
+.project-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.matcha-link {
+  color: #5e8f6c;
+  text-decoration: underline;
+}
