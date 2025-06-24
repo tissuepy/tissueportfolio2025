@@ -1332,3 +1332,11 @@ body, html {
     box-sizing: border-box;
   }
 }
+
+.left-content-with-image {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem; /* Adjust spacing between image and text */
+}
+
+
