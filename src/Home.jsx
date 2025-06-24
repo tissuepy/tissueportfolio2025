@@ -12,6 +12,7 @@ import gpt1 from './chatgptproj/Home Chat Page.png'
 import acgreen from './assets/ac green.png'
 import calorie from './assets/caloriethumb.jpg'
 import apple from './assets/apple.webp'
+import maingreen from './assets/main icon gree.png'
 
 
 const projects = [
@@ -72,10 +73,10 @@ const projects = [
 
 function Home() {
   const emojiStyles = [
-    { top: '25%', left: '57%', rotate: '15deg', emoji: '☁️', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
-    { top: '10%', left: '60%', rotate: '0deg', emoji: '🌿', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
-    { top: '10%', left: '41%', rotate: '-10deg', emoji: '🌱', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
-    { top: '25%', left: '45%', rotate: '10deg', emoji: '🍵', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." }
+    { top: '25%', left: '57%', rotate: '15deg', emoji: '', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
+    { top: '10%', left: '60%', rotate: '0deg', emoji: '', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
+    { top: '10%', left: '41%', rotate: '-10deg', emoji: '', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
+    { top: '25%', left: '45%', rotate: '10deg', emoji: '', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." }
   ];
 
   const identities = ["matcha enthusiast 🍵", "curious explorer 🧠", "problem solver 🧩"];
@@ -111,7 +112,7 @@ function Home() {
   return (
     <>
       <div className="cartoon-container">
-        <img src={acgreen} alt="Cartoon of Nitish" className="cartoon-image" />
+        <img src={maingreen} alt="Cartoon of Nitish" className="cartoon-image" />
       </div>
 
       <div className="about-section-container">
