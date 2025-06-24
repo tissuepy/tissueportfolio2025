@@ -16,8 +16,7 @@ import img13 from './assets/venetian.jpg';
 import img14 from './assets/beach.JPG';
 import img15 from './assets/venetian.jpg';
 import img16 from './assets/friends1.jpg';
-import img17 from './assets/friends2.jpg';
-import img18 from './assets/friends3.jpg';
+
 import img19 from './assets/friends4.jpg';
 
 import ramen1 from './assets/lamen1.jpg'
@@ -29,7 +28,10 @@ import robert from './assets/robert.jpg'
 import InteractiveMatcha from './InteractiveMatcha'; // adjust path if necessary
 import AiNitish from './chatgptproj/vegas tissue.jpg'
 import sunlight from './assets/sunrise.jpg'
-import greenac from './assets/ac green.png'
+import nikita from './assets/nikita.JPG'
+import aarushi from './assets/aarushi.jpg'
+import christine from './assets/christine.jpg'
+import acimage from './assets/animal crossing image.png'
 
 
 
@@ -98,7 +100,7 @@ function About() {
   <div className="collage-container">
     <div className="collage-text">
       <div className="h3-title">
-      <h3>// college metamorphasis 🦋</h3>
+      <h3>// <em>college metamorphasis</em></h3>
             </div>
       <p>
   Before college, I was an introverted gamer who found comfort in virtual worlds and online friendships. I spent most of my time indoors, drawn to the creativity of games and the solitude they offered.
@@ -112,36 +114,43 @@ function About() {
     </div>
 
     <div className="collage-images">
-      <img src={img16} alt="Friend group" className="collage-img small" />
-      <img src={img17} alt="Beach" className="collage-img medium" />
-      <img src={img18} alt="Cousins" className="collage-img large" />
-      <img src={img19} alt="Food" className="collage-img small" />
+      <img src={christine} alt="Friend group" className="collage-img small" />
+      <img src={img16} alt="Beach" className="collage-img medium" />
+      <img src={nikita} alt="Cousins" className="collage-img large" />
+      <img src={aarushi} alt="Food" className="collage-img small" />
     </div>
   </div>
 </div>
 
 <div className="about-info-container">
+  {/* Centered title */}
+  <h2 className="design-values-title">Design Philosophy</h2>
+
   <div className="about-info-section">
     <div className="about-info-block2">
-      
       <h3 className="about-info-title"><span className="highlight-matcha">\\ designing with empathy</span></h3>
-      <p className="about-info-text">I believe that thoughtful design begins with empathy. Before pixels, prototypes, or personas — it starts with listening. My process always begins by understanding the real needs behind a problem: how users feel, what they struggle with, and what brings them joy.</p>
+      <p className="about-info-text">
+        I believe that thoughtful design begins with empathy. Before pixels, prototypes, or personas — it starts with listening. My process always begins by understanding the real needs behind a problem: how users feel, what they struggle with, and what brings them joy.
+      </p>
     </div>
-
 
     <div className="about-info-block2">
-      <h3 className="about-info-title"><span className="highlight-matcha">\\ design process 🖌️</span></h3>
-      <p className="about-info-text">I iterate intentionally — mapping out user flows, wireframing with clarity, and prototyping experiences that feel intuitive and human. For me, design is not just about solving problems; it’s about doing so with care and context.</p>
+      <h3 className="about-info-title"><span className="highlight-matcha">\\ solving real problems</span></h3>
+      <p className="about-info-text">
+        I focus on addressing genuine user needs by uncovering pain points and challenges. Effective design solves problems that truly matter and creates meaningful impact.
+      </p>
     </div>
+
   </div>
-</div> 
+</div>
+
 
 <div className="collage-section matcha-bottom-space">
 <div className="collage-section">
   <div className="collage-container" style={{ display: 'flex', flexDirection: 'row', gap: '2rem', alignItems: 'center' }}>
     <div className="collage-text" style={{ flex: 1 }}>
       <div className="h3-title">
-        <h3>// animal crossing roots 🦊</h3>
+        <h3>// <em>animal crossing roots</em></h3>
       </div>
 <p>
         My love for design started long before high school — in the quiet, pixelated world of <span className="matcha-highlight"><a href="https://animalcrossing.nintendo.com/" className="matcha-link">Animal Crossing</a></span>. I was fascinated by the game’s interior design features, endlessly rearranging furniture, customizing layouts, and curating cozy spaces that felt uniquely mine.
@@ -153,11 +162,11 @@ function About() {
 
     <div className="collage-image" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
   <img
-    src={greenac} // or whatever image variable you're using
+    src={acimage} // or whatever image variable you're using
     alt="Animal Crossing Inspired Design"
     style={{
-      width: '100%',
-      maxWidth: '450px',
+      width: '130%',
+      maxWidth: '500px',
       height: 'auto',
       borderRadius: '12px',
       objectFit: 'cover'
@@ -167,9 +176,6 @@ function About() {
   </div>
 </div>
 </div>
-
-
-
 
 
       <footer className="footer">

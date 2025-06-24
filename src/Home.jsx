@@ -10,6 +10,8 @@ import safelogo from './assets/SafehubLogo.png'
 import search1 from './assets/searchy.png'
 import gpt1 from './chatgptproj/Home Chat Page.png'
 import acgreen from './assets/ac green.png'
+import calorie from './assets/caloriethumb.jpg'
+import apple from './assets/apple.webp'
 
 
 const projects = [
@@ -52,7 +54,17 @@ const projects = [
     bgColor: "#FFFFFF",
     subtitle: "SafeHub",
   },
-  
+    {
+    image: calorie,
+    // extraImages: [safe, peoplesafe],
+    title: "Resolving Unhealthy Eating Habits",
+    icon: apple,
+    tags: ["Safety", "0 to 1", "User Research"],
+    duration: "Designed an app that leverages AI to provide accurate nutritional analysis, personalized meal recommendations, and easy logging, empowering users to maintain healthier eating habits effortlessly..",
+    overview: "Founding Designer, Nov 2022 – February 2023",
+    bgColor: "#FFFFFF",
+    subtitle: "Calori.e",
+  },
 
 ];
 

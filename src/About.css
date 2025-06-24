@@ -488,6 +488,15 @@ body, html {
     width: 100%;
   }
 
+  .design-values-title {
+  text-align: center;
+  font-size: 2rem;       /* adjust size as needed */
+  font-weight: 600;
+  margin-bottom: 1.5rem; /* space below the title */
+  color: var(--matcha-green); /* or your highlight color */
+}
+
+
   .footer-right {
     flex-direction: column;  /* stack footer-right items vertically */
     align-items: flex-start; /* align text to left */
@@ -527,3 +536,17 @@ body, html {
   }
 }
 
+.about-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers children horizontally */
+}
+
+.design-values-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0rem;
+  text-align: initial;
+  text-align: center;
+  width: 100%; /* optional, if you want it full width */
+}
