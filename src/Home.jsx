@@ -13,6 +13,8 @@ import acgreen from './assets/ac green.png'
 import calorie from './assets/caloriethumb.jpg'
 import apple from './assets/apple.webp'
 import maingreen from './assets/main icon gree.png'
+import thinkneuro from './assets/thinkneuro thumbnail.jpg'
+import thinkneuro1 from './assets/thinkneuro.png'
 
 
 const projects = [
@@ -24,7 +26,7 @@ const projects = [
     tags: ["Generative AI", "Feature Implementation", "Redesign"],
     duration:
       "Designed a persistent Context Timeline Panel in ChatGPT to visualize recalled memories, enable inline memory controls, and organize memory by user-defined categories.",
-    overview: "Product Designer, May 2025 - Present",
+    overview: "PRODUCT DESIGNER // May 2025 - Present",
     link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
     bgColor: "#FFFFFF",
     subtitle: "ChatGPT",
@@ -36,8 +38,8 @@ const projects = [
     icon: sandboxlogo,
     tags: ["Student Tools", "Course Info", "User Research"],
     duration:
-      "Built interactive tutorials for SearchNEU to help students explore courses, professors, and campus resources more intuitively.",
-    overview: "Product Designer, Jan 2025 - June 2025",
+      "Built and designed interactive tutorials for SearchNEU, creating guided flows and modular UI components to support feature discoverability; also contributed to designing the course notifications viewing page to streamline user access to updates.",
+    overview: "PRODUCT DESIGNER // Jan 2025 - June 2025",
     link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
     bgColor: "#FFFFFF",
     // extraLargeImage: [search4],
@@ -50,10 +52,19 @@ const projects = [
     icon: safelogo,
     tags: ["Safety", "0 to 1", "User Research"],
     duration: "Designed a mobile application with SOS features, real-time alerts, and improved security guard contact to improve campus safety for Stamford High students.",
-    overview: "Founding Designer, Dec 2023 – June 2024",
+    overview: "FOUNDING DESIGNER // Dec 2023 – June 2024",
     link: "https://easy-iron-95a.notion.site/Safehub-19534c722e4280a69ff3e3b0650b9136",
     bgColor: "#FFFFFF",
     subtitle: "SafeHub",
+  },
+    {
+    image: thinkneuro,
+    title: "Centralizing Program Operations Insight",
+    icon: thinkneuro1,
+    duration: "Oversaw the development of an AI-powered engagement dashboard for ThinkNeuro’s Doctor Discovery Program, helping design data flows, define key metrics, and visualize student progress, kit logistics, and participation for elementary and middle school cohorts.",
+    overview: "PRODUCT MANAGER // June 2025 - Present",
+    bgColor: "#FFFFFF",
+    subtitle: "ThinkNeuro",
   },
     {
     image: calorie,
@@ -61,11 +72,12 @@ const projects = [
     title: "Resolving Unhealthy Eating Habits",
     icon: apple,
     tags: ["Safety", "0 to 1", "User Research"],
-    duration: "Designed an app that leverages AI to provide accurate nutritional analysis, personalized meal recommendations, and easy logging, empowering users to maintain healthier eating habits effortlessly..",
-    overview: "Founding Designer, Nov 2022 – February 2023",
+    duration: "Designed an app that leverages AI to provide accurate nutritional analysis, personalized meal recommendations, and easy logging, empowering users to maintain healthier eating habits effortlessly.",
+    overview: "FOUNDING DESIGNER // Nov 2022 – February 2023",
     bgColor: "#FFFFFF",
     subtitle: "Calori.e",
   },
+
 
 ];
 
