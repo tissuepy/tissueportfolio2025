@@ -289,6 +289,7 @@ body, html {
 .highlight {
   color: #000000; /* your highlight color, e.g. blue */
   font-weight: 600;
+
 }
 
 .italic {
@@ -566,7 +567,7 @@ body, html {
 }
 
 .cartoon-image {
-  max-width: 400px;
+  max-width: 350px;
   width: 100%;
   height: auto;
   border-radius: 0rem;
@@ -1033,7 +1034,7 @@ body, html {
   }
 
   .about-section {
-    font-size: 1.2rem;
+    font-size: 2rem;
     padding: 1rem;
   }
 
@@ -1143,7 +1144,6 @@ body, html {
 }
 
 .project-card {
-  box-shadow: 0 8px 24px rgb(250, 250, 250);
   background-color: #fdfdfd;
   border-radius: 12px;
 }

@@ -15,17 +15,30 @@ import apple from './assets/apple.webp'
 import maingreen from './assets/main icon gree.png'
 import thinkneuro from './assets/thinkneuro thumbnail.jpg'
 import thinkneuro1 from './assets/thinkneuro.png'
+import thumbsafe from './assets/ThumbSafehub.jpg'
+import wrapthumb from './assets/wrapthumb.png'
 
 
 const projects = [
+    {
+    image: wrapthumb,
+    extraImages: [], // add 2 images here
+    icon: gptlogo,
+    title: "Crafting a New Paradigm for Safer, Smarter Dating",
+    tags: ["Generative AI", "Feature Implementation", "Redesign"],
+    duration: "Stealth Mode",
+    overview: "FOUNDING PRODUCT DESIGNER @ Wrap // June 2025 - Present",
+    link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
+    bgColor: "#FFFFFF",
+    subtitle: "Wrap",
+  },
   {
     image: gpt1,
     extraImages: [], // add 2 images here
     icon: gptlogo,
     title: "Memory Timeline Visualizations",
     tags: ["Generative AI", "Feature Implementation", "Redesign"],
-    duration:
-      "Designed a persistent Context Timeline Panel in ChatGPT to visualize recalled memories, enable inline memory controls, and organize memory by user-defined categories.",
+    duration: "Designed a persistent Context Timeline Panel in ChatGPT to visualize recalled memories, enable inline memory controls, and organize memory by user-defined categories.",
     overview: "PRODUCT DESIGNER // May 2025 - Present",
     link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
     bgColor: "#FFFFFF",
@@ -46,7 +59,7 @@ const projects = [
     subtitle: "SearchNEU",
   },
   {
-    image: project1,
+    image: thumbsafe,
     // extraImages: [safe, peoplesafe],
     title: "Improving Emergency Response in Schools",
     icon: safelogo,
@@ -72,7 +85,7 @@ const projects = [
     title: "Resolving Unhealthy Eating Habits",
     icon: apple,
     tags: ["Safety", "0 to 1", "User Research"],
-    duration: "Designed an app that leverages AI to provide accurate nutritional analysis, personalized meal recommendations, and easy logging, empowering users to maintain healthier eating habits effortlessly.",
+    duration: "Designed an app that leverages AI to provide accurate nutritional analysis, personalized meal recommendations, and easy logging, empowering users to maintain healthier eating habits effortlessly..",
     overview: "FOUNDING DESIGNER // Nov 2022 – February 2023",
     bgColor: "#FFFFFF",
     subtitle: "Calori.e",
