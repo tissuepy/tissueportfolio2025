@@ -181,7 +181,7 @@ function Home() {
 <div className="about-info-section">
   <div className="about-info-block">
     <h3 className="about-info-title">working as a ✏️</h3>
-    <p className="about-info-text">summer 2025 AI R&D product management intern @<span className="matcha-highlight"><a href="https://www.thinkneuro.org/" className="matcha-link">ThinkNeuro</a></span></p>
+    <p className="about-info-text">summer 2025 AI R&D product management intern @<span className="matcha-highlight"><a href="https://www.thinkneuro.org/" className="matcha-link">ThinkNeuro</a></span> & founding product designer @<span className="matcha-highlight"><a href="http://trywrap.com/" className="matcha-link">Wrap</a></span></p>
   </div>
 
   <div className="about-info-block">
