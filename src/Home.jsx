@@ -17,12 +17,13 @@ import thinkneuro from './assets/thinkneuro thumbnail.jpg'
 import thinkneuro1 from './assets/thinkneuro.png'
 import thumbsafe from './assets/ThumbSafehub.jpg'
 import wrapthumb from './assets/wrapthumb.png'
+import wraplogo from './assets/Frame 209.png'
 
 
 const projects = [    {
     image: wrapthumb,
     extraImages: [], // add 2 images here
-    icon: gptlogo,
+    icon: wraplogo,
     title: "Crafting a New Paradigm for Safer, Smarter Dating",
     tags: ["Generative AI", "Feature Implementation", "Redesign"],
     duration: "Stealth Mode. Email me for designs or case study.",
