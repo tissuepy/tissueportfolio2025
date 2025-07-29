@@ -28,7 +28,6 @@ const projects = [    {
     tags: ["Generative AI", "Feature Implementation", "Redesign"],
     duration: "Stealth Mode. Email me for designs or case study.",
     overview: "FOUNDING PRODUCT DESIGNER // June 2025 - Present",
-    link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
     bgColor: "#FFFFFF",
     subtitle: "Wrap",
   },
