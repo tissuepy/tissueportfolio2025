@@ -135,9 +135,9 @@ function About() {
     </div>
 
     <div className="about-info-block2">
-      <h3 className="about-info-title"><span className="highlight-matcha">\\ solving real problems</span></h3>
+      <h3 className="about-info-title"><span className="highlight-matcha">\\ design to disrupt</span></h3>
       <p className="about-info-text">
-        I focus on addressing genuine user needs by uncovering pain points and challenges. Effective design solves problems that truly matter and creates meaningful impact.
+       While empathy grounds my work, disruption propels it. I design with the intent to challenge conventions — especially when working with emerging technologies like AI. My goal is to reimagine not just how interfaces look, but how they think, respond, and empower.
       </p>
     </div>
 
