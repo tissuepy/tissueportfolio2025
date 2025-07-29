@@ -19,8 +19,7 @@ import thumbsafe from './assets/ThumbSafehub.jpg'
 import wrapthumb from './assets/wrapthumb.png'
 
 
-const projects = [
-    {
+const projects = [    {
     image: wrapthumb,
     extraImages: [], // add 2 images here
     icon: gptlogo,
@@ -194,11 +193,6 @@ function Home() {
     <p className="about-info-text">playing animal crossing new horizons and blogging on <span className="matcha-highlight"><a href="https://medium.com/@nitishgannu" className="matcha-link">medium</a></span></p>
   </div>
 
-
-  <div className="about-info-block">
-    <h3 className="about-info-title"></h3>
-    <p className="about-info-text"></p>
-  </div>
 </div>
 </div>
 
