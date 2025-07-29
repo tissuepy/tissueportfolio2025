@@ -26,7 +26,7 @@ const projects = [    {
     title: "Crafting a New Paradigm for Safer, Smarter Dating",
     tags: ["Generative AI", "Feature Implementation", "Redesign"],
     duration: "Stealth Mode",
-    overview: "FOUNDING PRODUCT DESIGNER @ Wrap // June 2025 - Present",
+    overview: "FOUNDING PRODUCT DESIGNER // June 2025 - Present",
     link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
     bgColor: "#FFFFFF",
     subtitle: "Wrap",
@@ -71,7 +71,7 @@ const projects = [    {
   },
     {
     image: thinkneuro,
-    title: "Centralizing Program Operations Insight",
+    title: "Dashboard for Program Funding Insights",
     icon: thinkneuro1,
     duration: "Oversaw the development of an AI-powered engagement dashboard for ThinkNeuro’s Doctor Discovery Program, helping design data flows, define key metrics, and visualize student progress, kit logistics, and participation for elementary and middle school cohorts.",
     overview: "PRODUCT MANAGER // June 2025 - Present",
