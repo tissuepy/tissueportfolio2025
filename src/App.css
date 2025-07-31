@@ -567,8 +567,8 @@ body, html {
 }
 
 .cartoon-image {
-  max-width: 350px;
-  width: 100%;
+  max-width: 400px;
+  width: 110%;
   height: auto;
   border-radius: 0rem;
   transition: transform 0.3s ease;
@@ -1038,8 +1038,6 @@ body, html {
     padding: 1rem;
   }
 
-  .cartoon-image {
-  }
 
   .left-content,
   .right-section {

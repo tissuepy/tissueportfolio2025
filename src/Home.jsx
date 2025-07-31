@@ -18,6 +18,7 @@ import thinkneuro1 from './assets/thinkneuro.png'
 import thumbsafe from './assets/ThumbSafehub.jpg'
 import wrapthumb from './assets/wrapthumb.png'
 import wraplogo from './assets/Frame 209.png'
+import cartoonnitish from './assets/my-notion-face-transparent (2).png'
 
 
 const projects = [    {
@@ -136,7 +137,7 @@ function Home() {
   return (
     <>
       <div className="cartoon-container">
-        <img src={maingreen} alt="Cartoon of Nitish" className="cartoon-image" />
+        <img src={cartoonnitish} alt="Cartoon of Nitish" className="cartoon-image" />
       </div>
 
       <div className="about-section-container">

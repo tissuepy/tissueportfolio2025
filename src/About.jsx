@@ -42,8 +42,7 @@ function About() {
   <div className="about-hero-container">
     <div className="about-hero">
       <div className="about-text">
-        <h1 className="about-title">My Story 🌤️</h1>
-       <h1 className="caption-title"><span className="gradient-about-text">// meet my curious mind</span></h1>
+       <h1 className="caption-title">// who is nitish?</h1>
 <p className="about-description">
   Growing up, I was always drawn to how things looked — from the layout of video game menus to the design of cereal boxes. I cared not just about what something did, but how it felt. 
 </p>
