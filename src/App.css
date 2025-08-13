@@ -573,16 +573,168 @@ body, html {
   margin-bottom: -80px
 }
 
+.cartoon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .cartoon-image {
   max-width: 500px;
   width: 100%;
   height: auto;
   border-radius: 0rem;
   transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
 }
 
-.cartoon-image:hover {
-  transform: scale(1.05);
+.cartoon-wrapper:hover .cartoon-image {
+  transform: scale(1.05) rotate(3deg);
+}
+
+/* Pop-out elements container */
+.pop-out-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+/* Base pop-out element styles */
+.pop-out-element {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0) translateY(0);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: auto;
+}
+
+.pop-out-emoji {
+  font-size: 1.5rem;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Hover effect - elements pop out */
+.cartoon-wrapper:hover .pop-out-element {
+  opacity: 1;
+  transform: scale(1) translateY(-20px);
+  z-index: 3;
+}
+
+/* Matcha Boba Ice Image - lurking out from behind */
+.matcha-boba-ice {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0) rotate(-25deg) translateX(30px);
+  z-index: 0;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.cartoon-wrapper:hover .matcha-boba-ice {
+  z-index: 3;
+}
+
+.pop-out-image {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* Make cat image smaller */
+.cat-1 .pop-out-image {
+  width: 100px;
+  height: 100px;
+}
+
+/* Tooltip styles */
+.pop-out-tooltip {
+  position: absolute;
+  background: white;
+  color: #333;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  visibility: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+.pop-out-image:hover + .pop-out-tooltip,
+.pop-out-element:hover .pop-out-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Position tooltips */
+.matcha-tooltip {
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 160px;
+  white-space: normal;
+}
+
+.matcha-boba-ice:hover .matcha-tooltip {
+  transform: translateX(-50%) translateY(0);
+}
+
+.cat-tooltip {
+  top: -50px;
+  right: 0;
+  transform: translateY(10px);
+  width: 160px;
+  white-space: normal;
+}
+
+.cat-1:hover .cat-tooltip {
+  transform: translateY(0);
+}
+
+.cartoon-wrapper:hover .matcha-boba-ice {
+  transform: translate(-50%, -50%) scale(1) rotate(-25deg) translateX(-115px) translateY(-10px);
+  opacity: 1;
+}
+
+/* Cat Image - popping out from bottom right */
+.cat-1 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0) rotate(15deg) translateX(20px) translateY(20px);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 0;
+}
+
+.cartoon-wrapper:hover .cat-1 {
+  z-index: 3;
+}
+
+.cartoon-wrapper:hover .cat-1 {
+  transform: translate(-50%, -50%) scale(1) rotate(10deg) translateX(110px) translateY(40px);
+  opacity: 1;
+}
+
+/* Animation on hover */
+.cartoon-wrapper:hover .matcha-boba-ice {
+  transition-delay: 0s;
+}
+
+.cartoon-wrapper:hover .cat-1 {
+  transition-delay: 0.1s;
 }
 
 .emoji-tooltip-wrapper {

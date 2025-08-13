@@ -6,7 +6,7 @@ import wrapthumb from './assets/wrapthumb.png';
 import thumbsafe from './assets/ThumbSafehub.jpg';
 import search1 from './assets/searchy.png';
 import gpt1 from './chatgptproj/Home Chat Page.png';
-import thinkneuro from './assets/thinkneuro thumbnail.jpg';
+import thinkneuro from './assets/thinkneuro thumbnail.png';
 import calorie from './assets/caloriethumb.jpg';
 import matchaart from  './assets/matcha art.png'
 import roblox from './assets/roblox.png'
@@ -16,6 +16,7 @@ const ProjectDropdown = () => {
   const [selectedProject, setSelectedProject] = useState('wrap');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isFading, setIsFading] = useState(false);
+  const [isDropdownAnimating, setIsDropdownAnimating] = useState(false);
 
   const projectData = {
     projects: {
@@ -44,12 +45,6 @@ const ProjectDropdown = () => {
         title: 'Dashboard for program funding insights',
         description: 'Product Manager • June 2025 - Present'
       },
-      calorie: {
-        name: 'CALORI.E',
-        image: calorie,
-        title: 'Resolving unhealthy eating habits',
-        description: 'Founding Designer • Nov 2022 – February 2023'
-      }
     },
     playground: {
       roblox: {
@@ -68,11 +63,23 @@ const ProjectDropdown = () => {
   };
 
   const handleCategoryClick = (category) => {
-    setActiveCategory(category);
-    setIsDropdownOpen(true);
-    // Set first project of the category as default
-    const firstProject = Object.keys(projectData[category])[0];
-    setSelectedProject(firstProject);
+    if (activeCategory === category) {
+      // If clicking the same category, toggle the dropdown
+      setIsDropdownOpen(!isDropdownOpen);
+    } else {
+      // If clicking a different category, always trigger animation
+      setIsDropdownAnimating(true);
+      setActiveCategory(category);
+      setIsDropdownOpen(true);
+      // Set first project of the category as default
+      const firstProject = Object.keys(projectData[category])[0];
+      setSelectedProject(firstProject);
+      
+      // Reset animation state after animation completes
+      setTimeout(() => {
+        setIsDropdownAnimating(false);
+      }, 300);
+    }
   };
 
   const handleProjectClick = (projectKey) => {
@@ -98,6 +105,9 @@ const ProjectDropdown = () => {
               className={`dropdown-button ${activeCategory === 'projects' ? 'active' : ''}`}
               onClick={() => handleCategoryClick('projects')}
             >
+              <svg className="button-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 3h6v6H3V3zm0 12h6v6H3v-6zm12-12h6v6h-6V3zm0 12h6v6h-6v-6z"/>
+              </svg>
               PROJECTS
               <span className="chevron">▼</span>
             </button>
@@ -105,6 +115,9 @@ const ProjectDropdown = () => {
               className={`dropdown-button ${activeCategory === 'playground' ? 'active' : ''}`}
               onClick={() => handleCategoryClick('playground')}
             >
+              <svg className="button-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
               PLAYGROUND
               <span className="chevron">▼</span>
             </button>
@@ -112,7 +125,7 @@ const ProjectDropdown = () => {
         </div>
         
         {isDropdownOpen && (
-          <div className="dropdown-content">
+          <div className={`dropdown-content ${isDropdownAnimating ? 'dropdown-animating' : ''}`}>
             {Object.entries(currentProjects).map(([key, project]) => (
               <div 
                 key={key}

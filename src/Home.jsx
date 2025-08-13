@@ -3,6 +3,8 @@ import './App.css';
 import './About.jsx';
 import React, { useState, useEffect } from 'react';
 import cartoonnitish from './assets/my-notion-face-transparent (2).png'
+import matchaBobaIce from './assets/matcha boba ice.png'
+import cat1 from './assets/cat 1.png'
 import ProjectDropdown from './ProjectDropdown';
 
 
@@ -47,7 +49,28 @@ function Home() {
   return (
     <>
       <div className="cartoon-container">
-        <img src={cartoonnitish} alt="Cartoon of Nitish" className="cartoon-image" />
+        <div className="cartoon-wrapper">
+          <img src={cartoonnitish} alt="Cartoon of Nitish" className="cartoon-image" />
+          
+          {/* Pop-out elements that appear on hover */}
+          <div className="pop-out-elements">
+            {/* Matcha Boba Ice Image - lurking out from behind */}
+            <div className="pop-out-element matcha-boba-ice">
+              <img src={matchaBobaIce} alt="Matcha Boba Ice" className="pop-out-image" />
+              <div className="pop-out-tooltip matcha-tooltip">
+                I've got to gong cha 3 times per week!
+              </div>
+            </div>
+            
+            {/* Cat Image - popping out from bottom right */}
+            <div className="pop-out-element cat-1">
+              <img src={cat1} alt="Cat" className="pop-out-image" />
+              <div className="pop-out-tooltip cat-tooltip">
+                I love cats, and an even bigger cat cafe lover!
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="about-section-container">

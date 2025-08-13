@@ -48,12 +48,23 @@
   font-family: 'IBM Plex Mono', monospace;
   letter-spacing: 0.4px;
   border: 1px solid transparent;
+  gap: 8px;
+}
+
+.button-icon {
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
 }
 
 .dropdown-button:hover {
   background-color: #F0F7F0;
   border-color: #E8F5E8;
   color: #5e8f6c;
+}
+
+.dropdown-button:hover .button-icon {
+  opacity: 1;
 }
 
 .dropdown-button.active {
@@ -76,9 +87,14 @@
   background-color: #FFFFFF;
   border-radius: 12px;
   padding: 12px 0;
-  animation: fadeIn 0.3s ease;
+  animation: dropdownPushDown 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 1px solid #E5E7EB;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform-origin: top;
+}
+
+.dropdown-content.dropdown-animating {
+  animation: dropdownPushDown 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .dropdown-item {
@@ -165,6 +181,17 @@
   line-height: 1.6;
   font-weight: 400;
   letter-spacing: 0.01em;
+}
+
+@keyframes dropdownPushDown {
+  from {
+    opacity: 0;
+    transform: scaleY(0) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+  }
 }
 
 @keyframes projectFadeIn {
