@@ -1,99 +1,9 @@
 // Home.jsx
-import project1 from './assets/safehubthumb.jpg';
 import './App.css';
 import './About.jsx';
-import cartoon from './assets/cartoon.png';
 import React, { useState, useEffect } from 'react';
-import gptlogo from './chatgptproj/gpt logo.png'
-import sandboxlogo from './chatgptproj/sandbx.png'
-import safelogo from './assets/SafehubLogo.png'
-import search1 from './assets/searchy.png'
-import gpt1 from './chatgptproj/Home Chat Page.png'
-import acgreen from './assets/ac green.png'
-import calorie from './assets/caloriethumb.jpg'
-import apple from './assets/apple.webp'
-import maingreen from './assets/main icon gree.png'
-import thinkneuro from './assets/thinkneuro thumbnail.jpg'
-import thinkneuro1 from './assets/thinkneuro.png'
-import thumbsafe from './assets/ThumbSafehub.jpg'
-import wrapthumb from './assets/wrapthumb.png'
-import wraplogo from './assets/Frame 209.png'
 import cartoonnitish from './assets/my-notion-face-transparent (2).png'
-
-
-const projects = [    {
-    image: wrapthumb,
-    extraImages: [], // add 2 images here
-    icon: wraplogo,
-    title: "Crafting a New Paradigm for Safer, Smarter Dating",
-    tags: ["Generative AI", "Feature Implementation", "Redesign"],
-    duration: "Stealth Mode. Email me for designs or case study.",
-    overview: "FOUNDING PRODUCT DESIGNER // June 2025 - Present",
-    bgColor: "#FFFFFF",
-    subtitle: "Wrap",
-  },
-  {
-    image: thumbsafe,
-    // extraImages: [safe, peoplesafe],
-    title: "Improving Emergency Response in Schools",
-    icon: safelogo,
-    tags: ["Safety", "0 to 1", "User Research"],
-    duration: "Designed a mobile application with SOS features, real-time alerts, and improved security guard contact to improve campus safety for Stamford High students.",
-    overview: "FOUNDING DESIGNER // Dec 2023 – June 2024",
-    link: "https://easy-iron-95a.notion.site/Safehub-19534c722e4280a69ff3e3b0650b9136",
-    bgColor: "#FFFFFF",
-    subtitle: "SafeHub",
-  },
-    {
-    image: search1,
-    // extraImages: [project2tut1, project2tut2],
-    title: "SearchFAQs and User Experience Team",
-    icon: sandboxlogo,
-    tags: ["Student Tools", "Course Info", "User Research"],
-    duration:
-      "Designed and built interactive tutorials for SearchNEU, creating guided flows and modular UI components to support feature discoverability; also contributed to designing the course notifications viewing page to streamline user access to updates.",
-    overview: "PRODUCT DESIGNER // Jan 2025 - June 2025",
-    link: "https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549",
-    bgColor: "#FFFFFF",
-    // extraLargeImage: [search4],
-    subtitle: "SearchNEU",
-  },
-  {
-    image: gpt1,
-    extraImages: [], // add 2 images here
-    icon: gptlogo,
-    title: "Memory Timeline Visualizations",
-    tags: ["Generative AI", "Feature Implementation", "Redesign"],
-    duration: "Designed a persistent Context Timeline Panel in ChatGPT to visualize recalled memories, enable inline memory controls, and organize memory by user-defined categories.",
-    overview: "PRODUCT DESIGNER // May 2025 - Present",
-    link: "https://easy-iron-95a.notion.site/ChatGPT-Redesign-1fd34c722e4280738ee1cf91dbe489f8?pvs=74",
-    bgColor: "#FFFFFF",
-    subtitle: "ChatGPT",
-  },
-    {
-    image: thinkneuro,
-    title: "Dashboard for Program Funding Insights",
-    icon: thinkneuro1,
-    duration: "Oversaw the development of an AI-powered engagement dashboard for ThinkNeuro’s Doctor Discovery Program, helping design data flows, define key metrics, and visualize student progress, kit logistics, and participation for elementary and middle school cohorts. Case study coming soon.",
-    overview: "PRODUCT MANAGER // June 2025 - Present",
-    bgColor: "#FFFFFF",
-    subtitle: "ThinkNeuro",
-  },
-    {
-    image: calorie,
-    // extraImages: [safe, peoplesafe],
-    title: "Resolving Unhealthy Eating Habits",
-    icon: apple,
-    tags: ["Safety", "0 to 1", "User Research"],
-    duration: "Designed an app that leverages AI to provide accurate nutritional analysis, personalized meal recommendations, and easy logging, empowering users to maintain healthier eating habits effortlessly..",
-    overview: "FOUNDING DESIGNER // Nov 2022 – February 2023",
-    bgColor: "#FFFFFF",
-    subtitle: "Calori.e",
-  },
-
-
-];
-
+import ProjectDropdown from './ProjectDropdown';
 
 
 function Home() {
@@ -181,7 +91,7 @@ function Home() {
 <div className="about-info-section">
   <div className="about-info-block">
     <h3 className="about-info-title">working as a</h3>
-    <p className="about-info-text">summer 2025 AI R&D product management intern @<span className="matcha-highlight"><a href="https://www.thinkneuro.org/" className="matcha-link">ThinkNeuro</a></span> & founding product designer @<span className="matcha-highlight"><a href="http://trywrap.com/" className="matcha-link">Wrap</a></span></p>
+    <p className="about-info-text">summer 2025 AI R&D product management intern @<span className="matcha-highlight"><a href="https://www.thinkneuro.org/" className="matcha-link">ThinkNeuro</a></span></p>
   </div>
 
   <div className="about-info-block">
@@ -207,15 +117,8 @@ function Home() {
       </div> */}
 
       <div className="bottom-half">
-        <div className="project-section">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
-        </div>
-
-        <p className="more-projects-text">
-        </p>
-        </div>
+        <ProjectDropdown />
+      </div>
 
       <footer className="footer">
         <div className="footer-left">
@@ -247,69 +150,7 @@ function Home() {
   );
 }
 
-function ProjectCard({ image, extraImages = [], extraLargeImage, title, subtitle, duration, overview, link, bgColor, icon }) {
-  return (
-    <div className="project-card" style={{ backgroundColor: bgColor }}>
-      <div className="project-content">
-        {/* Icon and subtitle in a row */}
-        <div className="project-header">
-          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-            {icon && (
-              <img
-                src={icon}
-                alt={`${title} icon`}
-                className="project-title-icon"
-                style={{ width: '24px', height: '24px', marginRight: '8px' }}
-              />
-            )}
-            <span className="project-subtitle" style={{ fontSize: '0.8rem', color: '#777' }}>
-              {subtitle}
-            </span>
-          </div>
 
-          <h2 className="project-title" style={{ fontSize: '1.1rem', fontWeight: '500', marginTop: '0.25rem' }}>
-            {title}
-          </h2>
-        </div>
-
-        {/* Meta info */}
-        <div className="project-meta">
-          <p className="project-overview">{duration}</p>
-          <p className="project-date">{overview}</p>
-        </div>
-
-        {/* Images */}
-        <div className="project-image-description-container">
-          <div className="project-image-container">
-            {/* 🔗 Image is now clickable with hover effect */}
-            <a href={link} target="_blank" rel="noopener noreferrer" className="project-image-link">
-              <img src={image} alt={`${title} thumbnail`} className="project-image" />
-            </a>
-
-            <div className="extra-images-container">
-              {extraImages.map((extraImg, idx) => (
-                <img
-                  key={idx}
-                  src={extraImg}
-                  alt={`${title} extra thumbnail ${idx + 1}`}
-                  className="extra-project-image"
-                />
-              ))}
-            </div>
-
-            {extraLargeImage && (
-              <img
-                src={extraLargeImage}
-                alt={`${title} extra large thumbnail`}
-                className="extra-large-project-image"
-              />
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 
 

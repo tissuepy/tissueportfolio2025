@@ -6,6 +6,13 @@ body, html {
   color: #000000;
 }
 
+/* Force Apple-style emojis across all platforms */
+.emoji, .matcha-emoji-overlay, .rotating-icon-container h1 {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'EmojiSymbols', 'EmojiOne Mozilla', 'Twemoji Mozilla', 'Segoe UI Symbol', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 
 /* Full-page wrapper if needed */
 
@@ -247,7 +254,7 @@ body, html {
 
 .about-section {
   max-width: 1000px;
-  margin: 150px auto 80px;
+  margin: 20px auto 80px;
   padding: 0 20px;
   font-size:33px;
   color: #515050;
@@ -562,13 +569,13 @@ body, html {
 .cartoon-container {
   display: flex;
   justify-content: center;
-  margin-top: 160px;
-  margin-bottom: -130px
+  margin-top: 40px;
+  margin-bottom: -80px
 }
 
 .cartoon-image {
-  max-width: 400px;
-  width: 110%;
+  max-width: 500px;
+  width: 100%;
   height: auto;
   border-radius: 0rem;
   transition: transform 0.3s ease;

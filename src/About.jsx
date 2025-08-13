@@ -1,4 +1,5 @@
 // About.jsx
+import React, { useState } from 'react';
 import './About.css';
 import img1 from './assets/cornell.jpg';
 import img2 from './assets/studio1.jpg';
@@ -15,8 +16,6 @@ import img12 from './assets/poke.jpg';
 import img13 from './assets/venetian.jpg';
 import img14 from './assets/beach.JPG';
 import img15 from './assets/venetian.jpg';
-import img16 from './assets/friends1.jpg';
-
 import img19 from './assets/friends4.jpg';
 
 import ramen1 from './assets/lamen1.jpg'
@@ -28,14 +27,44 @@ import robert from './assets/robert.jpg'
 import InteractiveMatcha from './InteractiveMatcha'; // adjust path if necessary
 import AiNitish from './chatgptproj/vegas tissue.jpg'
 import sunlight from './assets/sunrise.jpg'
-import nikita from './assets/nikita.JPG'
-import aarushi from './assets/aarushi.jpg'
-import christine from './assets/christine.jpg'
-import acimage from './assets/animal crossing image.png'
+import empathyImage from './assets/searchneuteam.png' // Add your empathy image here
+import disruptImage from './assets/wrapteam.png'
+import city1 from './galleryphotos/city_1.jpg'
+import city2 from './galleryphotos/city_2.jpg'
+import girls1 from './galleryphotos/girls.jpg'
+import girls2 from './galleryphotos/girls_2.jpg'
+import nature from './galleryphotos/nature1.jpg'
 
 
 
 function About() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isCaptionTransitioning, setIsCaptionTransitioning] = useState(false);
+
+  const heroImages = [
+
+    { src: girls1, alt: "Aesthetic", caption: "Nitish is a social butterfly" },
+    { src: girls2, alt: "Billie", caption: "Nitish loves his friends" },
+    { src: nature, alt: "Buldak Ramen", caption: "Nitish obsesses over nature pics" },
+
+  ];
+
+  const handleNextImage = () => {
+    setIsCaptionTransitioning(true);
+    setTimeout(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+      setIsCaptionTransitioning(false);
+    }, 150);
+  };
+
+  const handlePreviousImage = () => {
+    setIsCaptionTransitioning(true);
+    setTimeout(() => {
+      setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+      setIsCaptionTransitioning(false);
+    }, 150);
+  };
+
   return (
     <>
       <div className="about-page">
@@ -56,7 +85,39 @@ function About() {
 
       </div>
       <div className="about-image">
-        <img src={sunlight} alt="Nitish Gannu" />
+        <div className="hero-carousel">
+          <div className="hero-image-container">
+            <img 
+              src={heroImages[currentImageIndex].src} 
+              alt={heroImages[currentImageIndex].alt} 
+              className="hero-carousel-image"
+            />
+            <span className="matcha-emoji-overlay emoji">🍵</span>
+          </div>
+          
+          <div className="hero-navigation">
+            {currentImageIndex > 0 && (
+              <button 
+                className="hero-arrow hero-arrow-left" 
+                onClick={handlePreviousImage}
+              >
+                ←
+              </button>
+            )}
+            <button 
+              className="hero-arrow hero-arrow-right" 
+              onClick={handleNextImage}
+            >
+              →
+            </button>
+          </div>
+          
+          <div className="hero-caption-container">
+            <p className={`hero-caption ${isCaptionTransitioning ? 'caption-fade-out' : 'caption-fade-in'}`}>
+              {heroImages[currentImageIndex].caption}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -64,8 +125,7 @@ function About() {
 
 <div class="gallery-container">
 <div className="gallery-section">
-<h2 className="about-title">The Gallery 📷</h2>
-  <p className="gallery-description">A curation of everything I love including food 🍜, friends 🫂, and nature 🌷!</p>
+<h2 className="design-values-title">The Gallery 📷</h2>
   
     <div className="masonry-gallery">
     <img src={img1} alt="Gallery 1" />
@@ -95,86 +155,48 @@ function About() {
   </div>
 </div>
 
-<div className="collage-section">
-  <div className="collage-container">
-    <div className="collage-text">
-      <div className="h3-title">
-      <h3>// <em>college metamorphasis</em></h3>
-            </div>
-      <p>
-  Before college, I was an introverted gamer who found comfort in virtual worlds and online friendships. I spent most of my time indoors, drawn to the creativity of games and the solitude they offered.
-</p>
-<p>
-  But stepping onto campus changed that. I began meeting people beyond the screen—classmates, creatives, designers from around the world—and it pushed me to grow socially. I became more extroverted, more confident, and more open to collaboration.
-</p>
-<p>
-  Being surrounded by other designers also deepened my appreciation for design and even <span className="matcha-highlight"><a href="https://your-url-here.com" className="matcha-link">photography</a></span>.
-</p>
-    </div>
 
-    <div className="collage-images">
-      <img src={christine} alt="Friend group" className="collage-img small" />
-      <img src={img16} alt="Beach" className="collage-img medium" />
-      <img src={nikita} alt="Cousins" className="collage-img large" />
-      <img src={aarushi} alt="Food" className="collage-img small" />
-    </div>
-  </div>
-</div>
 
 <div className="about-info-container">
   {/* Centered title */}
   <h2 className="design-values-title">Design Philosophy</h2>
 
-  <div className="about-info-section">
-    <div className="about-info-block2">
-      <h3 className="about-info-title"><span className="highlight-matcha">\\ designing with empathy</span></h3>
-      <p className="about-info-text">
-        I believe that thoughtful design begins with empathy. Before pixels, prototypes, or personas — it starts with listening. My process always begins by understanding the real needs behind a problem: how users feel, what they struggle with, and what brings them joy.
-      </p>
-    </div>
-
-    <div className="about-info-block2">
-      <h3 className="about-info-title"><span className="highlight-matcha">\\ design to disrupt</span></h3>
-      <p className="about-info-text">
-       While empathy grounds my work, disruption propels it. I design with the intent to challenge conventions — especially when working with emerging technologies like AI. My goal is to reimagine not just how interfaces look, but how they think, respond, and empower.
-      </p>
-    </div>
-
-  </div>
-</div>
-
-
-<div className="collage-section matcha-bottom-space">
-<div className="collage-section">
-  <div className="collage-container" style={{ display: 'flex', flexDirection: 'row', gap: '2rem', alignItems: 'center' }}>
-    <div className="collage-text" style={{ flex: 1 }}>
-      <div className="h3-title">
-        <h3>// <em>animal crossing roots</em></h3>
+  <div className="philosophy-layout">
+    {/* First row: Empathy text on left, image on right */}
+    <div className="philosophy-row">
+      <div className="philosophy-text-box">
+        <h3 className="about-info-title"><span className="highlight-matcha">\\ designing with empathy</span></h3>
+        <p className="about-info-text">
+          Working with the SearchNEU team was my first experience building a product used by thousands of students. This taught me that empathy isn't just about understanding users—it's about listening to their daily struggles, observing how they navigate problems, and designing solutions that feel intuitive to their workflow.
+        </p>
       </div>
-<p>
-        My love for design started long before high school — in the quiet, pixelated world of <span className="matcha-highlight"><a href="https://animalcrossing.nintendo.com/" className="matcha-link">Animal Crossing</a></span>. I was fascinated by the game’s interior design features, endlessly rearranging furniture, customizing layouts, and curating cozy spaces that felt uniquely mine.
-      </p>
-      <p>
-        That sense of creativity and freedom led me to explore real-world design in high school, from sketching layouts to experimenting with color theory. What began as decorating virtual homes soon evolved into a deeper passion for building meaningful, customizable experiences for others.
-      </p>
+      <div className="philosophy-image-container">
+        <div className="image-caption-wrapper">
+          <img src={empathyImage} alt="Designing with empathy" className="philosophy-image" />
+          <p className="image-caption">SEARCHNEU TEAM</p>
+        </div>
+      </div>
     </div>
 
-    <div className="collage-image" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-  <img
-    src={acimage} // or whatever image variable you're using
-    alt="Animal Crossing Inspired Design"
-    style={{
-      width: '130%',
-      maxWidth: '500px',
-      height: 'auto',
-      borderRadius: '12px',
-      objectFit: 'cover'
-    }}
-  />
-</div>
+    {/* Second row: Image on left, Disrupt text on right */}
+    <div className="philosophy-row">
+      <div className="philosophy-image-container">
+        <div className="image-caption-wrapper">
+          <img src={disruptImage} alt="Design to disrupt" className="philosophy-image" />
+          <p className="image-caption">MY FIRST STARTUP</p>
+        </div>
+      </div>
+      <div className="philosophy-text-box">
+        <h3 className="about-info-title"><span className="highlight-matcha">\\ design to disrupt</span></h3>
+        <p className="about-info-text">
+         Working with a small startup team taught me to wear multiple hats—from research to prototyping to user testing. Being surrounded by disruptors who challenge the status quo inspired me to think beyond conventional solutions and push the boundaries of what's possible in product design.
+        </p>
+      </div>
+    </div>
   </div>
 </div>
-</div>
+
+
 
 
       <footer className="footer">
