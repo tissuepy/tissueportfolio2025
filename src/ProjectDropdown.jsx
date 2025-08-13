@@ -20,32 +20,32 @@ const ProjectDropdown = () => {
   const projectData = {
     projects: {
       wrap: {
-        name: 'Wrap',
+        name: 'STARTUP',
         image: wrapthumb,
         title: 'Crafting a new paradigm for safer, smarter dating',
         description: 'Founding Product Designer • June 2025 - Present'
       },
       safehub: {
-        name: 'SafeHub',
+        name: 'SAFEHUB',
         image: thumbsafe,
         title: 'Improving emergency response in schools',
         description: 'Founding Designer • Dec 2023 – June 2024'
       },
       searchneu: {
-        name: 'SearchNEU',
+        name: 'SEARCHNEU',
         image: search1,
         title: 'SearchFAQs and user experience team',
         description: 'Product Designer • Jan 2025 - June 2025'
       },
       
       thinkneuro: {
-        name: 'ThinkNeuro',
+        name: 'THINKNEURO INTERNSHIP',
         image: thinkneuro,
         title: 'Dashboard for program funding insights',
         description: 'Product Manager • June 2025 - Present'
       },
       calorie: {
-        name: 'Calori.e',
+        name: 'CALORI.E',
         image: calorie,
         title: 'Resolving unhealthy eating habits',
         description: 'Founding Designer • Nov 2022 – February 2023'
@@ -69,7 +69,7 @@ const ProjectDropdown = () => {
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsDropdownOpen(true);
     // Set first project of the category as default
     const firstProject = Object.keys(projectData[category])[0];
     setSelectedProject(firstProject);
