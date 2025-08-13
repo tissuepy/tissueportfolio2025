@@ -51,13 +51,13 @@ const ProjectDropdown = () => {
         name: 'ROBLOX',
         image: roblox, // Placeholder - replace with actual Roblox image
         title: 'Interior Design in Roblox',
-        description: 'Building immersive worlds and interactive experiences'
+        description: 'Interior design and home building in Bloxburg'
       },
       matchaArt: {
         name: 'MATCHA ART',
         image: matchaart, // Placeholder - replace with actual Matcha Art image
         title: 'Matcha art collection',
-        description: 'Visual storytelling through the lens of my favorite drink'
+        description: 'Putting together random shapes to draw out iterations of my favorite drink'
       }
     }
   };

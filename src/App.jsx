@@ -52,7 +52,7 @@ function App() {
 
         <div className="right-section">
           <a href="https://medium.com/@nitishgannu" className="nav-link" target="_blank" rel="noopener noreferrer">medium</a>
-          <a href="https://drive.google.com/file/d/1NZXaivGschbD71pBUHzXjG08oqi9ydif/view?usp=sharing" className="nav-link" target="_blank" rel="noopener noreferrer">resume</a>
+          <a href="https://drive.google.com/file/d/1ERGr7CI1KHynjFuIpK8yaHkcfrInziD4/view?usp=sharing" className="nav-link" target="_blank" rel="noopener noreferrer">resume</a>
         </div>
       </div>
 
