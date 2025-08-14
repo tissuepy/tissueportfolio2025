@@ -569,7 +569,7 @@ body, html {
 .cartoon-container {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 80px;
   margin-bottom: -80px
 }
 
@@ -579,7 +579,7 @@ body, html {
 }
 
 .cartoon-image {
-  max-width: 500px;
+  max-width: 400px;
   width: 100%;
   height: auto;
   border-radius: 0rem;
@@ -639,16 +639,16 @@ body, html {
 }
 
 .pop-out-image {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 /* Make cat image smaller */
 .cat-1 .pop-out-image {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 /* Tooltip styles */
@@ -706,7 +706,7 @@ body, html {
 }
 
 .cartoon-wrapper:hover .matcha-boba-ice {
-  transform: translate(-50%, -50%) scale(1) rotate(-25deg) translateX(-115px) translateY(-10px);
+  transform: translate(-50%, -50%) scale(1) rotate(-25deg) translateX(-90px) translateY(-10px);
   opacity: 1;
 }
 
@@ -724,7 +724,7 @@ body, html {
 }
 
 .cartoon-wrapper:hover .cat-1 {
-  transform: translate(-50%, -50%) scale(1) rotate(10deg) translateX(110px) translateY(40px);
+  transform: translate(-50%, -50%) scale(1) rotate(10deg) translateX(85px) translateY(40px);
   opacity: 1;
 }
 
