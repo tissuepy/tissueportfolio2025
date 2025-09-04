@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ProjectDropdown.css';
 
 // Import project images
@@ -18,30 +18,33 @@ const ProjectDropdown = () => {
 
   const projectData = {
     projects: {
-      wrap: {
-        name: 'STARTUP',
-        image: wrapthumb,
-        title: 'Crafting a new paradigm for safer, smarter dating',
-        description: 'Founding Product Designer • June 2025 - Present'
-      },
       safehub: {
         name: 'SAFEHUB',
         image: thumbsafe,
         title: 'Improving emergency response in schools',
-        description: 'Founding Designer • Dec 2023 – June 2024'
+        description: 'Founding Designer • Dec 2023 – June 2024',
+        caseStudyUrl: 'https://easy-iron-95a.notion.site/Safehub-19534c722e4280a69ff3e3b0650b9136' // Replace with actual case study URL
       },
       searchneu: {
         name: 'SEARCHNEU',
         image: search1,
         title: 'SearchFAQs and user experience team',
-        description: 'Product Designer • Jan 2025 - June 2025'
+        description: 'Product Designer • Jan 2025 - June 2025',
+        caseStudyUrl: 'https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549' // Replace with actual case study URL
       },
-      
+      wrap: {
+        name: 'STARTUP',
+        image: wrapthumb,
+        title: 'Crafting a new paradigm for safer, smarter dating',
+        description: 'Founding Product Designer • June 2025 - Present',
+        caseStudyUrl: 'https://your-case-study-url.com/wrap' // Replace with actual case study URL
+      },
       thinkneuro: {
         name: 'THINKNEURO INTERNSHIP',
         image: thinkneuro,
         title: 'Dashboard for program funding insights',
-        description: 'Product Manager • June 2025 - Present'
+        description: 'Product Manager • June 2025 - Present',
+        caseStudyUrl: '' // Replace with actual case study URL
       },
     },
     playground: {
@@ -49,13 +52,15 @@ const ProjectDropdown = () => {
         name: 'ROBLOX',
         image: roblox, // Placeholder - replace with actual Roblox image
         title: 'Interior Design in Roblox',
-        description: 'Interior design and home building in Bloxburg'
+        description: 'Interior design and home building in Bloxburg',
+        caseStudyUrl: '' // Replace with actual case study URL
       },
       matchaArt: {
         name: 'MATCHA ART',
         image: matchaart, // Placeholder - replace with actual Matcha Art image
         title: 'Matcha art collection',
-        description: 'Putting together random shapes to draw out iterations of my favorite drink'
+        description: 'Putting together random shapes to draw out iterations of my favorite drink',
+        caseStudyUrl: '' // Replace with actual case study URL
       }
     }
   };
@@ -87,6 +92,13 @@ const ProjectDropdown = () => {
         setSelectedProject(projectKey);
         setIsFading(false);
       }, 200);
+    }
+  };
+
+  const handleCaseStudyClick = (projectKey) => {
+    const project = projectData[activeCategory][projectKey];
+    if (project && project.caseStudyUrl) {
+      window.open(project.caseStudyUrl, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -138,7 +150,11 @@ const ProjectDropdown = () => {
       </div>
 
       <div className="preview-section">
-        <div className={`preview-container ${isFading ? 'project-fade-out' : 'project-fade-in'}`}>
+        <div 
+          className={`preview-container ${isFading ? 'project-fade-out' : 'project-fade-in'} ${selectedProjectData.caseStudyUrl ? 'clickable-project' : ''}`}
+          onClick={() => handleCaseStudyClick(selectedProject)}
+          style={{ cursor: selectedProjectData.caseStudyUrl ? 'pointer' : 'default' }}
+        >
           <div className="preview-image-container">
             <img 
               src={selectedProjectData.image} 
