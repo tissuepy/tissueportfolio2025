@@ -199,13 +199,14 @@ function About() {
         <div className="about-me-section">
           <div className="about-me-content">
             <p className="about-me-label">// LEARN ABOUT NITISH</p>
-            <h2 className="about-me-title">➜ Product Design is an odd interest turned to life-long passion</h2>
+            <h2 className="about-me-title">➜ Product Design is an odd interest turned to life-long passion.</h2>
             <p className="about-me-body">
-              I've always been curious about how people and systems work. In high school, my interest in computational biology led me toward statistics and data science, but serving on student government opened my eyes to the many problems in my school's everyday experiences. Even though I knew little about UX at the time, I became fascinated by human-centered design and the impact it could have. Since then, I've pursued product design as a way to combine technology, psychology, and aesthetics to create experiences that genuinely improve people's lives.
-            </p>
-            <p className="about-me-body">
-              In my current life, I'm based in Ithaca, NY, where you'll find me hiking local trails, admiring the gorges, experimenting with random boba combinations, or diving into competitive gaming.
-            </p>
+  My path into product design has been a bit unconventional. It started in high school when I took a graphic design class that sparked my interest in visual creativity. At the same time, serving on student government made me more aware of the many problems in my school’s day-to-day experience. That’s when I began to see design not just as aesthetics, but as a tool for problem-solving. Even though I knew little about UX at the time, I became fascinated by human-centered design and the impact it could have. Since then, I've pursued product design as a way to combine technology, psychology, and aesthetics to create experiences that genuinely improve people's lives.
+</p>
+<p className="about-me-body">
+  These days, I’m based in Ithaca, NY, where you’ll find me hiking local trails, admiring the gorges, experimenting with random boba combinations, or diving into competitive gaming.
+</p>
+
             
             {/* Three Images Section */}
             <div className="about-me-images">
@@ -262,7 +263,7 @@ function About() {
         <div className="design-philosophy-section">
           <div className="design-philosophy-content">
             <p className="design-philosophy-label">// DESIGN PHILOSOPHY</p>
-            <h2 className="design-philosophy-title">➜ Two core principles that guide my work</h2>
+            <h2 className="design-philosophy-title">➜ Two core principles that guide my work.</h2>
           </div>
         </div>
 
@@ -295,7 +296,7 @@ function About() {
         <div className="favorite-things-section">
           <div className="favorite-things-content">
             <p className="favorite-things-label">// WHAT I LOVE</p>
-            <h2 className="favorite-things-title">➜ A collection of my favorite things</h2>
+            <h2 className="favorite-things-title">➜ A collection of my favorite things.</h2>
           </div>
           
           <div className="masonry-gallery-favorites">
@@ -331,7 +332,7 @@ function About() {
           {/* Footer Text */}
           <div className="gallery-footer">
             <p className="gallery-footer-text">
-              <span className="thanks-text">THANKS FOR VISITING!</span> MADE WITH MANY ALL NIGHTERS AND INSPIRATION FROM MANY DESIGNERS ʕっ•ᴥ•ʔっ
+              MADE WITH MANY <span className="thanks-text">ALL NIGHTERS</span> AND INSPIRATION FROM <span className="thanks-text">MANY DESIGNERS</span> ʕっ•ᴥ•ʔっ
             </p>
           </div>
         </div>
