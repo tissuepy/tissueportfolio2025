@@ -64,6 +64,12 @@ body, html {
   color: #555555;
 }
 
+.logo-image {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
 
 
 .left-content {

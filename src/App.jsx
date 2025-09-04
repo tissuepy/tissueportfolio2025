@@ -3,6 +3,7 @@ import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import InteractiveMatcha from './InteractiveMatcha'; // Added
+import logo from './assets/logo.png';
 
 function App() {
   const location = useLocation();
@@ -42,7 +43,7 @@ function App() {
       {/* Navbar */}
       <div className="navbar">
         <div className="left-section">
-          <h1 className="name">nitishlogo.png</h1>
+          <img src={logo} alt="Nitish Logo" className="logo-image" />
         </div>
 
         <div className="right-section">
