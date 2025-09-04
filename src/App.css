@@ -45,13 +45,8 @@ body, html {
   align-items: center;
   padding: 30px 200px;
   border-bottom: 2px solid #ffffff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   background: white;
   z-index: 100;
-  transition: transform 1s ease;
 }
 
 /* Left Section */
@@ -61,22 +56,12 @@ body, html {
   justify-content: center;
 }
 
-.left-inner {
-  display: flex;
-  align-items: center;
-}
-
 .name {
   font-size: 1rem;
   font-weight: 600;
   margin: 0;
-  font-family: 'IBM Plex Mono', monospace; /* only here */
-}
-
-.title {
-  font-size: 0.9rem;
+  font-family: 'IBM Plex Mono', monospace;
   color: #555555;
-  margin-top: 5px;
 }
 
 
@@ -97,13 +82,7 @@ body, html {
   opacity: 0;
 }
 
-.navbar-visible {
-  transform: translateY(0);
-}
-
-.navbar-hidden {
-  transform: translateY(-100%);
-}
+/* Navbar visibility classes removed - navbar is now static */
 
 
 .page-wrapper.fade-in {
@@ -129,15 +108,15 @@ body, html {
   justify-content: center;
 }
 
-/* Center Section */
-.center-section {
+/* Nav Toggle */
+.nav-toggle {
   display: flex;
   gap: 5px;
   background-color: #8383831e;
   padding: 4px;
-  border-radius: 9999px;
+  border-radius: 8px;
   border: 1px solid #dedede;
-  font-family: 'IBM Plex Mono', monospace; /* only here */
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: 600;
 }
 
@@ -149,7 +128,6 @@ body, html {
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
   color: black;
 }
 
@@ -157,11 +135,15 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 40px 200px;
+  padding: 30px 100px;
   background-color: #282828;
   color: #000;
   border-top: 1px solid #ccc;
   flex-wrap: wrap;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .footer-left {
@@ -203,10 +185,6 @@ body, html {
 }
 
 
-.nav-button:hover {
-  background-color: #eaeaea;
-  border: 1px solid #dedede;
-}
 
 .nav-button.active {
   background-color: #e0e0e0;
@@ -229,7 +207,7 @@ body, html {
 }
 
 .project-section {
-  margin-top: 200px;
+  margin-top: 20px;
   padding: 0 200px 100px;
 
 }
@@ -258,7 +236,7 @@ body, html {
   max-width: 1000px;
   margin: 20px auto 80px;
   padding: 0 20px;
-  font-size: 30px;
+  font-size: 24px;
   color: #515050;
   text-align: center;
   line-height: 1.6;
@@ -306,7 +284,7 @@ body, html {
 }
 
 .project-section {
-  margin-top: -70px;
+  margin-top: 20px;
   background-color: white;
 }
 
@@ -571,7 +549,7 @@ body, html {
 .cartoon-container {
   display: flex;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 20px;
   margin-bottom: -80px
 }
 
@@ -995,10 +973,11 @@ body, html {
   padding: 0;
   width: 100%;
   max-width: none;
+  overflow-x: hidden;
 }
 
 .project-gallery {
-  width: 100vw;
+  width: 100%;
   max-width: none;
   padding: 0;
   margin: 0;
@@ -1206,7 +1185,7 @@ body, html {
     align-items: flex-start;
   }
 
-  .center-section {
+  .nav-toggle {
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -1437,7 +1416,7 @@ body, html {
     flex-direction: column; /* name on top, title underneath */
   }
 
-  .center-section {
+  .nav-toggle {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
@@ -1445,7 +1424,12 @@ body, html {
   }
 
   .right-section {
-    display: none; /* hide Medium and Resume on mobile */
+    display: flex !important; /* show nav toggle on mobile */
+    gap: 12px;
+  }
+  
+  .nav-link {
+    display: none; /* hide medium link on mobile */
   }
 
   .nav-button {

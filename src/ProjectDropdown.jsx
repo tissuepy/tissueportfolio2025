@@ -3,11 +3,9 @@ import './ProjectDropdown.css';
 
 // Import project images
 import wrapthumb from './assets/wrapthumb.png';
-import thumbsafe from './assets/ThumbSafehub.jpg';
-import search1 from './assets/searchy.png';
-import gpt1 from './chatgptproj/Home Chat Page.png';
+import thumbsafe from './assets/safehub thumnail.png';
+import search1 from './assets/Searchneu.png';
 import thinkneuro from './assets/thinkneuro thumbnail.png';
-import calorie from './assets/caloriethumb.jpg';
 import matchaart from  './assets/matcha art.png'
 import roblox from './assets/roblox.png'
 

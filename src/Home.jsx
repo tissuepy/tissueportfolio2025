@@ -143,32 +143,7 @@ function Home() {
         <ProjectDropdown />
       </div>
 
-      <footer className="footer">
-        <div className="footer-left">
-          <p className="footer-thankyou">reach out to me at ↓</p>
-          <p className="footer-email">
-            <p className="email-link">ng545@cornell.edu↗</p>
-          </p>
-          <p className="footer-email">ⓒ 2025</p>
-        </div>
-        <div className="footer-right">
-          <div className="footer-links">
-            <a href="https://github.com/tissuepy" className="footer-link" target="_blank" rel="noopener noreferrer">GITHUB</a>
-            <span>/</span>
-            <a href="https://dribbble.com/ngannu2" className="footer-link" target="_blank" rel="noopener noreferrer">DRIBBBLE</a>
-            <span>/</span>
-            <a href="https://easy-iron-95a.notion.site/Nitish-s-UX-Design-Archive-19534c722e428091bdd8cec96de8dd65" className="footer-link" target="_blank" rel="noopener noreferrer">DESIGN ARCHIVE</a>
-            <span>/</span>
-            <a href="https://www.linkedin.com/in/nitishgannu/" className="footer-link" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
-          </div>
 
-          <div className="rotating-icon-wrapper">
-            <div className="rotating-icon-container">
-              <h1>🍵</h1>
-            </div>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }
