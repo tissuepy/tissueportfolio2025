@@ -1,7 +1,7 @@
 // Home.jsx
 import './App.css';
 import './About.jsx';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import cartoonnitish from './assets/my-notion-face-transparent (2).png'
 import matchaBobaIce from './assets/matcha boba ice.png'
 import cat1 from './assets/cat 1.png'
@@ -16,35 +16,9 @@ function Home() {
     { top: '25%', left: '45%', rotate: '10deg', emoji: '', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." }
   ];
 
-  const identities = ["matcha enthusiast 🍵", "curious explorer 🧠", "problem solver 🧩"];
-  const [currentIdentity, setCurrentIdentity] = useState(0);
-  const [fade, setFade] = useState(true);
+  const identityText = "matcha enthusiast 🍵";
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setCurrentIdentity(prev => (prev + 1) % identities.length);
-        setFade(true);
-      }, 400);
-    }, 1800);
-    return () => clearInterval(interval);
-  }, []);
-
-  const disciplines = ["Statistics", "Data Science", "Information Science"];
-  const [currentDiscipline, setCurrentDiscipline] = useState(0);
-  const [fadeDiscipline, setFadeDiscipline] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFadeDiscipline(false);
-      setTimeout(() => {
-        setCurrentDiscipline(prev => (prev + 1) % disciplines.length);
-        setFadeDiscipline(true);
-      }, 300);
-    }, 1200);
-    return () => clearInterval(interval);
-  }, []);
+  const majorText = "Statistics & Information Science";
 
   return (
     <>
@@ -94,18 +68,14 @@ function Home() {
 
         <div className="about-section">
           <p>
-            <span className="highlight"> Nitish Gannu.</span> A <span className={`rotating-identity ${fade ? 'fade-in' : 'fade-out'}`}>{identities[currentIdentity]}</span> and passionate Data Scientist and Designer that creates solutions that blend functionality and simplicity.
+            <span className="highlight"> Nitish Gannu.</span> A <span className="rotating-identity">{identityText}</span> and Product Designer that creates digital solutions that blend functionality and simplicity.
           </p>
         </div>
       </div>
 
       <div className="status-section">
         <p>
-          <span className={`rotating-identity ${fadeDiscipline ? 'fade-in' : 'fade-out'}`}>
-            {disciplines[currentDiscipline]}
-          </span>{" "}
-          @ Cornell 🐻
-          
+          <span className="status-major-green">{majorText}</span> @ Cornell 🐻
         </p>
 
       </div>

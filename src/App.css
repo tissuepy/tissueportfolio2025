@@ -270,6 +270,11 @@ body, html {
   line-height: 1.6;
 }
 
+.status-major-green {
+  color: #74A662;
+  font-weight: 400;
+}
+
 .sandbox-image {
     display: block;
     margin: -2px auto 0; /* top margin gives some space from text */
