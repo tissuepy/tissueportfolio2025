@@ -21,14 +21,14 @@ const ProjectDropdown = () => {
       safehub: {
         name: 'SAFEHUB',
         image: thumbsafe,
-        title: 'Improving emergency response in schools',
+        title: 'Creating a safer school environment through design',
         description: 'Founding Designer • Dec 2023 – June 2024',
         caseStudyUrl: 'https://easy-iron-95a.notion.site/Safehub-19534c722e4280a69ff3e3b0650b9136' // Replace with actual case study URL
       },
       searchneu: {
         name: 'SEARCHNEU',
         image: search1,
-        title: 'SearchFAQs and user experience team',
+        title: 'Redesigning notifications for course registration',
         description: 'Product Designer • Jan 2025 - June 2025',
         caseStudyUrl: 'https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549' // Replace with actual case study URL
       },
@@ -42,7 +42,7 @@ const ProjectDropdown = () => {
       thinkneuro: {
         name: 'THINKNEURO INTERNSHIP',
         image: thinkneuro,
-        title: 'Dashboard for program funding insights',
+        title: 'Designing an interactive school funding tracking dashboard',
         description: 'Product Manager • June 2025 - Present',
         caseStudyUrl: '' // Replace with actual case study URL
       },
