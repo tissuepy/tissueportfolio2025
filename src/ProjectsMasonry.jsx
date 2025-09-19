@@ -56,7 +56,7 @@ const ProjectsMasonry = () => {
       name: 'SearchNEU Course Notifications & FAQs',
       title: 'course notifications',
       company: 'SearchNEU',
-      caseStudyUrl: '/work/searchneu',
+      caseStudyUrl: '',
       isExternal: false,
       height: 'medium'
     },
@@ -65,7 +65,7 @@ const ProjectsMasonry = () => {
       name: 'WrapApp',
       title: 'Crafting a new paradigm for safer, smarter dating',
       company: 'Wrap',
-      caseStudyUrl: '/work/wrap',
+      caseStudyUrl: '',
       isExternal: false,
       height: 'medium'
     },
