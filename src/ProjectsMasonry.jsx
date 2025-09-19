@@ -44,7 +44,7 @@ const ProjectsMasonry = () => {
   const projects = [
     {
       id: 'safehub',
-      name: 'SAFEHUB',
+      name: 'Safehub Safety App',
       title: 'Creating a safer school environment through design',
       company: 'Safehub',
       caseStudyUrl: 'https://easy-iron-95a.notion.site/Safehub-19534c722e4280a69ff3e3b0650b9136',
@@ -53,8 +53,8 @@ const ProjectsMasonry = () => {
     },
     {
       id: 'searchneu',
-      name: 'SEARCHNEU',
-      title: 'Redesigning notifications for course registration',
+      name: 'SearchNEU Course Notifications & FAQs',
+      title: 'course notifications',
       company: 'SearchNEU',
       caseStudyUrl: '/work/searchneu',
       isExternal: false,
@@ -62,7 +62,7 @@ const ProjectsMasonry = () => {
     },
     {
       id: 'wrap',
-      name: 'STARTUP',
+      name: 'WrapApp',
       title: 'Crafting a new paradigm for safer, smarter dating',
       company: 'Wrap',
       caseStudyUrl: '/work/wrap',
@@ -71,8 +71,8 @@ const ProjectsMasonry = () => {
     },
     {
       id: 'thinkneuro',
-      name: 'THINKNEURO INTERNSHIP',
-      title: 'Designing an interactive school funding tracking dashboard',
+      name: 'ThinkNeuro Funding Dashboard',
+      title: '0->1',
       company: 'ThinkNeuro',
       caseStudyUrl: '',
       isExternal: false,
@@ -145,14 +145,7 @@ const ProjectsMasonry = () => {
             
             {project.id !== 'comingsoon' && (
               <div className="project-text">
-                <span className="project-role">
-                  {project.id === 'safehub' && 'Founding Designer, '}
-                  {project.id === 'searchneu' && 'Product Designer, '}
-                  {project.id === 'wrap' && 'Founding Designer, '}
-                  {project.id === 'thinkneuro' && 'Product Manager, '}
-                  {!['safehub', 'searchneu', 'wrap', 'thinkneuro'].includes(project.id) && 'Product Design, '}
-                </span>
-                <span className="project-company">{project.company}</span>
+                <span className="project-company">{project.name}</span>
               </div>
             )}
           </div>

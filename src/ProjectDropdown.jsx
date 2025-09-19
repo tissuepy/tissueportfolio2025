@@ -28,7 +28,7 @@ const ProjectDropdown = () => {
       searchneu: {
         name: 'SEARCHNEU',
         image: search1,
-        title: 'Redesigning notifications for course registration',
+        title: 'course notifications',
         description: 'Product Designer • Jan 2025 - June 2025',
         caseStudyUrl: ''
       },
@@ -42,7 +42,7 @@ const ProjectDropdown = () => {
       thinkneuro: {
         name: 'THINKNEURO INTERNSHIP',
         image: thinkneuro,
-        title: 'Designing an interactive school funding tracking dashboard',
+        title: '0->1',
         description: 'Product Manager • June 2025 - Present',
         caseStudyUrl: '' // Replace with actual case study URL
       },
