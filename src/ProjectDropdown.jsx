@@ -23,21 +23,21 @@ const ProjectDropdown = () => {
         image: thumbsafe,
         title: 'Creating a safer school environment through design',
         description: 'Founding Designer • Dec 2023 – June 2024',
-        caseStudyUrl: 'https://easy-iron-95a.notion.site/Safehub-19534c722e4280a69ff3e3b0650b9136' // Replace with actual case study URL
+        caseStudyUrl: 'https://easy-iron-95a.notion.site/Safehub-19534c722e4280a69ff3e3b0650b9136'
       },
       searchneu: {
         name: 'SEARCHNEU',
         image: search1,
         title: 'Redesigning notifications for course registration',
         description: 'Product Designer • Jan 2025 - June 2025',
-        caseStudyUrl: 'https://easy-iron-95a.notion.site/SearchNEU-19534c722e42805aa1ead97764bfb549' // Replace with actual case study URL
+        caseStudyUrl: ''
       },
       wrap: {
         name: 'STARTUP',
         image: wrapthumb,
         title: 'Crafting a new paradigm for safer, smarter dating',
         description: 'Founding Product Designer • June 2025 - Present',
-        caseStudyUrl: 'https://your-case-study-url.com/wrap' // Replace with actual case study URL
+        caseStudyUrl: ''
       },
       thinkneuro: {
         name: 'THINKNEURO INTERNSHIP',

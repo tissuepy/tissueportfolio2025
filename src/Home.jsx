@@ -5,7 +5,9 @@ import React from 'react';
 import cartoonnitish from './assets/my-notion-face-transparent (2).png'
 import matchaBobaIce from './assets/matcha boba ice.png'
 import cat1 from './assets/cat 1.png'
-import ProjectDropdown from './ProjectDropdown';
+import ProjectsMasonry from './ProjectsMasonry';
+import cartoonnitish2 from './assets/my-notion-face-transparent (5).png'
+
 
 
 function Home() {
@@ -24,7 +26,7 @@ function Home() {
     <>
       <div className="cartoon-container">
         <div className="cartoon-wrapper">
-          <img src={cartoonnitish} alt="Cartoon of Nitish" className="cartoon-image" />
+          <img src={cartoonnitish2} alt="Cartoon of Nitish" className="cartoon-image" />
           
           {/* Pop-out elements that appear on hover */}
           <div className="pop-out-elements">
@@ -110,7 +112,7 @@ function Home() {
       </div> */}
 
       <div className="bottom-half">
-        <ProjectDropdown />
+        <ProjectsMasonry />
       </div>
 
 

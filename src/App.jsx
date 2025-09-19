@@ -1,7 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
+import SearchNEUCaseStudy from './casestudies/SearchNEU';
+import WrapCaseStudy from './casestudies/Wrap';
 import InteractiveMatcha from './InteractiveMatcha'; // Added
 import logo from './assets/logo.png';
 
@@ -9,8 +11,6 @@ function App() {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
   const [fadeClass, setFadeClass] = useState('fade-in');
-  const [showNavbar, setShowNavbar] = useState(true);
-  const lastScrollY = useRef(0);
 
   useEffect(() => {
     if (location.pathname !== currentPath) {
@@ -43,13 +43,12 @@ function App() {
       {/* Navbar */}
       <div className="navbar">
         <div className="left-section">
-          <img src={logo} alt="Nitish Logo" className="logo-image" />
         </div>
 
         <div className="right-section">
           <div className="nav-toggle">
-            <NavLink to="/" end className={({ isActive }) => (isActive ? 'nav-button active' : 'nav-button')}>work</NavLink>
-            <NavLink to="/about" className={({ isActive }) => (isActive ? 'nav-button active' : 'nav-button')}>about</NavLink>
+            <NavLink to="/" end className={({ isActive }) => (isActive ? 'nav-button active' : 'nav-button')}>WORK</NavLink>
+            <NavLink to="/about" className={({ isActive }) => (isActive ? 'nav-button active' : 'nav-button')}>ABOUT</NavLink>
           </div>
         </div>
       </div>
@@ -66,6 +65,8 @@ function App() {
               </>
             }
           />
+          <Route path="/work/searchneu" element={<SearchNEUCaseStudy />} />
+          <Route path="/work/wrap" element={<WrapCaseStudy />} />
         </Routes>
       </div>
 
@@ -87,7 +88,7 @@ function App() {
             <span>/</span>
             <a href="https://www.linkedin.com/in/nitishgannu/" className="footer-link">LINKEDIN</a>
             <span>/</span>
-            <a href="https://drive.google.com/file/d/1ERGr7CI1KHynjFuIpK8yaHkcfrInziD4/view?usp=sharing" className="footer-link">RESUME</a>
+            <a href="https://drive.google.com/file/d/1AawfCDqoyTQjBjYeD-MHmnIPAqtDLKSb/view?usp=sharing" className="footer-link">RESUME</a>
           </div>
 
           <div className="rotating-icon-wrapper">

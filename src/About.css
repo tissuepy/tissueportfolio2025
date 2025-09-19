@@ -1177,7 +1177,7 @@ body, html {
 /* Collage Hero Section */
 .collage-hero-container {
   width: 100%;
-  max-width: 900px;
+  max-width: 850px;
   margin: 0 auto;
   padding: 2rem 1rem 1rem 1rem;
   position: relative;
@@ -1200,23 +1200,6 @@ body, html {
   z-index: 100;
 }
 
-.nav-toggle {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
-  border-radius: 16px;
-  padding: 0.3rem;
-  display: flex;
-  align-items: center;
-  box-shadow: 
-    0 0 0 1px rgba(255, 255, 255, 0.8),
-    0 0 0 2px rgba(76, 175, 80, 0.15),
-    0 8px 32px rgba(76, 175, 80, 0.12),
-    0 4px 16px rgba(0, 0, 0, 0.04),
-    inset 0 2px 4px rgba(0, 0, 0, 0.08),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.6);
-  border: none;
-  backdrop-filter: blur(20px);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
 
 .toggle-option {
   background: none;
@@ -1251,7 +1234,7 @@ body, html {
   position: relative;
   display: inline-block;
   width: 100%;
-  max-width: 800px;
+  max-width: 750px;
 }
 
 /* Main Collage Image */
@@ -1446,7 +1429,7 @@ body, html {
   align-items: center;
   background: rgba(240, 242, 245, 0.95);
   border-radius: 12px;
-  padding: 1.2rem 1.8rem;
+  padding: 1rem 1.5rem;
   box-shadow: 
     0 0 20px rgba(255, 255, 255, 0.8),
     0 0 40px rgba(255, 255, 255, 0.4),
@@ -1454,7 +1437,6 @@ body, html {
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(20px);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   min-width: 650px;
   position: relative;
