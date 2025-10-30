@@ -146,14 +146,13 @@ body, html {
 }
 
 .footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
   padding: 30px 100px;
   background-color: #282828;
   color: #000;
   border-top: 1px solid #ccc;
-  flex-wrap: wrap;
   width: 100%;
   margin: 0;
   box-sizing: border-box;
@@ -164,11 +163,26 @@ body, html {
   max-width: 300px;
 }
 
+.footer-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  color: white;
+}
+
 .footer-email {
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 8px;
   color: white;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.footer-email:hover {
+  color: #74A662;
 }
 
 .footer-thankyou {
@@ -179,12 +193,26 @@ body, html {
 
 .footer-right {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-  font-family: 'IBM Plex Mono', monospace; /* only here */
-  font-weight: 600;
-  color: white;
+  justify-content: flex-end;
+  align-items: flex-end;
+  max-width: 300px;
+  position: relative;
+  overflow: visible;
+  height: 100px;
+}
+
+.footer-matcha-image {
+  width: 130px;
+  height: auto;
+  object-fit: contain;
+  transform: translateY(20px) translateX(60px) rotate(7deg);
+  opacity: 0.8;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.footer-matcha-image:hover {
+  transform: translateY(20px) translateX(80px) rotate(20deg);
 }
 
 .footer-link {
@@ -195,7 +223,7 @@ body, html {
 }
 
 .footer-link:hover {
-  color: #888;
+  color: #74A662;
 }
 
 
@@ -443,6 +471,9 @@ body, html {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .rotating-icon-wrapper {
@@ -641,7 +672,6 @@ body, html {
   transform: scale(1) translateY(-20px);
   z-index: 3;
 }
-
 /* Matcha Boba Ice Image - lurking out from behind */
 .matcha-boba-ice {
   top: 50%;
@@ -830,6 +860,55 @@ html {
   animation: fadeInUp 1s ease-out 1.4s forwards;
 }
 
+/* Info block header with sketch */
+.info-block-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.info-scribble {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  opacity: 0.8;
+  transform: translateY(2px);
+}
+
+
+/* Apply project card animations to info sketches */
+.info-block-header:first-child .info-scribble {
+  animation: lightbulbGlow 2s steps(1, end) 3.5s infinite;
+}
+
+.info-block-header:nth-child(2) .info-scribble {
+  animation: heartsFloat 2s steps(1, end) 5s infinite;
+}
+
+.info-block-header:nth-child(3) .info-scribble {
+  animation: smileyWiggle 2s steps(1, end) 3s infinite;
+}
+
+/* Project card animation keyframes */
+@keyframes lightbulbGlow {
+  0% { transform: translateY(2px) rotate(0deg); }
+  50% { transform: translateY(2px) rotate(-50deg); }
+  100% { transform: translateY(2px) rotate(0deg); }
+}
+
+@keyframes heartsFloat {
+  0% { transform: translateY(2px) rotate(0deg); }
+  50% { transform: translateY(2px) rotate(50deg); }
+  100% { transform: translateY(2px) rotate(0deg); }
+}
+
+@keyframes smileyWiggle {
+  0% { transform: translateY(4px) rotate(0deg); }
+  50% { transform: translateY(4px) rotate(15deg); }
+  100% { transform: translateY(4px) rotate(0deg); }
+}
+
 .project-section {
   /* your existing styles */
   margin-bottom: 2rem; /* add space between projects and text */
@@ -847,6 +926,7 @@ html {
 
 .rotating-identity {
   transition: opacity 0.4s ease;
+  font-size: 0.92em; /* slightly smaller to reduce blur */
 }
 
 .fade-in {
@@ -889,6 +969,7 @@ a:hover {
   color: #74A662;
   display: inline-block;
   transition: opacity 0.9s ease-in-out, transform 0.9s ease-in-out;
+  font-size: 0.85em; /* smaller for sharper rendering */
 }
 
 .fade-in {

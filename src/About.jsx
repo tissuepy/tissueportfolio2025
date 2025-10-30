@@ -12,9 +12,9 @@ import matchaImage from './assets/assets2/matcha_1-removebg-preview.png';
 import designerImage from './assets/assets2/DESIGNER !.png';
 import hatImage from './assets/assets2/hat.jpg';
 import collageImage from './assets/image collage.png';
-import about1 from './assets/assets2/about1.jpg';
-import about2 from './assets/assets2/about2.PNG';
-import about3 from './assets/assets2/about3.PNG';
+import about1 from './galleryphotos/triplet1.jpg';
+import about2 from './galleryphotos/triplet2.jpg';
+import about3 from './galleryphotos/nitishtough.jpg';
 // Food images
 import buldakRamen from './assets/Buldak Ramen.jpeg';
 import hotpot from './assets/hotpot.jpg';
@@ -198,29 +198,34 @@ function About() {
         {/* About Me Section */}
         <div className="about-me-section">
           <div className="about-me-content">
-            <p className="about-me-label">// LEARN ABOUT NITISH</p>
-            <h2 className="about-me-title">➜ Product Design is an odd interest turned to life-long passion.</h2>
+            <p className="about-me-label">LEARN ABOUT NITISH</p>
+            <h2 className="about-me-title">Product Design is an odd interest turned to life-long passion.</h2>
             <p className="about-me-body">
-  My path into product design has been a bit unconventional. It started in high school when I took a graphic design class that sparked my interest in visual creativity. At the same time, serving on student government made me more aware of the many problems in my school’s day-to-day experience. That’s when I began to see design not just as aesthetics, but as a tool for problem-solving. Even though I knew little about UX at the time, I became fascinated by human-centered design and the impact it could have. Since then, I've pursued product design as a way to combine technology, psychology, and aesthetics to create experiences that genuinely improve people's lives.
+  My journey into product design wasn’t exactly planned. Back in high school, I took a graphic design class that got me hooked on being creative visually. Around the same time, I was in student government, and that opened my eyes to how many little problems people deal with every day. That’s when it clicked — design isn’t just about making things look good, it’s about fixing things that don’t work. I didn’t even know what UX was back then, but I loved the idea of designing with people in mind. Since then, I’ve been drawn to product design because it blends tech, psychology, and creativity in a way that actually makes a difference for real people.
 </p>
+
 <p className="about-me-body">
   These days, I’m based in Ithaca, NY, where you’ll find me hiking local trails, admiring the gorges, experimenting with random boba combinations, or diving into competitive gaming.
 </p>
+
+<p className="about-me-body">
+  More recently, I've been:
+  </p>
 
             
             {/* Three Images Section */}
             <div className="about-me-images">
               <div className="about-me-image-item">
                 <img src={about1} alt="About me image 1" className="about-me-image" />
-                <p className="about-me-image-caption">SEARCHNEU TEAM</p>
+                <p className="about-me-image-caption">ADMIRING ITHACA SUNSETS</p>
               </div>
               <div className="about-me-image-item">
                 <img src={about2} alt="About me image 2" className="about-me-image" />
-                <p className="about-me-image-caption">DESIGNER POTLUCK</p>
+                <p className="about-me-image-caption">COLLECTING SMISKIS</p>
               </div>
               <div className="about-me-image-item">
                 <img src={about3} alt="About me image 3" className="about-me-image" />
-                <p className="about-me-image-caption">POD MATCHA RUN</p>
+                <p className="about-me-image-caption">TAKING PHOTOS WITH FRIENDS</p>
               </div>
             </div>
           </div>
@@ -262,8 +267,8 @@ function About() {
         {/* Design Philosophy Section */}
         <div className="design-philosophy-section">
           <div className="design-philosophy-content">
-            <p className="design-philosophy-label">// DESIGN PHILOSOPHY</p>
-            <h2 className="design-philosophy-title">➜ Two core principles that guide my work.</h2>
+            <p className="design-philosophy-label">DESIGN PHILOSOPHY</p>
+            <h2 className="design-philosophy-title">Two core principles that guide my work.</h2>
           </div>
         </div>
 
@@ -295,8 +300,8 @@ function About() {
         {/* Some of Nitish's Favorite Things Section */}
         <div className="favorite-things-section">
           <div className="favorite-things-content">
-            <p className="favorite-things-label">// WHAT I LOVE</p>
-            <h2 className="favorite-things-title">➜ A collection of my favorite things.</h2>
+            <p className="favorite-things-label">CHECK IT OUT</p>
+            <h2 className="favorite-things-title">A collection of my favorite things.</h2>
           </div>
           
           <div className="masonry-gallery-favorites">

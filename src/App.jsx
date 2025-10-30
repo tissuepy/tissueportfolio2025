@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
-import SearchNEUCaseStudy from './casestudies/SearchNEU';
-import WrapCaseStudy from './casestudies/Wrap';
+import SearchNEUCaseStudy from './SearchNEUCaseStudy';
+import WrapCaseStudy from './WrapCaseStudy';
+import SafehubCaseStudy from './SafehubCaseStudy';
 import InteractiveMatcha from './InteractiveMatcha'; // Added
 import logo from './assets/logo.png';
+import matchaImage from './drink/matcha 1.png';
 
 function App() {
   const location = useLocation();
@@ -67,6 +69,7 @@ function App() {
           />
           <Route path="/work/searchneu" element={<SearchNEUCaseStudy />} />
           <Route path="/work/wrap" element={<WrapCaseStudy />} />
+          <Route path="/work/safehub" element={<SafehubCaseStudy />} />
         </Routes>
       </div>
 
@@ -78,11 +81,9 @@ function App() {
           <p className="footer-email"> ⓒ 2025</p> 
         </div>
 
-        <div className="footer-right">
+        <div className="footer-middle">
           <div className="footer-links">
             <a href="https://github.com/tissuepy" className="footer-link">GITHUB</a>
-            <span>/</span>
-            <a href="https://dribbble.com/ngannu2" className="footer-link">DRIBBBLE</a>
             <span>/</span>
             <a href="https://medium.com/@nitishgannu" className="footer-link">MEDIUM</a>
             <span>/</span>
@@ -90,13 +91,12 @@ function App() {
             <span>/</span>
             <a href="https://drive.google.com/file/d/1AawfCDqoyTQjBjYeD-MHmnIPAqtDLKSb/view?usp=sharing" className="footer-link">RESUME</a>
           </div>
-
-          <div className="rotating-icon-wrapper">
-            <div className="rotating-icon-container">
-              <h1>🍵</h1>
-            </div>
-          </div>
         </div>
+
+        <div className="footer-right">
+          <img src={matchaImage} alt="Matcha" className="footer-matcha-image" />
+        </div>
+
       </footer>
     </>
   );

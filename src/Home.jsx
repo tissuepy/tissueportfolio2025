@@ -7,6 +7,10 @@ import matchaBobaIce from './assets/matcha boba ice.png'
 import cat1 from './assets/cat 1.png'
 import ProjectsMasonry from './ProjectsMasonry';
 import cartoonnitish2 from './assets/my-notion-face-transparent (5).png'
+// Sketch imports
+import lightbulbScribble from './assets/scribbles/lightbulb.png';
+import heartsScribble from './assets/scribbles/hearts.png';
+import smileyScribble from './assets/scribbles/smiley.png';
 
 
 
@@ -85,18 +89,27 @@ function Home() {
       <div className="about-info-container">
 <div className="about-info-section">
   <div className="about-info-block">
-    <h3 className="about-info-title">working as a</h3>
-    <p className="about-info-text">summer 2025 AI R&D product management intern @<span className="matcha-highlight"><a href="https://www.thinkneuro.org/" className="matcha-link">ThinkNeuro</a></span></p>
+    <div className="info-block-header">
+      <img src={lightbulbScribble} alt="Lightbulb sketch" className="info-scribble" />
+      <h3 className="about-info-title">working as a</h3>
+    </div>
+    <p className="about-info-text">student and a founding product designer @<span className="matcha-highlight"><a href="https://trywrap.com/" className="matcha-link">Wrap</a></span></p>
   </div>
 
   <div className="about-info-block">
-    <h3 className="about-info-title">currently binging</h3>
-    <p className="about-info-text">suits; a show about the most impressive lawyers in nyc! </p>
+    <div className="info-block-header">
+      <img src={heartsScribble} alt="Hearts sketch" className="info-scribble" />
+      <h3 className="about-info-title">currently collecting</h3>
+    </div>
+    <p className="about-info-text">smiskis! curious little creatures that glow in the dark. </p>
   </div>
 
   <div className="about-info-block">
-    <h3 className="about-info-title">hobbies</h3>
-    <p className="about-info-text">playing animal crossing new horizons and blogging on <span className="matcha-highlight"><a href="https://medium.com/@nitishgannu" className="matcha-link">medium</a></span></p>
+    <div className="info-block-header">
+      <img src={smileyScribble} alt="Smiley sketch" className="info-scribble" />
+      <h3 className="about-info-title">hobbies</h3>
+    </div>
+    <p className="about-info-text">playing animal crossing new horizons and writing on @<span className="matcha-highlight">medium<a href="https://medium.com/@nitishgannu" className="matcha-link"></a></span></p>
   </div>
 
 </div>
