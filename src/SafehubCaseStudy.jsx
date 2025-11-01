@@ -46,7 +46,7 @@ const SafehubCaseStudy = () => {
             <em>Streamlining Emergency Response in High Schools</em>
           </h1>
           <p className="case-study-description">
-            A project where I singlehandedly led the creation of a campus safety app for my high school to counteract the flawed security systems that already existed using mixed methods research and product design skills.
+            A project where I singlehandedly led the creation of a campus safety app for my high school to counteract the flawed security systems that already existed using design thinking and user research.
           </p>
           <img 
             src={safehubThumbnail} 
