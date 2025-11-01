@@ -26,6 +26,8 @@ import greyGuy from './casestudyassets/grey guy.png';
 import locationLogics from './casestudyassets/Logics of Location Modals.png';
 import locationLogics2 from './casestudyassets/Logistics of Location Modal 2.png';
 import userFeelings from './casestudyassets/User feelings.png';
+import finalDesignsPerma from './casestudyassets/Final Designs (perma).png';
+import happyUsers from './casestudyassets/Happy Users.png';
 
 const SafehubCaseStudy = () => {
   const navigate = useNavigate();
@@ -146,23 +148,23 @@ const SafehubCaseStudy = () => {
             <div className="callout role-students">
               <img src={redGuy} alt="Student icon" className="role-icon" />
               <div className="callout-body">
-                <h4 className="callout-title">STUDENTS</h4>
-                <p className="callout-content">to learn how safe they currently feel on campus, how they respond in emergencies, and what barriers prevent them from reporting incidents quickly or discreetly.</p>
+              <h4 className="callout-title">STUDENTS</h4>
+              <p className="callout-content">to learn how safe they currently feel on campus, how they respond in emergencies, and what barriers prevent them from reporting incidents quickly or discreetly.</p>
               </div>
             </div>
             
             <div className="callout role-teachers">
               <img src={pinkGuy} alt="Teacher icon" className="role-icon" />
               <div className="callout-body">
-                <h4 className="callout-title">TEACHERS AND STAFF</h4>
-                <p className="callout-content">to understand their responsibilities during lockdowns or crises, and identify how communication gaps or delayed updates affect their ability to protect students.</p>
+              <h4 className="callout-title">TEACHERS AND STAFF</h4>
+              <p className="callout-content">to understand their responsibilities during lockdowns or crises, and identify how communication gaps or delayed updates affect their ability to protect students.</p>
               </div>
             </div>
             
             <div className="callout role-security">
               <img src={greyGuy} alt="Security guard icon" className="role-icon" />
               <div className="callout-body">
-                <h4 className="callout-title">SECURITY GUARDS</h4>
+              <h4 className="callout-title">SECURITY GUARDS</h4>
                 <p className="callout-content">to uncover how emergency response is currently managed and what information is most critical in real time.</p>
               </div>
             </div>
@@ -342,6 +344,10 @@ const SafehubCaseStudy = () => {
             <span className="container-caption">Location Logistics</span>
           </div>
           
+          <p className="section-paragraph">
+            Through two design iterations, I introduced maps, enabling users to set their location easily.
+          </p>
+          
           <div className="location-logistics-container location-logistics-container--wider">
             <img 
               src={locationLowFidelity} 
@@ -361,7 +367,7 @@ const SafehubCaseStudy = () => {
           </div>
           
           <p className="section-paragraph" style={{ marginTop: '1.5rem' }}>
-            This approach was much faster and more intuitive, which is why I ultimately chose <strong>Version B</strong>.
+            Using maps was much faster and more intuitive for students. Hence, Iteration 2 was the final version.
           </p>
           
           <p style={{ color: '#e74c3c', fontWeight: '500', fontSize: '1.3em', marginBottom: '1rem', marginTop: '3.5rem' }}>
@@ -511,6 +517,36 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
           </div>
         </div>
         
+        {/* Final Product Section */}
+        <div className="case-study-section">
+          <h2 className="section-title">FINAL PRODUCT</h2>
+          <h3 className="section-subtitle">
+            <em>A 0→1 product that makes an impact</em>
+          </h3>
+          
+          <p className="section-paragraph">
+            While it took quite some time and multiple rounds of refinement, the final product turned into something I'm genuinely proud of: an app that I'm happy to call my own work.
+          </p>
+          
+          <div className="final-designs-container">
+            <img 
+              src={finalDesignsPerma} 
+              alt="Final Designs" 
+              className="final-designs-image"
+            />
+            <span className="container-caption container-caption--top-left">FINAL DESIGNS</span>
+          </div>
+          
+          <div className="location-logistics-container user-feelings-container">
+            <img 
+              src={happyUsers} 
+              alt="Happy Users" 
+              className="location-logistics-image user-feelings-image"
+            />
+            <span className="container-caption">SATISFIED USERS</span>
+          </div>
+              </div>
+        
         {/* Reflection Section */}
         <div className="case-study-section">
           <h2 className="section-title">REFLECTION</h2>
@@ -528,33 +564,37 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
             className="question-character-image"
           />
           
-          <div className="red-question-box" style={{ marginBottom: '30px' }}>
-            <h4 className="callout-title" style={{ marginBottom: '15px' }}>DESIGN FOR THE USER</h4>
-            <div className="question-text">
-              <span className="question-star">✦</span>
-              <span className="question-content">
-                While it's tempting to prioritize visual appeal, the most effective designs are those that solve real user problems and meet their needs first.
-              </span>
+          <div className="reflection-grid">
+            <div className="reflection-callout">
+              <div className="reflection-icon">✦</div>
+              <h4 className="reflection-title">DESIGN FOR THE USER</h4>
+              <p className="reflection-text">
+              It’s easy to get caught up in visuals, but the best designs focus on solving real user problems. Keeping users at the center makes every decision more meaningful.
+              </p>
             </div>
-          </div>
-          
-          <div className="red-question-box" style={{ marginBottom: '30px' }}>
-            <h4 className="callout-title" style={{ marginBottom: '15px' }}>USE RESEARCH METHODS</h4>
-            <div className="question-text">
-              <span className="question-star">✦</span>
-              <span className="question-content">
-                Research methods are invaluable for informing design decisions, but it's important to find the perfect balance—overusing them can slow progress, and bias can compromise insights.
-              </span>
+            
+            <div className="reflection-callout">
+              <div className="reflection-icon">✦</div>
+              <h4 className="reflection-title">USE RESEARCH METHODS</h4>
+              <p className="reflection-text">
+              Research is powerful, but it’s all about balance. Know when to gather insights and when to start building.
+              </p>
             </div>
-          </div>
-          
-          <div className="red-question-box" style={{ marginBottom: '30px' }}>
-            <h4 className="callout-title" style={{ marginBottom: '15px' }}>ASK FOR HELP</h4>
-            <div className="question-text">
-              <span className="question-star">✦</span>
-              <span className="question-content">
-                I reached out to one of my teachers who had previously worked in Product, and their advice helped me plan out not only how I conducted research, but how I justified how design was grounded in the solution to this problem.
-              </span>
+            
+            <div className="reflection-callout">
+              <div className="reflection-icon">✦</div>
+              <h4 className="reflection-title">ASK FOR HELP</h4>
+              <p className="reflection-text">
+              I reached out to a teacher with product experience, and their advice shaped how I approached research and design. Getting help can really change your perspective.
+              </p>
+            </div>
+            
+            <div className="reflection-callout">
+              <div className="reflection-icon">✦</div>
+              <h4 className="reflection-title">ITERATE WITH PURPOSE</h4>
+              <p className="reflection-text">
+              Every iteration should bring you closer to solving the user’s problem. Keep it simple and focused on what matters most.
+              </p>
             </div>
           </div>
           

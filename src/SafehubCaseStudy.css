@@ -670,3 +670,45 @@ ul.section-paragraph {
   line-height: 1.5;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
+/* Reflection callouts grid - 2x2 layout */
+.reflection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 60px; /* more space between columns */
+  margin: 40px 0;
+  text-align: left;
+}
+
+.reflection-callout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.reflection-icon {
+  font-size: 32px;
+  color: #e74c3c;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.reflection-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e74c3c;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.5px;
+}
+
+.reflection-text {
+  font-size: 15px;
+  font-weight: 400;
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
