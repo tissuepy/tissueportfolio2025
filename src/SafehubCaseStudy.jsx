@@ -26,6 +26,7 @@ import greyGuy from './casestudyassets/grey guy.png';
 import locationLogics from './casestudyassets/Logics of Location Modals.png';
 import locationLogics2 from './casestudyassets/Logistics of Location Modal 2.png';
 import userFeelings from './casestudyassets/User feelings.png';
+import happyUsers from './casestudyassets/Happy Users.png';
 import finalDesignsPerma from './casestudyassets/Final Designs (perma).png';
 
 const SafehubCaseStudy = () => {
@@ -89,7 +90,7 @@ const SafehubCaseStudy = () => {
             <div className="news-headlines">
               <div className="news-headline-right">
                 <h4 className="news-headline-text">
-                  <a href="https://www.stamfordadvocate.com/news/article/stamford-high-school-student-threatened-shoot-up-19412345.php" target="_blank" rel="noopener noreferrer" className="news-headline-link">
+                  <a href="https://www.stamfordadvocate.com/news/article/stamford-school-shooting-threat-student-arrest-19749508.php" target="_blank" rel="noopener noreferrer" className="news-headline-link">
                     ↖"Stamford High School student threatened to 'shoot up the school' on Snapchat"
                   </a>
                 </h4>
@@ -98,7 +99,7 @@ const SafehubCaseStudy = () => {
               
               <div className="news-headline-left">
                 <h4 className="news-headline-text">
-                  <a href="https://www.nbcnewyork.com/news/local/connecticut/stamford-high-school-active-shooter-hoax/3894567/" target="_blank" rel="noopener noreferrer" className="news-headline-link">
+                  <a href="https://www.nbcnewyork.com/news/local/active-shooter-hoax-call-triggers-lockdown-at-ct-schools-week-after-nj-swatting-spree/3917578/" target="_blank" rel="noopener noreferrer" className="news-headline-link">
                     "Extremely Traumatic:' CT Official Blasts 'Active Shooter' Hoax"↗
                   </a>
                 </h4>
@@ -531,7 +532,16 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
             />
             <span className="container-caption container-caption--top-left">FINAL DESIGNS</span>
           </div>
-              </div>
+          
+          <div className="location-logistics-container happy-users-container">
+            <img 
+              src={happyUsers} 
+              alt="Happy Users" 
+              className="location-logistics-image happy-users-image"
+            />
+            <span className="container-caption">ENSURING ALL USERS ARE SATISFIED</span>
+          </div>
+        </div>
         
         {/* Reflection Section */}
         <div className="case-study-section">

@@ -417,6 +417,14 @@ body, html {
   padding-bottom: 60px; /* taller container with more space below image */
 }
 
+.happy-users-image {
+  max-width: 420px; /* same size as user-feelings-image */
+}
+
+.happy-users-container {
+  padding-bottom: 60px; /* taller container with more space below image */
+}
+
 /* Final designs container */
 .final-designs-container {
   background-color: #f8f8f8;
@@ -675,7 +683,7 @@ ul.section-paragraph {
 .reflection-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px 60px; /* more space between columns */
+  gap: 30px;
   margin: 40px 0;
   text-align: left;
 }
