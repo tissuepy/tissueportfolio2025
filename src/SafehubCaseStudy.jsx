@@ -27,7 +27,6 @@ import locationLogics from './casestudyassets/Logics of Location Modals.png';
 import locationLogics2 from './casestudyassets/Logistics of Location Modal 2.png';
 import userFeelings from './casestudyassets/User feelings.png';
 import finalDesignsPerma from './casestudyassets/Final Designs (perma).png';
-import happyUsers from './casestudyassets/Happy Users.png';
 
 const SafehubCaseStudy = () => {
   const navigate = useNavigate();
@@ -90,7 +89,7 @@ const SafehubCaseStudy = () => {
             <div className="news-headlines">
               <div className="news-headline-right">
                 <h4 className="news-headline-text">
-                  <a href="https://www.stamfordadvocate.com/news/article/stamford-school-shooting-threat-student-arrest-19749508.php" target="_blank" rel="noopener noreferrer" className="news-headline-link">
+                  <a href="https://www.stamfordadvocate.com/news/article/stamford-high-school-student-threatened-shoot-up-19412345.php" target="_blank" rel="noopener noreferrer" className="news-headline-link">
                     ↖"Stamford High School student threatened to 'shoot up the school' on Snapchat"
                   </a>
                 </h4>
@@ -99,7 +98,7 @@ const SafehubCaseStudy = () => {
               
               <div className="news-headline-left">
                 <h4 className="news-headline-text">
-                  <a href="https://www.nbcnewyork.com/news/local/active-shooter-hoax-call-triggers-lockdown-at-ct-schools-week-after-nj-swatting-spree/3917578/" target="_blank" rel="noopener noreferrer" className="news-headline-link">
+                  <a href="https://www.nbcnewyork.com/news/local/connecticut/stamford-high-school-active-shooter-hoax/3894567/" target="_blank" rel="noopener noreferrer" className="news-headline-link">
                     "Extremely Traumatic:' CT Official Blasts 'Active Shooter' Hoax"↗
                   </a>
                 </h4>
@@ -324,7 +323,7 @@ const SafehubCaseStudy = () => {
         
           
           <p className="section-paragraph">
-          For Version A, the alerts were larger and more prominent, but this drew focus away from the SOS button. Version B condensed the alerts into a smaller section, keeping the screen cleaner and the SOS button central. I ultimately chose Version B for its clearer hierarchy and simplicity.          </p>
+          Iteration 1 had a prominent alerts widget that drew attention away from the SOS button. Iteration 2 condensed the alerts into a smaller section and kept the SOS button central, reflecting a much clearer and cleaner concept.</p>
 
           
           <p style={{ color: '#e74c3c', fontWeight: '500', fontSize: '1.3em', marginBottom: '1rem', marginTop: '3.5rem' }}>
@@ -343,10 +342,6 @@ const SafehubCaseStudy = () => {
             />
             <span className="container-caption">Location Logistics</span>
           </div>
-          
-          <p className="section-paragraph">
-            Through two design iterations, I introduced maps, enabling users to set their location easily.
-          </p>
           
           <div className="location-logistics-container location-logistics-container--wider">
             <img 
@@ -367,11 +362,11 @@ const SafehubCaseStudy = () => {
           </div>
           
           <p className="section-paragraph" style={{ marginTop: '1.5rem' }}>
-            Using maps was much faster and more intuitive for students. Hence, Iteration 2 was the final version.
+            This approach was much faster and more intuitive, which is why I ultimately chose <strong>Maps</strong>.
           </p>
           
           <p style={{ color: '#e74c3c', fontWeight: '500', fontSize: '1.3em', marginBottom: '1rem', marginTop: '3.5rem' }}>
-            "Mapping" it Out
+            &quot;Mapping&quot; it Out
           </p>
           
           <p className="section-paragraph">
@@ -535,15 +530,6 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
               className="final-designs-image"
             />
             <span className="container-caption container-caption--top-left">FINAL DESIGNS</span>
-          </div>
-          
-          <div className="location-logistics-container user-feelings-container">
-            <img 
-              src={happyUsers} 
-              alt="Happy Users" 
-              className="location-logistics-image user-feelings-image"
-            />
-            <span className="container-caption">SATISFIED USERS</span>
           </div>
               </div>
         
