@@ -98,22 +98,6 @@ const SearchNEUCaseStudy = () => {
             Instead of constantly refreshing Banner, they can set alerts, apply filters for course type or professor, and plan their schedules with less stress.
           </p>
 
-          <p className="section-paragraph">
-            Try it out for yourself!
-          </p>
-          
-          <div className="searchneu-button-container">
-            <button 
-              className="searchneu-button searchneu-case-study-button"
-              onClick={() => window.open('https://searchneu.com/NEU', '_blank')}
-            >
-              <span>SearchNEU</span>
-              <div className="button-arrow-circle">
-                <span className="button-arrow">↗</span>
-              </div>
-            </button>
-          </div>
-          
           <div className="searchneu-video-container">
             <video className="searchneu-video" src={vidB} autoPlay loop muted playsInline />
           </div>

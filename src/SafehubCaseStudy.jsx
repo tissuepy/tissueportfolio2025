@@ -137,7 +137,7 @@ const SafehubCaseStudy = () => {
         <div className="case-study-section">
           <h2 className="section-title">USER RESEARCH</h2>
           <h3 className="section-subtitle">
-            <em>Talking To My Friends and Teachers</em>
+            <em>Talking to my friends and teachers</em>
           </h3>
           
           <p className="section-paragraph">
@@ -218,7 +218,7 @@ const SafehubCaseStudy = () => {
         <div className="case-study-section">
           <h2 className="section-title">GETTING TO WORK</h2>
           <h3 className="section-subtitle">
-            Theoretically, How Would Safehub Solve… Well Anything?
+            Theoretically, how would Safehub solve anything?
           </h3>
           
           <p className="section-paragraph">
@@ -267,7 +267,7 @@ const SafehubCaseStudy = () => {
         <div className="case-study-section">
           <h2 className="section-title">MORE RESEARCH</h2>
           <h3 className="section-subtitle">
-            A "quick" survey
+            Asking students to fill out a quick survey
           </h3>
           
           <p className="section-paragraph">

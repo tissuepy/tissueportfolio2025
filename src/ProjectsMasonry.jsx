@@ -3,8 +3,10 @@ import './ProjectsMasonry.css';
 import { useNavigate } from 'react-router-dom';
 import wrap1 from './assets/wrap1.png';
 import wrap2 from './assets/wrap2.png';
+import wrapMockups from './casestudyassets/Wrap mockups.png';
 import safehubM1 from './assets/safehub m1.png';
 import safehubM2 from './assets/safehub m2.png';
+import finalDesignsPerma from './casestudyassets/Final Designs (perma).png';
 import searchflow from './assets/gifs/searchflow.mov';
 import searchneuThumb from './assets/searchneu thumbnail.png';
 import searchPhone from './assets/SearchPhone.png';
@@ -52,7 +54,7 @@ const ProjectsMasonry = () => {
       name: 'Safehub Safety App',
       title: 'Campus Safety, Safehub',
       company: 'Safehub',
-      description: 'Oversaw the design and development of a comprehensive campus safety app for a high school.',
+      description: 'Oversaw the design and development of a comprehensive campus safety app for a high school with Safehub',
       duration: 'Mobile App',
       team: 'End to End',
       growth: '0 → 1',
@@ -64,7 +66,7 @@ const ProjectsMasonry = () => {
       name: 'SearchNEU Course Notifications',
       title: 'FAQs & Alerts, SearchNEU',
       company: 'SearchNEU',
-      description: 'Enhanced the course search platform with intelligent notification system and comprehensive FAQ section for Northeastern students.',
+      description: 'Redesigned SearchNEU to simplify course registration through interactive tutorials and an intelligent notification system for Northeastern students.',
       duration: 'Visual Design',
       team: 'Interaction Design',
       growth: 'WEBSITE',
@@ -76,7 +78,7 @@ const ProjectsMasonry = () => {
       name: 'WrapApp',
       title: 'Dynamic Dating, Wrap',
       company: 'Wrap',
-      description: 'Reshaped the dating app experience with a new way to find your perfect match.',
+      description: 'Reshaped the dating app experience with a new way to find your perfect match with Wrap',
       duration: 'Design Systems',
       team: 'User Research',
       growth: 'NDA',
@@ -119,10 +121,9 @@ const ProjectsMasonry = () => {
           key={project.id}
           data-card-id={project.id}
           data-project-id={project.id}
-          className={`project-card ${hoveredProject === project.id ? 'hovered' : ''} ${animatedCards.has(project.id) ? 'animate' : ''} ${project.caseStudyUrl ? 'clickable' : ''}`}
+          className={`project-card ${hoveredProject === project.id ? 'hovered' : ''} ${animatedCards.has(project.id) ? 'animate' : ''}`}
           onMouseEnter={() => setHoveredProject(project.id)}
           onMouseLeave={() => setHoveredProject(null)}
-          onClick={() => project.caseStudyUrl && handleProjectClick(project)}
         >
             {/* Logo/Design Space - Reserved for future use */}
             <div className="project-logo-space">
@@ -151,63 +152,110 @@ const ProjectsMasonry = () => {
               </div>
             )}
             
-            {/* Wireframes for Safehub */}
-            {project.id === 'safehub' && (
-              <div className="project-wireframes">
-                <img src={safehubM1} alt="Safehub Wireframe 1" className="project-wireframe" />
-                <img src={safehubM2} alt="Safehub Wireframe 2" className="project-wireframe" />
-              </div>
-            )}
-            
-            {/* Thumbnail for SearchNEU */}
-            {project.id === 'searchneu' && (
-              <div className="project-wireframes">
-                <img src={searchneuThumb} alt="SearchNEU Thumbnail" className="project-wireframe" />
-              </div>
-            )}
-            
-            {/* Wireframes for Wrap */}
-            {project.id === 'wrap' && (
-              <div className="project-wireframes">
-                <img src={wrap1} alt="Wrap Wireframe 1" className="project-wireframe" />
-                <img src={wrap2} alt="Wrap Wireframe 2" className="project-wireframe" />
-              </div>
-            )}
-            
-            {/* Thumbnail for ThinkNeuro */}
-            {project.id === 'thinkneuro' && (
-              <div className="project-wireframes">
-                <img src={thinkneuroThumb} alt="ThinkNeuro Thumbnail" className="project-wireframe" />
-              </div>
-            )}
-            
-            <div className="project-content">
-              <div className="project-header">
-                <h3 className="project-title">{project.title}</h3>
-              </div>
-              
-              <p className="project-description">{project.description}</p>
-              
-              <div className="project-details">
-                <span className="project-duration">{project.duration}</span>
-                <span className="project-team">{project.team}</span>
-                <span className="project-growth">{project.growth}</span>
-              </div>
-              
-              {project.caseStudyUrl && (
-                <div className="project-button-container">
-                  <button 
-                    className="project-button always-visible"
-                    onClick={() => handleProjectClick(project)}
-                  >
-                    <span>View Project</span>
-                    <div className="button-arrow-circle">
-                      <span className="button-arrow">↗</span>
-                    </div>
-                  </button>
+            {/* Safehub, SearchNEU, Wrap, and ThinkNeuro Special Layout: Caption top-left, designs bottom */}
+            {project.id === 'safehub' || project.id === 'searchneu' || project.id === 'wrap' || project.id === 'thinkneuro' ? (
+              <>
+                {/* Caption at top-left */}
+                <div className={`${project.id}-caption safehub-caption`}>
+                  <p className={`${project.id}-caption-text safehub-caption-text`}>
+                    {project.id === 'safehub' ? (
+                      project.description.split('Safehub').map((part, index, array) => 
+                        index < array.length - 1 ? (
+                          <React.Fragment key={index}>
+                            {part}
+                            <strong>Safehub</strong>
+                          </React.Fragment>
+                        ) : (
+                          part
+                        )
+                      )
+                    ) : project.id === 'searchneu' ? (
+                      project.description.split('SearchNEU').map((part, index, array) => 
+                        index < array.length - 1 ? (
+                          <React.Fragment key={index}>
+                            {part}
+                            <strong>SearchNEU</strong>
+                          </React.Fragment>
+                        ) : (
+                          part
+                        )
+                      )
+                    ) : project.id === 'wrap' ? (
+                      project.description.split('Wrap').map((part, index, array) => 
+                        index < array.length - 1 ? (
+                          <React.Fragment key={index}>
+                            {part}
+                            <strong>Wrap</strong>
+                          </React.Fragment>
+                        ) : (
+                          part
+                        )
+                      )
+                    ) : project.id === 'thinkneuro' ? (
+                      project.description.split('ThinkNeuro').map((part, index, array) => 
+                        index < array.length - 1 ? (
+                          <React.Fragment key={index}>
+                            {part}
+                            <strong>ThinkNeuro</strong>
+                          </React.Fragment>
+                        ) : (
+                          part
+                        )
+                      )
+                    ) : (
+                      project.description
+                    )}
+                  </p>
+                  <div className={`${project.id}-role-text safehub-role-text`}>
+                    {project.id === 'safehub' ? (
+                      <><strong>Founder</strong>, 2023</>
+                    ) : project.id === 'searchneu' ? (
+                      <><strong>Product Designer</strong>, 2025</>
+                    ) : project.id === 'wrap' ? (
+                      <><strong>Founding Product Designer</strong>, 2025</>
+                    ) : project.id === 'thinkneuro' ? (
+                      <><strong>Product Manager</strong>, 2025</>
+                    ) : (
+                      ''
+                    )}
+                  </div>
                 </div>
-              )}
-            </div>
+                
+                {/* Button at top-right */}
+                {project.caseStudyUrl && (
+                  <div className={`${project.id}-button-container safehub-button-container`}>
+                    <button 
+                      className="project-button always-visible"
+                      onClick={() => handleProjectClick(project)}
+                    >
+                      <span>View Project</span>
+                      <div className="button-arrow-circle">
+                        <span className="button-arrow">↗</span>
+                      </div>
+                    </button>
+                  </div>
+                )}
+                
+                {/* Designs at bottom */}
+                {project.id === 'safehub' ? (
+                  <div className="project-wireframes safehub-wireframes">
+                    <img src={finalDesignsPerma} alt="Safehub Final Designs" className="project-wireframe safehub-final-designs" />
+                  </div>
+                ) : project.id === 'searchneu' ? (
+                  <div className={`project-wireframes ${project.id}-wireframes safehub-wireframes`}>
+                    <img src={searchneuThumb} alt="SearchNEU Thumbnail" className={`project-wireframe ${project.id}-final-designs safehub-final-designs`} />
+                  </div>
+                ) : project.id === 'wrap' ? (
+                  <div className={`project-wireframes ${project.id}-wireframes safehub-wireframes`}>
+                    <img src={wrapMockups} alt="Wrap Mockups" className={`project-wireframe ${project.id}-final-designs safehub-final-designs`} />
+                  </div>
+                ) : (
+                  <div className={`project-wireframes ${project.id}-wireframes safehub-wireframes`}>
+                    <img src={thinkneuroThumb} alt="ThinkNeuro Thumbnail" className={`project-wireframe ${project.id}-final-designs safehub-final-designs`} />
+                  </div>
+                )}
+              </>
+            ) : null}
           </div>
         ))}
       </div>

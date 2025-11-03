@@ -969,7 +969,7 @@ a:hover {
   color: #74A662;
   display: inline-block;
   transition: opacity 0.9s ease-in-out, transform 0.9s ease-in-out;
-  font-size: 0.85em; /* smaller for sharper rendering */
+  font-size: 1em; /* same size as rest of hero text */
 }
 
 .fade-in {
