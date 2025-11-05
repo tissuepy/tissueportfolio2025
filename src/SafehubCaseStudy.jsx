@@ -137,7 +137,7 @@ const SafehubCaseStudy = () => {
         <div className="case-study-section">
           <h2 className="section-title">USER RESEARCH</h2>
           <h3 className="section-subtitle">
-            <em>Talking to my friends and teachers</em>
+            <em>Asking my friends and teachers how they felt</em>
           </h3>
           
           <p className="section-paragraph">
@@ -295,6 +295,35 @@ const SafehubCaseStudy = () => {
             />
             <span className="container-caption">Emergencies</span>
           </div>
+          
+          <p className="section-paragraph">
+            Through the survey results, I discovered that the following types of emergencies were the most prominent
+          </p>
+          
+          <p className="section-paragraph">
+            <strong>1. Medical Emergency</strong><br/>
+            <em>Used to report injuries, sudden illness, or other health-related incidents.</em>
+          </p>
+          
+          <p className="section-paragraph">
+            <strong>2. Stranger</strong><br/>
+            <em>Used when someone notices suspicious or unfamiliar individuals behaving unusually.</em>
+          </p>
+          
+          <p className="section-paragraph">
+            <strong>3. Physical Altercation</strong><br/>
+            <em>Used to report fights or violent confrontations between individuals.</em>
+          </p>
+          
+          <p className="section-paragraph">
+            <strong>4. Unsafe Object</strong><br/>
+            <em>Used to alert authorities about hazardous or potentially dangerous items in the area.</em>
+          </p>
+          
+          <p className="section-paragraph">
+            <strong>5. Fire/Smoke</strong><br/>
+            <em>Used to report visible flames, smoke, or potential fire hazards.</em>
+          </p>
         </div>
         
         {/* Low-Fidelity Designs Section */}
@@ -344,6 +373,10 @@ const SafehubCaseStudy = () => {
             <span className="container-caption">Location Logistics</span>
           </div>
           
+          <p className="section-paragraph">
+            Initially I debated between making students interact with drop downs or use maps for specifying information about their location
+          </p>
+          
           <div className="location-logistics-container location-logistics-container--wider">
             <img 
               src={locationLowFidelity} 
@@ -352,6 +385,10 @@ const SafehubCaseStudy = () => {
             />
             <span className="container-caption">Location Wireframes</span>
           </div>
+          
+          <p className="section-paragraph">
+            SWOT analysis led me to discover that dropdowns with numerous floors and hundreds of rooms would create a time-consuming process for students to report emergencies.
+          </p>
           
           <div className="location-logistics-container location-logistics-container--tall">
             <img
@@ -363,7 +400,7 @@ const SafehubCaseStudy = () => {
           </div>
           
           <p className="section-paragraph" style={{ marginTop: '1.5rem' }}>
-            This approach was much faster and more intuitive, which is why I ultimately chose <strong>Maps</strong>.
+            <strong>Maps</strong> offered a faster and more intuitive approach, which is why I ultimately chose to use them.
           </p>
           
           <p style={{ color: '#e74c3c', fontWeight: '500', fontSize: '1.3em', marginBottom: '1rem', marginTop: '3.5rem' }}>
@@ -401,7 +438,7 @@ const SafehubCaseStudy = () => {
         <div className="case-study-section">
           <h2 className="section-title">FINALIZING DESIGNS</h2>
           <h3 className="section-subtitle">
-            Moving from FigJam to High-Fidelity
+            Moving from FigJam to High-Fidelity Designs
           </h3>
           
           <p className="section-paragraph">
@@ -439,7 +476,7 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
         <div className="case-study-section">
           <h2 className="section-title">USER TESTING</h2>
           <h3 className="section-subtitle">
-            The work doesn't end here
+            Conducting user testing with my classmates
           </h3>
           
           <p className="section-paragraph">
