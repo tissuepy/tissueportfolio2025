@@ -155,7 +155,8 @@ const SearchNEUCaseStudy = () => {
           </p>
         </div>
         
-        {/* User Research Section */}
+        {/* Temporarily commented out - Everything below Solution section
+        User Research Section
         <div className="case-study-section">
           <h2 className="searchneu-section-title">USER RESEARCH</h2>
           <h3 className="section-subtitle">
@@ -215,7 +216,7 @@ const SearchNEUCaseStudy = () => {
           </div>
         </div>
         
-        {/* Defining Our Scope and Problem Section */}
+        Defining Our Scope and Problem Section
         <div className="case-study-section">
           <h2 className="searchneu-section-title">PROBLEM</h2>
           <h3 className="section-subtitle">
@@ -275,7 +276,7 @@ const SearchNEUCaseStudy = () => {
           />
         </div>
         
-        {/* Low-Fidelity Concepts Section */}
+        Low-Fidelity Concepts Section
         <div className="case-study-section">
           <h2 className="searchneu-section-title">LOW-FIDELITY CONCEPTS</h2>
           <h3 className="section-subtitle">
@@ -308,6 +309,7 @@ const SearchNEUCaseStudy = () => {
             We decided to go with <strong>Option A</strong> because tags they are lightweight, visually simple, and allow students to see all available topics at a glance.
           </p>
         </div>
+        */}
       </div>
     </div>
   );
