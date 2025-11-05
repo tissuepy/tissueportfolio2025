@@ -187,7 +187,7 @@ const SafehubCaseStudy = () => {
         {/* Problem Statement Section */}
         <div className="case-study-section">
           <h3 className="section-subtitle">
-            Okay So What's Actually Wrong?
+            Okay so what's actually wrong?
           </h3>
           
           <p className="problem-statement-text">
