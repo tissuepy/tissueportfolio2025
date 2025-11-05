@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SearchNEUCaseStudy.css';
 import searchneuThumbnail from './casestudyassets/seach study /search project thumbnail in case study.png';
@@ -11,6 +11,10 @@ import midFidelitiesImage from './drink/mid fidelities 1.png';
 
 const SearchNEUCaseStudy = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleBackToProjects = () => {
     navigate('/');
@@ -107,10 +111,10 @@ const SearchNEUCaseStudy = () => {
         <div className="case-study-section">
           <h2 className="searchneu-section-title">SPRING 2025 FEATURE</h2>
           <h3 className="section-subtitle">
-            <em>So what exactly did I work on?</em>
+            <em>What exactly did I work on this semester?</em>
           </h3>
           <p className="section-paragraph">
-            This semester, SearchNEU faced an interesting challenge. We wanted to make the platform more user-friendly for new users, but many students found it <span className="highlight-text">confusing to navigate</span> and struggled to understand its features.
+            This semester, SearchNEU faced an interesting challenge. We wanted to make the platform more user-friendly for new users, but many students found it confusing to navigate and struggled to understand its features.
           </p>
           <p className="section-paragraph">
             While the tool offered powerful functionality, the learning curve was steep. As a result, the product team spent the semester working to mitigate this issue.

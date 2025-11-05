@@ -11,7 +11,7 @@ import bobaImage from './assets/assets2/matcha_boba_ice-removebg-preview.png';
 import matchaImage from './assets/assets2/matcha_1-removebg-preview.png';
 import designerImage from './assets/assets2/DESIGNER !.png';
 import hatImage from './assets/assets2/hat.jpg';
-import collageImage from './assets/image collage.png';
+import collageImage from './assets/image collage-min.png';
 import about1 from './galleryphotos/triplet1.jpg';
 import about2 from './galleryphotos/triplet2.jpg';
 import about3 from './galleryphotos/nitishtough.jpg';
