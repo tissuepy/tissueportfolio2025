@@ -7,6 +7,7 @@ import wrapMockups from './casestudyassets/Wrap mockups.png';
 import safehubM1 from './assets/safehub m1.png';
 import safehubM2 from './assets/safehub m2.png';
 import finalDesignsPerma from './casestudyassets/Final Designs (perma).png';
+import gptMockups from './casestudyassets/GPTMockups.png';
 import searchflow from './assets/gifs/searchflow.mov';
 import searchneuThumb from './assets/searchneu thumbnail.png';
 import searchPhone from './assets/SearchPhone.png';
@@ -50,6 +51,18 @@ const ProjectsMasonry = () => {
 
   const projects = [
     {
+      id: 'chatgpt',
+      name: 'ChatGPT Mobile App',
+      title: 'Bookmark Integration, ChatGPT',
+      company: 'ChatGPT',
+      description: 'Creating a more intuitive mobile interface for ChatGPT\'s mobile app through Bookmark integration.',
+      duration: 'Mobile App',
+      team: 'Product Design',
+      growth: '2025',
+      caseStudyUrl: 'https://medium.com/@nitishgannu/building-bookmarks-into-chatgpt-46ca50a7b2a4',
+      isExternal: true
+    },
+    {
       id: 'safehub',
       name: 'Safehub Safety App',
       title: 'Campus Safety, Safehub',
@@ -62,18 +75,6 @@ const ProjectsMasonry = () => {
       isExternal: false
     },
     {
-      id: 'searchneu',
-      name: 'SearchNEU Course Notifications',
-      title: 'FAQs & Alerts, SearchNEU',
-      company: 'SearchNEU',
-      description: 'Redesigned SearchNEU to simplify course registration through interactive tutorials and an intelligent notification system for Northeastern students.',
-      duration: 'Visual Design',
-      team: 'Interaction Design',
-      growth: 'WEBSITE',
-      caseStudyUrl: '/work/searchneu',
-      isExternal: false
-    },
-    {
       id: 'wrap',
       name: 'WrapApp',
       title: 'Dynamic Dating, Wrap',
@@ -83,6 +84,18 @@ const ProjectsMasonry = () => {
       team: 'User Research',
       growth: 'NDA',
       caseStudyUrl: '/work/wrap',
+      isExternal: false
+    },
+    {
+      id: 'searchneu',
+      name: 'SearchNEU Course Notifications',
+      title: 'FAQs & Alerts, SearchNEU',
+      company: 'SearchNEU',
+      description: 'Redesigned SearchNEU to simplify course registration through interactive tutorials and an intelligent notification system for Northeastern students.',
+      duration: 'Visual Design',
+      team: 'Interaction Design',
+      growth: 'WEBSITE',
+      caseStudyUrl: '/work/searchneu',
       isExternal: false
     },
     {
@@ -152,13 +165,24 @@ const ProjectsMasonry = () => {
               </div>
             )}
             
-            {/* Safehub, SearchNEU, Wrap, and ThinkNeuro Special Layout: Caption top-left, designs bottom */}
-            {project.id === 'safehub' || project.id === 'searchneu' || project.id === 'wrap' || project.id === 'thinkneuro' ? (
+            {/* ChatGPT, Safehub, SearchNEU, Wrap, and ThinkNeuro Special Layout: Caption top-left, designs bottom */}
+            {project.id === 'chatgpt' || project.id === 'safehub' || project.id === 'searchneu' || project.id === 'wrap' || project.id === 'thinkneuro' ? (
               <>
                 {/* Caption at top-left */}
                 <div className={`${project.id}-caption safehub-caption`}>
                   <p className={`${project.id}-caption-text safehub-caption-text`}>
-                    {project.id === 'safehub' ? (
+                    {project.id === 'chatgpt' ? (
+                      project.description.split('ChatGPT').map((part, index, array) => 
+                        index < array.length - 1 ? (
+                          <React.Fragment key={index}>
+                            {part}
+                            <strong>ChatGPT</strong>
+                          </React.Fragment>
+                        ) : (
+                          part
+                        )
+                      )
+                    ) : project.id === 'safehub' ? (
                       project.description.split('Safehub').map((part, index, array) => 
                         index < array.length - 1 ? (
                           <React.Fragment key={index}>
@@ -207,7 +231,9 @@ const ProjectsMasonry = () => {
                     )}
                   </p>
                   <div className={`${project.id}-role-text safehub-role-text`}>
-                    {project.id === 'safehub' ? (
+                    {project.id === 'chatgpt' ? (
+                      <><strong>Case Study</strong>, 2025</>
+                    ) : project.id === 'safehub' ? (
                       <><strong>Founder</strong>, 2023</>
                     ) : project.id === 'searchneu' ? (
                       <><strong>Product Designer</strong>, 2025</>
@@ -222,7 +248,7 @@ const ProjectsMasonry = () => {
                 </div>
                 
                 {/* Button at top-right */}
-                {project.caseStudyUrl && (
+                {(project.caseStudyUrl || project.id === 'chatgpt') && (
                   <div className={`${project.id}-button-container safehub-button-container`}>
                     <button 
                       className="project-button always-visible"
@@ -237,7 +263,11 @@ const ProjectsMasonry = () => {
                 )}
                 
                 {/* Designs at bottom */}
-                {project.id === 'safehub' ? (
+                {project.id === 'chatgpt' ? (
+                  <div className="project-wireframes safehub-wireframes">
+                    <img src={gptMockups} alt="ChatGPT Mockups" className="project-wireframe safehub-final-designs" />
+                  </div>
+                ) : project.id === 'safehub' ? (
                   <div className="project-wireframes safehub-wireframes">
                     <img src={finalDesignsPerma} alt="Safehub Final Designs" className="project-wireframe safehub-final-designs" />
                   </div>

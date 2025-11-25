@@ -1,24 +1,22 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './SearchNEUCaseStudy.css';
 import searchneuThumbnail from './casestudyassets/seach study /search project thumbnail in case study.png';
 import vidB from './assets/gifs/searchflow.mov';
 import searchFAQsframe from './assets/searchFAQsframe.png';
+import searchInfoCards from './casestudyassets/search info cards.png';
+import coursePpl from './casestudyassets/course ppl.png';
 import zoomIcon from './drink/zoom icon.png';
-import hmwSearchImage from './drink/HMW Search.jpg';
-import votingFigjamImage from './drink/voting figjam.jpg';
-import midFidelitiesImage from './drink/mid fidelities 1.png';
+import search1 from './casestudyassets/search1.jpg';
+import search2 from './casestudyassets/search2.jpg';
+import search3 from './casestudyassets/search3.JPG';
+
+
+
 
 const SearchNEUCaseStudy = () => {
-  const navigate = useNavigate();
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const handleBackToProjects = () => {
-    navigate('/');
-  };
 
   return (
     <div className="case-study-container searchneu-case-study">
@@ -63,33 +61,21 @@ const SearchNEUCaseStudy = () => {
             <em>The Problem with Course Registration</em>
           </h3>
           <p className="section-paragraph">
-            At Northeastern, registering for classes isn't as simple as it should be. Students constantly compete for limited seats, refreshing the registration portal in hopes of catching an open spot. With no built-in notifications or real-time updates, the process becomes stressful, time-consuming, and inefficient.
+            At Northeastern, registering for classes isn't as simple as it should be. Students constantly compete for limited seats, refreshing the registration portal in hopes of catching an open spot. 
           </p>
           
-          <div className="interview-callouts">
-            <div className="callout">
-              <div className="callout-icon">✕</div>
-              <div className="callout-content">
-                <h4 className="callout-title">COURSES FILL UP FAST</h4>
-                <p className="callout-caption">Popular classes reach capacity within minutes, leaving many students scrambling for alternatives.</p>
-              </div>
-            </div>
-            
-            <div className="callout">
-              <div className="callout-icon">✕</div>
-              <div className="callout-content">
-                <h4 className="callout-title">EVEN WAITLISTS OVERFLOW</h4>
-                <p className="callout-caption">Waitlists often fill just as quickly, making it hard for many students to secure required courses.</p>
-              </div>
-            </div>
-            
-            <div className="callout">
-              <div className="callout-icon">✕</div>
-              <div className="callout-content">
-                <h4 className="callout-title">NO NOTIFICATIONS OR ALERTS</h4>
-                <p className="callout-caption">The system doesn't notify students when spots open up, forcing them to check manually—sometimes for weeks.</p>
-              </div>
-            </div>
+          <div className="searchneu-image-container searchneu-info-cards-container" style={{ marginTop: '40px', marginBottom: '40px' }}>
+            <img className="searchneu-image" src={coursePpl} alt="Course People" />
+            <span className="container-caption">ISSUES WITH COURSE REGISTRATION</span>
+          </div>
+
+          <p className="section-paragraph">
+          With no built-in notifications or real-time updates, the process becomes stressful, time-consuming, and inefficient.
+          </p>
+          
+          <div className="searchneu-image-container searchneu-info-cards-container" style={{ marginTop: '40px', marginBottom: '40px' }}>
+            <img className="searchneu-image" src={searchInfoCards} alt="Search Info Cards" />
+            <span className="container-caption">ISSUES WITH COURSE REGISTRATION</span>
           </div>
           
           <h3 className="section-subtitle">
@@ -152,6 +138,46 @@ const SearchNEUCaseStudy = () => {
           
           <p className="section-paragraph" style={{ marginBottom: '60px' }}>
             This deliverable and process were only possible because of strong collaboration, countless team syncs, and plenty of boba-fueled brainstorming sessions.
+          </p>
+        </div>
+        
+        {/* Reflections Section */}
+        <div className="case-study-section">
+          <h2 className="searchneu-section-title">REFLECTIONS</h2>
+          <h3 className="section-subtitle">
+            <em>A semester filled with design crits and new friends</em>
+          </h3>
+          <p className="section-paragraph">
+            SearchNEU was my first experience working as a product designer with a cross-functional team of product managers, engineers, and other product designers. It was an enjoyable experience filled with late-night work sessions for SearchNEU, team dinners, social outings, and learning new quirky design things.
+          </p>
+          
+          {/* Three Images Section */}
+          <div className="searchneu-reflections-images">
+            <div className="searchneu-reflections-image-item">
+              <img src={search1} alt="SearchNEU reflection image 1" className="searchneu-reflections-image" />
+              <p className="searchneu-reflections-image-caption">SearchNEU Photoshoot</p>
+            </div>
+            <div className="searchneu-reflections-image-item">
+              <img src={search2} alt="SearchNEU reflection image 2" className="searchneu-reflections-image" />
+              <p className="searchneu-reflections-image-caption">Sandbox Demo Day</p>
+            </div>
+            <div className="searchneu-reflections-image-item">
+              <img src={search3} alt="SearchNEU reflection image 3" className="searchneu-reflections-image" />
+              <p className="searchneu-reflections-image-caption">SearchNEU Team Dinner</p>
+            </div>
+          </div>
+          
+          <p style={{ 
+            fontFamily: "'Georgia', 'Times New Roman', serif", 
+            fontStyle: 'italic', 
+            fontSize: '32px',
+            fontWeight: '400',
+            color: '#333',
+            textAlign: 'center',
+            marginTop: '60px',
+            lineHeight: '1.2'
+          }}>
+            Full case study coming soon!
           </p>
         </div>
         

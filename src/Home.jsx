@@ -93,7 +93,7 @@ function Home() {
       <img src={lightbulbScribble} alt="Lightbulb sketch" className="info-scribble" />
       <h3 className="about-info-title">working as a</h3>
     </div>
-    <p className="about-info-text">student and a founding product designer @<span className="matcha-highlight"><a href="https://trywrap.com/" className="matcha-link">Wrap</a></span></p>
+    <p className="about-info-text">undergraduate HCI researcher and founding product designer @<span className="matcha-highlight"><a href="https://trywrap.com/" className="matcha-link">Wrap</a></span></p>
   </div>
 
   <div className="about-info-block">

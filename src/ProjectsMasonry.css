@@ -53,10 +53,23 @@
   height: 300px;
 }
 
+.project-card[data-project-id="chatgpt"] {
+  background: #F0F9F1;
+  overflow: hidden;
+  border: none;
+}
+
 .project-card[data-project-id="safehub"] {
   background: #FADDDD;
   overflow: hidden;
   border: none;
+}
+
+/* ChatGPT-specific tag styling */
+.project-card[data-project-id="chatgpt"] .project-duration,
+.project-card[data-project-id="chatgpt"] .project-team,
+.project-card[data-project-id="chatgpt"] .project-growth {
+  background-color: #4a8a6a;
 }
 
 /* Safehub-specific tag styling */
@@ -102,25 +115,6 @@
   border: none;
 }
 
-/* Wrap wireframe positioning - same as Safehub */
-.project-card[data-project-id="wrap"] .project-wireframe:first-child {
-  transform: translateX(30px) translateY(-10px);
-  transition: transform 0.4s linear;
-}
-
-.project-card[data-project-id="wrap"] .project-wireframe:last-child {
-  transform: translateX(0px) translateY(300px);
-  transition: transform 0.4s linear;
-}
-
-/* Hover effects for Wrap wireframes - same as Safehub */
-.project-card[data-project-id="wrap"]:hover .project-wireframe:first-child {
-  transform: translateX(30px) translateY(20px); /* Left wireframe goes down */
-}
-
-.project-card[data-project-id="wrap"]:hover .project-wireframe:last-child {
-  transform: translateX(0px) translateY(250px); /* Right wireframe goes up */
-}
 
 .project-card {
   cursor: default;
@@ -323,6 +317,60 @@
   transform: translateY(140px) translateX(60px); /* Moves more to the left */
 }
 
+/* ChatGPT Special Layout Styles - same as Safehub */
+.chatgpt-caption {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  max-width: 550px;
+  z-index: 2;
+}
+
+.chatgpt-caption-text,
+.project-card[data-project-id="chatgpt"] .chatgpt-caption-text,
+.project-card[data-project-id="chatgpt"] .safehub-caption-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #25382b !important;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+.chatgpt-caption-text strong,
+.project-card[data-project-id="chatgpt"] .chatgpt-caption-text strong,
+.project-card[data-project-id="chatgpt"] .safehub-caption-text strong {
+  font-weight: 600;
+  color: #4a8a6a !important;
+}
+
+.chatgpt-role-text,
+.project-card[data-project-id="chatgpt"] .chatgpt-role-text,
+.project-card[data-project-id="chatgpt"] .safehub-role-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6a9a7a !important;
+  margin-top: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+.chatgpt-role-text strong,
+.project-card[data-project-id="chatgpt"] .chatgpt-role-text strong,
+.project-card[data-project-id="chatgpt"] .safehub-role-text strong {
+  font-weight: 600;
+  color: #5a8a6a !important;
+}
+
+.chatgpt-button-container {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  z-index: 100;
+}
+
 /* Safehub Special Layout Styles */
 .safehub-caption {
   position: absolute;
@@ -418,8 +466,8 @@
 }
 
 .safehub-wireframes .safehub-final-designs {
-  width: 1000px !important;
-  max-width: 160% !important;
+  width: 1100px !important;
+  max-width: 170% !important;
   height: auto;
   object-fit: contain;
   transform: translateY(0);
@@ -428,6 +476,11 @@
 
 /* Hover effects for Safehub final designs - move up on hover */
 .project-card[data-project-id="safehub"]:hover .safehub-wireframes .safehub-final-designs {
+  transform: translateY(-30px) !important;
+}
+
+/* Hover effects for ChatGPT final designs - move up on hover (same as Safehub) */
+.project-card[data-project-id="chatgpt"]:hover .safehub-wireframes .safehub-final-designs {
   transform: translateY(-30px) !important;
 }
 
@@ -743,6 +796,12 @@
 }
 
 /* Project-specific button hover effects - must come before general hover */
+.project-card[data-project-id="chatgpt"] .chatgpt-button-container .project-button:hover,
+.project-card[data-project-id="chatgpt"] .project-button:hover {
+  background: #4a8a6a !important;
+  transform: translateY(-2px);
+}
+
 .project-card[data-project-id="safehub"] .safehub-button-container .project-button:hover,
 .project-card[data-project-id="safehub"] .project-button:hover {
   background: #dc5050 !important;
@@ -758,6 +817,10 @@
 .project-button:hover {
   background: #333333;
   transform: translateY(-2px);
+}
+
+.project-card[data-project-id="chatgpt"] .project-button:hover .button-arrow {
+  color: #4a8a6a;
 }
 
 .project-card[data-project-id="safehub"] .project-button:hover .button-arrow {
