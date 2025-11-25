@@ -6,9 +6,9 @@ import searchFAQsframe from './assets/searchFAQsframe.png';
 import searchInfoCards from './casestudyassets/search info cards.png';
 import coursePpl from './casestudyassets/course ppl.png';
 import zoomIcon from './drink/zoom icon.png';
-import search1 from './casestudyassets/search1.jpg';
+import search1 from './casestudyassets/search1.JPG';
 import search2 from './casestudyassets/search2.jpg';
-import search3 from './casestudyassets/search3.JPG';
+import search3 from './casestudyassets/search3.jpg';
 
 
 
