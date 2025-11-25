@@ -578,7 +578,7 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
             />
             <span className="container-caption">ENSURING ALL USERS ARE SATISFIED</span>
           </div>
-        </div>
+              </div>
         
         {/* Reflection Section */}
         <div className="case-study-section">

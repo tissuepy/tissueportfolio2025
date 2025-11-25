@@ -26,6 +26,8 @@ import canes from './assets/canes.jpg';
 import strawberries from './assets/strawberries.jpg';
 // Camera and city images
 import city from './assets/city.png';
+import theCity from './casestudyassets/the city.jpg';
+import matchaPlace from './casestudyassets/matcha place.png';
 import friends from './assets/friends.JPG';
 import friends1 from './assets/friends1.jpg';
 import friends2 from './assets/friends2.jpg';
@@ -68,11 +70,22 @@ import InteractiveMatcha from './InteractiveMatcha'; // adjust path if necessary
 import AiNitish from './chatgptproj/vegas tissue.jpg'
 import empathyImage from './assets/searchneuteam.png' // Add your empathy image here
 import disruptImage from './assets/wrapteam.png'
+// New photos
+import banffPhoto1 from './assets/new photos/banff photo 1.png';
+import cornellPhoto1 from './assets/new photos/cornell photo 1.png';
+import iceCreamFriends from './assets/new photos/ice cream friends.jpg';
+import matchaPlaceNew from './assets/new photos/matcha place.png';
+import nycPhoto2 from './assets/new photos/nyc photo 2.png';
+import mango1 from './assets/new photos/mango 1.png';
+import matcha1 from './assets/new photos/matcha 1.png';
+import strawberry3 from './assets/new photos/strawberry 3.png';
+import lavender2 from './assets/new photos/lavender 2.png';
 
 function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [showEmoji, setShowEmoji] = useState(false);
+  const [hoveredRef, setHoveredRef] = useState(null);
   const [isTyping, setIsTyping] = useState(false);
   const [isFading, setIsFading] = useState(false);
 
@@ -138,95 +151,84 @@ function About() {
   return (
     <>
       <div className="about-page">
-        {/* New Collage Hero Section */}
-        <div className="collage-wrapper">
-          <div className="collage-hero-container">
-
-          {/* Single Collage Image with Text Box Overlay */}
-          <div className="collage-image-wrapper">
-            <motion.img 
-              src={collageImage} 
-              alt="Collage" 
-              className="collage-main-image"
-              loading="eager"
-              decoding="async"
-              fetchpriority="high"
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ 
-                duration: 2, 
-                delay: 0.3,
-                ease: [0.25, 0.46, 0.45, 0.94]
-              }}
-            />
-            
-            {/* Typewriter Text Box */}
-            <motion.div 
-              className="isomorphic-container"
-              initial={{ opacity: 0, scale: 0.8, y: 10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ 
-                duration: 1.2, 
-                delay: 1.2,
-                ease: [0.25, 0.46, 0.45, 0.94]
-              }}
-            >
-            <div className={`isomorphic-search-bar ${isFading ? 'fade-out' : ''}`}>
-              <div className="typewriter-text">
-                <span className="text-content">
-                  {displayedText}
-                  {isTyping && <span className="cursor">|</span>}
-                </span>
-                {showEmoji && (
-                  <span className="dynamic-emoji">
-                    {currentEmoji}
-                  </span>
-                )}
-              </div>
-              <div className="send-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M12 8l4 4-4 4M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-            </div>
-          </motion.div>
-          </div>
-        </div>
+        {/* Horizontal Image Row */}
+        <div className="horizontal-image-row">
+          <img src={banffPhoto1} alt="Banff 1" className="horizontal-image image-1" />
+          <img src={cornellPhoto1} alt="Cornell" className="horizontal-image image-2" />
+          <img src={iceCreamFriends} alt="Ice cream friends" className="horizontal-image image-3" />
+          <img src={matchaPlaceNew} alt="Matcha place" className="horizontal-image image-4" />
+          <img src={nycPhoto2} alt="NYC" className="horizontal-image image-5" />
         </div>
 
         {/* About Me Section */}
         <div className="about-me-section">
           <div className="about-me-content">
             <p className="about-me-label">LEARN ABOUT NITISH</p>
-            <h2 className="about-me-title">Product Design is an odd interest turned to life-long passion.</h2>
+            <h2 className="about-me-title">
+              Product Design is an odd interest turned to life-long passion
+              <svg className="pencil-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="#74A662"/>
+              </svg>
+            </h2>
             <p className="about-me-body">
-  My journey into product design wasn’t exactly planned. Back in high school, I took a graphic design class that got me hooked on being creative visually. Around the same time, I was in student government, and that opened my eyes to how many little problems people deal with every day. That’s when it clicked — design isn’t just about making things look good, it’s about fixing things that don’t work. I didn’t even know what UX was back then, but I loved the idea of designing with people in mind. Since then, I’ve been drawn to product design because it blends tech, psychology, and creativity in a way that actually makes a difference for real people.
-</p>
+              I never planned on becoming a product designer. In high school, I thought I'd go into               <a 
+                href="https://drive.google.com/file/d/1WbF1MrMoEYqtZjZAMtV9_DVGHNbEomTe/view?usp=sharing"
+                className="comp-bio-text"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                computational biology↗
+              </a>, but a graphic design class pulled me in. I got obsessed with the small details spacing, color, layout and started caring a lot about how people experience things. That curiosity eventually led me to product design.
+            </p>
 
-<p className="about-me-body">
-  These days, I’m based in Ithaca, NY, where you’ll find me hiking local trails, admiring the gorges, experimenting with random boba combinations, or diving into competitive gaming.
-</p>
-
-<p className="about-me-body">
-  More recently, I've been:
-  </p>
-
-            
-            {/* Three Images Section */}
-            <div className="about-me-images">
-              <div className="about-me-image-item">
-                <img src={about1} alt="About me image 1" className="about-me-image" />
-                <p className="about-me-image-caption">ADMIRING ITHACA SUNSETS</p>
+            <p className="about-me-body">
+              Now I'm in Upstate New York at <span 
+                className="cornell-text tooltip-trigger" 
+                onMouseEnter={() => setHoveredRef(1)}
+                onMouseLeave={() => setHoveredRef(null)}
+              >
+                Cornell<sup className="cornell-reference">[1]</sup>
+                {hoveredRef === 1 && (
+                  <div className="reference-tooltip">
+                    <img src={img1_old} alt="Cornell" className="tooltip-image" />
+                    <p className="tooltip-caption">The most beautiful college campus in the world.</p>
+                  </div>
+                )}
+              </span>, studying Information Science and Data Science. Outside of class, I'm usually making sporadic trips to <span 
+                className="cornell-text tooltip-trigger"
+                onMouseEnter={() => setHoveredRef(2)}
+                onMouseLeave={() => setHoveredRef(null)}
+              >
+                New York City<sup className="cornell-reference">[2]</sup>
+                {hoveredRef === 2 && (
+                  <div className="reference-tooltip">
+                    <img src={theCity} alt="New York City" className="tooltip-image" />
+                    <p className="tooltip-caption">NYC is #1 in my heart.</p>
+                  </div>
+                )}
+              </span>, baking <span 
+                className="cornell-text tooltip-trigger"
+                onMouseEnter={() => setHoveredRef(3)}
+                onMouseLeave={() => setHoveredRef(null)}
+              >
+                matcha cookies<sup className="cornell-reference">[3]</sup>
+                {hoveredRef === 3 && (
+                  <div className="reference-tooltip">
+                    <img src={matchaPlace} alt="Matcha cookies" className="tooltip-image" />
+                    <p className="tooltip-caption">"12 Matcha" in NYC.</p>
+                  </div>
+                )}
+              </span>, or exploring Ithaca's trails and gorges.
+            </p>
+            <div className="about-me-grey-box">
+              <div className="portfolio-art-title-container">
+                <h3 className="portfolio-art-title">Portfolio Art<sup>↗</sup></h3>
+                <p className="portfolio-art-coming-soon">(coming soon!)</p>
               </div>
-              <div className="about-me-image-item">
-                <img src={about2} alt="About me image 2" className="about-me-image" />
-                <p className="about-me-image-caption">COLLECTING SMISKIS</p>
-              </div>
-              <div className="about-me-image-item">
-                <img src={about3} alt="About me image 3" className="about-me-image" />
-                <p className="about-me-image-caption">TAKING PHOTOS WITH FRIENDS</p>
-              </div>
+              <img src={mango1} alt="Mango" className="portfolio-art-image portfolio-art-mango" />
+              <img src={matcha1} alt="Matcha" className="portfolio-art-image portfolio-art-matcha" />
+              <img src={strawberry3} alt="Strawberry" className="portfolio-art-image portfolio-art-strawberry" />
+              <img src={lavender2} alt="Lavender" className="portfolio-art-image portfolio-art-lavender" />
             </div>
           </div>
         </div>
@@ -268,7 +270,10 @@ function About() {
         <div className="design-philosophy-section">
           <div className="design-philosophy-content">
             <p className="design-philosophy-label">DESIGN PHILOSOPHY</p>
-            <h2 className="design-philosophy-title">Two core principles that guide my work.</h2>
+            <h2 className="design-philosophy-title">
+              Two core principles that guide my work
+              <span className="star-icon">✺</span>
+            </h2>
           </div>
         </div>
 
@@ -301,7 +306,16 @@ function About() {
         <div className="favorite-things-section">
           <div className="favorite-things-content">
             <p className="favorite-things-label">CHECK IT OUT</p>
-            <h2 className="favorite-things-title">A collection of my favorite things.</h2>
+            <h2 className="favorite-things-title">
+              A collection of my favorite things
+              <svg className="camera-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="7" width="20" height="14" rx="2" stroke="#74A662" stroke-width="2" fill="none"/>
+                <path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="#74A662" stroke-width="2" fill="none"/>
+                <circle cx="12" cy="14" r="3" stroke="#74A662" stroke-width="2" fill="none"/>
+                <circle cx="12" cy="14" r="1.5" fill="#74A662"/>
+                <rect x="18" y="9" width="2" height="2" rx="0.5" fill="#74A662"/>
+              </svg>
+            </h2>
           </div>
           
           <div className="masonry-gallery-favorites">
