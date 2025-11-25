@@ -1,7 +1,7 @@
 // Home.jsx
 import './App.css';
 import './About.jsx';
-import React from 'react';
+import React, { useState } from 'react';
 import cartoonnitish from './assets/my-notion-face-transparent (2).png'
 import matchaBobaIce from './assets/matcha boba ice.png'
 import cat1 from './assets/cat 1.png'
@@ -11,10 +11,13 @@ import cartoonnitish2 from './assets/my-notion-face-transparent (5).png'
 import lightbulbScribble from './assets/scribbles/lightbulb.png';
 import heartsScribble from './assets/scribbles/hearts.png';
 import smileyScribble from './assets/scribbles/smiley.png';
+import smiskiImage from './galleryphotos/triplet2.jpg';
 
 
 
 function Home() {
+  const [hoveredSmiski, setHoveredSmiski] = useState(false);
+  
   const emojiStyles = [
     { top: '25%', left: '57%', rotate: '15deg', emoji: '', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
     { top: '10%', left: '60%', rotate: '0deg', emoji: '', tooltip: "I love statistics; this was one of the reasons I wanted to become a data scientist." },
@@ -101,7 +104,21 @@ function Home() {
       <img src={heartsScribble} alt="Hearts sketch" className="info-scribble" />
       <h3 className="about-info-title">currently collecting</h3>
     </div>
-    <p className="about-info-text">smiskis! curious little creatures that glow in the dark. </p>
+    <p className="about-info-text">
+      <span 
+        className="smiski-text tooltip-trigger"
+        onMouseEnter={() => setHoveredSmiski(true)}
+        onMouseLeave={() => setHoveredSmiski(false)}
+      >
+        smiskis
+        {hoveredSmiski && (
+          <div className="reference-tooltip">
+            <img src={smiskiImage} alt="Smiski" className="tooltip-image" />
+            <p className="tooltip-caption">I've collected 5 so far!</p>
+          </div>
+        )}
+      </span>! curious little creatures that glow in the dark.
+    </p>
   </div>
 
   <div className="about-info-block">
