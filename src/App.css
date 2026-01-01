@@ -179,6 +179,51 @@ body, html {
   z-index: 10;
 }
 
+.clocktower-wrapper {
+  position: absolute;
+  left: 100px;
+  transform: translateY(50%);
+  bottom: 100%;
+  width: auto;
+  height: auto;
+  z-index: 5;
+  clip-path: inset(0 0 50% 0);
+}
+
+
+.clocktower-click-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #000000;
+  white-space: nowrap;
+  pointer-events: none;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  transform: translateY(0);
+}
+
+.clocktower {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: block;
+}
+
+.clocktower.off {
+  height: auto;
+}
+
+.clocktower.on {
+  width: 135px;
+  height: auto;
+  object-fit: contain;
+}
+
+
 .footer-left {
   max-width: 300px;
 }

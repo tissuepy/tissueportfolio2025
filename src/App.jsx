@@ -9,11 +9,14 @@ import InteractiveMatcha from './InteractiveMatcha'; // Added
 import logo from './assets/logo.png';
 import matchaImage from './drink/matcha 1.png';
 import matchaNavImage from './assets/matcha 1.png';
+import clocktowerOffImage from './assets/scribbles/clocktower off 1.png';
+import clocktowerOnImage from './assets/scribbles/clocktower on 2.png';
 
 function App() {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
   const [fadeClass, setFadeClass] = useState('fade-in');
+  const [clocktowerOn, setClocktowerOn] = useState(false);
 
   useEffect(() => {
     if (location.pathname !== currentPath) {
@@ -77,6 +80,17 @@ function App() {
 
       {/* Footer - now outside of page containers for full-width */}
       <footer className="footer">
+        {/* Clocktower above footer */}
+        <div className="clocktower-wrapper">
+          <img 
+            src={clocktowerOn ? clocktowerOnImage : clocktowerOffImage} 
+            alt="Clocktower" 
+            className={`clocktower ${clocktowerOn ? 'on' : 'off'}`}
+            onClick={() => setClocktowerOn(!clocktowerOn)}
+          />
+          <span className="clocktower-click-text">[CLICK]</span>
+        </div>
+        
         <div className="footer-left">
           <p className="footer-thankyou">reach out to me at ↓</p>
           <p className="footer-email">ng545@cornell.edu↗</p>
