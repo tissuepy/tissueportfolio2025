@@ -8,6 +8,7 @@ import SafehubCaseStudy from './SafehubCaseStudy';
 import InteractiveMatcha from './InteractiveMatcha'; // Added
 import logo from './assets/logo.png';
 import matchaImage from './drink/matcha 1.png';
+import matchaNavImage from './assets/matcha 1.png';
 
 function App() {
   const location = useLocation();
@@ -45,6 +46,7 @@ function App() {
       {/* Navbar */}
       <div className="navbar">
         <div className="left-section">
+          <img src={matchaNavImage} alt="Matcha" className="navbar-matcha-image" />
         </div>
 
         <div className="right-section">

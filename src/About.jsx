@@ -80,6 +80,9 @@ import mango1 from './assets/new photos/mango 1.png';
 import matcha1 from './assets/new photos/matcha 1.png';
 import strawberry3 from './assets/new photos/strawberry 3.png';
 import lavender2 from './assets/new photos/lavender 2.png';
+import lightbulbScribble from './assets/scribbles/lightbulb.png';
+import heartsScribble from './assets/scribbles/hearts.png';
+import smileyScribble from './assets/scribbles/smiley.png';
 
 function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -166,9 +169,6 @@ function About() {
             <p className="about-me-label">LEARN ABOUT NITISH</p>
             <h2 className="about-me-title">
               Product Design is an odd interest turned to life-long passion
-              <svg className="pencil-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="#74A662"/>
-              </svg>
             </h2>
             <p className="about-me-body">
               I never planned on becoming a product designer. In high school, I thought I'd go into               <a 
@@ -178,7 +178,7 @@ function About() {
                 rel="noopener noreferrer"
               >
                 computational biology↗
-              </a>, but a graphic design class pulled me in. I got obsessed with the small details spacing, color, layout and started caring a lot about how people experience things. That curiosity eventually led me to product design.
+              </a>, but an app design class pulled me in. I got obsessed with the small details spacing, color, layout and started caring a lot about how people experience things. That curiosity eventually led me to product design.
             </p>
 
             <p className="about-me-body">
@@ -272,7 +272,7 @@ function About() {
             <p className="design-philosophy-label">DESIGN PHILOSOPHY</p>
             <h2 className="design-philosophy-title">
               Two core principles that guide my work
-              <span className="star-icon">✺</span>
+              
             </h2>
           </div>
         </div>
@@ -282,10 +282,9 @@ function About() {
           {/* Empathy Philosophy Section */}
           <div className="philosophy-section">
             <div className="philosophy-content">
-              <p className="philosophy-label">[1.] </p>
-              <h2 className="philosophy-title">Designing with empathy</h2>
+              <h2 className="philosophy-title"><span className="philosophy-title-green">[1]</span> / Designing with <span className="philosophy-title-green">empathy</span></h2>
               <p className="philosophy-body">
-                Empathy isn't just about understanding users—it's about listening to their daily struggles and designing solutions that feel intuitive to their workflow.
+              Design begins with understanding how people actually move through their day and respecting the realities they face.
               </p>
             </div>
           </div>
@@ -293,25 +292,122 @@ function About() {
           {/* Disrupt Philosophy Section */}
           <div className="philosophy-section">
             <div className="philosophy-content">
-              <p className="philosophy-label">[2.]</p>
-              <h2 className="philosophy-title">Design to disrupt</h2>
+              <h2 className="philosophy-title"><span className="philosophy-title-green">[2]</span> / Design to <span className="philosophy-title-green">disrupt</span></h2>
               <p className="philosophy-body">
-                Wearing multiple hats and thinking beyond conventional solutions, pushing the boundaries of what's possible in product design.
+              Disruption starts by questioning assumptions. By thinking beyond standard solutions and wearing multiple hats.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Some of Nitish's Favorite Things Section */}
+        {/* Experience Section */}
+        <div className="experience-section">
+          <div className="experience-content">
+            <p className="experience-label">EXPERIENCE</p>
+            <h2 className="experience-title">Some of my most valuable experiences</h2>
+          </div>
+        </div>
+
+        <div className="experience-subtitle-container">
+          <img src={lightbulbScribble} alt="Lightbulb" className="experience-lightbulb-icon" />
+          <h3 className="experience-subtitle">Design Experience</h3>
+        </div>
+
+        <div className="experience-entries-container">
+          <div className="experience-entry">
+            <div className="experience-entry-left">
+              <h3 className="experience-entry-title">HCI Research Assistant</h3>
+              <p className="experience-entry-company">Cornell Bowers CIS</p>
+            </div>
+            <div className="experience-entry-right">
+              <p className="experience-entry-description">
+                November 2025 - Present
+              </p>
+            </div>
+          </div>
+
+          <div className="experience-entry">
+            <div className="experience-entry-left">
+              <h3 className="experience-entry-title">Founding Designer</h3>
+              <p className="experience-entry-company">Wrap</p>
+            </div>
+            <div className="experience-entry-right">
+              <p className="experience-entry-description">
+                June 2025 - August 2025
+              </p>
+            </div>
+          </div>
+
+          <div className="experience-entry">
+            <div className="experience-entry-left">
+              <h3 className="experience-entry-title">Product Manager, R&D</h3>
+              <p className="experience-entry-company">ThinkNeuro</p>
+            </div>
+            <div className="experience-entry-right">
+              <p className="experience-entry-description">
+                June 2025 - August 2025
+              </p>
+            </div>
+          </div>
+
+          <div className="experience-entry">
+            <div className="experience-entry-left">
+              <h3 className="experience-entry-title">Founder</h3>
+              <p className="experience-entry-company">Safehub</p>
+            </div>
+            <div className="experience-entry-right">
+              <p className="experience-entry-description">
+                December 2023 - June 2024
+              </p>
+            </div>
+          </div>
+        </div>
+        
+
+        <div className="experience-subtitle-container">
+          <img src={heartsScribble} alt="Hearts" className="experience-lightbulb-icon" />
+          <h3 className="experience-subtitle">Involvement</h3>
+        </div>
+
+        <div className="experience-entries-container">
+          <div className="experience-entry">
+            <div className="experience-entry-left">
+              <h3 className="experience-entry-title">Member</h3>
+              <p className="experience-entry-company">Cornell UX Design Club</p>
+            </div>
+            <div className="experience-entry-right">
+              <p className="experience-entry-description">
+                Fall 2025 - Present
+              </p>
+            </div>
+          </div>
+
+          <div className="experience-entry">
+            <div className="experience-entry-left">
+              <h3 className="experience-entry-title">Product Designer</h3>
+              <p className="experience-entry-company">Sandbox</p>
+            </div>
+            <div className="experience-entry-right">
+              <p className="experience-entry-description">
+                Spring 2025
+              </p>
+            </div>
+          </div>
+          </div>
+
+
+
+        {/* HUGE IMAGE GALLERY - SAVED FOR LATER USE (DO NOT DELETE)
+        Some of Nitish's Favorite Things Section
         <div className="favorite-things-section">
           <div className="favorite-things-content">
             <p className="favorite-things-label">CHECK IT OUT</p>
             <h2 className="favorite-things-title">
               A collection of my favorite things
               <svg className="camera-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="7" width="20" height="14" rx="2" stroke="#74A662" stroke-width="2" fill="none"/>
-                <path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="#74A662" stroke-width="2" fill="none"/>
-                <circle cx="12" cy="14" r="3" stroke="#74A662" stroke-width="2" fill="none"/>
+                <rect x="2" y="7" width="20" height="14" rx="2" stroke="#74A662" strokeWidth="2" fill="none"/>
+                <path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="#74A662" strokeWidth="2" fill="none"/>
+                <circle cx="12" cy="14" r="3" stroke="#74A662" strokeWidth="2" fill="none"/>
                 <circle cx="12" cy="14" r="1.5" fill="#74A662"/>
                 <rect x="18" y="9" width="2" height="2" rx="0.5" fill="#74A662"/>
               </svg>
@@ -348,13 +444,13 @@ function About() {
             </div>
           </div>
           
-          {/* Footer Text */}
           <div className="gallery-footer">
             <p className="gallery-footer-text">
               MADE WITH MANY <span className="thanks-text">ALL NIGHTERS</span> AND INSPIRATION FROM <span className="thanks-text">MANY DESIGNERS</span> ʕっ•ᴥ•ʔっ
             </p>
           </div>
         </div>
+        */}
 
       </div>
     </>

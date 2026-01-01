@@ -1,23 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './ProjectsMasonry.css';
 import { useNavigate } from 'react-router-dom';
-import wrap1 from './assets/wrap1.png';
-import wrap2 from './assets/wrap2.png';
-import wrapMockups from './casestudyassets/Wrap mockups.png';
-import safehubM1 from './assets/safehub m1.png';
-import safehubM2 from './assets/safehub m2.png';
-import finalDesignsPerma from './casestudyassets/Final Designs (perma).png';
-import gptMockups from './casestudyassets/GPTMockups.png';
-import searchflow from './assets/gifs/searchflow.mov';
-import searchneuThumb from './assets/searchneu thumbnail.png';
-import searchPhone from './assets/SearchPhone.png';
-import thinkneuroThumb from './assets/thinkneuro new thumb.png';
-import strawberryMatcha from './assets/strawberry 1.png';
-import smileyScribble from './assets/scribbles/smiley.png';
-import exclamationScribble from './assets/scribbles/exclamation.png';
-import lightbulbScribble from './assets/scribbles/lightbulb.png';
-import questionScribble from './assets/scribbles/question.png';
-import heartsScribble from './assets/scribbles/hearts.png';
+import chatgptLogo from './newthumbnaildesigns/OpenAI-black-monoblossom 2.png';
+import hmw2Image from './newthumbnaildesigns/HMW2.png';
+import chatgpt2Image from './newthumbnaildesigns/chatgpt 2.png';
+import safehub2Image from './newthumbnaildesigns/safehub2.png';
+import searchpeekImage from './newthumbnaildesigns/searchpeek.png';
+import card1Image from './newthumbnaildesigns/card 1.png';
+import card2Image from './newthumbnaildesigns/card 2.png';
+import card3Image from './newthumbnaildesigns/card 3.png';
 
 const ProjectsMasonry = () => {
   const navigate = useNavigate();
@@ -37,7 +28,7 @@ const ProjectsMasonry = () => {
       { threshold: 0.1 }
     );
 
-    const cards = document.querySelectorAll('.project-card');
+    const cards = document.querySelectorAll('.chatgpt-3d-card, .project-3d-card');
     cards.forEach((card) => {
       observer.observe(card);
     });
@@ -53,62 +44,54 @@ const ProjectsMasonry = () => {
     {
       id: 'chatgpt',
       name: 'ChatGPT Mobile App',
-      title: 'Bookmark Integration, ChatGPT',
+      title: 'Bookmarks',
       company: 'ChatGPT',
       description: 'Creating a more intuitive mobile interface for ChatGPT\'s mobile app through Bookmark integration.',
       duration: 'Mobile App',
       team: 'Product Design',
       growth: '2025',
       caseStudyUrl: 'https://medium.com/@nitishgannu/building-bookmarks-into-chatgpt-46ca50a7b2a4',
-      isExternal: true
+      isExternal: true,
+      hasLogo: true
     },
     {
       id: 'safehub',
-      name: 'Safehub Safety App',
-      title: 'Campus Safety, Safehub',
+      name: 'Safehub',
+      title: 'Safety App',
       company: 'Safehub',
-      description: 'Oversaw the design and development of a comprehensive campus safety app for a high school with Safehub',
+      description: 'A safety app for students and security guards.',
       duration: 'Mobile App',
-      team: 'End to End',
-      growth: '0 → 1',
+      team: 'Product Design',
+      growth: '2024',
       caseStudyUrl: '/work/safehub',
-      isExternal: false
-    },
-    {
-      id: 'wrap',
-      name: 'WrapApp',
-      title: 'Dynamic Dating, Wrap',
-      company: 'Wrap',
-      description: 'Reshaped the dating app experience with a new way to find your perfect match with Wrap',
-      duration: 'Design Systems',
-      team: 'User Research',
-      growth: 'NDA',
-      caseStudyUrl: '/work/wrap',
-      isExternal: false
+      isExternal: false,
+      hasLogo: false
     },
     {
       id: 'searchneu',
-      name: 'SearchNEU Course Notifications',
-      title: 'FAQs & Alerts, SearchNEU',
+      name: 'SearchNEU',
+      title: 'SearchFAQs',
       company: 'SearchNEU',
-      description: 'Redesigned SearchNEU to simplify course registration through interactive tutorials and an intelligent notification system for Northeastern students.',
-      duration: 'Visual Design',
-      team: 'Interaction Design',
-      growth: 'WEBSITE',
+      description: 'A better way to search for courses at Northeastern University.',
+      duration: 'Web App',
+      team: 'Product Design',
+      growth: '2024',
       caseStudyUrl: '/work/searchneu',
-      isExternal: false
+      isExternal: false,
+      hasLogo: false
     },
     {
-      id: 'thinkneuro',
-      name: 'ThinkNeuro Funding Dashboard',
-      title: 'DDP Dashboard, ThinkNeuro',
-      company: 'ThinkNeuro',
-      description: 'Oversaw the development of an internal AI powered funding dashboard tool for the ThinkNeuro Doctor Discovery Program to track funding and student progress.',
-      duration: 'SHIPPED',
-      team: 'AI',
-      growth: '0 → 1',
-      caseStudyUrl: '',
-      isExternal: false
+      id: 'wrap',
+      name: 'Wrap',
+      title: 'Startup',
+      company: 'Wrap',
+      description: 'Founding product designer at Wrap.',
+      duration: 'Startup',
+      team: 'Product Design',
+      growth: '2024',
+      caseStudyUrl: '/work/wrap',
+      isExternal: false,
+      hasLogo: false
     },
   ];
 
@@ -124,8 +107,69 @@ const ProjectsMasonry = () => {
 
   return (
     <div className="projects-container">
-      <div className="projects-header">
-        <p className="projects-description">View my passions, creations, and more ↓</p>
+      <div className="projects-header fade-in-on-scroll">
+        <p className="projects-description">Previously worked on <span className="projects-matcha-green">ChatGPT, startups, and more ↓</span></p>
+      </div>
+      
+      <div className="new-project-cards-container fade-in-on-scroll">
+        <div className="new-project-card-wrapper">
+          <div 
+            className="new-project-card fade-in-on-scroll"
+            onClick={() => window.open('https://medium.com/@nitishgannu/building-bookmarks-into-chatgpt-46ca50a7b2a4', '_blank', 'noopener,noreferrer')}
+          >
+            <div className="new-project-card-top">
+              <img src={hmw2Image} alt="HMW" className="new-project-card-image" />
+              <img src={chatgpt2Image} alt="ChatGPT" className="new-project-card-chatgpt-image" />
+            </div>
+            <div className="new-project-card-divider"></div>
+            <div className="new-project-card-bottom">
+              <div className="new-project-card-title">CHATGPT</div>
+              <div className="new-project-card-tags">DESIGN CASE STUDY / 2025</div>
+            </div>
+          </div>
+          <div className="new-project-card-recent-tag">RECENT</div>
+        </div>
+        <div 
+          className="new-project-card fade-in-on-scroll"
+          onClick={() => navigate('/work/safehub')}
+        >
+          <div className="new-project-card-top">
+            <img src={safehub2Image} alt="Safehub" className="new-project-card-safehub-image" />
+          </div>
+          <div className="new-project-card-divider"></div>
+          <div className="new-project-card-bottom">
+            <div className="new-project-card-title">SAFEHUB</div>
+            <div className="new-project-card-tags">FOUNDER / 2024</div>
+          </div>
+        </div>
+        <div 
+          className="new-project-card fade-in-on-scroll"
+          onClick={() => navigate('/work/searchneu')}
+        >
+          <div className="new-project-card-top">
+            <img src={searchpeekImage} alt="Search" className="new-project-card-search-image" />
+          </div>
+          <div className="new-project-card-divider"></div>
+          <div className="new-project-card-bottom">
+            <div className="new-project-card-title">SEARCHNEU</div>
+            <div className="new-project-card-tags">PRODUCT DESIGNER / 2025</div>
+          </div>
+        </div>
+        <div 
+          className="new-project-card fade-in-on-scroll"
+          onClick={() => navigate('/work/wrap')}
+        >
+          <div className="new-project-card-top">
+            <img src={card1Image} alt="Card 1" className="new-project-card-card1-image" />
+            <img src={card2Image} alt="Card 2" className="new-project-card-card2-image" />
+            <img src={card3Image} alt="Card 3" className="new-project-card-card3-image" />
+          </div>
+          <div className="new-project-card-divider"></div>
+          <div className="new-project-card-bottom">
+            <div className="new-project-card-title">STARTUP</div>
+            <div className="new-project-card-tags">FOUNDING DESIGNER / 2025</div>
+          </div>
+        </div>
       </div>
       
       <div className="projects-grid">
@@ -134,158 +178,27 @@ const ProjectsMasonry = () => {
           key={project.id}
           data-card-id={project.id}
           data-project-id={project.id}
-          className={`project-card ${hoveredProject === project.id ? 'hovered' : ''} ${animatedCards.has(project.id) ? 'animate' : ''}`}
+            className={`chatgpt-3d-card ${hoveredProject === project.id ? 'hovered' : ''} ${animatedCards.has(project.id) ? 'animate' : ''}`}
           onMouseEnter={() => setHoveredProject(project.id)}
           onMouseLeave={() => setHoveredProject(null)}
-        >
-            {/* Logo/Design Space - Reserved for future use */}
-            <div className="project-logo-space">
-              {project.id === 'safehub' && (
-                <img src={smileyScribble} alt="Smiley Scribble" className="project-scribble" />
-              )}
-              {project.id === 'searchneu' && (
-                <img src={lightbulbScribble} alt="Lightbulb Scribble" className="project-scribble" />
-              )}
-            </div>
-            
-            {/* Bottom scribbles */}
-            {project.id === 'safehub' && (
-              <div className="project-bottom-scribble">
-                <img src={exclamationScribble} alt="Exclamation Scribble" className="project-scribble" />
-              </div>
-            )}
-            {project.id === 'searchneu' && (
-              <div className="project-bottom-scribble">
-                <img src={questionScribble} alt="Question Scribble" className="project-scribble" />
-              </div>
-            )}
-            {project.id === 'wrap' && (
-              <div className="project-bottom-scribble">
-                <img src={heartsScribble} alt="Hearts Scribble" className="project-scribble" />
-              </div>
-            )}
-            
-            {/* ChatGPT, Safehub, SearchNEU, Wrap, and ThinkNeuro Special Layout: Caption top-left, designs bottom */}
-            {project.id === 'chatgpt' || project.id === 'safehub' || project.id === 'searchneu' || project.id === 'wrap' || project.id === 'thinkneuro' ? (
-              <>
-                {/* Caption at top-left */}
-                <div className={`${project.id}-caption safehub-caption`}>
-                  <p className={`${project.id}-caption-text safehub-caption-text`}>
-                    {project.id === 'chatgpt' ? (
-                      project.description.split('ChatGPT').map((part, index, array) => 
-                        index < array.length - 1 ? (
-                          <React.Fragment key={index}>
-                            {part}
-                            <strong>ChatGPT</strong>
-                          </React.Fragment>
-                        ) : (
-                          part
-                        )
-                      )
-                    ) : project.id === 'safehub' ? (
-                      project.description.split('Safehub').map((part, index, array) => 
-                        index < array.length - 1 ? (
-                          <React.Fragment key={index}>
-                            {part}
-                            <strong>Safehub</strong>
-                          </React.Fragment>
-                        ) : (
-                          part
-                        )
-                      )
-                    ) : project.id === 'searchneu' ? (
-                      project.description.split('SearchNEU').map((part, index, array) => 
-                        index < array.length - 1 ? (
-                          <React.Fragment key={index}>
-                            {part}
-                            <strong>SearchNEU</strong>
-                          </React.Fragment>
-                        ) : (
-                          part
-                        )
-                      )
-                    ) : project.id === 'wrap' ? (
-                      project.description.split('Wrap').map((part, index, array) => 
-                        index < array.length - 1 ? (
-                          <React.Fragment key={index}>
-                            {part}
-                            <strong>Wrap</strong>
-                          </React.Fragment>
-                        ) : (
-                          part
-                        )
-                      )
-                    ) : project.id === 'thinkneuro' ? (
-                      project.description.split('ThinkNeuro').map((part, index, array) => 
-                        index < array.length - 1 ? (
-                          <React.Fragment key={index}>
-                            {part}
-                            <strong>ThinkNeuro</strong>
-                          </React.Fragment>
-                        ) : (
-                          part
-                        )
-                      )
-                    ) : (
-                      project.description
-                    )}
-                  </p>
-                  <div className={`${project.id}-role-text safehub-role-text`}>
-                    {project.id === 'chatgpt' ? (
-                      <><strong>Case Study</strong>, 2025</>
-                    ) : project.id === 'safehub' ? (
-                      <><strong>Founder</strong>, 2023</>
-                    ) : project.id === 'searchneu' ? (
-                      <><strong>Product Designer</strong>, 2025</>
-                    ) : project.id === 'wrap' ? (
-                      <><strong>Founding Product Designer</strong>, 2025</>
-                    ) : project.id === 'thinkneuro' ? (
-                      <><strong>Product Manager</strong>, 2025</>
-                    ) : (
-                      ''
-                    )}
+            onClick={() => handleProjectClick(project)}
+          >
+            <div className={`chatgpt-card-inner ${project.id === 'searchneu' ? 'searchneu-card' : project.id === 'safehub' ? 'safehub-card' : project.id === 'wrap' ? 'wrap-card' : ''}`}>
+              <div className="chatgpt-card-white">
+                {/* Header - Title and Logo */}
+                <div className="chatgpt-card-header">
+                  <div className="chatgpt-title-group">
+                    <h2 className="chatgpt-title-main">{project.company}</h2>
+                    <h3 className="chatgpt-title-sub">{project.title}</h3>
                   </div>
+                  {project.hasLogo && (
+                    <div className="chatgpt-logo-container">
+                      <img src={chatgptLogo} alt="ChatGPT Logo" className="chatgpt-logo" />
+                    </div>
+                  )}
                 </div>
-                
-                {/* Button at top-right */}
-                {(project.caseStudyUrl || project.id === 'chatgpt') && (
-                  <div className={`${project.id}-button-container safehub-button-container`}>
-                    <button 
-                      className="project-button always-visible"
-                      onClick={() => handleProjectClick(project)}
-                    >
-                      <span>View Project</span>
-                      <div className="button-arrow-circle">
-                        <span className="button-arrow">↗</span>
-                      </div>
-                    </button>
                   </div>
-                )}
-                
-                {/* Designs at bottom */}
-                {project.id === 'chatgpt' ? (
-                  <div className="project-wireframes safehub-wireframes">
-                    <img src={gptMockups} alt="ChatGPT Mockups" className="project-wireframe safehub-final-designs" />
                   </div>
-                ) : project.id === 'safehub' ? (
-                  <div className="project-wireframes safehub-wireframes">
-                    <img src={finalDesignsPerma} alt="Safehub Final Designs" className="project-wireframe safehub-final-designs" />
-                  </div>
-                ) : project.id === 'searchneu' ? (
-                  <div className={`project-wireframes ${project.id}-wireframes safehub-wireframes`}>
-                    <img src={searchneuThumb} alt="SearchNEU Thumbnail" className={`project-wireframe ${project.id}-final-designs safehub-final-designs`} />
-                  </div>
-                ) : project.id === 'wrap' ? (
-                  <div className={`project-wireframes ${project.id}-wireframes safehub-wireframes`}>
-                    <img src={wrapMockups} alt="Wrap Mockups" className={`project-wireframe ${project.id}-final-designs safehub-final-designs`} />
-                  </div>
-                ) : (
-                  <div className={`project-wireframes ${project.id}-wireframes safehub-wireframes`}>
-                    <img src={thinkneuroThumb} alt="ThinkNeuro Thumbnail" className={`project-wireframe ${project.id}-final-designs safehub-final-designs`} />
-                  </div>
-                )}
-              </>
-            ) : null}
           </div>
         ))}
       </div>

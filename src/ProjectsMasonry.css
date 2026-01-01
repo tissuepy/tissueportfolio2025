@@ -1,7 +1,7 @@
 .projects-container {
-  max-width: 1200px;
-  margin: 100px auto 200px;
-  padding: 0 40px;
+  max-width: none;
+  margin: 100px 0 200px 0;
+  padding: 0;
 }
 
 @keyframes fadeIn {
@@ -16,862 +16,428 @@
 }
 
 .projects-header {
-  margin-bottom: 60px;
+  margin-bottom: 0;
 }
 
 .projects-description {
-  font-size: 16px;
+  font-size: 26px;
   font-weight: 400;
-  color: #9ca3af;
+  color: #464646;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  text-align: center;
+  text-align: left;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 120px;
-  max-width: 900px;
-  margin: 0 auto;
+.projects-matcha-green {
+  color: #74A662;
 }
 
-.project-card {
-  background: #F5F5F5;
-  border-radius: 24px;
+.new-project-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px 80px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 100px !important; /* Added space between text and cards */
+}
+
+.new-project-card-wrapper {
   position: relative;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  width: 520px;
+  max-width: 520px;
+  height: 400px;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.new-project-card {
+  width: 520px;
+  max-width: 520px;
+  height: 400px;
+  margin: 0;
+  border-radius: 16px;
+  background: white;
   display: flex;
   flex-direction: column;
-  padding: 40px;
-  box-sizing: border-box;
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.8s ease-out;
-  height: 300px;
+  border: 1px solid #d0d0d0;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
-.project-card[data-project-id="chatgpt"] {
-  background: #F0F9F1;
-  overflow: hidden;
-  border: none;
-}
-
-.project-card[data-project-id="safehub"] {
-  background: #FADDDD;
-  overflow: hidden;
-  border: none;
-}
-
-/* ChatGPT-specific tag styling */
-.project-card[data-project-id="chatgpt"] .project-duration,
-.project-card[data-project-id="chatgpt"] .project-team,
-.project-card[data-project-id="chatgpt"] .project-growth {
-  background-color: #4a8a6a;
-}
-
-/* Safehub-specific tag styling */
-.project-card[data-project-id="safehub"] .project-duration,
-.project-card[data-project-id="safehub"] .project-team,
-.project-card[data-project-id="safehub"] .project-growth {
-  background-color: #dc5050;
-}
-
-/* SearchNEU-specific tag styling */
-.project-card[data-project-id="searchneu"] .project-duration,
-.project-card[data-project-id="searchneu"] .project-team,
-.project-card[data-project-id="searchneu"] .project-growth {
-  background-color: #155090;
-}
-
-/* Wrap-specific tag styling */
-.project-card[data-project-id="wrap"] .project-duration,
-.project-card[data-project-id="wrap"] .project-team,
-.project-card[data-project-id="wrap"] .project-growth {
-  background-color: #ad82008b;
-}
-
-/* ThinkNeuro-specific tag styling */
-.project-card[data-project-id="thinkneuro"] .project-duration,
-.project-card[data-project-id="thinkneuro"] .project-team,
-.project-card[data-project-id="thinkneuro"] .project-growth {
-  background-color: #868a8f;
-}
-
-/* SearchNEU card border */
-.project-card[data-project-id="searchneu"] {
-  border: none;
-}
-
-/* Wrap card border */
-.project-card[data-project-id="wrap"] {
-  border: none;
-}
-
-/* ThinkNeuro card border */
-.project-card[data-project-id="thinkneuro"] {
-  border: none;
-}
-
-
-.project-card {
-  cursor: default;
-}
-
-.project-card[data-project-id="searchneu"] {
-  background: #DDE8FA;
-  overflow: hidden;
-}
-
-.project-card[data-project-id="wrap"] {
-  background: #FAF8DD;
-  overflow: hidden;
-}
-
-.project-card.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.project-card:hover {
-  transform: translateY(0);
-}
-
-/* Logo/Design Space - Reserved for future use */
-.project-logo-space {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  width: 80px;
-  height: 80px;
-  /* background: rgba(255, 255, 255, 0.1); */ /* Uncomment for visual placeholder */
-  border-radius: 12px;
-}
-
-.project-scribble {
+.new-project-card-top {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0;
-  display: none;
+  flex: 0 0 85%;
+  background: #f0f0f0;
+  position: relative;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
 }
 
-/* Cartoony animation for smiley scribble */
-@keyframes smileyWiggle {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(15deg); }
-  100% { transform: rotate(0deg); }
+.new-project-card {
+  overflow: hidden;
 }
 
-/* Cartoony animation for exclamation scribble */
-@keyframes exclamationBounce {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(-20deg); }
-  100% { transform: rotate(0deg); }
-}
-
-/* Cartoony animation for lightbulb scribble */
-@keyframes lightbulbGlow {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(10deg); }
-  100% { transform: rotate(0deg); }
-}
-
-/* Cartoony animation for question scribble */
-@keyframes questionWiggle {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(-15deg); }
-  100% { transform: rotate(0deg); }
-}
-
-/* Cartoony animation for hearts scribble */
-@keyframes heartsFloat {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(5deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.project-card[data-project-id="safehub"] .project-logo-space .project-scribble {
-  animation: smileyWiggle 2s steps(1, end) 3s infinite;
-}
-
-.project-card[data-project-id="searchneu"] .project-logo-space .project-scribble {
-  animation: lightbulbGlow 2s steps(1, end) 3.5s infinite;
-}
-
-.project-card[data-project-id="safehub"] .project-bottom-scribble .project-scribble {
-  animation: exclamationBounce 2s steps(1, end) 4s infinite;
-}
-
-.project-card[data-project-id="searchneu"] .project-bottom-scribble .project-scribble {
-  animation: questionWiggle 2s steps(1, end) 4.5s infinite;
-}
-
-.project-card[data-project-id="wrap"] .project-bottom-scribble .project-scribble {
-  animation: heartsFloat 2s steps(1, end) 5s infinite;
-}
-
-/* Safehub scribble positioning - extends beyond card boundary */
-.project-card[data-project-id="safehub"] .project-logo-space {
-  top: 30px;
-  right: 50px;
-  width: 110px;
-  height: 110px;
-  z-index: 10;
-}
-
-/* SearchNEU scribble positioning - extends beyond card boundary */
-.project-card[data-project-id="searchneu"] .project-logo-space {
-  top: -40px;
-  right: -50px;
-  width: 140px;
-  height: 140px;
-  z-index: 10;
-}
-
-/* Bottom scribble for Safehub */
-.project-bottom-scribble {
-  position: absolute;
-  bottom: 50px;
-  left: 350px;
-  width: 100px;
-  height: 100px;
-  z-index: 10;
-}
-
-/* Bottom scribble for SearchNEU - slightly bigger */
-.project-card[data-project-id="searchneu"] .project-bottom-scribble {
-  bottom: -35px;
-  left: -35px;
-  width: 110px;
-  height: 110px;
-}
-
-/* Bottom scribble for Wrap */
-.project-card[data-project-id="wrap"] .project-bottom-scribble {
-  bottom: -30px;
-  left: -30px;
-  width: 100px;
-  height: 100px;
-}
-
-/* Wireframes for Safehub - positioned INSIDE the card */
-.project-wireframes {
-  position: absolute;
-  top: 20%;
-  right: 0px;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: row;
-  gap: -20px;
-  z-index: 5;
-  width: 500px; /* Increased to accommodate movement */
-  height: 400px; /* Increased to accommodate movement */
-  overflow: visible; /* Allow wireframes to extend beyond container */
-  clip-path: none; /* Remove clipping */
-}
-
-.project-wireframe {
-  width: 300px;
+.new-project-card-image {
+  width: 85%;
   height: auto;
-  object-fit: contain;
-  opacity: 1;
-  border-radius: 0;
-}
-
-/* Target the first wireframe (left one) */
-.project-wireframe:first-child {
-  transform: translateX(50px) translateY(-10px);
-  transition: transform 0.4s linear;
-}
-
-/* Target the second wireframe (right one) */
-.project-wireframe:last-child {
-  transform: translateX(0px) translateY(300px);
-  transition: transform 0.4s linear;
-}
-
-/* SearchNEU thumbnail positioning */
-.project-card[data-project-id="searchneu"] .project-wireframe {
-  width: 500px; /* Increased size */
-  transform: translateY(140px) translateX(120px); /* Moved up a tad bit */
-  transition: transform 0.4s linear; /* Normal transition */
-}
-
-/* SearchNEU hover effect - iPad peeks to the left */
-.project-card[data-project-id="searchneu"]:hover .project-wireframe {
-  transform: translateY(140px) translateX(60px); /* Moves more to the left */
-}
-
-/* ThinkNeuro thumbnail positioning - same as SearchNEU */
-.project-card[data-project-id="thinkneuro"] .project-wireframe {
-  width: 500px; /* Same size as SearchNEU */
-  transform: translateY(140px) translateX(120px); /* Same positioning as SearchNEU */
-  transition: transform 0.4s linear; /* Normal transition */
-}
-
-/* ThinkNeuro hover effect - iPad peeks to the left, same as SearchNEU */
-.project-card[data-project-id="thinkneuro"]:hover .project-wireframe {
-  transform: translateY(140px) translateX(60px); /* Moves more to the left */
-}
-
-/* ChatGPT Special Layout Styles - same as Safehub */
-.chatgpt-caption {
+  object-fit: cover;
   position: absolute;
-  top: 40px;
-  left: 40px;
-  max-width: 550px;
-  z-index: 2;
-}
-
-.chatgpt-caption-text,
-.project-card[data-project-id="chatgpt"] .chatgpt-caption-text,
-.project-card[data-project-id="chatgpt"] .safehub-caption-text {
-  font-size: 16px;
-  font-weight: 400;
-  color: #25382b !important;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-}
-
-.chatgpt-caption-text strong,
-.project-card[data-project-id="chatgpt"] .chatgpt-caption-text strong,
-.project-card[data-project-id="chatgpt"] .safehub-caption-text strong {
-  font-weight: 600;
-  color: #4a8a6a !important;
-}
-
-.chatgpt-role-text,
-.project-card[data-project-id="chatgpt"] .chatgpt-role-text,
-.project-card[data-project-id="chatgpt"] .safehub-role-text {
-  font-size: 16px;
-  font-weight: 400;
-  color: #6a9a7a !important;
-  margin-top: 8px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-}
-
-.chatgpt-role-text strong,
-.project-card[data-project-id="chatgpt"] .chatgpt-role-text strong,
-.project-card[data-project-id="chatgpt"] .safehub-role-text strong {
-  font-weight: 600;
-  color: #5a8a6a !important;
-}
-
-.chatgpt-button-container {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  z-index: 100;
-}
-
-/* Safehub Special Layout Styles */
-.safehub-caption {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  max-width: 500px;
-  z-index: 2;
-}
-
-.safehub-caption-text {
-  font-size: 16px;
-  font-weight: 400;
-  color: #7a4a4a;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-}
-
-.safehub-caption-text strong {
-  font-weight: 600;
-  color: #c93838;
-}
-
-.safehub-role-text {
-  font-size: 16px;
-  font-weight: 400;
-  color: #7a4a4a;
-  margin-top: 8px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-}
-
-.safehub-role-text strong {
-  font-weight: 600;
-  color: #7a4a4a;
-}
-
-.searchneu-role-text {
-  font-size: 16px;
-  font-weight: 400;
-  color: #4a5a7a;
-  margin-top: 8px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-}
-
-.searchneu-role-text strong {
-  font-weight: 600;
-  color: #4a5a7a;
-}
-
-.safehub-tags {
-  font-size: 14px;
-  font-weight: 400;
-  color: #4a4a4a;
-  font-family: 'IBM Plex Mono', monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  line-height: 1.4;
-}
-
-.safehub-button-container {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  z-index: 100;
-}
-
-.safehub-wireframes {
-  position: absolute;
-  bottom: -250px;
+  bottom: -15%;
   left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  z-index: 1;
-  width: auto;
-  height: auto;
-}
-
-.safehub-wireframes .project-wireframe {
-  width: 320px;
-  height: auto;
-  object-fit: contain;
-  transform: none !important;
+  transform: translateX(calc(-50% - 10px));
   transition: transform 0.4s ease;
 }
 
-.safehub-wireframes .safehub-final-designs {
-  width: 1100px !important;
-  max-width: 170% !important;
-  height: auto;
-  object-fit: contain;
-  transform: translateY(0);
-  transition: transform 0.25s ease;
+.new-project-card:hover .new-project-card-image {
+  transform: translateX(calc(-50% - 10px)) translateY(-80px);
 }
 
-/* Hover effects for Safehub final designs - move up on hover */
-.project-card[data-project-id="safehub"]:hover .safehub-wireframes .safehub-final-designs {
-  transform: translateY(-30px) !important;
+.new-project-card-divider {
+  width: 100%;
+  height: 1px;
+  background: #d0d0d0;
+  flex-shrink: 0;
 }
 
-/* Hover effects for ChatGPT final designs - move up on hover (same as Safehub) */
-.project-card[data-project-id="chatgpt"]:hover .safehub-wireframes .safehub-final-designs {
-  transform: translateY(-30px) !important;
-}
-
-/* SearchNEU Special Layout Styles - same as Safehub */
-.searchneu-caption {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  max-width: 550px;
-  z-index: 2;
-}
-
-.searchneu-caption-text {
-  font-size: 16px;
-  font-weight: 400;
-  color: #4a5a7a;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-}
-
-.searchneu-caption-text strong {
-  font-weight: 600;
-  color: #155090;
-}
-
-.searchneu-button-container {
-  position: absolute !important;
-  top: 30px !important;
-  right: 40px !important;
-  z-index: 100;
-}
-
-.searchneu-wireframes {
-  position: absolute;
-  bottom: -300px;
-  left: 50%;
-  transform: translateX(-50%);
+.new-project-card-bottom {
+  width: 100%;
+  flex: 0 0 15%;
+  background: white;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  gap: 20px;
-  z-index: 1;
-  width: auto;
-  height: auto;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
-.searchneu-wireframes .searchneu-final-designs {
-  width: 750px !important;
-  max-width: 140% !important;
+.new-project-card-recent-tag {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: white;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #000000;
+  font-weight: 400;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.new-project-card-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #999999;
+  font-weight: 400;
+}
+
+.new-project-card-tags {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  color: #000000;
+  font-weight: 400;
+}
+
+.new-project-card-chatgpt-image {
+  width: 80px;
   height: auto;
   object-fit: contain;
-  transform: translateY(0);
-  transition: transform 0.25s ease;
-}
-
-/* Hover effects for SearchNEU final designs - move up on hover */
-.project-card[data-project-id="searchneu"]:hover .searchneu-wireframes .searchneu-final-designs {
-  transform: translateY(-30px) !important;
-}
-
-/* Wrap Special Layout Styles - same as Safehub */
-.wrap-caption {
   position: absolute;
-  top: 40px;
-  left: 40px;
-  max-width: 500px;
-  z-index: 2;
-}
-
-.wrap-caption-text {
-  font-size: 16px;
-  font-weight: 400;
-  color: #8a6a3a;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-}
-
-.wrap-caption-text strong {
-  font-weight: 600;
-  color: #ad8200;
-}
-
-.wrap-role-text {
-  font-size: 16px;
-  font-weight: 400;
-  color: #8a6a3a;
-  margin-top: 8px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-}
-
-.wrap-role-text strong {
-  font-weight: 600;
-  color: #8a6a3a;
-}
-
-.wrap-button-container {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  z-index: 100;
-}
-
-.wrap-wireframes {
-  position: absolute;
-  bottom: -250px;
+  top: 30%;
   left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  z-index: 1;
-  width: auto;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.new-project-card-safehub-image {
+  width: 55%;
   height: auto;
-}
-
-.wrap-wireframes .wrap-final-designs {
-  width: 500px !important;
-  max-width: 110% !important;
-  height: auto;
-  object-fit: contain;
-  transform: translateY(0);
-  transition: transform 0.25s ease;
-}
-
-/* Hover effects for Wrap wireframes - move up on hover */
-.project-card[data-project-id="wrap"]:hover .wrap-wireframes .wrap-final-designs {
-  transform: translateY(-30px) !important;
-}
-
-/* ThinkNeuro Special Layout Styles - same as SearchNEU */
-.thinkneuro-caption {
+  object-fit: cover;
   position: absolute;
-  top: 40px;
-  left: 40px;
-  max-width: 550px;
-  z-index: 2;
-}
-
-.thinkneuro-caption-text {
-  font-size: 16px;
-  font-weight: 400;
-  color: #5a5a5a;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-}
-
-.thinkneuro-caption-text strong {
-  font-weight: 600;
-  color: #868a8f;
-}
-
-.thinkneuro-role-text {
-  font-size: 16px;
-  font-weight: 400;
-  color: #5a5a5a;
-  margin-top: 8px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-}
-
-.thinkneuro-role-text strong {
-  font-weight: 600;
-  color: #5a5a5a;
-}
-
-.thinkneuro-button-container {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  z-index: 100;
-}
-
-.thinkneuro-wireframes {
-  position: absolute;
-  bottom: -300px;
   left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+  top: 100%;
+  transform: translateX(-50%) translateY(-50%);
+  transition: transform 0.7s ease;
+}
+
+.new-project-card:nth-child(2):hover .new-project-card-safehub-image {
+  transform: translateX(-50%) translateY(-110%);
+}
+
+.new-project-card-search-image {
+  width: 175%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  bottom: -67%;
+  right: -80%;
   z-index: 1;
-  width: auto;
-  height: auto;
 }
 
-.thinkneuro-wireframes .thinkneuro-final-designs {
-  width: 750px !important;
-  max-width: 140% !important;
+.new-project-card-card1-image {
+  width: 58%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
+  position: absolute;
+  top: 10px;
+  left: -5%;
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.new-project-card-card2-image {
+  width: 58%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.new-project-card-card3-image {
+  width: 58%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  bottom: 10px;
+  left: -5%;
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.new-project-card:nth-child(4):hover .new-project-card-card1-image {
+  transform: translateX(60px);
+}
+
+.new-project-card:nth-child(4):hover .new-project-card-card2-image {
+  transform: translateY(-50%) translateX(-60px);
+}
+
+.new-project-card:nth-child(4):hover .new-project-card-card3-image {
+  transform: translateX(60px);
+}
+
+.projects-grid {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* ChatGPT 3D Card Design */
+.chatgpt-3d-card {
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  width: 100%;
+  cursor: pointer;
+}
+
+.chatgpt-3d-card.animate {
+  opacity: 1;
   transform: translateY(0);
-  transition: transform 0.25s ease;
 }
 
-/* Hover effects for ThinkNeuro final designs - move up on hover */
-.project-card[data-project-id="thinkneuro"]:hover .thinkneuro-wireframes .thinkneuro-final-designs {
-  transform: translateY(-30px) !important;
+/* Matcha green background container */
+.chatgpt-card-inner {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  border-radius: 16px;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+  min-height: 350px;
+  border: none;
 }
 
+/* Green background box - can be positioned independently */
+.chatgpt-card-inner::before {
+  content: '';
+  position: absolute;
+  top: 8px; /* Move green box up */
+  left: 6px; /* Move green box to the left */
+  width: calc(100% - 12px);
+  height: calc(100% - 8px);
+  background: #9DB89D; /* Matcha green background */
+  border-radius: 16px;
+  z-index: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-.project-content {
-  flex: 1;
+/* Safehub card - light pastel red background */
+.safehub-card::before {
+  background: #F5C2C2; /* Light pastel red */
+}
+
+/* SearchNEU card - light pastel blue background */
+.searchneu-card::before {
+  background: #C2D5F5; /* Light pastel blue */
+}
+
+/* Wrap card - light pastel yellow background */
+.wrap-card::before {
+  background: #F5E8C2; /* Light pastel yellow */
+}
+
+/* White rectangle positioned top-left, leaving green visible on right and bottom */
+.chatgpt-card-white {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 18px);
+  height: calc(100% - 10px);
+  background: #ffffff;
+  border: 2px solid #000000; /* Thick black stroke */
+  border-radius: 16px; /* Same as green box */
+  padding: 0;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding-left: 20px; /* Move text more to the left */
-  padding-right: 120px; /* Space for logo area */
+  overflow: visible;
+  z-index: 1;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1), border 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project-header {
-  margin-bottom: 20px;
+/* Hover state - white box moves right and down to cover background box, turns to background color immediately */
+.chatgpt-3d-card:hover .chatgpt-card-white {
+  transform: translateX(6px) translateY(8px); /* Move right 6px and down 8px to cover background box */
+  width: calc(100% - 12px); /* Resize to match background box width */
+  height: calc(100% - 8px); /* Resize to match background box height */
+  background: #9DB89D; /* Default matcha green */
+  border: 2px solid transparent; /* Border fades away immediately - no delay */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1), border 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project-title {
-  font-size: 28px;
-  font-weight: 400;
-  color: #000000;
-  margin: 0 0 16px 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.0;
+/* Safehub hover - turns pastel red */
+.chatgpt-3d-card:hover .safehub-card .chatgpt-card-white {
+  background: #F5C2C2; /* Light pastel red */
 }
 
-.project-company {
-  font-size: 18px;
-  font-weight: 500;
-  color: #000000;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  margin-bottom: 24px;
+/* SearchNEU hover - turns pastel blue */
+.chatgpt-3d-card:hover .searchneu-card .chatgpt-card-white {
+  background: #C2D5F5; /* Light pastel blue */
 }
 
-.project-description {
-  font-size: 16px;
-  font-weight: 300;
-  color: #000000;
-  margin: 0 0 40px 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.5;
-  max-width: 350px;
+/* Wrap hover - turns pastel yellow */
+.chatgpt-3d-card:hover .wrap-card .chatgpt-card-white {
+  background: #F5E8C2; /* Light pastel yellow */
 }
 
-.project-details {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin: 20px 0;
+
+/* Text turns white immediately on hover */
+.chatgpt-title-main,
+.chatgpt-title-sub {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project-duration,
-.project-team,
-.project-growth {
-  font-size: 12px;
-  font-weight: 500;
+.chatgpt-3d-card:hover .chatgpt-title-main,
+.chatgpt-3d-card:hover .chatgpt-title-sub {
   color: #ffffff;
-  font-family: 'IBM Plex Mono', monospace;
-  margin-bottom: 0;
-  text-transform: uppercase;
-  background-color: #a0a0a0;
-  padding: 6px 12px;
-  border-radius: 12px;
-  white-space: nowrap;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Turn white immediately - no delay */
 }
 
-.project-button-container {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 20px;
+/* Header background turns green on hover */
+.chatgpt-3d-card:hover .chatgpt-card-header {
+  background: transparent;
 }
 
-.project-button {
+/* Header Section - Title and Logo */
+.chatgpt-card-header {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #000000;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  padding: 12px 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  opacity: 0;
-  transform: translateY(10px);
-  font-size: 14px;
-  font-weight: 500;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 32px 24px 32px;
+  z-index: 1;
   position: relative;
-  z-index: 101;
-  pointer-events: auto;
+  background: transparent;
+  transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project-card.hovered .project-button {
-  opacity: 1;
-  transform: translateY(0);
+.chatgpt-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.project-button.always-visible {
-  opacity: 1;
-  transform: translateY(0);
+.chatgpt-title-sub {
+  margin-left: 2px;
 }
 
-/* Project-specific button hover effects - must come before general hover */
-.project-card[data-project-id="chatgpt"] .chatgpt-button-container .project-button:hover,
-.project-card[data-project-id="chatgpt"] .project-button:hover {
-  background: #4a8a6a !important;
-  transform: translateY(-2px);
+.chatgpt-title-main {
+  font-size: 28px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project-card[data-project-id="safehub"] .safehub-button-container .project-button:hover,
-.project-card[data-project-id="safehub"] .project-button:hover {
-  background: #dc5050 !important;
-  transform: translateY(-2px);
+.chatgpt-title-sub {
+  font-size: 16px;
+  font-weight: 400;
+  color: #737373;
+  margin: 0 0 0 2px;
+  font-family: 'IBM Plex Mono', monospace;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project-card[data-project-id="searchneu"] .searchneu-button-container .project-button:hover,
-.project-card[data-project-id="searchneu"] .project-button:hover {
-  background: #155090 !important;
-  transform: translateY(-2px);
-}
-
-.project-button:hover {
-  background: #333333;
-  transform: translateY(-2px);
-}
-
-.project-card[data-project-id="chatgpt"] .project-button:hover .button-arrow {
-  color: #4a8a6a;
-}
-
-.project-card[data-project-id="safehub"] .project-button:hover .button-arrow {
-  color: #dc5050;
-}
-
-.project-card[data-project-id="searchneu"] .project-button:hover .button-arrow {
-  color: #155090;
-}
-
-.project-card[data-project-id="wrap"] .wrap-button-container .project-button:hover,
-.project-card[data-project-id="wrap"] .project-button:hover {
-  background: #ad8200 !important;
-  transform: translateY(-2px);
-}
-
-.project-card[data-project-id="wrap"] .project-button:hover .button-arrow {
-  color: #ad8200;
-}
-
-.project-card[data-project-id="thinkneuro"] .thinkneuro-button-container .project-button:hover,
-.project-card[data-project-id="thinkneuro"] .project-button:hover {
-  background: #868a8f !important;
-  transform: translateY(-2px);
-}
-
-.project-card[data-project-id="thinkneuro"] .project-button:hover .button-arrow {
-  color: #868a8f;
-}
-
-.project-button svg {
-  color: white;
-  width: 16px;
-  height: 16px;
-}
-
-.button-arrow-circle {
-  width: 20px;
-  height: 20px;
-  background-color: white;
-  border-radius: 50%;
+/* Logo Container */
+.chatgpt-logo-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-left: 8px;
+  justify-content: flex-end;
+  margin-top: -32px;
+  margin-right: -20px;
 }
 
-.button-arrow {
-  color: #000000;
-  font-size: 12px;
-  font-weight: bold;
+.chatgpt-logo {
+  height: 125px;
+  width: auto;
+  opacity: 1;
+}
+
+/* Mockup Frame - positioned at bottom of white box, clips to show only top half */
+.chatgpt-mockup-frame {
+  width: 80%;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 0 0 16px 16px; /* Match white box border radius at bottom */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  clip-path: inset(0 0 50% 0); /* Clips bottom 50% - shows only top half */
+  -webkit-clip-path: inset(0 0 50% 0);
+  z-index: 9999; /* Highest z-index - on top of everything */
+  background: transparent;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+.chatgpt-mockup-image {
+  width: 100%;
+  height: 300px; /* Reduced height */
+  object-fit: cover;
+  object-position: top center;
+  transform: none;
+  display: block;
+  position: relative;
 }
 
 /* Responsive design */
@@ -881,64 +447,90 @@
     margin: 60px auto 200px;
   }
   
-  .project-card {
-    padding: 30px;
-    min-height: 240px;
+  .projects-grid {
+    max-width: 500px;
+  }
+
+  .new-project-cards-container {
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .new-project-card-wrapper,
+  .new-project-card {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    min-height: 350px;
   }
   
-  .project-content {
-    padding-right: 80px;
+  .chatgpt-card-inner {
+    padding: 24px;
+    min-height: 300px;
   }
   
-  .project-logo-space {
-    top: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
+  .chatgpt-card-header {
+    margin-bottom: 20px;
   }
   
-  .project-title {
+  .chatgpt-title-main {
     font-size: 20px;
   }
   
-  .project-description {
-    font-size: 13px;
+  .chatgpt-title-sub {
+    font-size: 14px;
+  }
+  
+  .chatgpt-logo {
+    height: 28px;
+  }
+  
+  .chatgpt-mockup-frame {
+    height: 180px;
+  }
+  
+  .chatgpt-mockup-image {
+    height: 360px;
   }
 }
 
 @media (max-width: 480px) {
-  .project-card {
-    padding: 24px;
+  .chatgpt-card-inner {
+    padding: 20px;
+    min-height: 280px;
   }
   
-  .project-content {
-    padding-right: 0;
-  }
-  
-  .project-logo-space {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: 100%;
-    height: 60px;
-    margin-bottom: 20px;
-  }
-  
-  .project-title {
+  .chatgpt-title-main {
     font-size: 18px;
   }
   
-  .project-details {
-    margin-bottom: 16px;
+  .chatgpt-title-sub {
+    font-size: 13px;
   }
   
-  .project-footer {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
+  .chatgpt-logo {
+    height: 24px;
   }
   
-  .project-button {
-    align-self: flex-end;
+  .chatgpt-mockup-frame {
+    height: 150px;
+  }
+  
+  .chatgpt-mockup-image {
+    height: 300px;
+  }
+
+  .new-project-cards-container {
+    gap: 30px;
+  }
+
+  .new-project-card-wrapper,
+  .new-project-card {
+    max-width: 100%;
+    min-height: 320px;
+  }
+
+  .projects-description {
+    font-size: 20px;
   }
 }
