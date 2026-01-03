@@ -454,14 +454,57 @@
   .new-project-cards-container {
     justify-content: center;
     gap: 40px;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
 
-  .new-project-card-wrapper,
+  .new-project-card-wrapper {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 1;
+  }
+
   .new-project-card {
     width: 100%;
-    max-width: 480px;
-    height: auto;
-    min-height: 350px;
+    max-width: 100%;
+    height: 400px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .new-project-card-top {
+    flex: 0 0 85%;
+    width: 100%;
+  }
+
+  .new-project-card-bottom {
+    flex: 0 0 15%;
+    width: 100%;
+  }
+
+  .new-project-card-search-image {
+    bottom: -39% !important;
+    right: -85% !important;
+  }
+
+  .new-project-card-card1-image,
+  .new-project-card-card2-image,
+  .new-project-card-card3-image {
+    width: 75% !important;
+  }
+
+  .new-project-card-card1-image {
+    top: 20px !important;
+  }
+
+  .new-project-card-card3-image {
+    bottom: 20px !important;
+  }
+
+  .tag-year {
+    display: none;
   }
   
   .chatgpt-card-inner {
@@ -522,10 +565,17 @@
 
   .new-project-cards-container {
     gap: 30px;
+    padding: 0 15px;
   }
 
-  .new-project-card-wrapper,
+  .new-project-card-wrapper {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
   .new-project-card {
+    width: 100%;
     max-width: 100%;
     min-height: 320px;
   }

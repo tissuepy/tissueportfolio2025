@@ -13,22 +13,34 @@ body, html {
 .case-study-container {
   min-height: 100vh;
   background-color: #ffffff;
-  padding: 80px 40px 40px 40px;
+  padding: 0;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
 }
 
+.case-study-thumbnail-banner {
+  width: 100%;
+  max-width: 100vw;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
 .case-study-content {
-  max-width: 800px;
+  max-width: 1000px;
   width: 100%;
   margin: 0 auto;
   text-align: left;
   overflow-x: hidden;
+  padding: 80px 40px 40px 40px;
 }
 
 .case-study-header {
@@ -60,10 +72,12 @@ body, html {
 
 .case-study-thumbnail {
   width: 100%;
-  max-width: 800px;
+  max-width: 100%;
   height: auto;
-  border-radius: 12px;
-  margin-top: 20px;
+  border-radius: 0;
+  margin: 0 0 40px 0;
+  display: block;
+  object-fit: cover;
 }
 
 .case-study-columns {
@@ -531,6 +545,40 @@ ul.section-paragraph {
 }
 
 @media (max-width: 768px) {
+  .case-study-content {
+    max-width: 100%;
+    padding: 40px 20px 40px 20px;
+  }
+
+  .case-study-title {
+    font-size: 24px;
+  }
+
+  .case-study-description {
+    font-size: 15px;
+  }
+
+  .case-study-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .case-study-section {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .section-subtitle {
+    font-size: 18px;
+  }
+
+  .section-paragraph {
+    font-size: 15px;
+  }
+
   .interview-callouts.roles .role-icon {
     width: 36px;
     height: 36px;

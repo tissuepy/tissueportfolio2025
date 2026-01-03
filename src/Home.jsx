@@ -60,9 +60,15 @@ function Home() {
       <div className="main-content-container">
         <div className="hero-section fade-in-on-scroll" ref={heroSectionRef}>
           <div className="hero-content">
+                  <img src={nitish3} alt="Cartoon of Nitish" className="hero-face-image-top" />
                   <div className="hero-text fade-in-on-scroll" ref={heroTextRef}>
                     <p>
-                      <span className="matcha-green-text">Nitish Gannu</span> is a Product Designer exploring <span className="light-grey-text">conversational AI</span> and building functional digital solutions that bring smiles, always with <span className="matcha-green-text">matcha</span> in hand.
+                      <span className="hero-text-desktop">
+                        <span className="matcha-green-text">Nitish Gannu</span> is a Product Designer exploring <span className="light-grey-text">conversational AI</span> and building functional digital solutions that bring smiles, always with <span className="matcha-green-text">matcha</span> in hand.
+                      </span>
+                      <span className="hero-text-mobile">
+                        <span className="matcha-green-text">Nitish Gannu</span> is a Product Designer exploring <span className="light-grey-text">conversational AI</span> with <span className="matcha-green-text">matcha</span> in hand.
+                      </span>
                     </p>
                     <div className="status-section">
                       <p>

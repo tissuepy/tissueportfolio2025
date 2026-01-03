@@ -124,7 +124,7 @@ const ProjectsMasonry = () => {
             <div className="new-project-card-divider"></div>
             <div className="new-project-card-bottom">
               <div className="new-project-card-title">CHATGPT</div>
-              <div className="new-project-card-tags">DESIGN CASE STUDY / 2025</div>
+              <div className="new-project-card-tags">DESIGN CASE STUDY<span className="tag-year"> / 2025</span></div>
             </div>
           </div>
           <div className="new-project-card-recent-tag">RECENT</div>
@@ -139,7 +139,7 @@ const ProjectsMasonry = () => {
           <div className="new-project-card-divider"></div>
           <div className="new-project-card-bottom">
             <div className="new-project-card-title">SAFEHUB</div>
-            <div className="new-project-card-tags">FOUNDER / 2024</div>
+            <div className="new-project-card-tags">FOUNDER<span className="tag-year"> / 2024</span></div>
           </div>
         </div>
         <div 
@@ -152,7 +152,7 @@ const ProjectsMasonry = () => {
           <div className="new-project-card-divider"></div>
           <div className="new-project-card-bottom">
             <div className="new-project-card-title">SEARCHNEU</div>
-            <div className="new-project-card-tags">PRODUCT DESIGNER / 2025</div>
+            <div className="new-project-card-tags">PRODUCT DESIGNER<span className="tag-year"> / 2025</span></div>
           </div>
         </div>
         <div 
@@ -167,7 +167,7 @@ const ProjectsMasonry = () => {
           <div className="new-project-card-divider"></div>
           <div className="new-project-card-bottom">
             <div className="new-project-card-title">STARTUP</div>
-            <div className="new-project-card-tags">FOUNDING DESIGNER / 2025</div>
+            <div className="new-project-card-tags">FOUNDING DESIGNER<span className="tag-year"> / 2025</span></div>
           </div>
         </div>
       </div>

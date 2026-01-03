@@ -42,6 +42,11 @@ const SafehubCaseStudy = () => {
 
   return (
     <div className="case-study-container">
+      <img 
+        src={safehubThumbnail} 
+        alt="Safehub Project Thumbnail" 
+        className="case-study-thumbnail-banner"
+      />
       <div className="case-study-content">
         <div className="case-study-header">
           <h1 className="case-study-title">
@@ -50,11 +55,6 @@ const SafehubCaseStudy = () => {
           <p className="case-study-description">
             A project where I singlehandedly led the creation of a campus safety app for my high school to counteract the flawed security systems that already existed using design thinking and user research.
           </p>
-          <img 
-            src={safehubThumbnail} 
-            alt="Safehub Project Thumbnail" 
-            className="case-study-thumbnail"
-          />
           
           <div className="case-study-columns">
             <div className="case-study-column">
@@ -119,18 +119,6 @@ const SafehubCaseStudy = () => {
               />
             <span className="container-caption">Statistics</span>
             </div>
-          
-          <p className="section-paragraph">
-            With the security team reduced by nearly <strong>fifteen members</strong>, the school now operates with roughly <strong>half the coverage</strong> it once had, increasing vulnerability during critical situations.
-          </p>
-          
-          <div className="section-divider">
-            <div className="dots">• • •</div>
-          </div>
-          
-          <p className="section-paragraph">
-            At first glance, these flaws seemed like they affected everyone, but I needed to be sure that this wasn't only my perception. To design an effective solution, I first had to validate these concerns.
-          </p>
         </div>
         
         {/* User Research Section */}
@@ -295,35 +283,6 @@ const SafehubCaseStudy = () => {
             />
             <span className="container-caption">Emergencies</span>
           </div>
-          
-          <p className="section-paragraph">
-            Through the survey results, I discovered that the following types of emergencies were the most prominent
-          </p>
-          
-          <p className="section-paragraph">
-            <strong>1. Medical Emergency</strong><br/>
-            <em>Used to report injuries, sudden illness, or other health-related incidents.</em>
-          </p>
-          
-          <p className="section-paragraph">
-            <strong>2. Stranger</strong><br/>
-            <em>Used when someone notices suspicious or unfamiliar individuals behaving unusually.</em>
-          </p>
-          
-          <p className="section-paragraph">
-            <strong>3. Physical Altercation</strong><br/>
-            <em>Used to report fights or violent confrontations between individuals.</em>
-          </p>
-          
-          <p className="section-paragraph">
-            <strong>4. Unsafe Object</strong><br/>
-            <em>Used to alert authorities about hazardous or potentially dangerous items in the area.</em>
-          </p>
-          
-          <p className="section-paragraph">
-            <strong>5. Fire/Smoke</strong><br/>
-            <em>Used to report visible flames, smoke, or potential fire hazards.</em>
-          </p>
         </div>
         
         {/* Low-Fidelity Designs Section */}

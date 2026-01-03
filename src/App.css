@@ -180,14 +180,7 @@ body, html {
 }
 
 .clocktower-wrapper {
-  position: absolute;
-  left: 100px;
-  transform: translateY(50%);
-  bottom: 100%;
-  width: auto;
-  height: auto;
-  z-index: 5;
-  clip-path: inset(0 0 50% 0);
+  display: none; /* Hide clocktower on all devices */
 }
 
 
@@ -218,7 +211,7 @@ body, html {
 }
 
 .clocktower.on {
-  width: 135px;
+  width: 88px;
   height: auto;
   object-fit: contain;
 }
@@ -244,6 +237,18 @@ body, html {
   color: white;
   transition: color 0.2s ease;
   cursor: pointer;
+}
+
+.footer-email:last-child {
+  font-weight: 400;
+  font-size: 0.95rem; /* Same size as footer-thankyou */
+  color: #b9b6b6; /* Same color as footer-thankyou */
+  cursor: default;
+  white-space: nowrap; /* Keep on one line */
+}
+
+.footer-email:last-child:hover {
+  color: #b9b6b6; /* Keep same color on hover, no green */
 }
 
 .footer-email:hover {
@@ -429,6 +434,14 @@ body, html {
   z-index: 3;
 }
 
+.hero-text-mobile {
+  display: none;
+}
+
+.hero-text-desktop {
+  display: inline;
+}
+
 .matcha-green-text {
   color: #74A662;
 }
@@ -470,6 +483,19 @@ body, html {
 .hero-face-image-2:hover {
   transform: rotate(8deg) rotate(-10deg);
   pointer-events: auto;
+}
+
+.hero-face-image-top {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: -100px;
+  z-index: 1;
+  transform: rotate(8deg);
+  pointer-events: none;
+  display: none;
 }
 
 
@@ -521,7 +547,7 @@ body, html {
 }
 
 .status-light-grey {
-  color: #666666;
+  color: #000000;
   font-size: 26px !important;
 }
 
@@ -1531,7 +1557,7 @@ body, html {
   }
 
   .hero-text p {
-    font-size: 24px;
+    font-size: 28px;
     line-height: 1.3;
   }
 
@@ -1588,14 +1614,46 @@ body, html {
     display: none !important;
   }
 
+  .hero-text {
+    padding-top: 120px;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .hero-text p {
-    font-size: 22px;
+    font-size: 26px;
     line-height: 1.3;
+    width: 100%;
+  }
+
+  .hero-text-desktop {
+    display: none;
+  }
+
+  .hero-text-mobile {
+    display: inline;
+  }
+
+  .status-section {
+    font-size: 18px;
+  }
+
+  .status-section p {
+    font-size: 18px !important;
+  }
+
+  .status-major-green,
+  .status-light-grey {
+    font-size: 18px !important;
+  }
+
+  .hero-face-image-top {
+    display: block !important;
   }
 
   .navbar-matcha-image {
-    margin-left: 0;
-    width: 45px;
+    margin-left: 15px; /* Move it more to the right */
+    width: 80px; /* Make it bigger */
   }
 
   .navbar {
@@ -1604,6 +1662,10 @@ body, html {
 
   .hero-section {
     padding: 40px 20px 20px 20px;
+  }
+
+  .main-content-container {
+    padding: 20px 20px 0 20px; /* Add top padding to move content down */
   }
 
   .left-section {
@@ -1830,6 +1892,8 @@ body, html {
   .right-section {
     display: flex !important; /* show nav toggle on mobile */
     gap: 12px;
+    margin-left: -30px !important; /* Move nav toggle more to the left */
+    margin-right: 0 !important;
   }
   
   .nav-link {
@@ -1853,7 +1917,7 @@ body, html {
   .footer {
     flex-direction: column;   /* stack vertically */
     align-items: flex-start;  /* align all content to the left */
-    padding: 20px 1rem;       /* reduce padding on sides for mobile */
+    padding: 30px 0 20px 1rem;       /* more top padding to move content down */
   }
 
   .footer-left,
@@ -1863,9 +1927,36 @@ body, html {
   }
 
   .footer-right {
-    flex-direction: column;  /* stack footer-right items vertically */
-    align-items: flex-start; /* align text to left */
-    gap: 8px;
+    display: none; /* Hide matcha image on mobile */
+  }
+
+  .footer-middle {
+    align-self: center; /* Center vertically */
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 8px; /* Add spacing between links */
+    align-items: flex-end; /* Align links to the right */
+  }
+
+  .footer-links span {
+    display: none; /* Hide the "/" separators */
+  }
+
+  .footer-links .footer-link {
+    display: block;
+    text-align: left; /* Left align the text */
+    font-size: 0.95rem; /* Same size as footer-thankyou */
+  }
+
+  .footer-links .footer-link:first-child {
+    display: none; /* Hide GitHub link on mobile */
   }
 }
 

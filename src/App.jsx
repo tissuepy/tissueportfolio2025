@@ -94,7 +94,7 @@ function App() {
         <div className="footer-left">
           <p className="footer-thankyou">reach out to me at ↓</p>
           <p className="footer-email">ng545@cornell.edu↗</p>
-          <p className="footer-email"> ⓒ 2025</p> 
+          <p className="footer-email"> Made lots of matcha at ungodly hours 🍵</p> 
         </div>
 
         <div className="footer-middle">
