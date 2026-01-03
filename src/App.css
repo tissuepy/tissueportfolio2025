@@ -1920,6 +1920,11 @@ body, html {
     width: 100%;
   }
 
+  .footer-left {
+    text-align: left;
+    align-items: flex-start;
+  }
+
   .footer-right {
     display: none; /* Hide matcha image on mobile */
   }
