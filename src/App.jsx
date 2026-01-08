@@ -11,12 +11,21 @@ import matchaImage from './drink/matcha 1.png';
 import matchaNavImage from './assets/matcha 1.png';
 import clocktowerOffImage from './assets/scribbles/clocktower off 1.png';
 import clocktowerOnImage from './assets/scribbles/clocktower on 2.png';
+import MatchaASCII from './MatchaASCII';
 
 function App() {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
   const [fadeClass, setFadeClass] = useState('fade-in');
   const [clocktowerOn, setClocktowerOn] = useState(false);
+  const [matchaFrame, setMatchaFrame] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMatchaFrame((prev) => (prev + 1) % 6);
+    }, 400);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (location.pathname !== currentPath) {
@@ -110,7 +119,9 @@ function App() {
         </div>
 
         <div className="footer-right">
-          <img src={matchaImage} alt="Matcha" className="footer-matcha-image" />
+          <div className="footer-matcha-ascii">
+            <MatchaASCII frame={matchaFrame} />
+          </div>
         </div>
 
       </footer>

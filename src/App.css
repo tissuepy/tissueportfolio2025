@@ -271,19 +271,15 @@ body, html {
   height: 100px;
 }
 
-.footer-matcha-image {
-  width: 130px;
-  height: auto;
-  object-fit: contain;
-  transform: translateY(20px) translateX(60px) rotate(7deg);
+.footer-matcha-ascii {
+  font-family: 'Courier New', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  transform: translateY(0px) translateX(60px);
   opacity: 0.8;
   z-index: 10;
-  transition: transform 0.3s ease;
 }
 
-.footer-matcha-image:hover {
-  transform: translateY(20px) translateX(80px) rotate(20deg);
-}
 
 .footer-link {
   text-decoration: none;

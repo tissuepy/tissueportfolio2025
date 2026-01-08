@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 16px;
+  gap: 15px;
   margin: 0 auto 60px;
   padding: 0 20px;
   max-width: 1400px;
@@ -14,7 +14,7 @@
 
 .horizontal-image {
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 4px;
   position: relative;
   transition: transform 0.3s ease;
 }
@@ -131,6 +131,36 @@
   max-width: 800px;
   margin: 0 auto;
   text-align: left;
+}
+
+.about-me-content-two-column {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.about-me-left-column {
+  flex: 0 0 40%;
+  max-width: 400px;
+}
+
+.about-me-right-column {
+  flex: 1.2;
+  min-width: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+.about-me-hero-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 3px;
+  margin-top: 5rem;
 }
 
 .about-me-main-title {
@@ -291,7 +321,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 1000;
-  width: 220px;
+  width: 280px;
   white-space: normal;
   opacity: 0;
   animation: tooltipFadeIn 0.3s ease-out forwards;
@@ -335,7 +365,9 @@
   margin: 0;
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.4;
+  line-height: 1.5;
+  word-wrap: break-word;
+  padding: 0 4px;
 }
 
 .comp-bio-text {
@@ -352,6 +384,245 @@
 
 .reference-tooltip {
   pointer-events: none;
+}
+
+/* Experience Section New */
+.experience-section-new {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem 0.5rem 2rem;
+}
+
+.experience-content-two-column {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.experience-left-column {
+  flex: 0 0 40%;
+  max-width: 400px;
+}
+
+.experience-right-column {
+  flex: 1;
+  min-width: 0;
+}
+
+.experience-label-new {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #808080;
+  margin: 0 0 0.75rem 0;
+}
+
+.experience-title-new {
+  font-size: 28px;
+  font-weight: 500;
+  color: #000000;
+  margin: 0 0 2rem 0;
+  line-height: 1.6;
+}
+
+.experience-skillset-canvas {
+  background-color: #ffffff;
+  border: 0.5px solid #d2d2d2;
+  border-radius: 20px;
+  padding: 30px 40px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.experience-skillset-image {
+  width: 210%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transform: translate(-7%, -0%);
+}
+
+.experience-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.experience-item-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.experience-item-link:hover .experience-item-new {
+  opacity: 0.8;
+}
+
+.experience-item-new {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.experience-item-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.experience-logo-placeholder {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 0.5px solid #d2d2d2;
+  border-radius: 6px;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience-logo-arrow {
+  color: #000000;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.experience-logo-cornell {
+  background-color: #ffffff; /* Light matcha green */
+  border-color: #d7d7d7;
+}
+
+.experience-logo-wrap {
+  background-color: #ffffff; /* Light matcha green */
+  border-color: #d7d7d7;
+}
+
+.experience-logo-thinkneuro {
+  background-color: #ffffff; /* Light matcha green */
+  border-color: #d7d7d7;
+}
+
+.experience-logo-intverse {
+  background-color: #ffffff;
+  border-color: #d7d7d7;
+}
+
+.experience-logo-sandbox {
+  background-color: #ffffff; /* Light matcha green */
+  border-color: #d7d7d7;
+}
+
+.experience-company-name-new {
+  font-weight: 450;
+  color: #585858;
+  font-size: 1rem;
+}
+
+.experience-role-new {
+  font-weight: 350;
+  color: #999999;
+  font-size: 1rem;
+}
+
+.experience-date-new {
+  font-size: 0.875rem;
+  color: #666666;
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .experience-section-new {
+    padding: 3rem 1rem 1rem 1rem;
+  }
+
+  .experience-content-two-column {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .experience-left-column {
+    flex: 1;
+    max-width: 100%;
+  }
+
+  .experience-right-column {
+    flex: 1;
+  }
+}
+
+/* About Photo Gallery */
+.about-photo-gallery {
+  max-width: 800px;
+  margin: 4rem auto 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-photo-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 250px;
+}
+
+.about-photo-column-1 .about-photo:nth-child(1) {
+  margin-top: 0;
+}
+
+.about-photo-column-1 .about-photo:nth-child(2) {
+  margin-top: 0;
+}
+
+.about-photo-column-2 .about-photo:nth-child(1) {
+  margin-top: 60px;
+}
+
+.about-photo-column-2 .about-photo:nth-child(2) {
+  margin-top: 0;
+}
+
+.about-photo-column-2 .about-photo:nth-child(3) {
+  margin-top: 0;
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .about-photo-gallery {
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
+  .about-photo-column-1,
+  .about-photo-column-2 {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .tooltip-caption-black {
@@ -413,6 +684,24 @@
   max-width: 800px;
   margin: 0 auto;
   text-align: left;
+}
+
+.design-philosophy-content-two-column {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.design-philosophy-left-column {
+  flex: 0 0 40%;
+  max-width: 400px;
+}
+
+.design-philosophy-right-column {
+  flex: 1;
+  min-width: 0;
 }
 
 .design-philosophy-label {
@@ -1385,6 +1674,20 @@ body, html {
     padding: 3rem 1rem;
   }
 
+  .about-me-content-two-column {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about-me-left-column {
+    flex: 1;
+    max-width: 100%;
+  }
+
+  .about-me-right-column {
+    flex: 1;
+  }
+
   .about-me-title {
     font-size: 2rem;
   }
@@ -1407,6 +1710,20 @@ body, html {
 
   .design-philosophy-section {
     padding: 3rem 1rem 1rem 1rem;
+  }
+
+  .design-philosophy-content-two-column {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .design-philosophy-left-column {
+    flex: 1;
+    max-width: 100%;
+  }
+
+  .design-philosophy-right-column {
+    flex: 1;
   }
 
   .design-philosophy-title {

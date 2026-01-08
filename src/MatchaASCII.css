@@ -1,0 +1,12 @@
+.matcha-ascii-frame {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  white-space: pre;
+}
+
+.matcha-line {
+  display: block;
+}

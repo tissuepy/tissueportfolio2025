@@ -1,6 +1,7 @@
 // About.jsx
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './About.css';
 import img1 from './assets/assets2/IMG_5420.jpg';
 import img4 from './assets/assets2/101_4951.jpg';
@@ -83,6 +84,7 @@ import lavender2 from './assets/new photos/lavender 2.png';
 import lightbulbScribble from './assets/scribbles/lightbulb.png';
 import heartsScribble from './assets/scribbles/hearts.png';
 import smileyScribble from './assets/scribbles/smiley.png';
+import skillsetScribble from './assets/scribbles/Skillset.png';
 
 function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -165,70 +167,64 @@ function About() {
 
         {/* About Me Section */}
         <div className="about-me-section">
-          <div className="about-me-content">
-            <p className="about-me-label">LEARN ABOUT NITISH</p>
-            <h2 className="about-me-title">
-              Product Design is an odd interest turned to life-long passion
-            </h2>
-            <p className="about-me-body">
-              I never planned on becoming a product designer. In high school, I thought I'd go into               <a 
-                href="https://drive.google.com/file/d/1WbF1MrMoEYqtZjZAMtV9_DVGHNbEomTe/view?usp=sharing"
-                className="comp-bio-text"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                computational biology↗
-              </a>, but an app design class pulled me in. I got obsessed with the small details spacing, color, layout and started caring a lot about how people experience things. That curiosity eventually led me to product design.
-            </p>
+          <div className="about-me-content-two-column">
+            <div className="about-me-left-column">
+              <p className="about-me-label">LEARN ABOUT NITISH</p>
+              <h2 className="about-me-title">
+                Product Design is an odd interest turned to life-long passion
+              </h2>
+            </div>
+            <div className="about-me-right-column">
+              <p className="about-me-body">
+                I never planned on becoming a product designer. In high school, I thought I'd go into               <a 
+                  href="https://drive.google.com/file/d/1WbF1MrMoEYqtZjZAMtV9_DVGHNbEomTe/view?usp=sharing"
+                  className="comp-bio-text"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  computational biology↗
+                </a>, but an app design class pulled me in. I got obsessed with the small details spacing, color, layout and started caring a lot about how people experience things. That curiosity eventually led me to product design.
+              </p>
 
-            <p className="about-me-body">
-              Now I'm in Upstate New York at <span 
-                className="cornell-text tooltip-trigger" 
-                onMouseEnter={() => setHoveredRef(1)}
-                onMouseLeave={() => setHoveredRef(null)}
-              >
-                Cornell<sup className="cornell-reference">[1]</sup>
-                {hoveredRef === 1 && (
-                  <div className="reference-tooltip">
-                    <img src={img1_old} alt="Cornell" className="tooltip-image" />
-                    <p className="tooltip-caption">The most beautiful college campus in the world.</p>
-                  </div>
-                )}
-              </span>, studying Information Science and Data Science. Outside of class, I'm usually making sporadic trips to <span 
-                className="cornell-text tooltip-trigger"
-                onMouseEnter={() => setHoveredRef(2)}
-                onMouseLeave={() => setHoveredRef(null)}
-              >
-                New York City<sup className="cornell-reference">[2]</sup>
-                {hoveredRef === 2 && (
-                  <div className="reference-tooltip">
-                    <img src={theCity} alt="New York City" className="tooltip-image" />
-                    <p className="tooltip-caption">NYC is #1 in my heart.</p>
-                  </div>
-                )}
-              </span>, baking <span 
-                className="cornell-text tooltip-trigger"
-                onMouseEnter={() => setHoveredRef(3)}
-                onMouseLeave={() => setHoveredRef(null)}
-              >
-                matcha cookies<sup className="cornell-reference">[3]</sup>
-                {hoveredRef === 3 && (
-                  <div className="reference-tooltip">
-                    <img src={matchaPlace} alt="Matcha cookies" className="tooltip-image" />
-                    <p className="tooltip-caption">"12 Matcha" in NYC.</p>
-                  </div>
-                )}
-              </span>, or exploring Ithaca's trails and gorges.
-            </p>
-            <div className="about-me-grey-box">
-              <div className="portfolio-art-title-container">
-                <h3 className="portfolio-art-title">Portfolio Art<sup>↗</sup></h3>
-                <p className="portfolio-art-coming-soon">(coming soon!)</p>
-              </div>
-              <img src={mango1} alt="Mango" className="portfolio-art-image portfolio-art-mango" />
-              <img src={matcha1} alt="Matcha" className="portfolio-art-image portfolio-art-matcha" />
-              <img src={strawberry3} alt="Strawberry" className="portfolio-art-image portfolio-art-strawberry" />
-              <img src={lavender2} alt="Lavender" className="portfolio-art-image portfolio-art-lavender" />
+              <p className="about-me-body">
+                Now I'm in Upstate New York at <span 
+                  className="cornell-text tooltip-trigger" 
+                  onMouseEnter={() => setHoveredRef(1)}
+                  onMouseLeave={() => setHoveredRef(null)}
+                >
+                  Cornell<sup className="cornell-reference">[1]</sup>
+                  {hoveredRef === 1 && (
+                    <div className="reference-tooltip">
+                      <img src={img1_old} alt="Cornell" className="tooltip-image" />
+                      <p className="tooltip-caption">The most beautiful college campus in the world.</p>
+                    </div>
+                  )}
+                </span>, studying Information Science and Data Science. Outside of class, I'm usually making sporadic trips to <span 
+                  className="cornell-text tooltip-trigger"
+                  onMouseEnter={() => setHoveredRef(2)}
+                  onMouseLeave={() => setHoveredRef(null)}
+                >
+                  New York City<sup className="cornell-reference">[2]</sup>
+                  {hoveredRef === 2 && (
+                    <div className="reference-tooltip">
+                      <img src={theCity} alt="New York City" className="tooltip-image" />
+                      <p className="tooltip-caption">NYC is #1 in my heart.</p>
+                    </div>
+                  )}
+                </span>, baking <span 
+                  className="cornell-text tooltip-trigger"
+                  onMouseEnter={() => setHoveredRef(3)}
+                  onMouseLeave={() => setHoveredRef(null)}
+                >
+                  matcha cookies<sup className="cornell-reference">[3]</sup>
+                  {hoveredRef === 3 && (
+                    <div className="reference-tooltip">
+                      <img src={matchaPlace} alt="Matcha cookies" className="tooltip-image" />
+                      <p className="tooltip-caption">"12 Matcha" in NYC.</p>
+                    </div>
+                  )}
+                </span>, or exploring Ithaca's trails and gorges.
+              </p>
             </div>
           </div>
         </div>
@@ -268,40 +264,116 @@ function About() {
 
         {/* Design Philosophy Section */}
         <div className="design-philosophy-section">
-          <div className="design-philosophy-content">
-            <p className="design-philosophy-label">DESIGN PHILOSOPHY</p>
-            <h2 className="design-philosophy-title">
-              Two core principles that guide my work
-              
-            </h2>
-          </div>
-        </div>
-
-        {/* Philosophy Sections Side by Side */}
-        <div className="philosophy-sections-container">
-          {/* Empathy Philosophy Section */}
-          <div className="philosophy-section">
-            <div className="philosophy-content">
-              <h2 className="philosophy-title"><span className="philosophy-title-green">[1]</span> / Designing with <span className="philosophy-title-green">empathy</span></h2>
-              <p className="philosophy-body">
-              Design begins with understanding how people actually move through their day and respecting the realities they face.
-              </p>
+          <div className="design-philosophy-content-two-column">
+            <div className="design-philosophy-left-column">
+              <p className="design-philosophy-label">DESIGN PHILOSOPHY</p>
+              <h2 className="design-philosophy-title">
+                Two core principles that guide my work
+              </h2>
             </div>
-          </div>
+            <div className="design-philosophy-right-column">
+              {/* Philosophy Sections Side by Side */}
+              <div className="philosophy-sections-container">
+                {/* Empathy Philosophy Section */}
+                <div className="philosophy-section">
+                  <div className="philosophy-content">
+                    <h2 className="philosophy-title"><span className="philosophy-title-green">[1]</span> / Designing with <span className="philosophy-title-green">empathy</span></h2>
+                    <p className="philosophy-body">
+                    Design begins with understanding how people actually move through their day and respecting the realities they face.
+                    </p>
+                  </div>
+                </div>
 
-          {/* Disrupt Philosophy Section */}
-          <div className="philosophy-section">
-            <div className="philosophy-content">
-              <h2 className="philosophy-title"><span className="philosophy-title-green">[2]</span> / Design to <span className="philosophy-title-green">disrupt</span></h2>
-              <p className="philosophy-body">
-              Disruption starts by questioning assumptions. By thinking beyond standard solutions and wearing multiple hats.
-              </p>
+                {/* Disrupt Philosophy Section */}
+                <div className="philosophy-section">
+                  <div className="philosophy-content">
+                    <h2 className="philosophy-title"><span className="philosophy-title-green">[2]</span> / Design to <span className="philosophy-title-green">disrupt</span></h2>
+                    <p className="philosophy-body">
+                    Disruption starts by questioning assumptions. By thinking beyond standard solutions and wearing multiple hats.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Experience Section */}
-        <div className="experience-section">
+        <div className="experience-section-new">
+          <div className="experience-content-two-column">
+            <div className="experience-left-column">
+              <p className="experience-label-new">EXPERIENCE</p>
+              <h2 className="experience-title-new">
+                Some of the experiences that set me up for success
+              </h2>
+              <div className="experience-skillset-canvas">
+                <img src={skillsetScribble} alt="Skillset" className="experience-skillset-image" />
+              </div>
+            </div>
+            <div className="experience-right-column">
+              <div className="experience-items-container">
+                <Link to="#" className="experience-item-link">
+                  <div className="experience-item-new">
+                    <div className="experience-item-left">
+                      <div className="experience-logo-placeholder experience-logo-cornell">
+                        <span className="experience-logo-arrow">↗</span>
+                      </div>
+                      <span className="experience-company-name-new">Cornell Bowers CIS<span className="experience-role-new">, HCI Research Assistant</span></span>
+                    </div>
+                    <span className="experience-date-new">Present</span>
+                  </div>
+                </Link>
+                <a href="https://trywrap.com/" target="_blank" rel="noopener noreferrer" className="experience-item-link">
+                  <div className="experience-item-new">
+                    <div className="experience-item-left">
+                      <div className="experience-logo-placeholder experience-logo-wrap">
+                        <span className="experience-logo-arrow">↗</span>
+                      </div>
+                      <span className="experience-company-name-new">Wrap<span className="experience-role-new">, Founding Product Designer</span></span>
+                    </div>
+                    <span className="experience-date-new">Present</span>
+                  </div>
+                </a>
+                <Link to="#" className="experience-item-link">
+                  <div className="experience-item-new">
+                    <div className="experience-item-left">
+                      <div className="experience-logo-placeholder experience-logo-thinkneuro">
+                        <span className="experience-logo-arrow">↗</span>
+                      </div>
+                      <span className="experience-company-name-new">ThinkNeuro<span className="experience-role-new">, Product Manager Intern</span></span>
+                    </div>
+                    <span className="experience-date-new">Summer 2025</span>
+                  </div>
+                </Link>
+                <Link to="#" className="experience-item-link">
+                  <div className="experience-item-new">
+                    <div className="experience-item-left">
+                      <div className="experience-logo-placeholder experience-logo-intverse">
+                        <span className="experience-logo-arrow">↗</span>
+                      </div>
+                      <span className="experience-company-name-new">Intverse.io<span className="experience-role-new">, Software Engineer Intern</span></span>
+                    </div>
+                    <span className="experience-date-new">Summer 2025</span>
+                  </div>
+                </Link>
+                <Link to="#" className="experience-item-link">
+                  <div className="experience-item-new">
+                    <div className="experience-item-left">
+                      <div className="experience-logo-placeholder experience-logo-sandbox">
+                        <span className="experience-logo-arrow">↗</span>
+                      </div>
+                      <span className="experience-company-name-new">Sandbox<span className="experience-role-new">, Product Designer</span></span>
+                    </div>
+                    <span className="experience-date-new">Spring 2025</span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Experience Section - Commented Out */}
+        {/* <div className="experience-section">
           <div className="experience-content">
             <p className="experience-label">EXPERIENCE</p>
             <h2 className="experience-title">Some of my most valuable experiences</h2>
@@ -393,7 +465,7 @@ function About() {
               </p>
             </div>
           </div>
-          </div>
+          </div> */}
 
 
 

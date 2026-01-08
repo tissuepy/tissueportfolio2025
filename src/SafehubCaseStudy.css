@@ -119,6 +119,7 @@ body, html {
 }
 
 .case-study-container .section-title {
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 14px;
   font-weight: 700;
   color: #e74c3c !important;
