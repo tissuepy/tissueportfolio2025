@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SafehubCaseStudy.css';
-import safehubThumbnail from './casestudyassets/safehub project thumbnail in case study.png';
 import affinityMap from './casestudyassets/affinity map - safehub.png';
 import safehubQuestion from './casestudyassets/boy red.jpg';
 import informationArchitecture from './casestudyassets/information architecture.png';
@@ -28,25 +27,88 @@ import locationLogics2 from './casestudyassets/Logistics of Location Modal 2.png
 import userFeelings from './casestudyassets/User feelings.png';
 import happyUsers from './casestudyassets/Happy Users.png';
 import finalDesignsPerma from './casestudyassets/Final Designs (perma).png';
+import versionA from './assets/assets2/version A.png';
+import versionB from './assets/assets2/version B.png';
+import versionA2 from './assets/assets2/Version A - 2.png';
+import versionB2 from './assets/assets2/Version B - 2.png';
 
 const SafehubCaseStudy = () => {
   const navigate = useNavigate();
+  const [activeSection, setActiveSection] = useState('');
+  const sectionRefs = useRef({});
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200;
+
+      const sections = ['context', 'user-research', 'problem', 'design-decisions', 'user-testing', 'final-product', 'reflection'];
+      let currentSection = '';
+
+      for (const section of sections) {
+        const element = sectionRefs.current[section];
+        if (element) {
+          const offsetTop = element.offsetTop;
+          if (scrollPosition >= offsetTop) {
+            currentSection = section;
+          }
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId) => {
+    const element = sectionRefs.current[sectionId];
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const handleBackToProjects = () => {
     navigate('/');
   };
 
+        const sections = [
+          { id: 'context', label: 'CONTEXT' },
+          { id: 'user-research', label: 'USER RESEARCH' },
+          { id: 'problem', label: 'THE PROBLEM' },
+          { id: 'design-decisions', label: 'DESIGN DECISIONS' },
+          { id: 'user-testing', label: 'USER TESTING' },
+          { id: 'final-product', label: 'FINAL PRODUCT' },
+          { id: 'reflection', label: 'REFLECTION' }
+        ];
+
   return (
     <div className="case-study-container">
-      <img 
-        src={safehubThumbnail} 
-        alt="Safehub Project Thumbnail" 
-        className="case-study-thumbnail-banner"
-      />
+      <aside className="case-study-sidebar">
+        <nav className="sidebar-nav">
+          {sections.map((section) => (
+            <button
+              key={section.id}
+              className={`sidebar-nav-link ${activeSection === section.id ? 'active' : ''}`}
+              onClick={() => scrollToSection(section.id)}
+            >
+              {section.label}
+            </button>
+          ))}
+        </nav>
+      </aside>
       <div className="case-study-content">
         <div className="case-study-header">
           <h1 className="case-study-title">
@@ -55,8 +117,17 @@ const SafehubCaseStudy = () => {
           <p className="case-study-description">
             A project where I singlehandedly led the creation of a campus safety app for my high school to counteract the flawed security systems that already existed using design thinking and user research.
           </p>
-          
-          <div className="case-study-columns">
+        </div>
+        
+        <div className="case-study-thumbnail-banner-container">
+          <img 
+            src={temporaryFinalDesigns} 
+            alt="High Fidelity Designs" 
+            className="case-study-thumbnail-wireframes"
+          />
+        </div>
+        
+        <div className="case-study-columns">
             <div className="case-study-column">
               <h3 className="column-title">TEAM</h3>
               <p className="column-content">Just Me!</p>
@@ -74,11 +145,10 @@ const SafehubCaseStudy = () => {
               <p className="column-content">User Research, Figma, Notion</p>
             </div>
           </div>
-        </div>
         
         {/* Introduction Section */}
-        <div className="case-study-section">
-          <h2 className="section-title">INTRODUCTION</h2>
+        <div className="case-study-section" id="context" ref={(el) => (sectionRefs.current['context'] = el)}>
+          <h2 className="section-title">[1] CONTEXT</h2>
           <h3 className="section-subtitle">
             Understanding the Safety Deficit
           </h3>
@@ -117,16 +187,31 @@ const SafehubCaseStudy = () => {
                 alt="Safehub Statistics" 
                 className="stats-image"
               />
-            <span className="container-caption">Statistics</span>
+            <span className="container-caption"></span>
             </div>
+            
+          <div className="location-logistics-container user-feelings-container">
+            <img 
+              src={userFeelings} 
+              alt="User Feelings" 
+              className="location-logistics-image user-feelings-image"
+            />
+            <span className="container-caption"></span>
+          </div>
+          
+          <p className="section-paragraph">
+            I noticed that students had very different reactions when I asked how safe campus felt. That curiosity led me to conduct user research to better understand those experiences.
+          </p>
         </div>
         
         {/* User Research Section */}
-        <div className="case-study-section">
-          <h2 className="section-title">USER RESEARCH</h2>
+        <div className="case-study-section" id="user-research" ref={(el) => (sectionRefs.current['user-research'] = el)}>
+          <h2 className="section-title">[2] USER RESEARCH</h2>
           <h3 className="section-subtitle">
             <em>Asking my friends and teachers how they felt</em>
           </h3>
+          
+          <h2 className="section-title">[2.1] INTERVIEWS</h2>
           
           <p className="section-paragraph">
             There were three types of individuals I was interested in interviewing:
@@ -168,13 +253,32 @@ const SafehubCaseStudy = () => {
               alt="Safehub Student Quotes" 
               className="quotes-image"
             />
-            <span className="container-caption">Student Quotes</span>
+            <span className="container-caption"></span>
           </div>
+          
+          <h2 className="section-title">[2.2] SURVEY</h2>
+          
+          <p className="section-paragraph">
+            I realized I first needed to understand which emergency situations students struggled with the most. Conducting a survey seemed like the most reasonable way to gather those insights.
+          </p>
+          
+          <div className="survey-container">
+            <img 
+              src={safehubSurvey} 
+              alt="Safehub Survey" 
+              className="survey-image"
+            />
+            <span className="container-caption"></span>
+          </div>
+          
+          <p className="section-paragraph">
+            The survey revealed that students were mainly concerned about <span className="dotted-underline">medical emergencies</span>, <span className="dotted-underline">strangers</span>, <span className="dotted-underline">physical altercations</span>, <span className="dotted-underline">suspicious objects</span>, and <span className="dotted-underline">fires</span>.
+          </p>
         </div>
         
         {/* Problem Statement Section */}
-        <div className="case-study-section">
-          <h3 className="section-title">THE PROBLEM</h3>
+        <div className="case-study-section" id="problem" ref={(el) => (sectionRefs.current['problem'] = el)}>
+          <h3 className="section-title">[3] THE PROBLEM</h3>
           <h3 className="section-subtitle">
             Okay so what's actually wrong?
           </h3>
@@ -187,108 +291,20 @@ const SafehubCaseStudy = () => {
             This made me wonder.
           </p>
           
-          <div className="red-question-box">
-            <div className="question-text">
-              <span className="question-star">✦</span>
-              <span className="question-content">
-                How can I develop a tool that empowers students to <strong>report threats, alerts staff in real time</strong>, and bridges the gap in school safety?
-              </span>
-            </div>
-          </div>
-          
-          <img 
-            src={safehubQuestion} 
-            alt="Safehub Question Character" 
-            className="question-character-image"
-          />
-        </div>
-        
-        {/* Getting to Work Section */}
-        <div className="case-study-section">
-          <h2 className="section-title">GETTING TO WORK</h2>
-          <h3 className="section-subtitle">
-            Theoretically, how would Safehub solve anything?
-          </h3>
-          
-          <p className="section-paragraph">
-            Safehub is meant to act as a "tool" that bridges the gap in communication between students and security guards, whether that be during a school lockdown or a physical altercation.
-          </p>
-          
-          <p className="section-paragraph">
-            However, there were several key considerations that needed to guide its design to ensure it would be effective and reliable.
-          </p>
-          
           <div className="consideration-callouts">
             <div className="consideration-callout">
               <div className="callout-content">
-                <span className="callout-icon">✓</span>
-                <span className="callout-text">Students had to be able to alert security immediately, even under stress, without worrying about complicated steps or accidental mistakes.</span>
-              </div>
-            </div>
-            
-            <div className="consideration-callout">
-              <div className="callout-content">
-                <span className="callout-icon">☺</span>
-                <span className="callout-text">The system had to be simple enough for students, teachers, and staff of all tech abilities to use in an emergency.</span>
-              </div>
-            </div>
-            
-            <div className="consideration-callout">
-              <div className="callout-content">
                 <span className="callout-icon">⚠</span>
-                <span className="callout-text">The system had to minimize false alarms and ensure that every alert was actionable, so users would rely on it in real emergencies.</span>
+                <span className="callout-text">How might we empower students, teachers, and staff with tools that improve emergency preparedness and response?</span>
               </div>
             </div>
           </div>
           
-          <p className="section-paragraph">
-            To better visualize what Safehub needed to include, I created an Information Architecture diagram.
-          </p>
-          
-          <img 
-            src={informationArchitecture} 
-            alt="Information Architecture Diagram" 
-            className="case-study-image"
-          />
-        </div>
-        
-        {/* More Research Section */}
-        <div className="case-study-section">
-          <h2 className="section-title">MORE RESEARCH</h2>
-          <h3 className="section-subtitle">
-            Asking students to fill out a quick survey
-          </h3>
-          
-          <p className="section-paragraph">
-            I realized I first needed to understand which emergency situations students struggled with the most. Conducting a survey seemed like the most reasonable way to gather those insights.
-          </p>
-          
-          <div className="survey-container">
-            <img 
-              src={safehubSurvey} 
-              alt="Safehub Survey" 
-              className="survey-image"
-            />
-            <span className="container-caption">Survey</span>
-          </div>
-          
-          <p className="section-paragraph">
-            The survey determined that students suffered from the following emergencies for most prevalent.
-          </p>
-          
-          <div className="emergencies-container">
-            <img 
-              src={emergenciesSafehub} 
-              alt="Emergency Types" 
-              className="emergencies-image"
-            />
-            <span className="container-caption">Emergencies</span>
-          </div>
         </div>
         
         {/* Low-Fidelity Designs Section */}
-        <div className="case-study-section">
-          <h2 className="section-title">LOW-FIDELITY DESIGNS</h2>
+        <div className="case-study-section" id="design-decisions" ref={(el) => (sectionRefs.current['design-decisions'] = el)}>
+          <h2 className="section-title">[4] DESIGN DECISIONS</h2>
           <h3 className="section-subtitle">
             My first time drawing to solve
           </h3>
@@ -297,31 +313,24 @@ const SafehubCaseStudy = () => {
             After taking into account all of the insights from my research, I started defining how I wanted the core elements of the app to look.
           </p>
           
-          <p style={{ color: '#e74c3c', fontWeight: '500', fontSize: '1.3em', marginBottom: '1rem' }}>
-            1. Balancing the SOS Hub
-          </p>
+          <h2 className="section-title">[4.1] MINIMAL DESIGN</h2>
           
-          <div className="lowfi-container">
-            <img 
-              src={lowFidelityMainComparison} 
-              alt="Low Fidelity Main SOS Page Comparison" 
-              className="lowfi-image"
-            />
-            <span className="container-caption">SOS Hub Wireframes</span>
+          <div className="two-column-canvas-container">
+            <div className="canvas-column">
+              <img src={versionB} alt="Version B" className="canvas-column-image" />
+              <span className="canvas-column-caption canvas-column-caption-iteration">ITERATION</span>
+            </div>
+            <div className="canvas-column">
+              <img src={versionA} alt="Version A" className="canvas-column-image" />
+              <span className="canvas-column-caption canvas-column-caption-final">FINAL DESIGN</span>
+            </div>
           </div>
-          
-        
-          
-          <p className="section-paragraph">
-          Iteration 1 had a prominent alerts widget that drew attention away from the SOS button. Iteration 2 condensed the alerts into a smaller section and kept the SOS button central, reflecting a much clearer and cleaner concept.</p>
 
           
-          <p style={{ color: '#e74c3c', fontWeight: '500', fontSize: '1.3em', marginBottom: '1rem', marginTop: '3.5rem' }}>
-            2. Logistics of Location Tracking
-          </p>
+          <h2 className="section-title">[4.2] LOCATION TRACKING</h2>
           
           <p className="section-paragraph">
-            There were two key avenues I explored for enabling accurate location reporting in SafeHub:
+            There were two key avenues I explored for enabling accurate location reporting.
           </p>
           
           <div className="location-logistics-container location-logistics-container--tall">
@@ -330,111 +339,36 @@ const SafehubCaseStudy = () => {
               alt="Logistics of Location Modals"
               className="location-logistics-image"
             />
-            <span className="container-caption">Location Logistics</span>
+            <span className="container-caption"></span>
           </div>
           
           <p className="section-paragraph">
-            Initially I debated between making students interact with drop downs or use maps for specifying information about their location
-          </p>
-          
-          <div className="location-logistics-container location-logistics-container--wider">
-            <img 
-              src={locationLowFidelity} 
-              alt="Location Low Fidelity Designs" 
-              className="location-logistics-image location-logistics-image--large"
-            />
-            <span className="container-caption">Location Wireframes</span>
-          </div>
-          
-          <p className="section-paragraph">
-            SWOT analysis led me to discover that dropdowns with numerous floors and hundreds of rooms would create a time-consuming process for students to report emergencies.
-          </p>
-          
-          <div className="location-logistics-container location-logistics-container--tall">
-            <img
-              src={locationLogics2}
-              alt="Logistics of Location Modal 2"
-              className="location-logistics-image"
-            />
-            <span className="container-caption">Location Logistics</span>
-          </div>
-          
-          <p className="section-paragraph" style={{ marginTop: '1.5rem' }}>
-            <strong>Maps</strong> offered a faster and more intuitive approach, which is why I ultimately chose to use them.
-          </p>
-          
-          <p style={{ color: '#e74c3c', fontWeight: '500', fontSize: '1.3em', marginBottom: '1rem', marginTop: '3.5rem' }}>
-            &quot;Mapping&quot; it Out
+            Manual input would allow the user to provide more precise building and room details that would not be captured by the GPS location.
           </p>
           
           <p className="section-paragraph">
-          Before designing the map, I defined colors and icons for different map states to create a clear visual language and help users navigate easily.
+            The real challenge was figuring out an <span className="dotted-underline">elegant</span> way to allow the user to specify this information.
           </p>
           
-          <div className="location-logistics-container">
-            <img 
-              src={mapColors} 
-              alt="Map Colors and Visual Language" 
-              className="location-logistics-image"
-            />
-            <span className="container-caption">Map Colors</span>
+          <div className="two-column-canvas-container">
+            <div className="canvas-column">
+              <img src={versionB2} alt="Version B - 2" className="canvas-column-image" />
+              <span className="canvas-column-caption canvas-column-caption-iteration-black">ITERATION</span>
+            </div>
+            <div className="canvas-column">
+              <img src={versionA2} alt="Version A - 2" className="canvas-column-image" />
+              <span className="canvas-column-caption canvas-column-caption-final-red">FINAL DESIGN</span>
+            </div>
           </div>
           
           <p className="section-paragraph">
-          This example map shows the layout concept, not a real school floor.
-          </p>
-          
-          <div className="location-logistics-container">
-            <img 
-              src={mapDisplay} 
-              alt="Map Display" 
-              className="location-logistics-image map-display-image"
-            />
-            <span className="container-caption">Map Display</span>
-          </div>
-        </div>
-        
-        {/* Finalizing Designs Section */}
-        <div className="case-study-section">
-          <h2 className="section-title">FINALIZING DESIGNS</h2>
-          <h3 className="section-subtitle">
-            Moving from FigJam to High-Fidelity Designs
-          </h3>
-          
-          <p className="section-paragraph">
-Bringing my designs into high fidelity felt like putting a puzzle together. Seeing everything come to life with color, detail, and interaction was incredibly rewarding.
-          </p>
-          
-          <div className="final-designs-container">
-            <img 
-              src={temporaryFinalDesigns} 
-              alt="Temporary Final Designs" 
-              className="final-designs-image"
-            />
-            <span className="container-caption container-caption--top-left">High-Fidelity Designs</span>
-          </div>
-          
-          <p className="section-paragraph">
-           My refinement didn't end there. I needed to make sure my designs truly reflected what users wanted and needed.
-          </p>
-          
-          <div className="location-logistics-container user-feelings-container">
-            <img 
-              src={userFeelings} 
-              alt="User Feelings" 
-              className="location-logistics-image user-feelings-image"
-            />
-            <span className="container-caption">ENSURING ALL USERS ARE SATISFIED</span>
-          </div>
-          
-          <p className="section-paragraph">
-            Testing was the only way to uncover what worked well and what still needed refining.
+            Routine <span className="dotted-underline">A/B testing</span> helped me conclude that using maps was a more efficient and simpler way of allowing students to specify their location during emergencies.
           </p>
         </div>
         
         {/* User Testing Section */}
-        <div className="case-study-section">
-          <h2 className="section-title">USER TESTING</h2>
+        <div className="case-study-section" id="user-testing" ref={(el) => (sectionRefs.current['user-testing'] = el)}>
+          <h2 className="section-title">[5] USER TESTING</h2>
           <h3 className="section-subtitle">
             Conducting user testing with my classmates
           </h3>
@@ -445,14 +379,10 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
           
           <div className="interview-callouts">
             <div className="callout">
-              <h4 className="callout-title">DARK MODE</h4>
+              <h4 className="callout-title">[5.1] DARK MODE</h4>
               <p className="callout-content">All five students requested a dark mode feature, explaining it was easier on the eyes in low-light settings like early mornings or dim classrooms.</p>
             </div>
           </div>
-          
-          <p className="section-paragraph">
-          This subtle yet consistent preference for a darker hue was interesting to discover, and it convinced me to include dark mode in the final design.
-          </p>
           
           <div className="final-designs-container">
             <img 
@@ -460,12 +390,12 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
               alt="Dark Mode Iteration" 
               className="final-designs-image dark-mode-image"
             />
-            <span className="container-caption container-caption--top-left">Dark Mode</span>
+            <span className="container-caption container-caption--top-left"></span>
           </div>
           
           <div className="interview-callouts interview-callouts--compact">
             <div className="callout">
-              <h4 className="callout-title">DETAILED MAPS</h4>
+              <h4 className="callout-title">[5.2] DETAILED MAPS</h4>
               <p className="callout-content">Students wanted maps with more defined landmarks and reference points to help them better understand where an emergency was occurring relative to other areas of the school.</p>
             </div>
           </div>
@@ -480,7 +410,7 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
               alt="Icons Redefined" 
               className="location-logistics-image icons-image-small"
             />
-            <span className="container-caption">Revamped Icons</span>
+            <span className="container-caption"></span>
           </div>
           
           <p className="section-paragraph">
@@ -493,7 +423,7 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
               alt="Revamped Map Design" 
               className="location-logistics-image revamped-map-image"
             />
-            <span className="container-caption">Revamped Map</span>
+            <span className="container-caption"></span>
           </div>
           
           <p className="section-paragraph">
@@ -506,13 +436,13 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
               alt="New Location Updated" 
               className="location-logistics-image location-logistics-image--big"
             />
-            <span className="container-caption">Location Tracking Screen</span>
+            <span className="container-caption"></span>
           </div>
         </div>
         
         {/* Final Product Section */}
-        <div className="case-study-section">
-          <h2 className="section-title">FINAL PRODUCT</h2>
+        <div className="case-study-section" id="final-product" ref={(el) => (sectionRefs.current['final-product'] = el)}>
+          <h2 className="section-title">[6] FINAL PRODUCT</h2>
           <h3 className="section-subtitle">
             <em>A 0→1 product that makes an impact</em>
           </h3>
@@ -527,7 +457,7 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
               alt="Final Designs" 
               className="final-designs-image"
             />
-            <span className="container-caption container-caption--top-left">FINAL DESIGNS</span>
+            <span className="container-caption container-caption--top-left"></span>
           </div>
           
           <div className="location-logistics-container happy-users-container">
@@ -536,73 +466,43 @@ Bringing my designs into high fidelity felt like putting a puzzle together. Seei
               alt="Happy Users" 
               className="location-logistics-image happy-users-image"
             />
-            <span className="container-caption">ENSURING ALL USERS ARE SATISFIED</span>
+            <span className="container-caption"></span>
           </div>
-              </div>
+        </div>
         
         {/* Reflection Section */}
-        <div className="case-study-section">
-          <h2 className="section-title">REFLECTION</h2>
+        <div className="case-study-section" id="reflection" ref={(el) => (sectionRefs.current['reflection'] = el)}>
+          <h2 className="section-title">[7] REFLECTIONS</h2>
           <h3 className="section-subtitle">
-            A senior year filled with designing
+            A senior year filled with Figma critique sessions.
           </h3>
           
           <p className="section-paragraph">
-            Safehub was my very first design case study and my first time using Figma or learning about the design process. Throughout the course of six months, I took away many things:
+            Here are some things that I took away after creating Safehub.
           </p>
           
-          <img 
-            src={thumbsUpGuy} 
-            alt="Thumbs Up Guy" 
-            className="question-character-image"
-          />
-          
-          <div className="reflection-grid">
-            <div className="reflection-callout">
-              <div className="reflection-icon">✦</div>
-              <h4 className="reflection-title">DESIGN FOR THE USER</h4>
-              <p className="reflection-text">
-              It’s easy to get caught up in visuals, but the best designs focus on solving real user problems. Keeping users at the center makes every decision more meaningful.
+          <div className="reflection-takeaways">
+            <div className="reflection-takeaway">
+              <h4 className="reflection-takeaway-title">[7.1] BALANCING SIMPLICITY AND FUNCTIONALITY</h4>
+              <p className="reflection-takeaway-text">
+                Early on, I struggled to decide between a minimalist interface and a more feature-rich experience. Over time, I learned to balance the two by focusing on essential functionality without overwhelming users.
               </p>
             </div>
             
-            <div className="reflection-callout">
-              <div className="reflection-icon">✦</div>
-              <h4 className="reflection-title">USE RESEARCH METHODS</h4>
-              <p className="reflection-text">
-              Research is powerful, but it’s all about balance. Know when to gather insights and when to start building.
+            <div className="reflection-takeaway">
+              <h4 className="reflection-takeaway-title">[7.2] LETTING USER RESEARCH LEAD</h4>
+              <p className="reflection-takeaway-text">
+                Consistently returning to user research helped ground my decisions. Instead of guessing what students needed, real feedback clarified priorities and shaped more confident design choices.
               </p>
             </div>
             
-            <div className="reflection-callout">
-              <div className="reflection-icon">✦</div>
-              <h4 className="reflection-title">ASK FOR HELP</h4>
-              <p className="reflection-text">
-              I reached out to a teacher with product experience, and their advice shaped how I approached research and design. Getting help can really change your perspective.
-              </p>
-            </div>
-            
-            <div className="reflection-callout">
-              <div className="reflection-icon">✦</div>
-              <h4 className="reflection-title">ITERATE WITH PURPOSE</h4>
-              <p className="reflection-text">
-              Every iteration should bring you closer to solving the user’s problem. Keep it simple and focused on what matters most.
+            <div className="reflection-takeaway">
+              <h4 className="reflection-takeaway-title">[7.3] LEARNING PATIENCE IN THE DESIGN PROCESS</h4>
+              <p className="reflection-takeaway-text">
+                This project taught me that good design takes time. Strong solutions come from iteration and refinement, not from quick judgments or eyeballing a first pass.
               </p>
             </div>
           </div>
-          
-          <p style={{ 
-            fontFamily: "'Georgia', 'Times New Roman', serif", 
-            fontStyle: 'italic', 
-            fontSize: '32px',
-            fontWeight: '400',
-            color: '#333',
-            textAlign: 'center',
-            marginTop: '60px',
-            lineHeight: '1.2'
-          }}>
-            Thanks for reading my case study!
-          </p>
         </div>
       </div>
     </div>
