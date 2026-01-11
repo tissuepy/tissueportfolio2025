@@ -29,8 +29,8 @@ import happyUsers from './casestudyassets/Happy Users.png';
 import finalDesignsPerma from './casestudyassets/Final Designs (perma).png';
 import versionA from './assets/assets2/version A.png';
 import versionB from './assets/assets2/version B.png';
-import versionA2 from './assets/assets2/Version A - 2.png';
-import versionB2 from './assets/assets2/Version B - 2.png';
+import versionA2 from './assets/assets2/version A - 2.png';
+import versionB2 from './assets/assets2/version B - 2.png';
 
 const SafehubCaseStudy = () => {
   const navigate = useNavigate();
