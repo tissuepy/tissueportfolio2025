@@ -68,7 +68,7 @@ const SearchNEUCaseStudy = () => {
 
   const sections = [
     { id: 'context', label: 'CONTEXT' },
-    { id: 'introducing', label: 'INTRODUCING SEARCHNEU' },
+    { id: 'introducing', label: 'INTRODUCTION' },
     { id: 'problem', label: 'THE PROBLEM' },
     { id: 'solution', label: 'SOLUTION' },
     { id: 'final-product', label: 'FINAL PRODUCT' },
