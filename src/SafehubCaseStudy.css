@@ -79,13 +79,13 @@ body, html {
   height: 425px;
 }
 
-.case-study-thumbnail-wireframes {
-  width: 105%;
+.case-study-thumbnail-banner-container .case-study-thumbnail-wireframes {
+  width: 80%;
   height: auto;
   object-fit: contain;
-  transform: translateY(120px);
-
+  transform: translate(0, 0);
 }
+
 
 .case-study-content {
   max-width: 800px;

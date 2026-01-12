@@ -31,6 +31,7 @@ import versionA from './assets/assets2/version A.png';
 import versionB from './assets/assets2/version B.png';
 import versionA2 from './assets/assets2/version A - 2.png';
 import versionB2 from './assets/assets2/version B - 2.png';
+import safehubThumbnail from './assets/assets2/thumbnail.png';
 
 const SafehubCaseStudy = () => {
   const navigate = useNavigate();
@@ -121,7 +122,7 @@ const SafehubCaseStudy = () => {
         
         <div className="case-study-thumbnail-banner-container">
           <img 
-            src={temporaryFinalDesigns} 
+            src={safehubThumbnail} 
             alt="High Fidelity Designs" 
             className="case-study-thumbnail-wireframes"
           />

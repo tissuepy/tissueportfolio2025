@@ -1,11 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './SearchNEUCaseStudy.css';
-import searchneuThumbnail from './casestudyassets/seach study /search project thumbnail in case study.png';
+import searchpeekImage from './newthumbnaildesigns/searchpeek.png';
 import vidB from './assets/gifs/searchflow.mov';
-import searchFAQsframe from './assets/searchFAQsframe.png';
-import searchInfoCards from './casestudyassets/search info cards.png';
-import coursePpl from './casestudyassets/course ppl.png';
-import zoomIcon from './drink/zoom icon.png';
+import tabsImage from './casestudyassets/tabs.png';
+import quotesImage from './casestudyassets/quotes.png';
+import notificationsTutorialImage from './casestudyassets/notifications tutorial.png';
+import searchingTutorialImage from './casestudyassets/searching tutorial.png';
+import faqsSegmentImage from './casestudyassets/FAQs segment.png';
+import iteration1SearchImage from './casestudyassets/ITERATION 1 SEARCH.png';
+import iteration2SearchImage from './casestudyassets/ITERATION 2 SEARCH.png';
+import finalProductImage from './casestudyassets/final product.png';
+import filterPanelImage from './casestudyassets/filterpanel.png';
+import notifImage from './casestudyassets/notif.png';
 import search1 from './casestudyassets/search1.JPG';
 import search2 from './casestudyassets/search2.jpg';
 import search3 from './casestudyassets/search3.jpg';
@@ -14,12 +20,76 @@ import search3 from './casestudyassets/search3.jpg';
 
 
 const SearchNEUCaseStudy = () => {
+  const [activeSection, setActiveSection] = useState('');
+  const sectionRefs = useRef({});
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200;
+
+      const sections = ['context', 'introducing', 'problem', 'solution', 'final-product', 'reflections'];
+      let currentSection = '';
+
+      for (const section of sections) {
+        const element = sectionRefs.current[section];
+        if (element) {
+          const offsetTop = element.offsetTop;
+          if (scrollPosition >= offsetTop) {
+            currentSection = section;
+          }
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId) => {
+    const element = sectionRefs.current[sectionId];
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const sections = [
+    { id: 'context', label: 'CONTEXT' },
+    { id: 'introducing', label: 'INTRODUCING SEARCHNEU' },
+    { id: 'problem', label: 'THE PROBLEM' },
+    { id: 'solution', label: 'SOLUTION' },
+    { id: 'final-product', label: 'FINAL PRODUCT' },
+    { id: 'reflections', label: 'REFLECTIONS' }
+  ];
+
   return (
     <div className="case-study-container searchneu-case-study">
+      <aside className="case-study-sidebar">
+        <nav className="sidebar-nav">
+          {sections.map((section) => (
+            <button
+              key={section.id}
+              className={`sidebar-nav-link ${activeSection === section.id ? 'active' : ''}`}
+              onClick={() => scrollToSection(section.id)}
+            >
+              {section.label}
+            </button>
+          ))}
+        </nav>
+      </aside>
       <div className="case-study-content">
         <div className="case-study-header">
           <h1 className="case-study-title">
@@ -28,11 +98,13 @@ const SearchNEUCaseStudy = () => {
           <p className="case-study-description">
           Collaborated with a cross-functional team to design and ship a feature in SearchNEU, a tool that streamlines course registration for students by combining real-time data and smart notifications.
           </p>
-          <img 
-            src={searchneuThumbnail} 
-            alt="SearchNEU Project Thumbnail" 
-            className="case-study-thumbnail"
-          />
+          <div className="case-study-thumbnail-banner-container">
+            <img 
+              src={searchpeekImage} 
+              alt="SearchNEU Project Thumbnail" 
+              className="case-study-thumbnail-wireframes"
+            />
+          </div>
           
           <div className="case-study-columns">
             <div className="case-study-column">
@@ -45,7 +117,7 @@ const SearchNEUCaseStudy = () => {
             </div>
             <div className="case-study-column">
               <h3 className="searchneu-column-title">TIMELINE</h3>
-              <p className="column-content">5 Months <br/>(Jan 2025 - June 2025)</p>
+              <p className="column-content">5 Months <br/>(Jan 2025 - May 2025)</p>
             </div>
             <div className="case-study-column">
               <h3 className="searchneu-column-title">SKILLS & TOOLS</h3>
@@ -54,96 +126,205 @@ const SearchNEUCaseStudy = () => {
           </div>
         </div>
         
-        {/* Introduction Section */}
-        <div className="case-study-section">
-          <h2 className="searchneu-section-title">INTRODUCTION</h2>
+        {/* What SearchNEU Solves Section */}
+        <div className="case-study-section" id="context" ref={(el) => (sectionRefs.current['context'] = el)}>
+          <h2 className="searchneu-section-title">[1] CONTEXT</h2>
+          
           <h3 className="section-subtitle">
-            <em>The Problem with Course Registration</em>
+            <em>Course registration is stressful and fragmented</em>
           </h3>
+          
           <p className="section-paragraph">
-            At Northeastern, registering for classes isn't as simple as it should be. Students constantly compete for limited seats, refreshing the registration portal in hopes of catching an open spot. 
+            Course registration is often a stressful and fragmented process, requiring students to juggle multiple tabs to check degree requirements, course availability, schedules, and professor reviews.
           </p>
           
-          <div className="searchneu-image-container searchneu-info-cards-container" style={{ marginTop: '40px', marginBottom: '40px' }}>
-            <img className="searchneu-image" src={coursePpl} alt="Course People" />
-            <span className="container-caption">ISSUES WITH COURSE REGISTRATION</span>
-          </div>
-
-          <p className="section-paragraph">
-          With no built-in notifications or real-time updates, the process becomes stressful, time-consuming, and inefficient.
-          </p>
           
-          <div className="searchneu-image-container searchneu-info-cards-container" style={{ marginTop: '40px', marginBottom: '40px' }}>
-            <img className="searchneu-image" src={searchInfoCards} alt="Search Info Cards" />
-            <span className="container-caption">ISSUES WITH COURSE REGISTRATION</span>
+          <div className="searchneu-tabs-container">
+            <img className="searchneu-tabs-image" src={tabsImage} alt="Tabs" />
           </div>
           
+          <div className="searchneu-quotes-container">
+            <img className="searchneu-quotes-image" src={quotesImage} alt="Quotes" />
+          </div>
+        </div>
+        
+        {/* Introduction Section */}
+        <div className="case-study-section" id="introducing" ref={(el) => (sectionRefs.current['introducing'] = el)}>
+          <h2 className="searchneu-section-title">[2] INTRODUCING SEARCHNEU</h2>
           <h3 className="section-subtitle">
-            <em>So what is <span className="searchneu-blue">SearchNEU</span>?</em>
+            <em>So what is SearchNEU?</em>
           </h3>
           <p className="section-paragraph">
             SearchNEU is a platform built to make course registration easier and more reliable for students. It brings everything into one place where students can view real-time class data, track availability, and get instant notifications when seats open up.
-          </p>
-          <p className="section-paragraph">
-            Instead of constantly refreshing Banner, they can set alerts, apply filters for course type or professor, and plan their schedules with less stress.
           </p>
 
           <div className="searchneu-video-container">
             <video className="searchneu-video" src={vidB} autoPlay loop muted playsInline />
           </div>
+          
+          <div className="searchneu-feature-one-two-column" style={{ marginTop: '60px' }}>
+            <div className="searchneu-feature-one-left-column">
+              <h3 className="section-subtitle">
+                <em>Streamlines the course search process</em>
+              </h3>
+              <p className="section-paragraph">
+                Using <span className="dotted-underline">filters</span> helps narrow down results quickly, allowing users to streamline their search and find relevant courses without digging through thousands of options.
+              </p>
+            </div>
+            
+            <div className="searchneu-feature-one-right-column">
+              <div className="searchneu-feature-canvas">
+                <img className="searchneu-intro-feature-image" src={filterPanelImage} alt="Filter Panel" />
+              </div>
+            </div>
+          </div>
+          
+          <div className="searchneu-feature-one-two-column" style={{ marginTop: '60px' }}>
+            <div className="searchneu-feature-one-left-column">
+              <h3 className="section-subtitle">
+                <em>Helps you enroll as soon as a spot opens</em>
+              </h3>
+              <p className="section-paragraph">
+                Enabling <span className="dotted-underline">notifications</span> for a waitlisted course lets you know as soon as a spot opens, so you can act quickly without constantly checking back.
+              </p>
+            </div>
+            
+            <div className="searchneu-feature-one-right-column">
+              <div className="searchneu-feature-canvas">
+                <img className="searchneu-intro-feature-image-2" src={notifImage} alt="Notifications" />
+              </div>
+            </div>
+          </div>
         </div>
         
-        {/* Spring 2025 Feature Section */}
-        <div className="case-study-section">
-          <h2 className="searchneu-section-title">SPRING 2025 FEATURE</h2>
+        {/* Problem Section */}
+        <div className="case-study-section" id="problem" ref={(el) => (sectionRefs.current['problem'] = el)}>
+          <h2 className="searchneu-section-title">[3] THE SPRING 2025 PROBLEM</h2>
           <h3 className="section-subtitle">
-            <em>What exactly did I work on this semester?</em>
+            <em>How could we fix SearchNEU?</em>
           </h3>
-          <p className="section-paragraph">
-            This semester, SearchNEU faced an interesting challenge. We wanted to make the platform more user-friendly for new users, but many students found it confusing to navigate and struggled to understand its features.
-          </p>
-          <p className="section-paragraph">
-            While the tool offered powerful functionality, the learning curve was steep. As a result, the product team spent the semester working to mitigate this issue.
-          </p>
           
-          <img 
-            src={zoomIcon} 
-            alt="Zoom Icon" 
-            style={{
-              width: '120px',
-              height: '120px',
-              display: 'block',
-              margin: '40px auto 20px auto',
-              borderRadius: '0px'
-            }}
-          />
+          <p className="section-paragraph problem-statement-text-searchneu">
+            <span className="searchneu-blue">SearchNEU</span> <span className="problem-text-grey">faces usability challenges for</span> <span className="searchneu-blue">new students</span>, <span className="problem-text-grey">especially those unfamiliar with college course registration, highlighting the need for a more</span> <span className="searchneu-blue">intuitive</span> <span className="problem-text-grey">and</span> <span className="searchneu-blue">user-friendly</span> <span className="problem-text-grey">platform that encourages adoption and helps students</span> <span className="searchneu-blue">navigate course selection efficiently</span>.
+          </p>
+          <p className="section-paragraph">
+            This made us wonder.
+          </p>
+          <div className="callout">
+            <span className="callout-icon" style={{ color: '#0066cc' }}>⚠</span>
+            <div>
+              <p className="callout-caption">
+                How might we make SearchNEU more intuitive and user-friendly so that new students can easily navigate course registration and feel confident using the platform?
+              </p>
+            </div>
+          </div>
         </div>
         
         {/* Solution Section */}
-        <div className="case-study-section">
-          <h2 className="searchneu-section-title">SOLUTION</h2>
+        <div className="case-study-section" id="solution" ref={(el) => (sectionRefs.current['solution'] = el)}>
+          <h2 className="searchneu-section-title">[4] SOLUTION</h2>
+          
           <h3 className="section-subtitle">
-            <em>A quick glance at the final feature</em>
+            <em>What did we design?</em>
           </h3>
+          
           <p className="section-paragraph">
-            Throughout the spring semester, our design team focused on making SearchNEU easier to learn and navigate. We decided to build an FAQ section with a <em>unique twist</em>. Instead of relying on static text, we introduced <strong>interactive tutorial modals</strong> that guided students through the platform step by step.
-          </p>
-          <p className="section-paragraph">
-            This helped new users learn how to use SearchNEU in a more engaging and intuitive way.
+            Throughout the spring semester, our design team focused on making SearchNEU easier to learn and navigate.
           </p>
           
-          <div className="searchneu-image-container" style={{ marginBottom: '40px' }}>
-            <img className="searchneu-image" src={searchFAQsframe} alt="SearchNEU FAQ Frame" />
+          <p className="section-paragraph">
+            We decided to build an FAQ section with a unique twist. Instead of relying on static text, we introduced <span className="dotted-underline">interactive tutorial modals</span> that guided students through the platform step by step.
+          </p>
+          
+          <div className="searchneu-feature-one-two-column">
+            <div className="searchneu-feature-one-left-column">
+              <h2 className="searchneu-section-title">[4.1] FEATURE #1</h2>
+              
+              <h3 className="section-subtitle">
+                <em>Notifications Guide</em>
+              </h3>
+              
+              <p className="section-paragraph">
+                Shows users how to set up notifications for an entire course code or for a specific section so they never miss <span className="dotted-underline">availability updates</span>.
+              </p>
+            </div>
+            
+            <div className="searchneu-feature-one-right-column">
+              <div className="searchneu-feature-canvas">
+                <img className="searchneu-feature-image" src={notificationsTutorialImage} alt="Notifications Tutorial" />
+              </div>
+            </div>
           </div>
           
-          <p className="section-paragraph" style={{ marginBottom: '60px' }}>
-            This deliverable and process were only possible because of strong collaboration, countless team syncs, and plenty of boba-fueled brainstorming sessions.
+          <div className="searchneu-feature-two-two-column" style={{ marginTop: '60px' }}>
+            <div className="searchneu-feature-two-left-column">
+              <h2 className="searchneu-section-title">[4.2] FEATURE #2</h2>
+              
+              <h3 className="section-subtitle">
+                <em>Searching Guide</em>
+              </h3>
+              
+              <p className="section-paragraph">
+                Walks users through using filters effectively so they can narrow down courses and find the best fit faster.
+              </p>
+            </div>
+            
+            <div className="searchneu-feature-two-right-column">
+              <div className="searchneu-feature-canvas">
+                <img className="searchneu-feature-image" src={searchingTutorialImage} alt="Searching Tutorial" />
+              </div>
+            </div>
+          </div>
+          
+          <div style={{ marginTop: '60px' }}>
+            <h2 className="searchneu-section-title">[4.3] FEATURE #3</h2>
+            
+            <h3 className="section-subtitle">
+              <em>Comprehensive FAQs</em>
+            </h3>
+            
+            <p className="section-paragraph">
+              Designing the FAQs page took more iteration than I expected, but it became a valuable opportunity to practice clear, user-focused <span className="dotted-underline">UX writing</span>.
+            </p>
+            
+            <div className="searchneu-two-column-canvas-container">
+              <div className="searchneu-canvas-column">
+                <span className="searchneu-canvas-column-caption">ITERATION #1</span>
+                <img className="searchneu-canvas-column-image" src={iteration1SearchImage} alt="Iteration #1" />
+              </div>
+              <div className="searchneu-canvas-column">
+                <span className="searchneu-canvas-column-caption">ITERATION #2</span>
+                <img className="searchneu-canvas-column-image" src={iteration2SearchImage} alt="Iteration #2" />
+              </div>
+            </div>
+            
+            <div className="searchneu-feature-canvas-wide">
+              <span className="searchneu-faqs-caption">FINAL DESIGN</span>
+              <img className="searchneu-faqs-image" src={faqsSegmentImage} alt="FAQs Segment" />
+            </div>
+          </div>
+        </div>
+        
+        {/* Final Product Section */}
+        <div className="case-study-section" id="final-product" ref={(el) => (sectionRefs.current['final-product'] = el)}>
+          <h2 className="searchneu-section-title">[5] PUTTING IT TOGETHER</h2>
+          
+          <h3 className="section-subtitle">
+            <em>The final product</em>
+          </h3>
+          
+          <p className="section-paragraph">
+            Here's 5 months of design work, research, and iteration assmbled together.
           </p>
+          
+          <div className="searchneu-final-product-canvas">
+            <img className="searchneu-final-product-image" src={finalProductImage} alt="Final Product" />
+          </div>
         </div>
         
         {/* Reflections Section */}
-        <div className="case-study-section">
-          <h2 className="searchneu-section-title">REFLECTIONS</h2>
+        <div className="case-study-section" id="reflections" ref={(el) => (sectionRefs.current['reflections'] = el)}>
+          <h2 className="searchneu-section-title">[6] REFLECTIONS</h2>
           <h3 className="section-subtitle">
             <em>A semester filled with design crits and new friends</em>
           </h3>
