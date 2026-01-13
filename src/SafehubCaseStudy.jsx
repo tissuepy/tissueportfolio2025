@@ -484,24 +484,33 @@ const SafehubCaseStudy = () => {
           
           <div className="reflection-takeaways">
             <div className="reflection-takeaway">
-              <h4 className="reflection-takeaway-title">[7.1] BALANCING SIMPLICITY AND FUNCTIONALITY</h4>
-              <p className="reflection-takeaway-text">
-                Early on, I struggled to decide between a minimalist interface and a more feature-rich experience. Over time, I learned to balance the two by focusing on essential functionality without overwhelming users.
-              </p>
+              <span className="reflection-takeaway-emoji">⭐</span>
+              <div className="reflection-takeaway-content">
+                <h4 className="reflection-takeaway-title">[7.1] BALANCING SIMPLICITY AND FUNCTIONALITY</h4>
+                <p className="reflection-takeaway-text">
+                  Early on, I struggled to decide between a minimalist interface and a more feature-rich experience. Over time, I learned to balance the two by focusing on essential functionality without overwhelming users.
+                </p>
+              </div>
             </div>
             
             <div className="reflection-takeaway">
-              <h4 className="reflection-takeaway-title">[7.2] LETTING USER RESEARCH LEAD</h4>
-              <p className="reflection-takeaway-text">
-                Consistently returning to user research helped ground my decisions. Instead of guessing what students needed, real feedback clarified priorities and shaped more confident design choices.
-              </p>
+              <span className="reflection-takeaway-emoji">🧪</span>
+              <div className="reflection-takeaway-content">
+                <h4 className="reflection-takeaway-title">[7.2] LETTING USER RESEARCH LEAD</h4>
+                <p className="reflection-takeaway-text">
+                  Consistently returning to user research helped ground my decisions. Instead of guessing what students needed, real feedback clarified priorities and shaped more confident design choices.
+                </p>
+              </div>
             </div>
             
             <div className="reflection-takeaway">
-              <h4 className="reflection-takeaway-title">[7.3] LEARNING PATIENCE IN THE DESIGN PROCESS</h4>
-              <p className="reflection-takeaway-text">
-                This project taught me that good design takes time. Strong solutions come from iteration and refinement, not from quick judgments or eyeballing a first pass.
-              </p>
+              <span className="reflection-takeaway-emoji">🎨</span>
+              <div className="reflection-takeaway-content">
+                <h4 className="reflection-takeaway-title">[7.3] LEARNING PATIENCE IN THE DESIGN PROCESS</h4>
+                <p className="reflection-takeaway-text">
+                  This project taught me that good design takes time. Strong solutions come from iteration and refinement, not from quick judgments or eyeballing a first pass.
+                </p>
+              </div>
             </div>
           </div>
         </div>

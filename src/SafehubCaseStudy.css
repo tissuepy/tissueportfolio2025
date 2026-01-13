@@ -928,6 +928,21 @@ ul.section-paragraph {
 
 .reflection-takeaway {
   margin-bottom: 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.reflection-takeaway-emoji {
+  font-size: 30px;
+  line-height: 2;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.reflection-takeaway-content {
+  flex: 1;
 }
 
 .reflection-takeaway-title {
