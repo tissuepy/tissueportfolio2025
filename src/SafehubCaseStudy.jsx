@@ -127,8 +127,8 @@ const SafehubCaseStudy = () => {
             className="safehub-thumbnail-image"
           />
         </div>
-        
-        <div className="case-study-columns">
+          
+          <div className="case-study-columns">
             <div className="case-study-column">
               <h3 className="column-title">TEAM</h3>
               <p className="column-content">Just Me!</p>
@@ -144,8 +144,8 @@ const SafehubCaseStudy = () => {
             <div className="case-study-column">
               <h3 className="column-title">SKILLS & TOOLS</h3>
               <p className="column-content">User Research, Figma, Notion</p>
-            </div>
           </div>
+        </div>
         
         {/* Introduction Section */}
         <div className="case-study-section" id="context" ref={(el) => (sectionRefs.current['context'] = el)}>
@@ -190,7 +190,7 @@ const SafehubCaseStudy = () => {
               />
             <span className="container-caption"></span>
             </div>
-            
+          
           <div className="location-logistics-container user-feelings-container">
             <img 
               src={userFeelings} 
@@ -326,8 +326,8 @@ const SafehubCaseStudy = () => {
               <span className="canvas-column-caption canvas-column-caption-final">FINAL DESIGN</span>
             </div>
           </div>
-
           
+        
           <h2 className="section-title">[4.2] LOCATION TRACKING</h2>
           
           <p className="section-paragraph">
@@ -355,11 +355,11 @@ const SafehubCaseStudy = () => {
             <div className="canvas-column">
               <img src={versionB2} alt="Version B - 2" className="canvas-column-image" />
               <span className="canvas-column-caption canvas-column-caption-iteration-black">ITERATION</span>
-            </div>
+          </div>
             <div className="canvas-column">
               <img src={versionA2} alt="Version A - 2" className="canvas-column-image" />
               <span className="canvas-column-caption canvas-column-caption-final-red">FINAL DESIGN</span>
-            </div>
+        </div>
           </div>
           
           <p className="section-paragraph">
@@ -469,7 +469,7 @@ const SafehubCaseStudy = () => {
             />
             <span className="container-caption"></span>
           </div>
-        </div>
+              </div>
         
         {/* Reflection Section */}
         <div className="case-study-section" id="reflection" ref={(el) => (sectionRefs.current['reflection'] = el)}>
@@ -489,7 +489,7 @@ const SafehubCaseStudy = () => {
                 <h4 className="reflection-takeaway-title">[7.1] BALANCING SIMPLICITY AND FUNCTIONALITY</h4>
                 <p className="reflection-takeaway-text">
                   Early on, I struggled to decide between a minimalist interface and a more feature-rich experience. Over time, I learned to balance the two by focusing on essential functionality without overwhelming users.
-                </p>
+              </p>
               </div>
             </div>
             
@@ -499,7 +499,7 @@ const SafehubCaseStudy = () => {
                 <h4 className="reflection-takeaway-title">[7.2] LETTING USER RESEARCH LEAD</h4>
                 <p className="reflection-takeaway-text">
                   Consistently returning to user research helped ground my decisions. Instead of guessing what students needed, real feedback clarified priorities and shaped more confident design choices.
-                </p>
+              </p>
               </div>
             </div>
             
@@ -509,8 +509,8 @@ const SafehubCaseStudy = () => {
                 <h4 className="reflection-takeaway-title">[7.3] LEARNING PATIENCE IN THE DESIGN PROCESS</h4>
                 <p className="reflection-takeaway-text">
                   This project taught me that good design takes time. Strong solutions come from iteration and refinement, not from quick judgments or eyeballing a first pass.
-                </p>
-              </div>
+              </p>
+            </div>
             </div>
           </div>
         </div>

@@ -169,62 +169,62 @@ function About() {
         <div className="about-me-section">
           <div className="about-me-content-two-column">
             <div className="about-me-left-column">
-              <p className="about-me-label">LEARN ABOUT NITISH</p>
-              <h2 className="about-me-title">
-                Product Design is an odd interest turned to life-long passion
-              </h2>
+            <p className="about-me-label">LEARN ABOUT NITISH</p>
+            <h2 className="about-me-title">
+              Product Design is an odd interest turned to life-long passion
+            </h2>
             </div>
             <div className="about-me-right-column">
-              <p className="about-me-body">
-                I never planned on becoming a product designer. In high school, I thought I'd go into               <a 
-                  href="https://drive.google.com/file/d/1WbF1MrMoEYqtZjZAMtV9_DVGHNbEomTe/view?usp=sharing"
-                  className="comp-bio-text"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  computational biology↗
+            <p className="about-me-body">
+              I never planned on becoming a product designer. In high school, I thought I'd go into               <a 
+                href="https://drive.google.com/file/d/1WbF1MrMoEYqtZjZAMtV9_DVGHNbEomTe/view?usp=sharing"
+                className="comp-bio-text"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                computational biology↗
                 </a>, but an app design class pulled me in. I got obsessed with the small details spacing, color, layout and started caring a lot about how people experience things. That curiosity eventually led me to product design.
-              </p>
+            </p>
 
-              <p className="about-me-body">
-                Now I'm in Upstate New York at <span 
-                  className="cornell-text tooltip-trigger" 
-                  onMouseEnter={() => setHoveredRef(1)}
-                  onMouseLeave={() => setHoveredRef(null)}
-                >
-                  Cornell<sup className="cornell-reference">[1]</sup>
-                  {hoveredRef === 1 && (
-                    <div className="reference-tooltip">
-                      <img src={img1_old} alt="Cornell" className="tooltip-image" />
-                      <p className="tooltip-caption">The most beautiful college campus in the world.</p>
-                    </div>
-                  )}
-                </span>, studying Information Science and Data Science. Outside of class, I'm usually making sporadic trips to <span 
-                  className="cornell-text tooltip-trigger"
-                  onMouseEnter={() => setHoveredRef(2)}
-                  onMouseLeave={() => setHoveredRef(null)}
-                >
-                  New York City<sup className="cornell-reference">[2]</sup>
-                  {hoveredRef === 2 && (
-                    <div className="reference-tooltip">
-                      <img src={theCity} alt="New York City" className="tooltip-image" />
-                      <p className="tooltip-caption">NYC is #1 in my heart.</p>
-                    </div>
-                  )}
-                </span>, baking <span 
-                  className="cornell-text tooltip-trigger"
-                  onMouseEnter={() => setHoveredRef(3)}
-                  onMouseLeave={() => setHoveredRef(null)}
-                >
-                  matcha cookies<sup className="cornell-reference">[3]</sup>
-                  {hoveredRef === 3 && (
-                    <div className="reference-tooltip">
-                      <img src={matchaPlace} alt="Matcha cookies" className="tooltip-image" />
-                      <p className="tooltip-caption">"12 Matcha" in NYC.</p>
-                    </div>
-                  )}
-                </span>, or exploring Ithaca's trails and gorges.
-              </p>
+            <p className="about-me-body">
+              Now I'm in Upstate New York at <span 
+                className="cornell-text tooltip-trigger" 
+                onMouseEnter={() => setHoveredRef(1)}
+                onMouseLeave={() => setHoveredRef(null)}
+              >
+                Cornell<sup className="cornell-reference">[1]</sup>
+                {hoveredRef === 1 && (
+                  <div className="reference-tooltip">
+                    <img src={img1_old} alt="Cornell" className="tooltip-image" />
+                    <p className="tooltip-caption">The most beautiful college campus in the world.</p>
+                  </div>
+                )}
+              </span>, studying Information Science and Data Science. Outside of class, I'm usually making sporadic trips to <span 
+                className="cornell-text tooltip-trigger"
+                onMouseEnter={() => setHoveredRef(2)}
+                onMouseLeave={() => setHoveredRef(null)}
+              >
+                New York City<sup className="cornell-reference">[2]</sup>
+                {hoveredRef === 2 && (
+                  <div className="reference-tooltip">
+                    <img src={theCity} alt="New York City" className="tooltip-image" />
+                    <p className="tooltip-caption">NYC is #1 in my heart.</p>
+                  </div>
+                )}
+              </span>, baking <span 
+                className="cornell-text tooltip-trigger"
+                onMouseEnter={() => setHoveredRef(3)}
+                onMouseLeave={() => setHoveredRef(null)}
+              >
+                matcha cookies<sup className="cornell-reference">[3]</sup>
+                {hoveredRef === 3 && (
+                  <div className="reference-tooltip">
+                    <img src={matchaPlace} alt="Matcha cookies" className="tooltip-image" />
+                    <p className="tooltip-caption">"12 Matcha" in NYC.</p>
+                  </div>
+                )}
+              </span>, or exploring Ithaca's trails and gorges.
+            </p>
             </div>
           </div>
         </div>
@@ -266,29 +266,29 @@ function About() {
         <div className="design-philosophy-section">
           <div className="design-philosophy-content-two-column">
             <div className="design-philosophy-left-column">
-              <p className="design-philosophy-label">DESIGN PHILOSOPHY</p>
-              <h2 className="design-philosophy-title">
-                Two core principles that guide my work
-              </h2>
-            </div>
+            <p className="design-philosophy-label">DESIGN PHILOSOPHY</p>
+            <h2 className="design-philosophy-title">
+              Two core principles that guide my work
+            </h2>
+          </div>
             <div className="design-philosophy-right-column">
-              {/* Philosophy Sections Side by Side */}
-              <div className="philosophy-sections-container">
-                {/* Empathy Philosophy Section */}
-                <div className="philosophy-section">
-                  <div className="philosophy-content">
+        {/* Philosophy Sections Side by Side */}
+        <div className="philosophy-sections-container">
+          {/* Empathy Philosophy Section */}
+          <div className="philosophy-section">
+            <div className="philosophy-content">
                     <h2 className="philosophy-title"><span className="philosophy-title-green">[1]</span> / Designing with <span className="philosophy-title-green">empathy</span></h2>
-                    <p className="philosophy-body">
+              <p className="philosophy-body">
                     Design begins with understanding how people actually move through their day and respecting the realities they face.
-                    </p>
-                  </div>
-                </div>
+              </p>
+            </div>
+          </div>
 
-                {/* Disrupt Philosophy Section */}
-                <div className="philosophy-section">
-                  <div className="philosophy-content">
+          {/* Disrupt Philosophy Section */}
+          <div className="philosophy-section">
+            <div className="philosophy-content">
                     <h2 className="philosophy-title"><span className="philosophy-title-green">[2]</span> / Design to <span className="philosophy-title-green">disrupt</span></h2>
-                    <p className="philosophy-body">
+              <p className="philosophy-body">
                     Disruption starts by questioning assumptions. By thinking beyond standard solutions and wearing multiple hats.
                     </p>
                   </div>
@@ -434,7 +434,7 @@ function About() {
             </div>
           </div>
         </div>
-        
+
 
         <div className="experience-subtitle-container">
           <img src={heartsScribble} alt="Hearts" className="experience-lightbulb-icon" />

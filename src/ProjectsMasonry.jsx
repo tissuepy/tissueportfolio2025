@@ -89,8 +89,8 @@ const ProjectsMasonry = () => {
       duration: 'Startup',
       team: 'Product Design',
       growth: '2024',
-      caseStudyUrl: '/work/wrap',
-      isExternal: false,
+      caseStudyUrl: 'https://trywrap.com/',
+      isExternal: true,
       hasLogo: false
     },
   ];
@@ -157,7 +157,7 @@ const ProjectsMasonry = () => {
         </div>
         <div 
           className="new-project-card fade-in-on-scroll"
-          onClick={() => navigate('/work/wrap')}
+          onClick={() => window.open('https://trywrap.com/', '_blank', 'noopener,noreferrer')}
         >
           <div className="new-project-card-top">
             <img src={card1Image} alt="Card 1" className="new-project-card-card1-image" />
