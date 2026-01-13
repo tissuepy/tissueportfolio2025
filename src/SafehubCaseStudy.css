@@ -740,6 +740,39 @@ ul.section-paragraph {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+.safehub-user-testing-callout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 32px;
+  border: none;
+}
+
+.safehub-user-testing-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e74c3c !important;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  font-family: 'IBM Plex Mono', monospace;
+  order: 1;
+  text-align: left !important;
+  width: 100%;
+}
+
+.safehub-user-testing-content {
+  font-size: 15px;
+  font-weight: 400;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  order: 2;
+}
+
 .callout-star {
   color: #e74c3c !important;
   font-size: 18px;

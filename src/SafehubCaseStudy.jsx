@@ -379,9 +379,9 @@ const SafehubCaseStudy = () => {
           </p>
           
           <div className="interview-callouts">
-            <div className="callout">
-              <h4 className="callout-title">[5.1] DARK MODE</h4>
-              <p className="callout-content">All five students requested a dark mode feature, explaining it was easier on the eyes in low-light settings like early mornings or dim classrooms.</p>
+            <div className="callout safehub-user-testing-callout">
+              <h4 className="safehub-user-testing-title">[5.1] DARK MODE</h4>
+              <p className="safehub-user-testing-content">All five students requested a dark mode feature, explaining it was easier on the eyes in low-light settings like early mornings or dim classrooms.</p>
             </div>
           </div>
           
@@ -395,9 +395,9 @@ const SafehubCaseStudy = () => {
           </div>
           
           <div className="interview-callouts interview-callouts--compact">
-            <div className="callout">
-              <h4 className="callout-title">[5.2] DETAILED MAPS</h4>
-              <p className="callout-content">Students wanted maps with more defined landmarks and reference points to help them better understand where an emergency was occurring relative to other areas of the school.</p>
+            <div className="callout safehub-user-testing-callout">
+              <h4 className="safehub-user-testing-title">[5.2] DETAILED MAPS</h4>
+              <p className="safehub-user-testing-content">Students wanted maps with more defined landmarks and reference points to help them better understand where an emergency was occurring relative to other areas of the school.</p>
             </div>
           </div>
           
