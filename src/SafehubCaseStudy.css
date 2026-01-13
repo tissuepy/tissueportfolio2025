@@ -60,10 +60,10 @@ body, html {
 }
 
 .sidebar-nav-link.active {
-  color: #e74c3c;
+  color: #000000 !important;
 }
 
-.case-study-thumbnail-banner-container {
+.safehub-thumbnail-container {
   width: 100%;
   max-width: 750px;
   margin: 0 auto;
@@ -79,11 +79,11 @@ body, html {
   height: 425px;
 }
 
-.case-study-thumbnail-banner-container .case-study-thumbnail-wireframes {
+.safehub-thumbnail-image {
   width: 80%;
   height: auto;
   object-fit: contain;
-  transform: translate(0, 0);
+  transform: translate(0, 80px);
 }
 
 

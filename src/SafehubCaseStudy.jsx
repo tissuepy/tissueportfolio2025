@@ -120,11 +120,11 @@ const SafehubCaseStudy = () => {
           </p>
         </div>
         
-        <div className="case-study-thumbnail-banner-container">
+        <div className="safehub-thumbnail-container">
           <img 
             src={safehubThumbnail} 
             alt="High Fidelity Designs" 
-            className="case-study-thumbnail-wireframes"
+            className="safehub-thumbnail-image"
           />
         </div>
         
