@@ -14,9 +14,12 @@
 
 .horizontal-image {
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 10px;
   position: relative;
   transition: transform 0.3s ease;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
 }
 
 .horizontal-image:hover {
@@ -44,6 +47,32 @@
   z-index: 2;
 }
 
+.stacked-images-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 250px;
+  height: 515px;
+  z-index: 2;
+  position: relative;
+  align-self: flex-end;
+  transform: translateY(40px);
+  margin: 0;
+  padding: 0;
+}
+
+.stacked-images-container.image-4 {
+  z-index: 4;
+}
+
+.stacked-image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
 .horizontal-image.image-3 {
   width: 240px;
   height: 320px;
@@ -61,6 +90,17 @@
   width: 280px;
   height: 370px;
   z-index: 5;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.second-image-row .horizontal-image.image-5 {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  filter: none !important;
+  -webkit-filter: none !important;
 }
 
 .about-page {

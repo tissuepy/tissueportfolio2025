@@ -16,6 +16,8 @@ import collageImage from './assets/image collage-min.png';
 import about1 from './galleryphotos/triplet1.jpg';
 import about2 from './galleryphotos/triplet2.jpg';
 import about3 from './galleryphotos/nitishtough.jpg';
+import girls2 from './galleryphotos/girls_2.jpg';
+import girls from './galleryphotos/girls.jpg';
 // Food images
 import buldakRamen from './assets/Buldak Ramen.jpeg';
 import hotpot from './assets/hotpot.jpg';
@@ -49,6 +51,7 @@ import animalCrossing from './assets/animal crossing image.png';
 import img1_old from './assets/cornell.jpg';
 import img2 from './assets/studio1.jpg';
 import img3 from './assets/aesthetic1.jpg';
+import aarushi from './assets/aarushi.jpg';
 import img6 from './assets/billie1.jpg';
 import img7 from './assets/Buldak Ramen.jpeg';
 import img8 from './assets/canes.jpg';
@@ -81,10 +84,11 @@ import mango1 from './assets/new photos/mango 1.png';
 import matcha1 from './assets/new photos/matcha 1.png';
 import strawberry3 from './assets/new photos/strawberry 3.png';
 import lavender2 from './assets/new photos/lavender 2.png';
+import banffPhoto2 from './assets/new photos/banff photo 2.png';
+import matchamaiko from './assets/matchamaiko.PNG';
 import lightbulbScribble from './assets/scribbles/lightbulb.png';
 import heartsScribble from './assets/scribbles/hearts.png';
 import smileyScribble from './assets/scribbles/smiley.png';
-import skillsetScribble from './assets/scribbles/Skillset.png';
 
 function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -158,7 +162,7 @@ function About() {
       <div className="about-page">
         {/* Horizontal Image Row */}
         <div className="horizontal-image-row">
-          <img src={banffPhoto1} alt="Banff 1" className="horizontal-image image-1" />
+          <img src={friends4} alt="Friends" className="horizontal-image image-1" />
           <img src={cornellPhoto1} alt="Cornell" className="horizontal-image image-2" />
           <img src={iceCreamFriends} alt="Ice cream friends" className="horizontal-image image-3" />
           <img src={matchaPlaceNew} alt="Matcha place" className="horizontal-image image-4" />
@@ -306,9 +310,6 @@ function About() {
               <h2 className="experience-title-new">
                 Some of the experiences that set me up for success
               </h2>
-              <div className="experience-skillset-canvas">
-                <img src={skillsetScribble} alt="Skillset" className="experience-skillset-image" />
-              </div>
             </div>
             <div className="experience-right-column">
               <div className="experience-items-container">
@@ -370,6 +371,21 @@ function About() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Second Horizontal Image Row */}
+        <div className="horizontal-image-row second-image-row">
+          <img src={friends} alt="Friends" className="horizontal-image image-1" />
+          <div className="stacked-images-container image-2">
+            <img src={img3} alt="Aesthetic" className="stacked-image" />
+            <img src={aarushi} alt="Aarushi" className="stacked-image" />
+          </div>
+          <img src={matchamaiko} alt="Matchamaiko" className="horizontal-image image-3" />
+          <div className="stacked-images-container image-4">
+            <img src={girls2} alt="Girls 2" className="stacked-image" />
+            <img src={girls} alt="Girls" className="stacked-image" />
+          </div>
+          <img src={banffPhoto1} alt="Banff 1" className="horizontal-image image-5" />
         </div>
 
         {/* Experience Section - Commented Out */}
