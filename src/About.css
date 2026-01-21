@@ -971,6 +971,7 @@
 .design-philosophy-right-column {
   flex: 1;
   min-width: 0;
+  margin-top: -2rem;
 }
 
 .design-philosophy-label {
@@ -989,9 +990,14 @@
   color: #000000;
   margin: 0 0 2rem 0;
   line-height: 1.6;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+}
+
+.design-philosophy-image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  object-fit: contain;
+  margin-top: -2rem;
 }
 
 .star-icon {
