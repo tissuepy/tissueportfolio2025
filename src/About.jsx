@@ -310,7 +310,7 @@ function About() {
               </p>
 
               <p className="about-me-body">
-                Please, feel free to read more on this <a href="https://drive.google.com/file/d/1AawfCDqoyTQjBjYeD-MHmnIPAqtDLKSb/view?usp=sharing" className="dotted-link" target="_blank" rel="noopener noreferrer">fancy sheet of paper</a> (•̀ᴗ•̀)
+                Please, feel free to read more on this <a href="https://drive.google.com/file/d/1AawfCDqoyTQjBjYeD-MHmnIPAqtDLKSb/view?usp=sharing" className="dotted-link" target="_blank" rel="noopener noreferrer">fancy sheet of paper</a> (•ᴗ•)
               </p>
             </div>
           </div>
@@ -363,21 +363,49 @@ function About() {
               <div className="philosophy-sections-container">
                 {/* Empathy Philosophy Section */}
                 <div className="philosophy-section">
-                  <div className="philosophy-content">
-                    <h2 className="philosophy-title"><span className="philosophy-title-green">[1]</span> / Designing with <span className="philosophy-title-green">empathy</span></h2>
-                    <p className="philosophy-body">
-                      Design begins with understanding how people actually move through their day and respecting the realities they face.
-                    </p>
+                  <div className="philosophy-card">
+                    <div className="philosophy-card-inner">
+                      <div className="philosophy-card-front">
+                        <div className="philosophy-card-icon">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                          </svg>
+                        </div>
+                        <div className="philosophy-card-text">
+                          <div className="philosophy-card-title">DESIGN WITH</div>
+                          <div className="philosophy-card-subtitle">EMPATHY</div>
+                        </div>
+                      </div>
+                      <div className="philosophy-card-back">
+                        <p className="philosophy-card-body">
+                          Design begins with understanding how people actually move through their day and respecting the realities they face.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Disrupt Philosophy Section */}
                 <div className="philosophy-section">
-                  <div className="philosophy-content">
-                    <h2 className="philosophy-title"><span className="philosophy-title-green">[2]</span> / Design to <span className="philosophy-title-green">disrupt</span></h2>
-                    <p className="philosophy-body">
-                      Disruption starts by questioning assumptions. By thinking beyond standard solutions and wearing multiple hats.
-                    </p>
+                  <div className="philosophy-card">
+                    <div className="philosophy-card-inner">
+                      <div className="philosophy-card-front">
+                        <div className="philosophy-card-icon">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 1L3 14h8l-1 9 10-13h-8l1-9z" />
+                          </svg>
+                        </div>
+                        <div className="philosophy-card-text">
+                          <div className="philosophy-card-title">DESIGN TO</div>
+                          <div className="philosophy-card-subtitle">DISRUPT</div>
+                        </div>
+                      </div>
+                      <div className="philosophy-card-back">
+                        <p className="philosophy-card-body">
+                          Disruption starts by questioning assumptions. By thinking beyond standard solutions and wearing multiple hats.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

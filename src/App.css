@@ -196,7 +196,7 @@ html {
 .footer-right {
   justify-self: end;
   align-self: center;
-  margin-right: 0;
+  margin-right: 40px;
 }
 
 .clocktower-wrapper {
@@ -283,8 +283,8 @@ html {
 .footer-thankyou {
   font-size: 0.95rem;
   color: #b9b6b6;
-  font-family: 'IBM Plex Mono', monospace;
-  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-transform: none;
   margin-bottom: -0.7rem;
 }
 
@@ -312,7 +312,7 @@ html {
   font-size: 0.875rem;
   font-weight: 400;
   text-transform: uppercase;
-  color: #666666;
+  color: #b9b6b6;
   margin: 0 0 0.5rem 0;
   letter-spacing: 0.5px;
   text-align: left;
