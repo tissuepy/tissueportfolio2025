@@ -64,15 +64,15 @@ function Home() {
                   <div className="hero-text fade-in-on-scroll" ref={heroTextRef}>
                     <p>
                       <span className="hero-text-desktop">
-                        <span className="matcha-green-text">Nitish Gannu</span> is a Product Designer exploring <span className="light-grey-text">conversational AI</span> and building functional digital solutions that bring smiles, always with <span className="matcha-green-text">matcha</span> in hand.
+                        <span className="matcha-green-text">Nitish Gannu</span> is an adventurous Product Designer exploring <span className="light-grey-text">conversational AI</span> and building functional digital solutions that bring smiles.
                       </span>
                       <span className="hero-text-mobile">
-                        <span className="matcha-green-text">Nitish Gannu</span> is a Product Designer exploring <span className="light-grey-text">conversational AI</span> with <span className="matcha-green-text">matcha</span> in hand.
+                        <span className="matcha-green-text">Nitish Gannu</span> is a Product Designer exploring <span className="light-grey-text">conversational AI</span>.
                       </span>
                     </p>
                     <div className="status-section">
                       <p>
-                        <span className="status-major-green">{majorText}</span> <span className="status-light-grey">@ Cornell</span>
+                        <span className="status-currently-designing">Studying Statistics and Data Science</span> <span className="status-light-grey">@</span> <span className="status-major-green">Cornell</span>
                       </p>
               </div>
             </div>

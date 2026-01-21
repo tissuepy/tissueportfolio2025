@@ -5,27 +5,18 @@ import About from './About';
 import SearchNEUCaseStudy from './SearchNEUCaseStudy';
 import WrapCaseStudy from './WrapCaseStudy';
 import SafehubCaseStudy from './SafehubCaseStudy';
+import ChatGPTCaseStudy from './ChatGPTCaseStudy';
 import InteractiveMatcha from './InteractiveMatcha'; // Added
 import logo from './assets/logo.png';
 import matchaImage from './drink/matcha 1.png';
-import matchaNavImage from './assets/matcha 1.png';
 import clocktowerOffImage from './assets/scribbles/clocktower off 1.png';
 import clocktowerOnImage from './assets/scribbles/clocktower on 2.png';
-import MatchaASCII from './MatchaASCII';
 
 function App() {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
   const [fadeClass, setFadeClass] = useState('fade-in');
   const [clocktowerOn, setClocktowerOn] = useState(false);
-  const [matchaFrame, setMatchaFrame] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setMatchaFrame((prev) => (prev + 1) % 6);
-    }, 400);
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     if (location.pathname !== currentPath) {
@@ -58,7 +49,7 @@ function App() {
       {/* Navbar */}
       <div className="navbar">
         <div className="left-section">
-          <img src={matchaNavImage} alt="Matcha" className="navbar-matcha-image" />
+          <span className="navbar-matcha-emoji">🍵</span>
         </div>
 
         <div className="right-section">
@@ -84,6 +75,7 @@ function App() {
           <Route path="/work/searchneu" element={<SearchNEUCaseStudy />} />
           <Route path="/work/wrap" element={<WrapCaseStudy />} />
           <Route path="/work/safehub" element={<SafehubCaseStudy />} />
+          <Route path="/work/chatgpt" element={<ChatGPTCaseStudy />} />
         </Routes>
       </div>
 
@@ -102,25 +94,26 @@ function App() {
         
         <div className="footer-left">
           <p className="footer-thankyou">reach out to me at ↓</p>
-          <p className="footer-email">ng545@cornell.edu↗</p>
-          <p className="footer-email"> Made lots of matcha at ungodly hours 🍵</p> 
-        </div>
-
-        <div className="footer-middle">
-          <div className="footer-links">
-            <a href="https://github.com/tissuepy" className="footer-link">GITHUB</a>
-            <span>/</span>
-            <a href="https://medium.com/@nitishgannu" className="footer-link">MEDIUM</a>
-            <span>/</span>
-            <a href="https://www.linkedin.com/in/nitishgannu/" className="footer-link">LINKEDIN</a>
-            <span>/</span>
-            <a href="https://drive.google.com/file/d/1AawfCDqoyTQjBjYeD-MHmnIPAqtDLKSb/view?usp=sharing" className="footer-link">RESUME</a>
-          </div>
+          <p className="footer-email">ng545@cornell.edu</p>
+          <p className="footer-email">Thanks for stopping by! I hope you had fun snooping around. <span className="footer-emoji">(>ᴗ•) !</span></p> 
         </div>
 
         <div className="footer-right">
-          <div className="footer-matcha-ascii">
-            <MatchaASCII frame={matchaFrame} />
+          <div className="footer-links-section">
+            <p className="footer-section-title">NAVIGATION</p>
+            <div className="footer-links">
+              <NavLink to="/" className="footer-link">Work</NavLink>
+              <NavLink to="/about" className="footer-link">About</NavLink>
+            </div>
+          </div>
+          <div className="footer-links-section">
+            <p className="footer-section-title">LINKS</p>
+            <div className="footer-links">
+              <a href="https://github.com/tissuepy" className="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://medium.com/@nitishgannu" className="footer-link" target="_blank" rel="noopener noreferrer">Medium</a>
+              <a href="https://www.linkedin.com/in/nitishgannu/" className="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://drive.google.com/file/d/1AawfCDqoyTQjBjYeD-MHmnIPAqtDLKSb/view?usp=sharing" className="footer-link" target="_blank" rel="noopener noreferrer">Resume</a>
+            </div>
           </div>
         </div>
 

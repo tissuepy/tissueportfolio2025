@@ -35,7 +35,6 @@ import friends from './assets/friends.JPG';
 import friends1 from './assets/friends1.jpg';
 import friends2 from './assets/friends2.jpg';
 import friends3 from './assets/friends3.jpg';
-import friends4 from './assets/friends4.jpg';
 import studio1 from './assets/studio1.jpg';
 import venetian from './assets/venetian.jpg';
 import beach from './assets/beach.JPG';
@@ -66,8 +65,8 @@ import img16 from './assets/beach.JPG';
 import img17 from './assets/venetian.jpg';
 import img19 from './assets/friends4.jpg';
 
- import ramen1 from './assets/lamen1.jpg'
- import ramen2 from './assets/lamen2.jpg'
+import ramen1 from './assets/lamen1.jpg'
+import ramen2 from './assets/lamen2.jpg'
 import darksun from './assets/darksun.jpg'
 import robert from './assets/robert.jpg'
 import InteractiveMatcha from './InteractiveMatcha'; // adjust path if necessary
@@ -75,11 +74,12 @@ import AiNitish from './chatgptproj/vegas tissue.jpg'
 import empathyImage from './assets/searchneuteam.png' // Add your empathy image here
 import disruptImage from './assets/wrapteam.png'
 // New photos
-import banffPhoto1 from './assets/new photos/banff photo 1.png';
-import cornellPhoto1 from './assets/new photos/cornell photo 1.png';
-import iceCreamFriends from './assets/new photos/ice cream friends.jpg';
-import matchaPlaceNew from './assets/new photos/matcha place.png';
 import nycPhoto2 from './assets/new photos/nyc photo 2.png';
+import akki from './chatgptvideos/akki.JPG';
+import cafe from './chatgptvideos/cafe.JPEG';
+import ghost from './chatgptvideos/ghost.JPG';
+import milkshake from './chatgptvideos/milkshake.JPG';
+import sandboxnu from './chatgptvideos/sandboxnu.JPG';
 import mango1 from './assets/new photos/mango 1.png';
 import matcha1 from './assets/new photos/matcha 1.png';
 import strawberry3 from './assets/new photos/strawberry 3.png';
@@ -89,6 +89,12 @@ import matchamaiko from './assets/matchamaiko.PNG';
 import lightbulbScribble from './assets/scribbles/lightbulb.png';
 import heartsScribble from './assets/scribbles/hearts.png';
 import smileyScribble from './assets/scribbles/smiley.png';
+import cornellPhoto1 from './assets/new photos/cornell photo 1.png';
+import nikita from './assets/nikita.JPG';
+import matchaImg1 from './matchagallery/IMG_6100.jpg';
+import matchaImg2 from './matchagallery/IMG_5410 2.jpg';
+import matchaImg3 from './matchagallery/IMG_5994.jpg';
+
 
 function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -97,13 +103,40 @@ function About() {
   const [hoveredRef, setHoveredRef] = useState(null);
   const [isTyping, setIsTyping] = useState(false);
   const [isFading, setIsFading] = useState(false);
+  const [hoveredImage, setHoveredImage] = useState(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const imageTooltips = {
+    'image-1': '🌅',
+    'image-2': '⭐',
+    'image-3': '🍵',
+    'image-4': '👻',
+    'image-5': '💫',
+    'about-me-photo-1': '👨🏽‍💻',
+    'about-me-photo-2': '🌌',
+    'matcha-gallery-1': 'I LOVE MATCHA',
+    'matcha-gallery-2': 'I LOVE MATCHA',
+    'matcha-gallery-3': 'I LOVE MATCHA'
+  };
+
+  const handleImageMouseEnter = (imageClass) => {
+    setHoveredImage(imageClass);
+  };
+
+  const handleImageMouseLeave = () => {
+    setHoveredImage(null);
+  };
+
+  const handleMouseMove = (e) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  };
 
   const texts = [
     { text: "What is Nitish's favorite drink?" },
     { text: "How does Nitish approach design problems?" },
-    { text: "What is Nitish's design philosophy?"},
+    { text: "What is Nitish's design philosophy?" },
     { text: "What are some of Nitish's favorite shows?" },
-    { text: "What does Nitish create?"}
+    { text: "What does Nitish create?" }
   ];
 
   const currentFullText = texts[currentIndex].text;
@@ -111,14 +144,14 @@ function About() {
 
   useEffect(() => {
     let timeoutId;
-    
+
     const startTyping = () => {
       setIsTyping(true);
       setDisplayedText('');
       setShowEmoji(false);
-      
+
       let currentCharIndex = 0;
-      
+
       const typeNextChar = () => {
         if (currentCharIndex < currentFullText.length) {
           setDisplayedText(currentFullText.slice(0, currentCharIndex + 1));
@@ -129,11 +162,11 @@ function About() {
           setTimeout(() => {
             setShowEmoji(true);
             setIsTyping(false);
-            
+
             // After showing emoji for a bit, start fade out
             setTimeout(() => {
               setIsFading(true);
-              
+
               // After fade out completes, move to next text
               setTimeout(() => {
                 setCurrentIndex((prev) => (prev + 1) % texts.length);
@@ -145,90 +178,140 @@ function About() {
           }, 200);
         }
       };
-      
+
       typeNextChar();
     };
 
     // Start typing immediately
     startTyping();
-    
+
     return () => {
       clearTimeout(timeoutId);
     };
   }, [currentIndex, currentFullText, texts.length]);
 
+  // Scroll-triggered fade-in animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    const fadeElements = document.querySelectorAll('.fade-in-on-scroll');
+    fadeElements.forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => {
+      fadeElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
+
   return (
     <>
       <div className="about-page">
         {/* Horizontal Image Row */}
-        <div className="horizontal-image-row">
-          <img src={friends4} alt="Friends" className="horizontal-image image-1" />
-          <img src={cornellPhoto1} alt="Cornell" className="horizontal-image image-2" />
-          <img src={iceCreamFriends} alt="Ice cream friends" className="horizontal-image image-3" />
-          <img src={matchaPlaceNew} alt="Matcha place" className="horizontal-image image-4" />
-          <img src={nycPhoto2} alt="NYC" className="horizontal-image image-5" />
+        <div className="horizontal-image-row fade-in-on-scroll">
+          <img
+            src={cornellPhoto1}
+            alt="Cornell"
+            className="horizontal-image image-1"
+            onMouseEnter={() => handleImageMouseEnter('image-1')}
+            onMouseLeave={handleImageMouseLeave}
+            onMouseMove={handleMouseMove}
+          />
+          <img
+            src={akki}
+            alt="Akki"
+            className="horizontal-image image-2"
+            onMouseEnter={() => handleImageMouseEnter('image-2')}
+            onMouseLeave={handleImageMouseLeave}
+            onMouseMove={handleMouseMove}
+          />
+          <img
+            src={cafe}
+            alt="Cafe"
+            className="horizontal-image image-3"
+            onMouseEnter={() => handleImageMouseEnter('image-3')}
+            onMouseLeave={handleImageMouseLeave}
+            onMouseMove={handleMouseMove}
+          />
+          <img
+            src={ghost}
+            alt="Ghost"
+            className="horizontal-image image-4"
+            onMouseEnter={() => handleImageMouseEnter('image-4')}
+            onMouseLeave={handleImageMouseLeave}
+            onMouseMove={handleMouseMove}
+          />
+          <img
+            src={milkshake}
+            alt="Milkshake"
+            className="horizontal-image image-5"
+            onMouseEnter={() => handleImageMouseEnter('image-5')}
+            onMouseLeave={handleImageMouseLeave}
+            onMouseMove={handleMouseMove}
+          />
         </div>
+        {hoveredImage && (
+          <div
+            className={`image-tooltip ${imageTooltips[hoveredImage] && imageTooltips[hoveredImage].includes('I LOVE MATCHA') ? 'image-tooltip-text' : 'image-tooltip-emoji'}`}
+            style={{
+              left: `${mousePosition.x}px`,
+              top: `${mousePosition.y}px`,
+            }}
+          >
+            {imageTooltips[hoveredImage]}
+          </div>
+        )}
 
         {/* About Me Section */}
-        <div className="about-me-section">
+        <div className="about-me-section fade-in-on-scroll">
           <div className="about-me-content-two-column">
             <div className="about-me-left-column">
-            <p className="about-me-label">LEARN ABOUT NITISH</p>
-            <h2 className="about-me-title">
-              Product Design is an odd interest turned to life-long passion
-            </h2>
+              <p className="about-me-label">HELLO THERE</p>
+              <h2 className="about-me-title">
+                You can call me Nitish.
+              </h2>
+              {/* Photo Grid */}
+              <div className="about-me-photo-grid">
+                <img
+                  src={sandboxnu}
+                  alt="SandboxNU"
+                  className="about-me-grid-photo"
+                  onMouseEnter={() => handleImageMouseEnter('about-me-photo-1')}
+                  onMouseLeave={handleImageMouseLeave}
+                  onMouseMove={handleMouseMove}
+                />
+                <img
+                  src={nikita}
+                  alt="Nikita"
+                  className="about-me-grid-photo"
+                  onMouseEnter={() => handleImageMouseEnter('about-me-photo-2')}
+                  onMouseLeave={handleImageMouseLeave}
+                  onMouseMove={handleMouseMove}
+                />
+              </div>
             </div>
             <div className="about-me-right-column">
-            <p className="about-me-body">
-              I never planned on becoming a product designer. In high school, I thought I'd go into               <a 
-                href="https://drive.google.com/file/d/1WbF1MrMoEYqtZjZAMtV9_DVGHNbEomTe/view?usp=sharing"
-                className="comp-bio-text"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                computational biology↗
-                </a>, but an app design class pulled me in. I got obsessed with the small details spacing, color, layout and started caring a lot about how people experience things. That curiosity eventually led me to product design.
-            </p>
+              <p className="about-me-body">
+                I'm a Product Designer with a passion for visual storytelling. I'm studying Data Science and Statistics at Cornell University and I'm concurrently designing for <a href="https://trywrap.com/" className="dotted-link" target="_blank" rel="noopener noreferrer">Wrap</a>.
+              </p>
 
-            <p className="about-me-body">
-              Now I'm in Upstate New York at <span 
-                className="cornell-text tooltip-trigger" 
-                onMouseEnter={() => setHoveredRef(1)}
-                onMouseLeave={() => setHoveredRef(null)}
-              >
-                Cornell<sup className="cornell-reference">[1]</sup>
-                {hoveredRef === 1 && (
-                  <div className="reference-tooltip">
-                    <img src={img1_old} alt="Cornell" className="tooltip-image" />
-                    <p className="tooltip-caption">The most beautiful college campus in the world.</p>
-                  </div>
-                )}
-              </span>, studying Information Science and Data Science. Outside of class, I'm usually making sporadic trips to <span 
-                className="cornell-text tooltip-trigger"
-                onMouseEnter={() => setHoveredRef(2)}
-                onMouseLeave={() => setHoveredRef(null)}
-              >
-                New York City<sup className="cornell-reference">[2]</sup>
-                {hoveredRef === 2 && (
-                  <div className="reference-tooltip">
-                    <img src={theCity} alt="New York City" className="tooltip-image" />
-                    <p className="tooltip-caption">NYC is #1 in my heart.</p>
-                  </div>
-                )}
-              </span>, baking <span 
-                className="cornell-text tooltip-trigger"
-                onMouseEnter={() => setHoveredRef(3)}
-                onMouseLeave={() => setHoveredRef(null)}
-              >
-                matcha cookies<sup className="cornell-reference">[3]</sup>
-                {hoveredRef === 3 && (
-                  <div className="reference-tooltip">
-                    <img src={matchaPlace} alt="Matcha cookies" className="tooltip-image" />
-                    <p className="tooltip-caption">"12 Matcha" in NYC.</p>
-                  </div>
-                )}
-              </span>, or exploring Ithaca's trails and gorges.
-            </p>
+              <p className="about-me-body">
+                Outside of class, I'm usually making sporadic trips to New York City or baking matcha cookies, or looking for the next cool hiking trail. Feel free to reach out to me via <a href="https://www.linkedin.com/in/nitishgannu/" className="dotted-link" target="_blank" rel="noopener noreferrer">LinkedIn</a> or email me <a href="mailto:nitish@example.com" className="dotted-link">here</a>.
+              </p>
+
+              <p className="about-me-body">
+                Please, feel free to read more on this <a href="https://drive.google.com/file/d/1AawfCDqoyTQjBjYeD-MHmnIPAqtDLKSb/view?usp=sharing" className="dotted-link" target="_blank" rel="noopener noreferrer">fancy sheet of paper</a> (•̀ᴗ•̀)
+              </p>
             </div>
           </div>
         </div>
@@ -267,33 +350,33 @@ function About() {
         */}
 
         {/* Design Philosophy Section */}
-        <div className="design-philosophy-section">
+        <div className="design-philosophy-section fade-in-on-scroll">
           <div className="design-philosophy-content-two-column">
             <div className="design-philosophy-left-column">
-            <p className="design-philosophy-label">DESIGN PHILOSOPHY</p>
-            <h2 className="design-philosophy-title">
-              Two core principles that guide my work
-            </h2>
-          </div>
-            <div className="design-philosophy-right-column">
-        {/* Philosophy Sections Side by Side */}
-        <div className="philosophy-sections-container">
-          {/* Empathy Philosophy Section */}
-          <div className="philosophy-section">
-            <div className="philosophy-content">
-                    <h2 className="philosophy-title"><span className="philosophy-title-green">[1]</span> / Designing with <span className="philosophy-title-green">empathy</span></h2>
-              <p className="philosophy-body">
-                    Design begins with understanding how people actually move through their day and respecting the realities they face.
-              </p>
+              <p className="design-philosophy-label">DESIGN PHILOSOPHY</p>
+              <h2 className="design-philosophy-title">
+                Two core principles that guide my work.
+              </h2>
             </div>
-          </div>
+            <div className="design-philosophy-right-column">
+              {/* Philosophy Sections Side by Side */}
+              <div className="philosophy-sections-container">
+                {/* Empathy Philosophy Section */}
+                <div className="philosophy-section">
+                  <div className="philosophy-content">
+                    <h2 className="philosophy-title"><span className="philosophy-title-green">[1]</span> / Designing with <span className="philosophy-title-green">empathy</span></h2>
+                    <p className="philosophy-body">
+                      Design begins with understanding how people actually move through their day and respecting the realities they face.
+                    </p>
+                  </div>
+                </div>
 
-          {/* Disrupt Philosophy Section */}
-          <div className="philosophy-section">
-            <div className="philosophy-content">
+                {/* Disrupt Philosophy Section */}
+                <div className="philosophy-section">
+                  <div className="philosophy-content">
                     <h2 className="philosophy-title"><span className="philosophy-title-green">[2]</span> / Design to <span className="philosophy-title-green">disrupt</span></h2>
-              <p className="philosophy-body">
-                    Disruption starts by questioning assumptions. By thinking beyond standard solutions and wearing multiple hats.
+                    <p className="philosophy-body">
+                      Disruption starts by questioning assumptions. By thinking beyond standard solutions and wearing multiple hats.
                     </p>
                   </div>
                 </div>
@@ -303,34 +386,51 @@ function About() {
         </div>
 
         {/* Experience Section */}
-        <div className="experience-section-new">
+        <div className="experience-section-new experience-section-with-matcha fade-in-on-scroll">
           <div className="experience-content-two-column">
             <div className="experience-left-column">
-              <p className="experience-label-new">EXPERIENCE</p>
+              <p className="experience-label-new">WHERE I'VE BEEN</p>
               <h2 className="experience-title-new">
-                Some of the experiences that set me up for success
+                What I've been up to outside of classes.
               </h2>
+              <p className="matcha-runs-text">also making a lot of matcha runs!</p>
+              <div className="matcha-gallery-grid">
+                <img
+                  src={matchaImg1}
+                  alt="Matcha 1"
+                  className="matcha-gallery-image matcha-gallery-large"
+                  onMouseEnter={() => handleImageMouseEnter('matcha-gallery-1')}
+                  onMouseLeave={handleImageMouseLeave}
+                  onMouseMove={handleMouseMove}
+                />
+                <img
+                  src={matchaImg2}
+                  alt="Matcha 2"
+                  className="matcha-gallery-image"
+                  onMouseEnter={() => handleImageMouseEnter('matcha-gallery-2')}
+                  onMouseLeave={handleImageMouseLeave}
+                  onMouseMove={handleMouseMove}
+                />
+                <img
+                  src={matchaImg3}
+                  alt="Matcha 3"
+                  className="matcha-gallery-image"
+                  onMouseEnter={() => handleImageMouseEnter('matcha-gallery-3')}
+                  onMouseLeave={handleImageMouseLeave}
+                  onMouseMove={handleMouseMove}
+                />
+              </div>
             </div>
             <div className="experience-right-column">
               <div className="experience-items-container">
-                <Link to="#" className="experience-item-link">
-                  <div className="experience-item-new">
-                    <div className="experience-item-left">
-                      <div className="experience-logo-placeholder experience-logo-cornell">
-                        <span className="experience-logo-arrow">↗</span>
-                      </div>
-                      <span className="experience-company-name-new">Cornell Bowers CIS<span className="experience-role-new">, HCI Research Assistant</span></span>
-                    </div>
-                    <span className="experience-date-new">Present</span>
-                  </div>
-                </Link>
+                <h2 className="experience-section-title">Experience</h2>
                 <a href="https://trywrap.com/" target="_blank" rel="noopener noreferrer" className="experience-item-link">
                   <div className="experience-item-new">
                     <div className="experience-item-left">
                       <div className="experience-logo-placeholder experience-logo-wrap">
                         <span className="experience-logo-arrow">↗</span>
                       </div>
-                      <span className="experience-company-name-new">Wrap<span className="experience-role-new">, Founding Product Designer</span></span>
+                      <span><span className="experience-company-name-new">Wrap</span><span className="experience-role-new"> → Founding Product Designer</span></span>
                     </div>
                     <span className="experience-date-new">Present</span>
                   </div>
@@ -341,7 +441,7 @@ function About() {
                       <div className="experience-logo-placeholder experience-logo-thinkneuro">
                         <span className="experience-logo-arrow">↗</span>
                       </div>
-                      <span className="experience-company-name-new">ThinkNeuro<span className="experience-role-new">, Product Manager Intern</span></span>
+                      <span><span className="experience-company-name-new">ThinkNeuro</span><span className="experience-role-new"> → Product Manager Intern</span></span>
                     </div>
                     <span className="experience-date-new">Summer 2025</span>
                   </div>
@@ -352,7 +452,7 @@ function About() {
                       <div className="experience-logo-placeholder experience-logo-intverse">
                         <span className="experience-logo-arrow">↗</span>
                       </div>
-                      <span className="experience-company-name-new">Intverse.io<span className="experience-role-new">, Software Engineer Intern</span></span>
+                      <span><span className="experience-company-name-new">Intverse.io</span><span className="experience-role-new"> → Software Engineer Intern</span></span>
                     </div>
                     <span className="experience-date-new">Summer 2025</span>
                   </div>
@@ -363,7 +463,7 @@ function About() {
                       <div className="experience-logo-placeholder experience-logo-sandbox">
                         <span className="experience-logo-arrow">↗</span>
                       </div>
-                      <span className="experience-company-name-new">Sandbox<span className="experience-role-new">, Product Designer</span></span>
+                      <span><span className="experience-company-name-new">Sandbox</span><span className="experience-role-new"> → Product Designer</span></span>
                     </div>
                     <span className="experience-date-new">Spring 2025</span>
                   </div>
@@ -373,19 +473,35 @@ function About() {
           </div>
         </div>
 
-        {/* Second Horizontal Image Row */}
-        <div className="horizontal-image-row second-image-row">
-          <img src={friends} alt="Friends" className="horizontal-image image-1" />
-          <div className="stacked-images-container image-2">
-            <img src={img3} alt="Aesthetic" className="stacked-image" />
-            <img src={aarushi} alt="Aarushi" className="stacked-image" />
+        {/* Involvement Section */}
+        <div className="experience-section-new involvement-section fade-in-on-scroll">
+          <div className="experience-content-two-column">
+            <div className="experience-left-column">
+            </div>
+            <div className="experience-right-column">
+              <div className="experience-items-container">
+                <h2 className="experience-section-title">Involvement</h2>
+                <div className="involvement-item">
+                  <a href="#" className="involvement-org-link">Cornell Bowers CIS</a>
+                  <span className="involvement-arrow"> → </span>
+                  <span className="involvement-role">UX Design & Research Assistant</span>
+                  <span className="involvement-date">PRESENT</span>
+                </div>
+                <div className="involvement-item">
+                  <a href="#" className="involvement-org-link">CS 1998: Intro to Digital Product Design</a>
+                  <span className="involvement-arrow"> → </span>
+                  <span className="involvement-role">Teaching Assistant</span>
+                  <span className="involvement-date">PRESENT</span>
+                </div>
+                <div className="involvement-item">
+                  <a href="#" className="involvement-org-link">TeaTime @ Cornell</a>
+                  <span className="involvement-arrow"> → </span>
+                  <span className="involvement-role">Creative Director, E-Board</span>
+                  <span className="involvement-date">PRESENT</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <img src={matchamaiko} alt="Matchamaiko" className="horizontal-image image-3" />
-          <div className="stacked-images-container image-4">
-            <img src={girls2} alt="Girls 2" className="stacked-image" />
-            <img src={girls} alt="Girls" className="stacked-image" />
-          </div>
-          <img src={banffPhoto1} alt="Banff 1" className="horizontal-image image-5" />
         </div>
 
         {/* Experience Section - Commented Out */}

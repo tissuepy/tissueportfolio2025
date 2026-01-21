@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -7,7 +8,9 @@ body, html {
 }
 
 /* Force Apple-style emojis across all platforms */
-.emoji, .matcha-emoji-overlay, .rotating-icon-container h1 {
+.emoji,
+.matcha-emoji-overlay,
+.rotating-icon-container h1 {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'EmojiSymbols', 'EmojiOne Mozilla', 'Twemoji Mozilla', 'Segoe UI Symbol', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -36,7 +39,8 @@ body, html {
 }
 
 .nav-button {
-  text-decoration: none; /* removes underline */
+  text-decoration: none;
+  /* removes underline */
   /* keep other styles you have here */
 }
 
@@ -62,17 +66,21 @@ body, html {
   align-items: flex-start;
 }
 
-.navbar-matcha-image {
-  width: 70px;
-  height: auto;
-  object-fit: contain;
-  transform: rotate(8deg);
+.navbar-matcha-emoji {
+  font-size: 50px;
+  display: inline-block;
+
   transition: transform 0.3s ease;
   cursor: pointer;
-  margin-left: -15px; /* Move it more to the left */
+  margin-left: -15px;
+  /* Move it more to the left */
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'EmojiSymbols', 'EmojiOne Mozilla', 'Twemoji Mozilla', 'Segoe UI Symbol', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
 }
 
-.navbar-matcha-image:hover {
+.navbar-matcha-emoji:hover {
   transform: rotate(-10deg);
 }
 
@@ -165,9 +173,9 @@ body, html {
 
 .footer {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: 30px 100px;
+  padding: 50px 100px 80px 100px;
   background-color: #282828;
   color: #000;
   border-top: 1px solid #ccc;
@@ -177,10 +185,23 @@ body, html {
   position: relative;
   overflow: visible;
   z-index: 10;
+  min-height: auto;
+}
+
+.footer-left {
+  justify-self: start;
+  align-self: center;
+}
+
+.footer-right {
+  justify-self: end;
+  align-self: center;
+  margin-right: 0;
 }
 
 .clocktower-wrapper {
-  display: none; /* Hide clocktower on all devices */
+  display: none;
+  /* Hide clocktower on all devices */
 }
 
 
@@ -221,18 +242,10 @@ body, html {
   max-width: 300px;
 }
 
-.footer-middle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 600;
-  color: white;
-}
 
 .footer-email {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin-bottom: 8px;
   color: white;
   transition: color 0.2s ease;
@@ -241,51 +254,89 @@ body, html {
 
 .footer-email:last-child {
   font-weight: 400;
-  font-size: 0.95rem; /* Same size as footer-thankyou */
-  color: #b9b6b6; /* Same color as footer-thankyou */
+  font-size: 0.95rem;
+  /* Same size as footer-thankyou */
+  color: #b9b6b6;
+  /* Same color as footer-thankyou */
   cursor: default;
-  white-space: nowrap; /* Keep on one line */
+  white-space: nowrap;
+  /* Keep on one line */
 }
 
 .footer-email:last-child:hover {
-  color: #b9b6b6; /* Keep same color on hover, no green */
+  color: #b9b6b6;
+  /* Keep same color on hover, no green */
 }
 
 .footer-email:hover {
   color: #74A662;
 }
 
+.footer-email:first-of-type:hover {
+  color: white !important;
+}
+
+.footer-emoji {
+  color: white !important;
+}
+
 .footer-thankyou {
   font-size: 0.95rem;
   color: #b9b6b6;
-
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  margin-bottom: -0.7rem;
 }
 
 .footer-right {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: nowrap;
+  text-align: left;
+}
+
+.footer-links-section {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  max-width: 300px;
-  position: relative;
-  overflow: visible;
-  height: 100px;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  text-align: left;
+  justify-content: flex-start;
 }
 
-.footer-matcha-ascii {
-  font-family: 'Courier New', 'Consolas', monospace;
-  font-size: 14px;
-  line-height: 1.2;
-  transform: translateY(0px) translateX(60px);
-  opacity: 0.8;
-  z-index: 10;
+.footer-section-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #666666;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.5px;
+  text-align: left;
 }
 
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  text-align: left;
+}
 
 .footer-link {
   text-decoration: none;
-  color: #ffffff;
-  font-weight: 600;
+  color: #74A662;
+  font-weight: 400;
+  font-size: 0.95rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-transform: none;
   transition: color 0.2s ease;
+  text-align: left;
+  display: block;
+  width: 100%;
 }
 
 .footer-link:hover {
@@ -306,7 +357,8 @@ body, html {
 .right-section {
   display: flex;
   gap: 24px;
-  font-family: 'IBM Plex Mono', monospace; /* only here */
+  font-family: 'IBM Plex Mono', monospace;
+  /* only here */
   font-weight: 600;
 }
 
@@ -461,8 +513,10 @@ body, html {
 
 .hero-face-image-1 {
   transform: rotate(-5deg);
-  right: 220px; /* Moved right */
-  top: 180px; /* Moved up */
+  right: 220px;
+  /* Moved right */
+  top: 180px;
+  /* Moved up */
 }
 
 .hero-face-image-1:hover {
@@ -472,8 +526,10 @@ body, html {
 
 .hero-face-image-2 {
   transform: rotate(8deg);
-  right: 40px; /* Moved right */
-  top: 160px; /* Moved up */
+  right: 40px;
+  /* Moved right */
+  top: 160px;
+  /* Moved up */
 }
 
 .hero-face-image-2:hover {
@@ -536,10 +592,17 @@ body, html {
   transform: translateX(-100px) rotate(-8deg);
 }
 
+.status-currently-designing {
+  color: #000000;
+  font-weight: 400;
+  font-size: 26px !important;
+}
+
 .status-major-green {
   color: #74A662;
   font-weight: 400;
   font-size: 26px !important;
+  position: relative;
 }
 
 .status-light-grey {
@@ -547,17 +610,31 @@ body, html {
   font-size: 26px !important;
 }
 
+.status-superscript {
+  font-size: 0.7em;
+  vertical-align: super;
+  position: relative;
+  top: -0.5em;
+  margin-left: 2px;
+  color: #74A662;
+}
+
 .sandbox-image {
-    display: block;
-    margin: -2px auto 0; /* top margin gives some space from text */
-    width: 40px; /* or adjust to your needs */
-    height: 40px;
-    border-radius: 6px; /* <- soft rounded corners */
-    opacity: 0.8; /* optional: makes it subtle */
+  display: block;
+  margin: -2px auto 0;
+  /* top margin gives some space from text */
+  width: 40px;
+  /* or adjust to your needs */
+  height: 40px;
+  border-radius: 6px;
+  /* <- soft rounded corners */
+  opacity: 0.8;
+  /* optional: makes it subtle */
 }
 
 .highlight {
-  color: #000000; /* your highlight color, e.g. blue */
+  color: #000000;
+  /* your highlight color, e.g. blue */
   font-weight: 600;
 
 }
@@ -578,7 +655,8 @@ body, html {
   display: block;
   object-fit: cover;
   border-radius: 10px;
-  margin: 0; /* ensures no spacing at top */
+  margin: 0;
+  /* ensures no spacing at top */
   margin-bottom: 20px;
 
 }
@@ -631,20 +709,22 @@ body, html {
   display: flex;
   flex-wrap: nowrap;
   margin-top: 120px;
-  gap: 0px; /* previously 100px, reduce this */
-  
+  gap: 0px;
+  /* previously 100px, reduce this */
+
 }
 
 .project-meta h4 {
   margin: -80px 0 4px;
   font-weight: 30;
   color: #494949;
-  
-  
+
+
 }
 
 .project-date {
-    font-family: 'IBM Plex Mono', monospace; /* only here */
+  font-family: 'IBM Plex Mono', monospace;
+  /* only here */
 }
 
 .project-meta p {
@@ -657,7 +737,8 @@ body, html {
 .project-meta {
   display: flex;
   flex-wrap: nowrap;
-  column-gap: 100px; /* keep generous horizontal gap */
+  column-gap: 100px;
+  /* keep generous horizontal gap */
   row-gap: -100px;
 }
 
@@ -666,7 +747,7 @@ body, html {
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid white ;
+  border: 3px solid white;
   display: flex;
   margin-top: 10px;
   align-items: center;
@@ -686,17 +767,12 @@ body, html {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.footer-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Aligns contents to the left side */
-  gap: 8px;
-}
 
 .footer-links {
   display: flex;
@@ -727,12 +803,14 @@ body, html {
 }
 
 .project-card {
-  width: 350px;               /* fixed width for layout consistency */
-  min-height: 480px;          /* adjust as needed for stable height */
+  width: 350px;
+  /* fixed width for layout consistency */
+  min-height: 480px;
+  /* adjust as needed for stable height */
 }
 
 .project-card:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .project-title,
@@ -760,7 +838,8 @@ body, html {
 
 .project-card {
   width: 100%;
-  max-width: 1000px; /* keeps it wide on large screens */
+  max-width: 1000px;
+  /* keeps it wide on large screens */
   margin: 0 auto 80px;
 }
 
@@ -783,7 +862,7 @@ body, html {
     gap: 24px;
   }
 
-  .project-meta > div {
+  .project-meta>div {
     width: 100%;
   }
 }
@@ -812,9 +891,11 @@ body, html {
   0% {
     transform: translate(0px, 0px) rotate(0deg);
   }
+
   50% {
     transform: translate(5px, -5px) rotate(0deg);
   }
+
   100% {
     transform: translate(0px, 0px) rotate(0deg);
   }
@@ -837,6 +918,7 @@ body, html {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -915,6 +997,7 @@ body, html {
   transform: scale(1) translateY(-20px);
   z-index: 3;
 }
+
 /* Matcha Boba Ice Image - lurking out from behind */
 .matcha-boba-ice {
   top: 50%;
@@ -963,7 +1046,7 @@ body, html {
   border: 1px solid #f0f0f0;
 }
 
-.pop-out-image:hover + .pop-out-tooltip,
+.pop-out-image:hover+.pop-out-tooltip,
 .pop-out-element:hover .pop-out-tooltip {
   opacity: 1;
   transform: translateY(0);
@@ -1041,7 +1124,8 @@ body, html {
   border-radius: 6px;
   position: absolute;
   z-index: 10;
-  bottom: 120%; /* places it above the emoji */
+  bottom: 120%;
+  /* places it above the emoji */
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
@@ -1079,7 +1163,8 @@ html {
 
 .notion-cta {
   margin-top: 2rem;
-  padding-left: 2rem; /* aligns with cards if they have padding */
+  padding-left: 2rem;
+  /* aligns with cards if they have padding */
 }
 
 .notion-cta h4 {
@@ -1129,26 +1214,51 @@ html {
 
 /* Project card animation keyframes */
 @keyframes lightbulbGlow {
-  0% { transform: translateY(2px) rotate(0deg); }
-  50% { transform: translateY(2px) rotate(-50deg); }
-  100% { transform: translateY(2px) rotate(0deg); }
+  0% {
+    transform: translateY(2px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(2px) rotate(-50deg);
+  }
+
+  100% {
+    transform: translateY(2px) rotate(0deg);
+  }
 }
 
 @keyframes heartsFloat {
-  0% { transform: translateY(2px) rotate(0deg); }
-  50% { transform: translateY(2px) rotate(50deg); }
-  100% { transform: translateY(2px) rotate(0deg); }
+  0% {
+    transform: translateY(2px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(2px) rotate(50deg);
+  }
+
+  100% {
+    transform: translateY(2px) rotate(0deg);
+  }
 }
 
 @keyframes smileyWiggle {
-  0% { transform: translateY(4px) rotate(0deg); }
-  50% { transform: translateY(4px) rotate(15deg); }
-  100% { transform: translateY(4px) rotate(0deg); }
+  0% {
+    transform: translateY(4px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(4px) rotate(15deg);
+  }
+
+  100% {
+    transform: translateY(4px) rotate(0deg);
+  }
 }
 
 .project-section {
   /* your existing styles */
-  margin-bottom: 2rem; /* add space between projects and text */
+  margin-bottom: 2rem;
+  /* add space between projects and text */
 }
 
 .more-projects-text {
@@ -1163,7 +1273,8 @@ html {
 
 .rotating-identity {
   transition: opacity 0.4s ease;
-  font-size: 1em; /* same size as rest of hero text */
+  font-size: 1em;
+  /* same size as rest of hero text */
 }
 
 .fade-in {
@@ -1186,15 +1297,19 @@ html {
 
 
 .more-projects-text a {
-  color: #464646; /* text color */
-  text-decoration: none; /* remove default underline */
-  padding: 0 0.15rem; /* some horizontal padding */
+  color: #464646;
+  /* text color */
+  text-decoration: none;
+  /* remove default underline */
+  padding: 0 0.15rem;
+  /* some horizontal padding */
   border-radius: 3px;
   transition: all 0.3s ease;
 }
 
 .more-projects-text a:hover {
-  color: #74A662; /* light green fill on hover */
+  color: #74A662;
+  /* light green fill on hover */
   text-decoration: underline;
 }
 
@@ -1206,7 +1321,8 @@ a:hover {
   color: #74A662;
   display: inline-block;
   transition: opacity 0.9s ease-in-out, transform 0.9s ease-in-out;
-  font-size: 1em; /* same size as rest of hero text */
+  font-size: 1em;
+  /* same size as rest of hero text */
 }
 
 .fade-in {
@@ -1216,7 +1332,8 @@ a:hover {
 
 .fade-out {
   opacity: 0;
-  transform: translateY(10px); /* or -10px for swipe up */
+  transform: translateY(10px);
+  /* or -10px for swipe up */
 }
 
 /* App.css */
@@ -1238,7 +1355,7 @@ a:hover {
   border-radius: 6px;
   white-space: nowrap;
   z-index: 100;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .emoji-wrapper:hover .emoji-tooltip {
@@ -1247,8 +1364,10 @@ a:hover {
 
 /* Container for the main image and smaller images */
 .main-image-container {
-  max-width: 1000px; /* or whatever width your main image uses */
-  margin: 0 auto; /* center on page */
+  max-width: 1000px;
+  /* or whatever width your main image uses */
+  margin: 0 auto;
+  /* center on page */
 }
 
 /* Main image styling */
@@ -1256,37 +1375,47 @@ a:hover {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 12px; /* optional rounded corners */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  /* optional rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Container for the two smaller images with background */
 .extra-images-wrapper {
-  background-color: #e0e0e0; /* light grey background */
-  margin-top: 1rem; /* spacing above */
-  padding: 12px; /* padding inside the grey background */
+  background-color: #e0e0e0;
+  /* light grey background */
+  margin-top: 1rem;
+  /* spacing above */
+  padding: 12px;
+  /* padding inside the grey background */
   border-radius: 12px;
   display: flex;
-  gap: 15px; /* space between images */
-  box-sizing: border-box; /* to include padding in width */
+  gap: 15px;
+  /* space between images */
+  box-sizing: border-box;
+  /* to include padding in width */
 }
 
 /* Each small image */
 .extra-project-image {
-  width: 50%; /* half width of container */
+  width: 50%;
+  /* half width of container */
   height: auto;
   border-radius: 8px;
   object-fit: cover;
   cursor: pointer;
-  border: 1px solid #cdcdcd; /* Example: orange border */
+  border: 1px solid #cdcdcd;
+  /* Example: orange border */
 
-  
+
 }
 
 /* Container that fills viewport width with some padding */
 .image-wrapper {
-  width: 100vw;              /* full viewport width */
-  padding: 0 5vw;            /* 5% padding on left and right */
+  width: 100vw;
+  /* full viewport width */
+  padding: 0 5vw;
+  /* 5% padding on left and right */
   box-sizing: border-box;
   margin: 0 auto;
   display: flex;
@@ -1297,21 +1426,26 @@ a:hover {
 /* Main big image fills container width */
 .main-image {
   width: 100%;
-  max-width: none;          /* no max cap */
+  max-width: none;
+  /* no max cap */
   height: auto;
   border-radius: 12px;
   display: block;
-  margin-bottom: 3rem;      /* bigger gap below */
-  
+  margin-bottom: 3rem;
+  /* bigger gap below */
+
 }
 
 /* Container for smaller images aligned below */
 .extra-images-container {
   display: flex;
-  gap: 2vw;                 /* gap proportional to viewport */
-  width: 100%;              /* fill width of parent */
+  gap: 2vw;
+  /* gap proportional to viewport */
+  width: 100%;
+  /* fill width of parent */
   max-width: 100%;
-  justify-content: center;  /* center them */
+  justify-content: center;
+  /* center them */
 }
 
 /* Each smaller image takes half container minus gap */
@@ -1329,7 +1463,8 @@ a:hover {
   transform: scale(1.05);
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -1349,21 +1484,22 @@ body, html {
   flex-direction: column;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  gap: 0.9rem; /* space between overview and date */
+  gap: 0.9rem;
+  /* space between overview and date */
 }
 
 .project-overview {
   font-size: 6rem;
   font-weight: 400;
   color: #616161;
-  margin: 0; 
+  margin: 0;
 }
 
 .project-date {
   font-size: 0.85rem;
   color: #d9d3d3;
   margin: 0;
-  
+
 }
 
 
@@ -1389,7 +1525,8 @@ body, html {
 }
 
 .extra-large-project-image {
-  width: 100%; /* same width as main image */
+  width: 100%;
+  /* same width as main image */
   height: auto;
   margin-top: 20px;
   border: 1px solid #b1b1b1;
@@ -1411,7 +1548,8 @@ body, html {
 /* Base class for all floating images */
 .floating-image {
   position: absolute;
-  width: 20px; /* adjust size as needed */
+  width: 20px;
+  /* adjust size as needed */
   animation: float 4s ease-in-out infinite;
 }
 
@@ -1445,9 +1583,11 @@ body, html {
   0% {
     transform: translateY(0px);
   }
-  50% { 
+
+  50% {
     transform: translateX(-20px);
   }
+
   100% {
     transform: translateY(0px);
   }
@@ -1594,6 +1734,7 @@ body, html {
 
 /* Hide hero faces when zoomed in or on mobile */
 @media (max-width: 1200px) {
+
   .hero-face-image,
   .hero-face-image-1,
   .hero-face-image-2 {
@@ -1632,6 +1773,7 @@ body, html {
     font-size: 18px !important;
   }
 
+  .status-currently-designing,
   .status-major-green,
   .status-light-grey {
     font-size: 18px !important;
@@ -1641,9 +1783,11 @@ body, html {
     display: block !important;
   }
 
-  .navbar-matcha-image {
-    margin-left: 15px; /* Move it more to the right */
-    width: 80px; /* Make it bigger */
+  .navbar-matcha-emoji {
+    margin-left: 15px;
+    /* Move it more to the right */
+    font-size: 80px;
+    /* Make it bigger */
   }
 
   .navbar {
@@ -1655,7 +1799,8 @@ body, html {
   }
 
   .main-content-container {
-    padding: 20px 20px 0 20px; /* Add top padding to move content down */
+    padding: 20px 20px 0 20px;
+    /* Add top padding to move content down */
   }
 
   .left-section {
@@ -1669,14 +1814,18 @@ body, html {
   }
 
   .info-block {
-    margin-bottom: 1.5rem; /* reduce spacing */
+    margin-bottom: 1.5rem;
+    /* reduce spacing */
   }
 
   .about-info-section {
     flex-direction: column;
-    gap: 1.5rem; /* tighter gap between blocks */
-    padding: 2rem 1rem; /* less padding */
-    align-items: center; /* center blocks horizontally */
+    gap: 1.5rem;
+    /* tighter gap between blocks */
+    padding: 2rem 1rem;
+    /* less padding */
+    align-items: center;
+    /* center blocks horizontally */
   }
 
   .about-info-block,
@@ -1686,6 +1835,7 @@ body, html {
     text-align: center;
   }
 }
+
 @media (max-width: 768px) {
   .project-section {
     padding: 1rem;
@@ -1743,6 +1893,7 @@ body, html {
 }
 
 @media screen and (max-width: 768px) {
+
   .emoji-background,
   .emoji-scatter,
   .float1,
@@ -1812,12 +1963,17 @@ body, html {
   }
 
   .project-card {
-    width: 94vw;               /* nearly full width */
-    max-width: 100%;           /* no hard limits */
-    margin: 0 auto 2rem;       /* center horizontally */
+    width: 94vw;
+    /* nearly full width */
+    max-width: 100%;
+    /* no hard limits */
+    margin: 0 auto 2rem;
+    /* center horizontally */
     padding: 1rem;
-    box-sizing: border-box;    /* include padding in width */
-    background-color: #f9f9f9; /* optional background */
+    box-sizing: border-box;
+    /* include padding in width */
+    background-color: #f9f9f9;
+    /* optional background */
     border-radius: 12px;
   }
 
@@ -1863,13 +2019,15 @@ body, html {
 
   .left-section {
     display: flex;
-    flex-direction: column; /* keep name and title stacked */
+    flex-direction: column;
+    /* keep name and title stacked */
     justify-content: center;
   }
 
   .name-title {
     display: flex;
-    flex-direction: column; /* name on top, title underneath */
+    flex-direction: column;
+    /* name on top, title underneath */
   }
 
   .nav-toggle {
@@ -1880,14 +2038,17 @@ body, html {
   }
 
   .right-section {
-    display: flex !important; /* show nav toggle on mobile */
+    display: flex !important;
+    /* show nav toggle on mobile */
     gap: 12px;
-    margin-left: -30px !important; /* Move nav toggle more to the left */
+    margin-left: -30px !important;
+    /* Move nav toggle more to the left */
     margin-right: 0 !important;
   }
-  
+
   .nav-link {
-    display: none; /* hide medium link on mobile */
+    display: none;
+    /* hide medium link on mobile */
   }
 
   .nav-button {
@@ -1905,14 +2066,18 @@ body, html {
 
 @media (max-width: 768px) {
   .footer {
-    flex-direction: column;   /* stack vertically */
-    align-items: flex-start;  /* align all content to the left */
-    padding: 30px 0 20px 1rem;       /* more top padding to move content down */
+    flex-direction: column;
+    /* stack vertically */
+    align-items: flex-start;
+    /* align all content to the left */
+    padding: 30px 0 20px 1rem;
+    /* more top padding to move content down */
   }
 
   .footer-left,
   .footer-right {
-    max-width: 100%;  /* let containers fill width */
+    max-width: 100%;
+    /* let containers fill width */
     width: 100%;
   }
 
@@ -1922,36 +2087,18 @@ body, html {
   }
 
   .footer-right {
-    display: none; /* Hide matcha image on mobile */
-  }
-
-  .footer-middle {
-    align-self: center; /* Center vertically */
+    align-self: flex-start;
     width: 100%;
     display: flex;
-    justify-content: flex-end; /* Align content to the right */
+    flex-direction: row;
+    justify-content: flex-start;
     padding-right: 0;
     margin-right: 0;
+    gap: 3rem;
   }
 
-  .footer-links {
-    flex-direction: column;
-    gap: 8px; /* Add spacing between links */
-    align-items: flex-end; /* Align links to the right */
-  }
-
-  .footer-links span {
-    display: none; /* Hide the "/" separators */
-  }
-
-  .footer-links .footer-link {
-    display: block;
-    text-align: left; /* Left align the text */
-    font-size: 0.95rem; /* Same size as footer-thankyou */
-  }
-
-  .footer-links .footer-link:first-child {
-    display: none; /* Hide GitHub link on mobile */
+  .footer-links-section {
+    align-items: flex-start;
   }
 }
 
@@ -1960,7 +2107,8 @@ body, html {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 10px;  /* optional side padding */
+    padding: 0 10px;
+    /* optional side padding */
     box-sizing: border-box;
   }
 }
@@ -1968,7 +2116,8 @@ body, html {
 .left-content-with-image {
   display: flex;
   align-items: center;
-  gap: 0.6rem; /* Adjust spacing between image and text */
+  gap: 0.6rem;
+  /* Adjust spacing between image and text */
 }
 
 .smiski-text {
@@ -1981,4 +2130,3 @@ body, html {
   margin-left: 2px;
   color: #74A662;
 }
-

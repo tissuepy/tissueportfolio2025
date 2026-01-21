@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import chatgptLogo from './newthumbnaildesigns/OpenAI-black-monoblossom 2.png';
 import hmw2Image from './newthumbnaildesigns/HMW2.png';
 import chatgpt2Image from './newthumbnaildesigns/chatgpt 2.png';
+import chatgptMockupImage from './chatgptvideos/chatgpt mockup.png';
+import safehubThumbnailImage from './chatgptvideos/safehub thumbnail.png';
 import safehub2Image from './newthumbnaildesigns/safehub2.png';
 import searchpeekImage from './newthumbnaildesigns/searchpeek.png';
 import card1Image from './newthumbnaildesigns/card 1.png';
@@ -52,7 +54,7 @@ const ProjectsMasonry = () => {
       growth: '2025',
       caseStudyUrl: 'https://medium.com/@nitishgannu/building-bookmarks-into-chatgpt-46ca50a7b2a4',
       isExternal: true,
-      hasLogo: true
+      hasLogo: false
     },
     {
       id: 'safehub',
@@ -115,11 +117,10 @@ const ProjectsMasonry = () => {
         <div className="new-project-card-wrapper">
           <div 
             className="new-project-card fade-in-on-scroll"
-            onClick={() => window.open('https://medium.com/@nitishgannu/building-bookmarks-into-chatgpt-46ca50a7b2a4', '_blank', 'noopener,noreferrer')}
+            onClick={() => handleProjectClick(projects.find(p => p.id === 'chatgpt'))}
           >
             <div className="new-project-card-top">
-              <img src={hmw2Image} alt="HMW" className="new-project-card-image" />
-              <img src={chatgpt2Image} alt="ChatGPT" className="new-project-card-chatgpt-image" />
+              <img src={chatgptMockupImage} alt="ChatGPT Mockup" className="new-project-card-image" />
             </div>
             <div className="new-project-card-divider"></div>
             <div className="new-project-card-bottom">
@@ -134,7 +135,7 @@ const ProjectsMasonry = () => {
           onClick={() => navigate('/work/safehub')}
         >
           <div className="new-project-card-top">
-            <img src={safehub2Image} alt="Safehub" className="new-project-card-safehub-image" />
+            <img src={safehubThumbnailImage} alt="Safehub" className="new-project-card-image new-project-card-safehub-image" />
           </div>
           <div className="new-project-card-divider"></div>
           <div className="new-project-card-bottom">
