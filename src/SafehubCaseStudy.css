@@ -28,8 +28,7 @@ body, html {
 .case-study-sidebar {
   position: fixed;
   left:50px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 250px;
   z-index: 100;
 }
 

@@ -14,6 +14,13 @@ function Home() {
   const heroFacesRef = useRef(null);
 
   useEffect(() => {
+    // Preload hero face images
+    const preloadImages = [nitish3, cartoonnitish2, nitish2];
+    preloadImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
     // Make hero section visible immediately
     const heroSection = document.querySelector('.hero-section');
     const heroText = document.querySelector('.hero-text');
@@ -60,7 +67,7 @@ function Home() {
       <div className="main-content-container">
         <div className="hero-section fade-in-on-scroll" ref={heroSectionRef}>
           <div className="hero-content">
-                  <img src={nitish3} alt="Cartoon of Nitish" className="hero-face-image-top" />
+                  <img src={nitish3} alt="Cartoon of Nitish" className="hero-face-image-top" loading="eager" fetchPriority="high" decoding="async" />
                   <div className="hero-text fade-in-on-scroll" ref={heroTextRef}>
                     <p>
                       <span className="hero-text-desktop">
@@ -77,8 +84,8 @@ function Home() {
               </div>
             </div>
             <div className="fade-in-on-scroll" ref={heroFacesRef}>
-              <img src={cartoonnitish2} alt="Cartoon of Nitish" className="hero-face-image hero-face-image-1" />
-              <img src={nitish2} alt="Cartoon of Nitish 2" className="hero-face-image hero-face-image-2" />
+              <img src={cartoonnitish2} alt="Cartoon of Nitish" className="hero-face-image hero-face-image-1" loading="lazy" decoding="async" />
+              <img src={nitish2} alt="Cartoon of Nitish 2" className="hero-face-image hero-face-image-2" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>

@@ -518,7 +518,7 @@
 
 .involvement-section {
   padding-top: 0;
-  margin-top: -12rem;
+  margin-top: -13.3rem;
 }
 
 .experience-content-two-column {
@@ -603,7 +603,7 @@
   font-size: 1rem;
   line-height: 1.6;
   color: #6a6a6a;
-  margin: 2rem 0 1.5rem 0;
+  margin: 3rem 0 1.5rem 0;
   text-align: left;
 }
 
@@ -613,7 +613,7 @@
   grid-template-rows: 1fr 1fr;
   gap: 12px;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .matcha-gallery-image {

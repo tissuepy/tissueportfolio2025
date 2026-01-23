@@ -18,6 +18,13 @@ function App() {
   const [fadeClass, setFadeClass] = useState('fade-in');
   const [clocktowerOn, setClocktowerOn] = useState(false);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   useEffect(() => {
     if (location.pathname !== currentPath) {
       setFadeClass('fade-out');
@@ -83,27 +90,27 @@ function App() {
       <footer className="footer">
         {/* Clocktower above footer */}
         <div className="clocktower-wrapper">
-          <img 
-            src={clocktowerOn ? clocktowerOnImage : clocktowerOffImage} 
-            alt="Clocktower" 
+          <img
+            src={clocktowerOn ? clocktowerOnImage : clocktowerOffImage}
+            alt="Clocktower"
             className={`clocktower ${clocktowerOn ? 'on' : 'off'}`}
             onClick={() => setClocktowerOn(!clocktowerOn)}
           />
           <span className="clocktower-click-text">[CLICK]</span>
         </div>
-        
+
         <div className="footer-left">
           <p className="footer-thankyou">reach out to me at ↓</p>
           <p className="footer-email">ng545@cornell.edu</p>
-          <p className="footer-email">Thanks for stopping by! I hope you had fun snooping around. <span className="footer-emoji">(>ᴗ•) !</span></p> 
+          <p className="footer-email">Thanks for stopping by! I hope you had fun snooping around. <span className="footer-emoji">(>ᴗ•) !</span></p>
         </div>
 
         <div className="footer-right">
           <div className="footer-links-section">
             <p className="footer-section-title">NAVIGATION</p>
             <div className="footer-links">
-              <NavLink to="/" className="footer-link">Work</NavLink>
-              <NavLink to="/about" className="footer-link">About</NavLink>
+              <NavLink to="/" className="footer-link" onClick={scrollToTop}>Work</NavLink>
+              <NavLink to="/about" className="footer-link" onClick={scrollToTop}>About</NavLink>
             </div>
           </div>
           <div className="footer-links-section">
