@@ -830,6 +830,31 @@
   .experience-right-column {
     flex: 1;
   }
+
+  .involvement-section {
+    margin-top: 2rem;
+  }
+
+  .involvement-org-link {
+    border-bottom: none;
+  }
+
+  .horizontal-image-row {
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: visible;
+    padding: 0 10px;
+  }
+
+  .horizontal-image.image-1,
+  .horizontal-image.image-2,
+  .horizontal-image.image-3,
+  .horizontal-image.image-4,
+  .horizontal-image.image-5 {
+    width: 130px;
+    height: 170px;
+    min-width: 130px;
+  }
 }
 
 /* About Photo Gallery */
@@ -997,7 +1022,7 @@
   max-width: 800px;
   height: auto;
   object-fit: contain;
-  margin-top: -2rem;
+  margin-top: 1rem;
 }
 
 .star-icon {

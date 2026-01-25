@@ -534,11 +534,25 @@
   }
   
   .chatgpt-mockup-frame {
-    height: 180px;
+    height: 200px;
+    bottom: -5px;
+    width: 90%;
   }
   
   .chatgpt-mockup-image {
-    height: 360px;
+    height: 400px;
+  }
+
+  .new-project-card-image {
+    width: 65% !important;
+    bottom: -35% !important;
+    transform: translateX(calc(-50% + 3px)) !important;
+  }
+
+  .new-project-card-safehub-image {
+    bottom: -65% !important;
+    width: 65% !important;
+    transform: translateX(calc(-50% + 3px)) !important;
   }
 }
 
@@ -561,11 +575,25 @@
   }
   
   .chatgpt-mockup-frame {
-    height: 150px;
+    height: 220px !important;
+    bottom: 0px !important;
+    width: 95% !important;
   }
   
   .chatgpt-mockup-image {
-    height: 300px;
+    height: 450px !important;
+  }
+
+  .new-project-card-image {
+    width: 70% !important;
+    bottom: -30% !important;
+    transform: translateX(calc(-50% + 3px)) !important;
+  }
+
+  .new-project-card-safehub-image {
+    bottom: -55% !important;
+    width: 70% !important;
+    transform: translateX(calc(-50% + 3px)) !important;
   }
 
   .new-project-cards-container {
