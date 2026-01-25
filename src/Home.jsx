@@ -3,7 +3,7 @@ import './App.css';
 import './About.jsx';
 import React, { useEffect, useRef, useState } from 'react';
 import ProjectsMasonry from './ProjectsMasonry';
-import nitish3 from './newthumbnaildesigns/nitish3.png';
+import nitishue from './matchagallery/nitishue.png';
 
 function Home() {
   const heroSectionRef = useRef(null);
@@ -68,12 +68,25 @@ function Home() {
                     <p className="hero-subtitle">
                       Currently leading design at <a href="https://trywrap.com/" target="_blank" rel="noopener noreferrer" className="hero-link">Wrap<sup>1</sup></a> and studying data science at <a href="https://www.cornell.edu" target="_blank" rel="noopener noreferrer" className="hero-link">Cornell<sup>2</sup></a>.
                     </p>
+                    <div className="hero-scroll-indicator">
+                      <div 
+                        className="hero-scroll-button"
+                        onClick={() => {
+                          const projectsHeader = document.querySelector('.projects-header');
+                          if (projectsHeader) {
+                            const yOffset = -20;
+                            const y = projectsHeader.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                            window.scrollTo({ top: y, behavior: 'smooth' });
+                          }
+                        }}
+                      >
+                        <span className="hero-scroll-arrow">↓</span>
+                      </div>
+                      <span className="hero-scroll-text">[see work]</span>
+                    </div>
             </div>
-            <div className="hero-face-container">
-              <img src={nitish3} alt="Cartoon of Nitish" className="hero-face-floating fade-in-on-scroll" loading="eager" />
-              {isTitleHovered && (
-                <div className="hero-face-tooltip">thats me!</div>
-              )}
+            <div className={`hero-face-container ${isTitleHovered ? 'title-hovered' : ''}`}>
+              <img src={nitishue} alt="Cartoon of Nitish" className="hero-face-floating fade-in-on-scroll" loading="eager" />
             </div>
         </div>
       </div>

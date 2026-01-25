@@ -56,7 +56,6 @@ function App() {
       {/* Navbar */}
       <div className="navbar">
         <div className="left-section">
-          <span className="navbar-matcha-emoji">🍵</span>
         </div>
 
         <div className="right-section">
