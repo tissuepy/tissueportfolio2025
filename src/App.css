@@ -461,6 +461,7 @@ html {
 .hero-section {
   padding: 120px 0 40px 0;
   margin-top: 0;
+  margin-bottom: 200px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -1531,7 +1532,23 @@ html {
   margin: 0;
   margin-top: 280px;
   padding: 0;
+  display: block;
   box-sizing: border-box;
+}
+
+.bottom-half.wallet-hidden .projects-container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 40px;
+}
+
+.bottom-half.wallet-hidden .projects-header {
+  text-align: center;
+}
+
+.bottom-half.wallet-hidden .new-project-cards-container {
+  justify-content: center;
 }
 
 /* Info blocks animation */

@@ -1,0 +1,297 @@
+/* WalletCard.css */
+
+.wallet-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.wallet-container {
+  position: relative;
+  width: 680px;
+  height: 560px;
+  background-color: #F2F2F2;
+  border-radius: 24px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Mode Toggle Buttons */
+.wallet-mode-toggle {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.wallet-mode-button {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #1a1a1a;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.wallet-mode-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.wallet-mode-button.active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.wallet-mode-button-text {
+  position: relative;
+}
+
+/* The Card (Back Layer) */
+.wallet-card {
+  position: absolute;
+  top: 140px;
+  left: 90px;
+  right: 110px;
+  bottom: 110px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #d8d8d8;
+  padding: 24px 28px;
+  box-sizing: border-box;
+  z-index: 1;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.wallet-card:hover {
+  transform: translateY(-70px);
+}
+
+.wallet-card-header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.wallet-card-badge {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'SF Mono', 'IBM Plex Mono', 'Menlo', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 9px;
+  border-radius: 5px;
+  letter-spacing: 0.5px;
+}
+
+.wallet-card-badge-red {
+  background-color: #d5061b;
+  color: #ffffff;
+}
+
+.wallet-card-badge-cerulean {
+  background-color: #0055ff;
+  color: #ffffff;
+}
+
+.wallet-card-badge-yellow {
+  background-color: #ffb700;
+  color: #1a1a1a;
+}
+
+.wallet-card-title {
+  font-family: 'SF Mono', 'IBM Plex Mono', 'Menlo', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  letter-spacing: 0.9px;
+}
+
+.wallet-card-logo {
+  position: absolute;
+  top: 81px;
+  right: 40px;
+  width: 80px;
+  height: auto;
+}
+
+.wallet-card-chip {
+  position: absolute;
+  bottom: 180px;
+  left: 28px;
+  width: 50px;
+  height: auto;
+}
+
+/* Second Card */
+.wallet-card-second {
+  position: absolute;
+  top: 85px;
+  left: 50px;
+  right: 70px;
+  bottom: 60px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #d8d8d8;
+  padding: 24px 28px;
+  box-sizing: border-box;
+  z-index: 3;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.wallet-card-second:hover {
+  transform: translateY(-90px);
+}
+
+.wallet-card-chip-second {
+  position: absolute;
+  bottom: 100px;
+  left: 28px;
+  width: 50px;
+  height: auto;
+}
+
+/* The Wallet Pocket (Front Layer) */
+.wallet-pocket {
+  position: absolute;
+  top: 145px;
+  left: 40px;
+  right: 40px;
+  bottom: 50px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Wallet pocket image */
+.wallet-pocket-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Second base layer */
+.wallet-second-base {
+  position: absolute;
+  top: 70px;
+  left: 0px;
+  right: 0px;
+  width: calc(100% + 12px);
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.wallet-stitching {
+  position: absolute;
+  bottom: 50px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 3;
+  padding: 0;
+}
+
+.wallet-stitch-line {
+  width: 100%;
+  height: 1px;
+  background: #c0c0c0;
+}
+
+/* Window Controls */
+.wallet-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.wallet-control-dot {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #a8a8a8;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wallet-container {
+    width: 100%;
+    max-width: 360px;
+    height: 280px;
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .wallet-card {
+    top: 24px;
+    left: 24px;
+    right: 24px;
+    height: 60px;
+    padding: 14px 16px;
+    border-radius: 12px;
+  }
+
+  .wallet-card-badge {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+
+  .wallet-card-title {
+    font-size: 14px;
+  }
+
+  .wallet-pocket {
+    top: 60px;
+    left: 24px;
+    right: 24px;
+    bottom: 40px;
+  }
+
+  .wallet-stitching {
+    bottom: 24px;
+    padding: 0;
+    gap: 6px;
+  }
+
+  .wallet-controls {
+    bottom: 12px;
+    left: 14px;
+    gap: 6px;
+  }
+
+  .wallet-control-dot {
+    width: 8px;
+    height: 8px;
+    border: 1px solid #a8a8a8;
+    background: #ffffff;
+  }
+}
+
+/* Hide wallet on small screens/zoomed views */
+@media (max-width: 900px) {
+  .wallet-wrapper {
+    display: none;
+  }
+}
