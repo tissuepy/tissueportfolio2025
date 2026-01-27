@@ -118,7 +118,6 @@ function App() {
               <a href="https://github.com/tissuepy" className="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
               <a href="https://medium.com/@nitishgannu" className="footer-link" target="_blank" rel="noopener noreferrer">Medium</a>
               <a href="https://www.linkedin.com/in/nitishgannu/" className="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href="https://drive.google.com/file/d/1fI5uBySiw5MKuIMTTXswA54lS-l-pHb0/view?usp=sharing" className="footer-link" target="_blank" rel="noopener noreferrer">Resume</a>
             </div>
           </div>
         </div>

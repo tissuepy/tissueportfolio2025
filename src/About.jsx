@@ -311,7 +311,7 @@ function About() {
               </p>
 
               <p className="about-me-body">
-                Please, feel free to read more on this <a href="https://drive.google.com/file/d/1fI5uBySiw5MKuIMTTXswA54lS-l-pHb0/view?usp=sharing" className="dotted-link" target="_blank" rel="noopener noreferrer">fancy sheet of paper</a> (•ᴗ•)
+                Please, feel free to read more on this fancy sheet of paper (•ᴗ•)
               </p>
             </div>
           </div>

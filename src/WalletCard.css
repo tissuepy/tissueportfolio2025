@@ -13,6 +13,12 @@
   border-radius: 24px;
   padding: 40px;
   box-sizing: border-box;
+  pointer-events: auto;
+}
+
+/* Ensure container background doesn't interfere with card hover */
+.wallet-container > *:not(.wallet-card):not(.wallet-card-second):not(.wallet-mode-toggle) {
+  pointer-events: none;
 }
 
 /* Mode Toggle Buttons */
@@ -69,9 +75,12 @@
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   pointer-events: auto;
+  transform: translateY(0);
+  overflow: hidden;
 }
 
-.wallet-card:hover {
+/* Only trigger hover when directly hovering the card itself */
+.wallet-card.card-hovered {
   transform: translateY(-70px);
 }
 
@@ -85,9 +94,9 @@
   background-color: #000000;
   color: #ffffff;
   font-family: 'SF Mono', 'IBM Plex Mono', 'Menlo', monospace;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
-  padding: 5px 9px;
+  padding: 3px 6px;
   border-radius: 5px;
   letter-spacing: 0.5px;
 }
@@ -104,7 +113,7 @@
 
 .wallet-card-badge-yellow {
   background-color: #ffb700;
-  color: #1a1a1a;
+  color: #ffffff;
 }
 
 .wallet-card-title {
@@ -117,9 +126,17 @@
 
 .wallet-card-logo {
   position: absolute;
-  top: 81px;
-  right: 40px;
-  width: 80px;
+  top: 30px;
+  right: -40px;
+  width: 160px;
+  height: auto;
+}
+
+.wallet-card-search-portion {
+  position: absolute;
+  top: 30px;
+  right: -650px;
+  width: 900px;
   height: auto;
 }
 
@@ -147,9 +164,12 @@
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   pointer-events: auto;
+  transform: translateY(0);
+  overflow: hidden;
 }
 
-.wallet-card-second:hover {
+/* Only trigger hover when directly hovering the card itself */
+.wallet-card-second.card-hovered {
   transform: translateY(-90px);
 }
 
@@ -158,6 +178,14 @@
   bottom: 100px;
   left: 28px;
   width: 50px;
+  height: auto;
+}
+
+.wallet-card-sos-button {
+  position: absolute;
+  top: 30px;
+  right: -30px;
+  width: 180px;
   height: auto;
 }
 
