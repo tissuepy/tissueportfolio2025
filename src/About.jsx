@@ -416,7 +416,7 @@ function About() {
                     <span className="experience-date-new">Present</span>
                   </div>
                 </a>
-                <Link to="#" className="experience-item-link">
+                <a href="https://thinkneuro.org/" target="_blank" rel="noopener noreferrer" className="experience-item-link">
                   <div className="experience-item-new">
                     <div className="experience-item-left">
                       <div className="experience-logo-placeholder experience-logo-thinkneuro">
@@ -426,19 +426,19 @@ function About() {
                     </div>
                     <span className="experience-date-new">Summer 2025</span>
                   </div>
-                </Link>
-                <Link to="#" className="experience-item-link">
+                </a>
+                <a href="https://intverse.io/" target="_blank" rel="noopener noreferrer" className="experience-item-link">
                   <div className="experience-item-new">
                     <div className="experience-item-left">
                       <div className="experience-logo-placeholder experience-logo-intverse">
                         <span className="experience-logo-arrow">↗</span>
                       </div>
-                      <span><span className="experience-company-name-new">Intverse.io</span><span className="experience-role-new"> → Software Engineer Intern</span></span>
+                      <span><span className="experience-company-name-new">Intverse.io</span><span className="experience-role-new"> → Data Scientist Intern</span></span>
                     </div>
                     <span className="experience-date-new">Summer 2025</span>
                   </div>
-                </Link>
-                <Link to="#" className="experience-item-link">
+                </a>
+                <a href="https://www.sandboxnu.com/" target="_blank" rel="noopener noreferrer" className="experience-item-link">
                   <div className="experience-item-new">
                     <div className="experience-item-left">
                       <div className="experience-logo-placeholder experience-logo-sandbox">
@@ -448,7 +448,7 @@ function About() {
                     </div>
                     <span className="experience-date-new">Spring 2025</span>
                   </div>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

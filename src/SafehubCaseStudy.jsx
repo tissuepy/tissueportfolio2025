@@ -11,7 +11,7 @@ import mapColors from './casestudyassets/Map Colors.png';
 import mapDisplay from './casestudyassets/Map (display).png';
 import temporaryFinalDesigns from './casestudyassets/Temporary Final Designs.png';
 import darkModeIteration from './casestudyassets/Dark Mode Iteration.png';
-import iconsRedefined from './casestudyassets/Icons Redefined.png';
+import iconsRedefined from './casestudyassets/icons redefined.png';
 import revampedMap from './casestudyassets/Revamped Map.png';
 import newLocationUpdated from './casestudyassets/New Location Updated.png';
 import thumbsUpGuy from './casestudyassets/thumbs up guy.jpg';
@@ -36,10 +36,24 @@ import safehubThumbnail from './assets/assets2/thumbnail.png';
 const SafehubCaseStudy = () => {
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('');
+  const [hideSidebar, setHideSidebar] = useState(false);
   const sectionRefs = useRef({});
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const checkZoom = () => {
+      // Detect zoom level by comparing viewport width to screen width
+      // At 110% zoom, viewport width would be approximately screen.width / 1.1
+      const zoomLevel = screen.width / window.innerWidth;
+      setHideSidebar(zoomLevel > 1.1);
+    };
+
+    checkZoom();
+    window.addEventListener('resize', checkZoom);
+    return () => window.removeEventListener('resize', checkZoom);
   }, []);
 
   useEffect(() => {
@@ -97,29 +111,22 @@ const SafehubCaseStudy = () => {
 
   return (
     <div className="case-study-container">
-      <aside className="case-study-sidebar">
-        <nav className="sidebar-nav">
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              className={`sidebar-nav-link ${activeSection === section.id ? 'active' : ''}`}
-              onClick={() => scrollToSection(section.id)}
-            >
-              {section.label}
-            </button>
-          ))}
-        </nav>
-      </aside>
-      <div className="case-study-content">
-        <div className="case-study-header">
-          <h1 className="case-study-title">
-            <em>Streamlining Emergency Response in High Schools</em>
-          </h1>
-          <p className="case-study-description">
-            A project where I singlehandedly led the creation of a campus safety app for my high school to counteract the flawed security systems that already existed using design thinking and user research.
-          </p>
-        </div>
-        
+      {!hideSidebar && (
+        <aside className="case-study-sidebar">
+          <nav className="sidebar-nav">
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                className={`sidebar-nav-link ${activeSection === section.id ? 'active' : ''}`}
+                onClick={() => scrollToSection(section.id)}
+              >
+                {section.label}
+              </button>
+            ))}
+          </nav>
+        </aside>
+      )}
+      <div className="case-study-content" style={hideSidebar ? { marginLeft: 0, padding: '80px 100px 40px 40px' } : {}}>
         <div className="safehub-thumbnail-container">
           <img 
             src={safehubThumbnail} 
@@ -127,6 +134,8 @@ const SafehubCaseStudy = () => {
             className="safehub-thumbnail-image"
           />
         </div>
+        
+        <h1 className="safehub-case-study-title">Improving Campus Safety with Safehub</h1>
           
           <div className="case-study-columns">
             <div className="case-study-column">
@@ -135,15 +144,15 @@ const SafehubCaseStudy = () => {
             </div>
             <div className="case-study-column">
               <h3 className="column-title">ROLE</h3>
-              <p className="column-content">Product Designer & Engineer</p>
+              <p className="column-content">Product Designer</p>
             </div>
             <div className="case-study-column">
               <h3 className="column-title">TIMELINE</h3>
-              <p className="column-content">7 months<br/>(Dec 2023 - June 2024)</p>
+              <p className="column-content">7 months</p>
             </div>
             <div className="case-study-column">
               <h3 className="column-title">SKILLS & TOOLS</h3>
-              <p className="column-content">User Research, Figma, Notion</p>
+              <p className="column-content">Figma, Notion</p>
           </div>
         </div>
         
@@ -191,15 +200,6 @@ const SafehubCaseStudy = () => {
             <span className="container-caption"></span>
             </div>
           
-          <div className="location-logistics-container user-feelings-container">
-            <img 
-              src={userFeelings} 
-              alt="User Feelings" 
-              className="location-logistics-image user-feelings-image"
-            />
-            <span className="container-caption"></span>
-          </div>
-          
           <p className="section-paragraph">
             I noticed that students had very different reactions when I asked how safe campus felt. That curiosity led me to conduct user research to better understand those experiences.
           </p>
@@ -220,27 +220,16 @@ const SafehubCaseStudy = () => {
           
           <div className="interview-callouts roles">
             <div className="callout role-students">
-              <img src={redGuy} alt="Student icon" className="role-icon" />
-              <div className="callout-body">
-              <h4 className="callout-title">STUDENTS</h4>
-              <p className="callout-content">to learn how safe they currently feel on campus, how they respond in emergencies, and what barriers prevent them from reporting incidents quickly or discreetly.</p>
-              </div>
+              <span className="callout-label">STUDENTS</span>
+              <img src={redGuy} alt="Student icon" className="callout-character-image" />
             </div>
-            
             <div className="callout role-teachers">
-              <img src={pinkGuy} alt="Teacher icon" className="role-icon" />
-              <div className="callout-body">
-              <h4 className="callout-title">TEACHERS AND STAFF</h4>
-              <p className="callout-content">to understand their responsibilities during lockdowns or crises, and identify how communication gaps or delayed updates affect their ability to protect students.</p>
-              </div>
+              <span className="callout-label">TEACHERS</span>
+              <img src={pinkGuy} alt="Teacher icon" className="callout-character-image" />
             </div>
-            
             <div className="callout role-security">
-              <img src={greyGuy} alt="Security guard icon" className="role-icon" />
-              <div className="callout-body">
-              <h4 className="callout-title">SECURITY GUARDS</h4>
-                <p className="callout-content">to uncover how emergency response is currently managed and what information is most critical in real time.</p>
-              </div>
+              <span className="callout-label">SECURITY GUARDS</span>
+              <img src={greyGuy} alt="Security guard icon" className="callout-character-image" />
             </div>
           </div>
           

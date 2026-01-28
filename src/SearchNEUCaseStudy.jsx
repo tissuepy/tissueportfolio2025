@@ -91,22 +91,17 @@ const SearchNEUCaseStudy = () => {
         </nav>
       </aside>
       <div className="case-study-content">
-        <div className="case-study-header">
-          <h1 className="case-study-title">
-            <em>Building an Interactive Course Registration Experience</em>
-          </h1>
-          <p className="case-study-description">
-          Collaborated with a cross-functional team to design and ship a feature in SearchNEU, a tool that streamlines course registration for students by combining real-time data and smart notifications.
-          </p>
-          <div className="case-study-thumbnail-banner-container">
-            <img 
-              src={searchpeekImage} 
-              alt="SearchNEU Project Thumbnail" 
-              className="case-study-thumbnail-wireframes"
-            />
-          </div>
+        <div className="case-study-thumbnail-banner-container">
+          <img 
+            src={searchpeekImage} 
+            alt="SearchNEU Project Thumbnail" 
+            className="case-study-thumbnail-wireframes"
+          />
+        </div>
+        
+        <h1 className="searchneu-case-study-title">Building an Interactive Course Registration Experience</h1>
           
-          <div className="case-study-columns">
+        <div className="case-study-columns">
             <div className="case-study-column">
               <h3 className="searchneu-column-title">TEAM</h3>
               <p className="column-content">5 Developers, 1 PM, 3 Designers</p>
@@ -117,14 +112,13 @@ const SearchNEUCaseStudy = () => {
             </div>
             <div className="case-study-column">
               <h3 className="searchneu-column-title">TIMELINE</h3>
-              <p className="column-content">5 Months <br/>(Jan 2025 - May 2025)</p>
+              <p className="column-content">5 Months</p>
             </div>
             <div className="case-study-column">
               <h3 className="searchneu-column-title">SKILLS & TOOLS</h3>
               <p className="column-content">Figma, User Research, <br/>Notion</p>
             </div>
           </div>
-        </div>
         
         {/* What SearchNEU Solves Section */}
         <div className="case-study-section" id="context" ref={(el) => (sectionRefs.current['context'] = el)}>
