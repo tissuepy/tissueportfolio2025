@@ -590,7 +590,7 @@ html {
   font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px !important;
   font-weight: 400;
-  color: #b9b9b9 !important;
+  color: #808080 !important;
   margin: 16px 0 0 0;
   padding: 0;
   letter-spacing: 0;
@@ -2537,4 +2537,15 @@ html {
 .smiski-text sup {
   margin-left: 2px;
   color: #74A662;
+}
+
+.wallet-section-text {
+  position: absolute;
+  top: -30px;
+  left: 0px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875rem;
+  color: #b0b0b0;
+  margin: 0;
+  letter-spacing: 0.5px;
 }

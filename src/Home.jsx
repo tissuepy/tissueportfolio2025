@@ -142,7 +142,7 @@ function Home() {
                               const walletRect = walletSection.getBoundingClientRect();
                               const walletHeight = walletRect.height;
                               const windowHeight = window.innerHeight;
-                              const yOffset = (windowHeight - walletHeight) / 2 + 60;
+                              const yOffset = (windowHeight - walletHeight) / 2 + 100;
                               const y = walletRect.top + window.pageYOffset - yOffset;
                               window.scrollTo({ top: y, behavior: 'smooth' });
                             }
