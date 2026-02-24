@@ -8,6 +8,8 @@ import img4 from './assets/assets2/101_4951.jpg';
 import img5 from './assets/assets2/101_4938.JPEG';
 import sunsetImage from './assets/assets2/sunset.jpg';
 import notionFace from './assets/assets2/my-notion-face-transparent (2).png';
+import notionFace2 from './assets/my-notion-face-transparent (5).png';
+import notionFace3 from './assets/notion-nitu.png';
 import bobaImage from './assets/assets2/matcha_boba_ice-removebg-preview.png';
 import matchaImage from './assets/assets2/matcha_1-removebg-preview.png';
 import designerImage from './assets/assets2/DESIGNER !.png';
@@ -18,6 +20,10 @@ import about2 from './galleryphotos/triplet2.jpg';
 import about3 from './galleryphotos/nitishtough.jpg';
 import girls2 from './galleryphotos/girls_2.jpg';
 import girls from './galleryphotos/girls.jpg';
+import hiking1 from './galleryphotos/hiking1.jpg';
+import hiking2 from './galleryphotos/hiking2.jpg';
+import hiking3 from './galleryphotos/hiking3.jpg';
+import hiking4 from './galleryphotos/hiking4.jpg';
 // Food images
 import buldakRamen from './assets/Buldak Ramen.jpeg';
 import hotpot from './assets/hotpot.jpg';
@@ -218,6 +224,64 @@ function About() {
   return (
     <>
       <div className="about-page">
+        {/* Matcha grid first */}
+        <div className="experience-section-new experience-section-with-matcha fade-in-on-scroll">
+          <div className="experience-content-two-column">
+            <div className="experience-left-column">
+              <h2 className="experience-title-new">
+                Just a few things I do outside of class.
+              </h2>
+              <p className="matcha-runs-text">[making numerous matcha runs 🍵]</p>
+              <div className="matcha-gallery-grid">
+                <img
+                  src={matchaImg1}
+                  alt="Matcha 1"
+                  className="matcha-gallery-image matcha-gallery-large"
+                  onMouseEnter={() => handleImageMouseEnter('matcha-gallery-1')}
+                  onMouseLeave={handleImageMouseLeave}
+                  onMouseMove={handleMouseMove}
+                />
+                <img
+                  src={matchaImg2}
+                  alt="Matcha 2"
+                  className="matcha-gallery-image"
+                  onMouseEnter={() => handleImageMouseEnter('matcha-gallery-2')}
+                  onMouseLeave={handleImageMouseLeave}
+                  onMouseMove={handleMouseMove}
+                />
+                <img
+                  src={matchaImg3}
+                  alt="Matcha 3"
+                  className="matcha-gallery-image"
+                  onMouseEnter={() => handleImageMouseEnter('matcha-gallery-3')}
+                  onMouseLeave={handleImageMouseLeave}
+                  onMouseMove={handleMouseMove}
+                />
+              </div>
+            </div>
+            <div className="experience-right-column">
+              <p className="hiking-runs-text">[embracing the outdoors with hikes 🏔️]</p>
+              <div className="hiking-gallery-grid">
+                <img
+                  src={hiking2}
+                  alt="Hiking 2"
+                  className="hiking-gallery-image"
+                />
+                <img
+                  src={hiking1}
+                  alt="Hiking 1"
+                  className="hiking-gallery-image hiking-gallery-large"
+                />
+                <img
+                  src={hiking4}
+                  alt="Hiking 4"
+                  className="hiking-gallery-image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Horizontal Image Row */}
         <div className="horizontal-image-row fade-in-on-scroll">
           <img
@@ -275,33 +339,11 @@ function About() {
 
         {/* About Me Section */}
         <div className="about-me-section fade-in-on-scroll">
-          <div className="about-me-content-two-column">
-            <div className="about-me-left-column">
-              <p className="about-me-label">HELLO THERE</p>
+          <div className="about-me-content-two-column-layout">
+            <div className="about-me-text-column-left">
               <h2 className="about-me-title">
-                You can call me Nitish.
+                Hey, I'm Nitish.
               </h2>
-              {/* Photo Grid */}
-              <div className="about-me-photo-grid">
-                <img
-                  src={sandboxnu}
-                  alt="SandboxNU"
-                  className="about-me-grid-photo"
-                  onMouseEnter={() => handleImageMouseEnter('about-me-photo-1')}
-                  onMouseLeave={handleImageMouseLeave}
-                  onMouseMove={handleMouseMove}
-                />
-                <img
-                  src={nikita}
-                  alt="Nikita"
-                  className="about-me-grid-photo"
-                  onMouseEnter={() => handleImageMouseEnter('about-me-photo-2')}
-                  onMouseLeave={handleImageMouseLeave}
-                  onMouseMove={handleMouseMove}
-                />
-              </div>
-            </div>
-            <div className="about-me-right-column">
               <p className="about-me-body">
                 I'm a Product Designer with a passion for visual storytelling. I'm studying Data Science and Statistics at Cornell University and I'm concurrently designing for <a href="https://trywrap.com/" className="dotted-link" target="_blank" rel="noopener noreferrer">Wrap</a>.
               </p>
@@ -313,6 +355,8 @@ function About() {
               <p className="about-me-body">
                 Please, feel free to read more on this fancy sheet of paper (•ᴗ•)
               </p>
+            </div>
+            <div className="about-me-photos-column-right">
             </div>
           </div>
         </div>
@@ -350,140 +394,6 @@ function About() {
         </div>
         */}
 
-
-        {/* Design Philosophy Section */}
-        <div className="design-philosophy-section fade-in-on-scroll">
-          <div className="design-philosophy-content-two-column">
-            <div className="design-philosophy-left-column">
-              <p className="design-philosophy-label">DESIGN PHILOSOPHY</p>
-              <h2 className="design-philosophy-title">
-                Two core principles that guide my work.
-              </h2>
-            </div>
-            <div className="design-philosophy-right-column">
-              <img src={principlesImage} alt="Design Principles" className="design-philosophy-image" />
-            </div>
-          </div>
-        </div>
-
-        {/* Experience Section */}
-        <div className="experience-section-new experience-section-with-matcha fade-in-on-scroll">
-          <div className="experience-content-two-column">
-            <div className="experience-left-column">
-              <p className="experience-label-new">WHERE I'VE BEEN</p>
-              <h2 className="experience-title-new">
-                What I've been up to outside of classes.
-              </h2>
-              <p className="matcha-runs-text">also making a lot of matcha runs!</p>
-              <div className="matcha-gallery-grid">
-                <img
-                  src={matchaImg1}
-                  alt="Matcha 1"
-                  className="matcha-gallery-image matcha-gallery-large"
-                  onMouseEnter={() => handleImageMouseEnter('matcha-gallery-1')}
-                  onMouseLeave={handleImageMouseLeave}
-                  onMouseMove={handleMouseMove}
-                />
-                <img
-                  src={matchaImg2}
-                  alt="Matcha 2"
-                  className="matcha-gallery-image"
-                  onMouseEnter={() => handleImageMouseEnter('matcha-gallery-2')}
-                  onMouseLeave={handleImageMouseLeave}
-                  onMouseMove={handleMouseMove}
-                />
-                <img
-                  src={matchaImg3}
-                  alt="Matcha 3"
-                  className="matcha-gallery-image"
-                  onMouseEnter={() => handleImageMouseEnter('matcha-gallery-3')}
-                  onMouseLeave={handleImageMouseLeave}
-                  onMouseMove={handleMouseMove}
-                />
-              </div>
-            </div>
-            <div className="experience-right-column">
-              <div className="experience-items-container">
-                <h2 className="experience-section-title">Experience</h2>
-                <a href="https://trywrap.com/" target="_blank" rel="noopener noreferrer" className="experience-item-link">
-                  <div className="experience-item-new">
-                    <div className="experience-item-left">
-                      <div className="experience-logo-placeholder experience-logo-wrap">
-                        <span className="experience-logo-arrow">↗</span>
-                      </div>
-                      <span><span className="experience-company-name-new">Wrap</span><span className="experience-role-new"> → Founding Product Designer</span></span>
-                    </div>
-                    <span className="experience-date-new">Present</span>
-                  </div>
-                </a>
-                <a href="https://thinkneuro.org/" target="_blank" rel="noopener noreferrer" className="experience-item-link">
-                  <div className="experience-item-new">
-                    <div className="experience-item-left">
-                      <div className="experience-logo-placeholder experience-logo-thinkneuro">
-                        <span className="experience-logo-arrow">↗</span>
-                      </div>
-                      <span><span className="experience-company-name-new">ThinkNeuro</span><span className="experience-role-new"> → Product Manager Intern</span></span>
-                    </div>
-                    <span className="experience-date-new">Summer 2025</span>
-                  </div>
-                </a>
-                <a href="https://intverse.io/" target="_blank" rel="noopener noreferrer" className="experience-item-link">
-                  <div className="experience-item-new">
-                    <div className="experience-item-left">
-                      <div className="experience-logo-placeholder experience-logo-intverse">
-                        <span className="experience-logo-arrow">↗</span>
-                      </div>
-                      <span><span className="experience-company-name-new">Intverse.io</span><span className="experience-role-new"> → Data Scientist Intern</span></span>
-                    </div>
-                    <span className="experience-date-new">Summer 2025</span>
-                  </div>
-                </a>
-                <a href="https://www.sandboxnu.com/" target="_blank" rel="noopener noreferrer" className="experience-item-link">
-                  <div className="experience-item-new">
-                    <div className="experience-item-left">
-                      <div className="experience-logo-placeholder experience-logo-sandbox">
-                        <span className="experience-logo-arrow">↗</span>
-                      </div>
-                      <span><span className="experience-company-name-new">Sandbox</span><span className="experience-role-new"> → Product Designer</span></span>
-                    </div>
-                    <span className="experience-date-new">Spring 2025</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Involvement Section */}
-        <div className="experience-section-new involvement-section fade-in-on-scroll">
-          <div className="experience-content-two-column">
-            <div className="experience-left-column">
-            </div>
-            <div className="experience-right-column">
-              <div className="experience-items-container">
-                <h2 className="experience-section-title">Involvement</h2>
-                <div className="involvement-item">
-                  <a href="#" className="involvement-org-link">Cornell Bowers CIS</a>
-                  <span className="involvement-arrow"> → </span>
-                  <span className="involvement-role">UX Design & Research Assistant</span>
-                  <span className="involvement-date">PRESENT</span>
-                </div>
-                <div className="involvement-item">
-                  <a href="#" className="involvement-org-link">CS 1998: Intro to Digital Product Design</a>
-                  <span className="involvement-arrow"> → </span>
-                  <span className="involvement-role">Teaching Assistant</span>
-                  <span className="involvement-date">PRESENT</span>
-                </div>
-                <div className="involvement-item">
-                  <a href="#" className="involvement-org-link">TeaTime @ Cornell</a>
-                  <span className="involvement-arrow"> → </span>
-                  <span className="involvement-role">Creative Director, E-Board</span>
-                  <span className="involvement-date">PRESENT</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Experience Section - Commented Out */}
         {/* <div className="experience-section">

@@ -4,12 +4,10 @@ import './About.jsx';
 import React, { useEffect, useRef, useState } from 'react';
 import ProjectsMasonry from './ProjectsMasonry';
 import WalletCard from './WalletCard';
-import nitishue from './matchagallery/nitishue.png';
 
 function Home() {
   const heroSectionRef = useRef(null);
   const heroTextRef = useRef(null);
-  const [isTitleHovered, setIsTitleHovered] = useState(false);
   const [showWallet, setShowWallet] = useState(true);
 
   useEffect(() => {
@@ -113,63 +111,24 @@ function Home() {
     <>
       <div className="main-content-container">
         <div className="hero-section fade-in-on-scroll" ref={heroSectionRef}>
-          <div className="hero-content">
-                  <div className="hero-text fade-in-on-scroll" ref={heroTextRef}>
-                    <h1 className="hero-title">
-                      <span 
-                        onMouseEnter={() => setIsTitleHovered(true)} 
-                        onMouseLeave={() => setIsTitleHovered(false)}
-                      >Nitish Gannu.</span> <span className="hero-noun">[noun]</span>
-                    </h1>
-                    <p className="hero-description">
-                      <span className="hero-text-desktop">
-                        An adventurous <span className="light-grey-text">Product Designer</span> exploring <span className="light-grey-text">conversational AI</span> who sprinkles joy and creativity into the digital solutions he builds.
-                      </span>
-                      <span className="hero-text-mobile">
-                        A <span className="light-grey-text">Product Designer</span> exploring <span className="light-grey-text">conversational AI</span> who sprinkles joy into digital solutions.
-                      </span>
-                    </p>
-                    <p className="hero-subtitle">
-                      Currently leading design at <a href="https://trywrap.com/" target="_blank" rel="noopener noreferrer" className="hero-link">Wrap<sup>1</sup></a> and studying data science at <a href="https://www.cornell.edu" target="_blank" rel="noopener noreferrer" className="hero-link">Cornell<sup>2</sup></a>.
-                    </p>
-                    <div className="hero-scroll-indicator">
-                      <div 
-                        className="hero-scroll-button"
-                        onClick={() => {
-                          if (showWallet) {
-                            const walletSection = document.querySelector('.wallet-demo-section');
-                            if (walletSection) {
-                              const walletRect = walletSection.getBoundingClientRect();
-                              const walletHeight = walletRect.height;
-                              const windowHeight = window.innerHeight;
-                              const yOffset = (windowHeight - walletHeight) / 2 + 100;
-                              const y = walletRect.top + window.pageYOffset - yOffset;
-                              window.scrollTo({ top: y, behavior: 'smooth' });
-                            }
-                          } else {
-                            const projectsSection = document.querySelector('.bottom-half');
-                            if (projectsSection) {
-                              const yOffset = -20;
-                              const y = projectsSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                              window.scrollTo({ top: y, behavior: 'smooth' });
-                            }
-                          }
-                        }}
-                      >
-                        <span className="hero-scroll-arrow">↓</span>
-                      </div>
-                      <span className="hero-scroll-text">[swipe through my work]</span>
-                    </div>
-            </div>
-            <div className={`hero-face-container ${isTitleHovered ? 'title-hovered' : ''}`}>
-              <img src={nitishue} alt="Cartoon of Nitish" className="hero-face-floating fade-in-on-scroll" loading="eager" />
+          <div className="hero-content hero-content-centered">
+            <div className="hero-text hero-text-centered fade-in-on-scroll" ref={heroTextRef}>
+              <h1 className="hero-title-statement">
+                <span className="hero-title-name">Nitish Gannu</span> designs thoughtful digital products that spark joy.
+              </h1>
+              <p className="hero-subtitle">
+                Currently designing for 3 million users at <a href="https://www.joinpogo.com/" target="_blank" rel="noopener noreferrer" className="hero-link hero-link-pogo">Pogo<sup>1</sup></a> and studying data science and statistics at <a href="https://www.cornell.edu" target="_blank" rel="noopener noreferrer" className="hero-link hero-link-cornell">Cornell<sup>2</sup></a>.
+              </p>
+              <p className="hero-previously">
+                Previously designed a bookmarking feature for <a href="https://openai.com/chatgpt" target="_blank" rel="noopener noreferrer" className="hero-link hero-link-chatgpt">ChatGPT<sup>3</sup></a>, led the design of a consumer dating platform for <a href="https://trywrap.com/" target="_blank" rel="noopener noreferrer" className="hero-link hero-link-wrap">Wrap<sup>4</sup></a>, and imagined the future of B2B for <a href="https://thinkneuro.org/" target="_blank" rel="noopener noreferrer" className="hero-link hero-link-thinkneuro">ThinkNeuro<sup>5</sup></a>.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
         {showWallet ? (
-          <div className="wallet-demo-section" style={{ display: 'flex', justifyContent: 'center', paddingTop: '10px', paddingBottom: '150px' }}>
+          <div className="wallet-demo-section" style={{ display: 'flex', justifyContent: 'center', paddingTop: '80px', paddingBottom: '150px' }}>
             <WalletCard number="01" title="CHATGPT" />
           </div>
         ) : (
