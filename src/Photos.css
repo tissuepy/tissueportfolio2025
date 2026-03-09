@@ -1,0 +1,209 @@
+/* Photos.css */
+
+.photos-page {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  cursor: grab;
+  z-index: 1;
+  background-color: #353F3C;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.14) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  user-select: none;
+  -webkit-user-select: none;
+  /* Background fades in almost instantly — elements handle their own stagger */
+  animation: photosFadeIn 0.15s ease-out forwards;
+}
+
+@keyframes photosFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Shared element fade-in — opacity only so existing transforms aren't disturbed */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.photos-page.dragging {
+  cursor: grabbing;
+}
+
+/* ── Hint group: lives on canvas, centred at origin (0,0) ────────── */
+.photos-hint-group {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 200;
+  width: 500px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* 1st to appear — text fades in first */
+  animation: fadeIn 0.7s ease-out 0.25s both;
+}
+
+/* Main italic line */
+.hint-main {
+  font-style: italic;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Sub label */
+.hint-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  text-align: center;
+}
+
+/* ── Decorative icons ────────────────────────────────────────────── */
+/*
+  Cartoon rock: rests, snaps right, snaps left, snaps back, rests again.
+  steps(1, end) makes each keyframe interval an instant snap (no easing).
+  With keyframes at 0%, 15%, 30%, 45%, 100% and a 3s cycle:
+    0–0.45s  → base (rest)
+    0.45s    → snap +8°
+    0.45–0.9s→ +8° (tilted right)
+    0.9s     → snap –8°
+    0.9–1.35s→ –8° (tilted left)
+    1.35s    → snap back to base
+    1.35–3s  → base (rest)
+*/
+@keyframes cartoon-rock {
+  0%, 100% { transform: rotate(var(--base-rot, 0deg)); }
+  15%      { transform: rotate(calc(var(--base-rot, 0deg) + 8deg)); }
+  30%      { transform: rotate(calc(var(--base-rot, 0deg) - 8deg)); }
+  45%      { transform: rotate(var(--base-rot, 0deg)); }
+}
+
+/* All decorative images sit BELOW photos (photos start at z-index 1) */
+/* Each element combines fadeIn + cartoon-rock so the stagger is per-element */
+.deco-icon,
+.scatter-deco,
+.canvas-top-cloud {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 0;
+}
+
+/*
+  Stagger sequence:
+    0.25s  → hint text (set on .photos-hint-group above)
+    0.65s  → canvas-top-cloud
+    0.75s  → deco-cloud
+    0.85s  → deco-plane
+    1.05s  → deco-planet
+    1.30s  → scatter decos (animation set inline in JSX)
+    1.50s+ → photos (animationDelay set per-photo in JSX)
+*/
+
+.deco-cloud {
+  --base-rot: -5deg;
+  width: 95px;
+  left: -255px;
+  top: -100px;
+  animation:
+    fadeIn       0.55s ease-out  0.75s both,
+    cartoon-rock 3s   steps(1,end) -0.6s  infinite;
+}
+
+.deco-plane {
+  --base-rot: -8deg;
+  width: 140px;
+  left: 245px;
+  top: -145px;
+  animation:
+    fadeIn       0.55s ease-out  0.85s both,
+    cartoon-rock 3s   steps(1,end) -1.5s  infinite;
+}
+
+.deco-planet {
+  --base-rot: 5deg;
+  width: 120px;
+  left: 110px;
+  top: 25px;
+  animation:
+    fadeIn       0.55s ease-out  1.05s both,
+    cartoon-rock 3s   steps(1,end) -2.1s  infinite;
+}
+
+/* Cloud above centre */
+.canvas-top-cloud {
+  --base-rot: -3deg;
+  width: 110px;
+  left: -55px;
+  top: -240px;
+  animation:
+    fadeIn       0.55s ease-out  0.65s both,
+    cartoon-rock 3s   steps(1,end) -0.3s  infinite;
+}
+
+/* ── Infinite canvas layer ───────────────────────────────────────── */
+.photos-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+/* ── Individual photo cards ──────────────────────────────────────── */
+.canvas-photo {
+  position: absolute;
+  border-radius: 4px;
+  overflow: hidden;
+  line-height: 0;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.18),
+    0 10px 30px rgba(0, 0, 0, 0.42);
+  cursor: grab;
+  transform: rotate(var(--rot, 0deg)) scale(1);
+  transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1),
+              box-shadow 0.35s ease;
+  transform-origin: center center;
+  /* Base fade-in — delay overridden per photo via animationDelay inline style */
+  animation: fadeIn 0.65s ease-out 1.5s both;
+}
+
+.canvas-photo:hover {
+  transform: rotate(calc(var(--rot, 0deg) + 3deg)) scale(1.05);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.26),
+    0 18px 50px rgba(0, 0, 0, 0.55);
+  z-index: 999 !important;
+}
+
+.photos-page.dragging .canvas-photo {
+  cursor: grabbing;
+}
+
+.canvas-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
