@@ -95,10 +95,6 @@ const WalletCard = () => {
 
         {/* ── Left column: wallet with sandwiched card ──────── */}
         <div className="wallet-container">
-          {/* Label sits just above the pocket (pocket starts at top:145px) */}
-          <span className="wallet-section-label">
-            <span className="wallet-section-label-num">[2]</span> PROJECTS
-          </span>
           {/* key on pocket remounts entire wallet + card together on switch */}
           <div className="wallet-pocket" key={activeItem}>
             {/* z:1 — back wallet graphic */}
