@@ -1,15 +1,66 @@
 /* WalletCard.css */
 
+/* ── Wallet holder images fade in on project switch ──────── */
+@keyframes walletPocketFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Card slides in from above the pocket ─────────────────── */
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-65px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Section label — absolutely positioned just above the wallet pocket ── */
+/* pocket starts at top:145px inside .wallet-container, label sits at top:108px */
+.wallet-section-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  color: #ffffff;
+  position: absolute;
+  top: 112px;
+  left: 40px;
+}
+
+.wallet-section-label-num {
+  color: #BF5656;
+  margin-right: 4px;
+}
+
+/* ── Fade-in when wallet mounts ──────────────────────────── */
+@keyframes walletFadeIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .wallet-wrapper {
-  position: relative;
-  display: inline-block;
+  display: block;
+  animation: walletFadeIn 0.65s cubic-bezier(0.25, 0.1, 0.25, 1) 0.25s both;
+}
+
+/* ── Two-column layout: cards left, nav right ─────────────── */
+.wallet-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;   /* vertically center nav with the card stack */
+  gap: 72px;
 }
 
 .wallet-container {
   position: relative;
   width: 680px;
   height: 560px;
-  background-color: #F2F2F2;
+  background-color: transparent;
   border-radius: 24px;
   padding: 40px;
   box-sizing: border-box;
@@ -21,62 +72,142 @@
   pointer-events: none;
 }
 
-/* Mode Toggle Buttons */
-.wallet-mode-toggle {
-  position: absolute;
-  top: 20px;
-  left: 50px;
+/* ── Accordion navigation (right column) ─────────────────── */
+.wallet-nav {
   display: flex;
-  gap: 12px;
-  z-index: 10;
+  flex-direction: column;
+  min-width: 220px;
+  margin-top: 60px;   /* push nav down relative to card stack */
 }
 
-.wallet-mode-button {
-  position: relative;
+/* Section wrapper */
+.wallet-nav-section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.wallet-nav-section:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Section header button */
+.wallet-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   background: transparent;
   border: none;
-  padding: 8px 16px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #1a1a1a;
+  padding: 15px 0;
   cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.2s;
+}
+.wallet-nav-header:hover {
+  color: #ffffff;
 }
 
-.wallet-mode-button:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+/* Section label text */
+.wallet-nav-label {
+  transition: opacity 0.2s;
 }
 
-.wallet-mode-button.active {
-  background-color: rgba(0, 0, 0, 0.1);
+/* Chevron — smooth rotation, no spring */
+.wallet-nav-chevron {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid rgba(255, 255, 255, 0.55);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.55);
+  transform: rotate(45deg);     /* pointing down */
+  margin-bottom: 3px;           /* optical vertical align */
+  flex-shrink: 0;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s;
+}
+.wallet-nav-chevron.rotated {
+  transform: rotate(-135deg);   /* pointing up */
+  margin-bottom: -3px;
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
-.wallet-mode-button-text {
-  position: relative;
+/* Dropdown items — smooth reveal */
+.wallet-nav-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-5px);
+  padding-bottom: 0;
+  transition:
+    max-height     0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity        0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    transform      0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    padding-bottom 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.wallet-nav-section.open .wallet-nav-items {
+  max-height: 200px;
+  opacity: 1;
+  transform: translateY(0);
+  padding-bottom: 12px;
 }
 
-/* The Card (Back Layer) */
+/* Individual item — full-width block, clickable, title-case */
+.wallet-nav-item {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: color 0.18s;
+}
+.wallet-nav-item:hover {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Active item — full-width lighter pill, no border */
+.wallet-nav-item.active {
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* CSS-only hover: hovering INDIVIDUAL dims TEAM label */
+.wallet-nav:has(.wallet-nav-individual:hover) .wallet-nav-team .wallet-nav-label {
+  opacity: 0.35;
+}
+
+/* The Card — lives inside .wallet-pocket, sandwiched between the two wallet images.
+   z-index 3: in front of pocket-image (z-index 1), behind front overlay (z-index 4).
+   Coordinates are relative to .wallet-pocket (not .wallet-container). */
 .wallet-card {
   position: absolute;
-  top: 140px;
-  left: 90px;
-  right: 110px;
-  bottom: 110px;
+  top: 60px;       /* further down so card sits deeper inside the pocket */
+  left: 50px;      /* container left 90px → pocket left 40px → 90-40=50 */
+  right: 70px;     /* container right 110px → pocket right 40px → 110-40=70 */
+  bottom: 30px;
   background-color: #ffffff;
   border-radius: 16px;
   border: 1px solid #d8d8d8;
   padding: 24px 28px;
   box-sizing: border-box;
-  z-index: 1;
+  z-index: 3;      /* in front of pocket-image (z:1), behind front overlay (z:4) */
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   pointer-events: auto;
   transform: translateY(0);
   overflow: hidden;
+  /* backwards: card is invisible during 0.08s delay so there's no flash */
+  animation: cardSlideIn 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.08s backwards;
 }
 
 /* Only trigger hover when directly hovering the card itself */
@@ -142,7 +273,7 @@
 
 .wallet-card-chip {
   position: absolute;
-  bottom: 180px;
+  bottom: 130px;
   left: 28px;
   width: 50px;
   height: auto;
@@ -189,7 +320,7 @@
   height: auto;
 }
 
-/* The Wallet Pocket (Front Layer) */
+/* Wallet pocket — contains all three layers */
 .wallet-pocket {
   position: absolute;
   top: 145px;
@@ -200,7 +331,7 @@
   pointer-events: none;
 }
 
-/* Wallet pocket image */
+/* Back wallet graphic — z-index 1, behind the card */
 .wallet-pocket-image {
   position: absolute;
   top: 0;
@@ -209,10 +340,11 @@
   height: 100%;
   object-fit: contain;
   pointer-events: none;
-  z-index: 2;
+  z-index: 1;
+  animation: walletPocketFadeIn 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) both;
 }
 
-/* Second base layer */
+/* Front wallet overlay — z-index 4, in front of the card (z-index 3) */
 .wallet-second-base {
   position: absolute;
   top: 70px;
@@ -223,6 +355,7 @@
   object-fit: contain;
   pointer-events: none;
   z-index: 4;
+  /* No fade animation — must stay fully opaque to avoid x-ray effect */
 }
 
 .wallet-stitching {
@@ -321,5 +454,15 @@
 @media (max-width: 900px) {
   .wallet-wrapper {
     display: none;
+  }
+}
+
+/* ── Responsive: stack nav below cards ───────────────────── */
+@media (max-width: 1100px) and (min-width: 901px) {
+  .wallet-layout {
+    gap: 40px;
+  }
+  .wallet-nav {
+    min-width: 150px;
   }
 }

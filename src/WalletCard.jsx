@@ -2,26 +2,60 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './WalletCard.css';
-import scannerImg from './matchagallery/scanner.png';
-import chatgptLogo from './matchagallery/chatlogo.png';
-import walletHolderImg from './matchagallery/wallet holder.png';
-import secondBaseImg from './matchagallery/second base.png';
-import sosButtonImg from './matchagallery/sos button.png';
+import scannerImg       from './matchagallery/scanner.png';
+import chatgptLogo      from './matchagallery/chatlogo.png';
+import walletHolderImg  from './matchagallery/second base 2.png';
+import secondBaseImg    from './matchagallery/wallet front.png';
+import sosButtonImg     from './matchagallery/sos button.png';
 import searchPortionImg from './newthumbnaildesigns/searchportion.png';
 
-const WalletCard = ({ number = '01', title = 'CHATGPT', onClick }) => {
-  const navigate = useNavigate();
-  const [mode, setMode] = useState('INDIVIDUAL');
-  const [isCardHovered, setIsCardHovered] = useState(false);
-  const [isSecondCardHovered, setIsSecondCardHovered] = useState(false);
+// ── Card metadata keyed by item id ────────────────────────────
+const CARD_DATA = {
+  CHATGPT: {
+    badge: '01', badgeClass: '',
+    title: 'CHATGPT',
+    deImg: chatgptLogo,      deClass: 'wallet-card-logo',
+  },
+  SAFEHUB: {
+    badge: '02', badgeClass: 'wallet-card-badge-red',
+    title: 'SAFEHUB',
+    deImg: sosButtonImg,     deClass: 'wallet-card-sos-button',
+  },
+  SEARCHNEU: {
+    badge: '03', badgeClass: 'wallet-card-badge-cerulean',
+    title: 'SEARCHNEU',
+    deImg: searchPortionImg, deClass: 'wallet-card-search-portion',
+  },
+  WRAP: {
+    badge: '04', badgeClass: 'wallet-card-badge-yellow',
+    title: 'WRAP',
+    deImg: null,             deClass: '',
+  },
+};
 
-  const handleButtonClick = (buttonMode, e) => {
-    e.stopPropagation(); // Prevent card click when clicking mode buttons
-    setMode(buttonMode);
+const WalletCard = () => {
+  const navigate = useNavigate();
+  const [activeSection, setActiveSection] = useState('INDIVIDUAL');
+  const [activeItem, setActiveItem]       = useState('CHATGPT');
+  const [isCardHovered, setIsCardHovered] = useState(false);
+
+  // ── Navigation handlers ──────────────────────────────────────
+  const handleSectionClick = (section) => {
+    // Toggle: clicking open section closes it, clicking closed section opens it
+    setActiveSection(prev => prev === section ? null : section);
   };
 
-  const handleCardClick = (cardType) => {
-    switch (cardType) {
+  const handleItemClick = (item) => {
+    if (item === activeItem) return;
+    setActiveItem(item);
+    // Ensure the item's section is open
+    const section = ['SEARCHNEU', 'WRAP'].includes(item) ? 'TEAM' : 'INDIVIDUAL';
+    setActiveSection(section);
+    setIsCardHovered(false);
+  };
+
+  const handleCardClick = () => {
+    switch (activeItem) {
       case 'CHATGPT':
         window.open('https://medium.com/@nitishgannu/building-bookmarks-into-chatgpt-46ca50a7b2a4', '_blank', 'noopener,noreferrer');
         break;
@@ -39,139 +73,106 @@ const WalletCard = ({ number = '01', title = 'CHATGPT', onClick }) => {
     }
   };
 
-  const handleCardMouseEnter = (e, cardType) => {
+  const handleCardMouseEnter = (e) => {
     e.stopPropagation();
-    // Only set hover if the event target is the card itself or a direct child
     const target = e.target;
-    const currentTarget = e.currentTarget;
-    const isDirectCardHover = target === currentTarget || target.closest('.wallet-card-header, .wallet-card-badge, .wallet-card-title') !== null;
-    
-    if (isDirectCardHover) {
-      if (cardType === 'first') {
-        setIsCardHovered(true);
-      } else if (cardType === 'second') {
-        setIsSecondCardHovered(true);
-      }
-    }
+    const ct     = e.currentTarget;
+    const isDirect = target === ct ||
+      target.closest('.wallet-card-header, .wallet-card-badge, .wallet-card-title') !== null;
+    if (isDirect) setIsCardHovered(true);
   };
 
-  const handleCardMouseLeave = (e, cardType) => {
+  const handleCardMouseLeave = (e) => {
     e.stopPropagation();
-    if (cardType === 'first') {
-      setIsCardHovered(false);
-    } else if (cardType === 'second') {
-      setIsSecondCardHovered(false);
-    }
+    setIsCardHovered(false);
   };
+
+  const card = CARD_DATA[activeItem];
 
   return (
     <div className="wallet-wrapper">
-      <div className="wallet-container">
-        {/* Mode Toggle Buttons */}
-        <div className="wallet-mode-toggle">
-          <button
-            className={`wallet-mode-button ${mode === 'INDIVIDUAL' ? 'active' : ''}`}
-            onClick={(e) => handleButtonClick('INDIVIDUAL', e)}
-          >
-            <span className="wallet-mode-button-text">INDIVIDUAL</span>
-          </button>
-          <button
-            className={`wallet-mode-button ${mode === 'TEAM' ? 'active' : ''}`}
-            onClick={(e) => handleButtonClick('TEAM', e)}
-          >
-            <span className="wallet-mode-button-text">TEAM</span>
-          </button>
+      <div className="wallet-layout">
+
+        {/* ── Left column: wallet with sandwiched card ──────── */}
+        <div className="wallet-container">
+          {/* Label sits just above the pocket (pocket starts at top:145px) */}
+          <span className="wallet-section-label">
+            <span className="wallet-section-label-num">[2]</span> PROJECTS
+          </span>
+          {/* key on pocket remounts entire wallet + card together on switch */}
+          <div className="wallet-pocket" key={activeItem}>
+            {/* z:1 — back wallet graphic */}
+            <img src={walletHolderImg} alt="" className="wallet-pocket-image" />
+
+            {/* z:3 — card sandwiched between the two wallet images */}
+            <div
+              className={`wallet-card ${isCardHovered ? 'card-hovered' : ''}`}
+              onClick={handleCardClick}
+              onMouseEnter={handleCardMouseEnter}
+              onMouseLeave={handleCardMouseLeave}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className="wallet-card-header">
+                <div className={`wallet-card-badge ${card.badgeClass}`}>{card.badge}</div>
+                <span className="wallet-card-title">{card.title}</span>
+              </div>
+              {card.deImg && (
+                <img src={card.deImg} alt="" className={card.deClass} />
+              )}
+              <img src={scannerImg} alt="" className="wallet-card-chip" />
+            </div>
+
+            {/* z:4 — front wallet overlay, covers bottom of card */}
+            <img src={secondBaseImg} alt="" className="wallet-second-base" />
+          </div>
         </div>
 
-        {/* Cards for INDIVIDUAL mode */}
-        {mode === 'INDIVIDUAL' && (
-          <>
-            {/* The Card (Back Layer) */}
-            <div 
-              className={`wallet-card ${isCardHovered ? 'card-hovered' : ''}`}
-              onClick={() => handleCardClick('CHATGPT')} 
-              onMouseEnter={(e) => handleCardMouseEnter(e, 'first')}
-              onMouseLeave={(e) => handleCardMouseLeave(e, 'first')}
-              style={{ cursor: 'pointer' }}
+        {/* ── Right column: accordion nav (INDIVIDUAL above TEAM) ── */}
+        <div className="wallet-nav">
+
+          {/* INDIVIDUAL section — default open, ChatGPT default */}
+          <div className={`wallet-nav-section wallet-nav-individual${activeSection === 'INDIVIDUAL' ? ' open' : ''}`}>
+            <button
+              className="wallet-nav-header"
+              onClick={() => handleSectionClick('INDIVIDUAL')}
             >
-              <div className="wallet-card-header">
-                <div className="wallet-card-badge">01</div>
-                <span className="wallet-card-title">CHATGPT</span>
-              </div>
-              {/* ChatGPT logo - top right */}
-              <img src={chatgptLogo} alt="ChatGPT" className="wallet-card-logo" />
-              {/* Chip/Scanner mark - only visible on hover */}
-              <img src={scannerImg} alt="" className="wallet-card-chip" />
+              <span className="wallet-nav-label">INDIVIDUAL</span>
+              <span className={`wallet-nav-chevron${activeSection === 'INDIVIDUAL' ? ' rotated' : ''}`}></span>
+            </button>
+            <div className="wallet-nav-items">
+              <div
+                className={`wallet-nav-item${activeItem === 'CHATGPT' ? ' active' : ''}`}
+                onClick={() => handleItemClick('CHATGPT')}
+              >CHATGPT</div>
+              <div
+                className={`wallet-nav-item${activeItem === 'SAFEHUB' ? ' active' : ''}`}
+                onClick={() => handleItemClick('SAFEHUB')}
+              >SAFEHUB</div>
             </div>
+          </div>
 
-            {/* The Wallet Pocket (Front Layer) */}
-            <div className="wallet-pocket">
-              <img src={walletHolderImg} alt="" className="wallet-pocket-image" />
-              {/* Second Card - between wallet holder and second base */}
-              <div 
-                className={`wallet-card-second ${isSecondCardHovered ? 'card-hovered' : ''}`}
-                onClick={() => handleCardClick('SAFEHUB')} 
-                onMouseEnter={(e) => handleCardMouseEnter(e, 'second')}
-                onMouseLeave={(e) => handleCardMouseLeave(e, 'second')}
-                style={{ cursor: 'pointer' }}
-              >
-                <div className="wallet-card-header">
-                  <div className="wallet-card-badge wallet-card-badge-red">02</div>
-                  <span className="wallet-card-title">SAFEHUB</span>
-                </div>
-                {/* SOS button - top right */}
-                <img src={sosButtonImg} alt="SOS Button" className="wallet-card-sos-button" />
-                {/* Scanner mark on left side */}
-                <img src={scannerImg} alt="" className="wallet-card-chip-second" />
-              </div>
-              <img src={secondBaseImg} alt="" className="wallet-second-base" />
-            </div>
-          </>
-        )}
-
-        {/* Cards for TEAM mode */}
-        {mode === 'TEAM' && (
-          <>
-            {/* The Card (Back Layer) */}
-            <div 
-              className={`wallet-card ${isCardHovered ? 'card-hovered' : ''}`}
-              onClick={() => handleCardClick('SEARCHNEU')} 
-              onMouseEnter={(e) => handleCardMouseEnter(e, 'first')}
-              onMouseLeave={(e) => handleCardMouseLeave(e, 'first')}
-              style={{ cursor: 'pointer' }}
+          {/* TEAM section */}
+          <div className={`wallet-nav-section wallet-nav-team${activeSection === 'TEAM' ? ' open' : ''}`}>
+            <button
+              className="wallet-nav-header"
+              onClick={() => handleSectionClick('TEAM')}
             >
-              <div className="wallet-card-header">
-                <div className="wallet-card-badge wallet-card-badge-cerulean">03</div>
-                <span className="wallet-card-title">SEARCHNEU</span>
-              </div>
-              {/* Search portion image */}
-              <img src={searchPortionImg} alt="Search" className="wallet-card-search-portion" />
-              {/* Chip/Scanner mark - only visible on hover */}
-              <img src={scannerImg} alt="" className="wallet-card-chip" />
+              <span className="wallet-nav-label">TEAM</span>
+              <span className={`wallet-nav-chevron${activeSection === 'TEAM' ? ' rotated' : ''}`}></span>
+            </button>
+            <div className="wallet-nav-items">
+              <div
+                className={`wallet-nav-item${activeItem === 'SEARCHNEU' ? ' active' : ''}`}
+                onClick={() => handleItemClick('SEARCHNEU')}
+              >SEARCHNEU</div>
+              <div
+                className={`wallet-nav-item${activeItem === 'WRAP' ? ' active' : ''}`}
+                onClick={() => handleItemClick('WRAP')}
+              >WRAP</div>
             </div>
+          </div>
 
-            {/* The Wallet Pocket (Front Layer) */}
-            <div className="wallet-pocket">
-              <img src={walletHolderImg} alt="" className="wallet-pocket-image" />
-              {/* Second Card - between wallet holder and second base */}
-              <div 
-                className={`wallet-card-second ${isSecondCardHovered ? 'card-hovered' : ''}`}
-                onClick={() => handleCardClick('WRAP')} 
-                onMouseEnter={(e) => handleCardMouseEnter(e, 'second')}
-                onMouseLeave={(e) => handleCardMouseLeave(e, 'second')}
-                style={{ cursor: 'pointer' }}
-              >
-                <div className="wallet-card-header">
-                  <div className="wallet-card-badge wallet-card-badge-yellow">04</div>
-                  <span className="wallet-card-title">WRAP</span>
-                </div>
-                {/* Scanner mark on left side */}
-                <img src={scannerImg} alt="" className="wallet-card-chip-second" />
-              </div>
-              <img src={secondBaseImg} alt="" className="wallet-second-base" />
-            </div>
-          </>
-        )}
+        </div>
       </div>
     </div>
   );
