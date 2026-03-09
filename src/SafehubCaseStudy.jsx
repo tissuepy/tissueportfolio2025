@@ -11,7 +11,7 @@ import mapColors from './casestudyassets/Map Colors.png';
 import mapDisplay from './casestudyassets/Map (display).png';
 import temporaryFinalDesigns from './casestudyassets/Temporary Final Designs.png';
 import darkModeIteration from './casestudyassets/Dark Mode Iteration.png';
-import iconsRedefined from './casestudyassets/icons redefined.png';
+import iconsRedefined from './casestudyassets/Icons Redefined.png';
 import revampedMap from './casestudyassets/Revamped Map.png';
 import newLocationUpdated from './casestudyassets/New Location Updated.png';
 import thumbsUpGuy from './casestudyassets/thumbs up guy.jpg';
