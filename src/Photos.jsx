@@ -1,32 +1,44 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './Photos.css';
 
-import pg1 from './assets/playground1.jpg';
-import pg2 from './assets/playground2.jpg';
-import pg3 from './assets/playground3.jpg';
-import pg4 from './assets/playground4.jpg';
-import pg5 from './assets/playground5.jpg';
-import pg6 from './assets/playground6.jpg';
-import pg7 from './assets/playground7.jpg';
-import pg8 from './assets/playground8.jpg';
-import pg9 from './assets/playground9.jpg';
+import pg1  from './assets/playground1.jpg';
+import pg2  from './assets/playground2.jpg';
+import pg3  from './assets/playground3.jpg';
+import pg4  from './assets/playground4.jpg';
+import pg5  from './assets/playground5.jpg';
+import pg6  from './assets/playground6.jpg';
+import pg7  from './assets/playground7.jpg';
+import pg8  from './assets/playground8.jpg';
+import pg9  from './assets/playground9.jpg';
+import pg10 from './assets/playground10.jpg';
+import pg11 from './assets/playground11.png';
+import pg12 from './assets/playground12.jpg';
+import pg13 from './assets/playground13.jpg';
+import pg14 from './assets/playground14.jpg';
+import pg15 from './assets/playground15.jpg';
 
 import planeIcon  from './assets/plane.png';
 import planetIcon from './assets/planet.png';
 import cloudIcon  from './assets/cloud.png';
 
 const INITIAL_PHOTOS = [
-  // ── Existing 5 ─────────────────────────────────────────────────
-  { id: 1, src: pg1, x:  -700, y:  -380, rotation: -4, width: 320, zIndex: 1 },
-  { id: 2, src: pg2, x:   320, y:  -420, rotation:  3, width: 300, zIndex: 2 },
-  { id: 3, src: pg3, x:   680, y:  -160, rotation: -2, width: 310, zIndex: 3 },
-  { id: 4, src: pg5, x:  -400, y:   120, rotation:  5, width: 290, zIndex: 4 },
-  { id: 5, src: pg6, x:  -720, y:   400, rotation: -3, width: 300, zIndex: 5 },
-  // ── New 4 (spaced to avoid overlaps) ──────────────────────────
-  { id: 6, src: pg4, x:    -100, y:  -680, rotation:  2, width: 290, zIndex: 6 },  // hat store — top centre
-  { id: 7, src: pg7, x:  -650, y:  -740, rotation: -2, width: 370, zIndex: 7 },  // Tea Time  — top left
-  { id: 8, src: pg8, x:   700, y:  200, rotation:  3, width: 280, zIndex: 8 },  // matcha    — far right
-  { id: 9, src: pg9, x:   250, y:  90, rotation: -4, width: 290, zIndex: 9 },  // Times Sq  — lower right
+  // ── Core cluster (visible near centre on load) ─────────────────
+  { id: 1,  src: pg1,  x:  -700, y:  -380, rotation: -4, width: 320, zIndex: 1  },
+  { id: 2,  src: pg2,  x:   320, y:  -420, rotation:  3, width: 300, zIndex: 2  },
+  { id: 3,  src: pg3,  x:   680, y:  -160, rotation: -2, width: 310, zIndex: 3  },
+  { id: 4,  src: pg5,  x:  -400, y:   120, rotation:  5, width: 290, zIndex: 4  },
+  { id: 5,  src: pg6,  x:  -720, y:   400, rotation: -3, width: 300, zIndex: 5  },
+  { id: 6,  src: pg4,  x:  -100, y:  -680, rotation:  2, width: 290, zIndex: 6  },
+  { id: 7,  src: pg7,  x:  -650, y:  -740, rotation: -2, width: 370, zIndex: 7  },
+  { id: 8,  src: pg8,  x:   700, y:   200, rotation:  3, width: 280, zIndex: 8  },
+  { id: 9,  src: pg9,  x:   250, y:    90, rotation: -4, width: 290, zIndex: 9  },
+  // ── Outer ring — discoverable by dragging ──────────────────────
+  { id: 10, src: pg10, x:  700, y:  -900, rotation:  4, width: 310, zIndex: 10 },  // far top-right
+  { id: 11, src: pg11, x: -1150, y:  -520, rotation: -3, width: 300, zIndex: 11 },  // far top-left
+  { id: 12, src: pg12, x:   0, y:   600, rotation:  2, width: 320, zIndex: 12 },  // far bottom-right
+  { id: 13, src: pg13, x:  -1190, y:   200, rotation: -5, width: 295, zIndex: 13 },  // far bottom-left
+  { id: 14, src: pg14, x:   120, y: -1080, rotation:  1, width: 330, zIndex: 14 },  // far top-centre
+  { id: 15, src: pg15, x:  1100, y:   180, rotation: -3, width: 285, zIndex: 15 },  // far right-mid
 ];
 
 export default function Photos() {
