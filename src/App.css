@@ -3129,16 +3129,15 @@ html {
 }
 
 /* ── "writing" toggle word in body text ───────────────────────── */
+/* "blogging" toggle — same grey highlight as "Nitish" */
 .about-writing-toggle {
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-decoration-color: #BF5656;
-  text-underline-offset: 4px;
+  background-color: rgba(92, 92, 92, 0.45);
+  padding: 4px 2px;
   cursor: pointer;
   transition: opacity 0.18s ease;
 }
 .about-writing-toggle:hover {
-  opacity: 0.7;
+  opacity: 0.75;
 }
 .about-writing-toggle.active {
   opacity: 0.6;
@@ -3161,27 +3160,19 @@ html {
   padding-top: 40px;
 }
 
-/* "01" index number — muted */
+/* "01" index number — IBM Plex Mono, muted */
 .about-writing-num {
-  color: rgba(255, 255, 255, 0.28);
-  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 15px;
+  color: rgba(255, 255, 255, 0.28);
+  margin-right: 8px;
 }
 
-/* Article title ("New School") — white */
+/* Article title ("New School") — white, Apfel Grotezk */
 .about-writing-title {
   font-family: 'Apfel Grotezk', 'Inter', sans-serif;
   font-size: 15px;
   color: #ffffff;
-}
-
-/* Date — IBM Plex Mono, light grey, paragraph-text size */
-.about-writing-date {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 15px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.32);
-  white-space: nowrap;
 }
 
 @keyframes nitishTypewriter {

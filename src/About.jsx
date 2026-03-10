@@ -69,7 +69,7 @@ function About() {
             <span
               className={`about-writing-toggle${isWritingOpen ? ' active' : ''}`}
               onClick={() => setIsWritingOpen(prev => !prev)}
-            >writing</span>
+            >blogging</span>
             , potentially to inspire others.
           </p>
 
@@ -117,9 +117,9 @@ function About() {
               </span>
               <div className="about-entry">
                 <span className="about-writing-title">
-                  <span className="about-writing-num">01</span>{' '}New School
+                  <span className="about-writing-num">01</span>&nbsp;&nbsp;New School
                 </span>
-                <span className="about-writing-date">03-2026</span>
+                <span className="about-entry-date">03-2026</span>
               </div>
             </div>
           </div>
