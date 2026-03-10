@@ -68,6 +68,10 @@ function About() {
           </p>
 
           <p className="about-body">
+            I'm also trying my hand at blogging, whether to inspire others or just express myself.
+          </p>
+
+          <p className="about-body">
             Outside of designing in Figma, you'll probably find me on a hiking trail, searching for the best Thai restaurants in my area to rate on <span className="about-beli-link">Beli<span className="about-beli-tooltip">@tissuepoo</span></span>, or adding another Smiski to my growing collection.
           </p>
           <div className="about-sections-row">
