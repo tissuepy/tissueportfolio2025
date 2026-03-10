@@ -98,10 +98,11 @@ function App() {
                 className="site-footer-clawd-link"
               >
                 <img src={clawdLogo} alt="Claude Code" className="site-footer-clawd-logo" />
+                <span className="site-footer-icon-tooltip">Claude Code</span>
               </a>
             </span>
             <span className="site-footer-drinking">
-              WHILE DRINKING&nbsp;<span className="site-footer-matcha-emoji" role="img" aria-label="matcha">🍵</span>
+              WHILE DRINKING&nbsp;<span className="site-footer-matcha-emoji" role="img" aria-label="matcha">🍵<span className="site-footer-icon-tooltip">Matcha Lattes</span></span>
             </span>
             <span className="site-footer-thanks">Thanks for visiting my digital corner!</span>
           </div>

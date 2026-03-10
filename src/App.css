@@ -2939,10 +2939,11 @@ html {
 }
 
 .about-entry-arrow {
-  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
   color: #9a9a9a;
   margin-left: 16px;
-  line-height: 1;
 }
 
 .about-contact-link {
@@ -3076,22 +3077,199 @@ html {
   background-color: #2b3532;
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #ffffff;
-  font-family: 'Apfel Grotezk', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  line-height: 1.6;
-  padding: 12px 16px;
+  padding: 14px 18px;
   width: max-content;
-  max-width: 380px;
-  white-space: normal;
+  white-space: nowrap;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s ease, transform 0.2s ease;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .one-path-wrapper:hover .one-path-tooltip {
   opacity: 1;
   transform: translateY(0);
+}
+
+.one-path-tooltip-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.one-path-tooltip-role {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Apfel Grotezk', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.one-path-tooltip-emoji {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.one-path-tooltip-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* ── "writing" toggle word in body text ───────────────────────── */
+/* "blogging" toggle — same grey highlight as "Nitish", no color change on click */
+.about-writing-toggle {
+  background-color: rgba(92, 92, 92, 0.45);
+  padding: 4px 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Writing entry row — pointer cursor, title fades to same grey as 01 on hover */
+.about-writing-entry {
+  cursor: pointer;
+}
+.about-writing-title {
+  transition: color 0.18s ease;
+}
+.about-writing-entry:hover .about-writing-title {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+/* ── [4] WRITING collapsible section ──────────────────────────── */
+.about-writing-section {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity    0.28s ease;
+}
+.about-writing-section.open {
+  max-height: 200px;
+  opacity: 1;
+}
+.about-writing-inner {
+  padding-top: 40px;
+}
+
+/* "01" index number — IBM Plex Mono, muted */
+.about-writing-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.28);
+  margin-right: 8px;
+}
+
+/* Article title ("New School") — white, Apfel Grotezk */
+.about-writing-title {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+/* ── Blog password modal ───────────────────────────────────────── */
+.blog-pw-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-pw-modal {
+  position: relative;
+  background: #2b3532;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 40px 48px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  min-width: 300px;
+}
+
+.blog-pw-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+.blog-pw-close:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.blog-pw-lock {
+  color: rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.blog-pw-label {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+}
+
+.blog-pw-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #ffffff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.18s ease;
+}
+.blog-pw-input:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.blog-pw-input.error {
+  border-color: #BF5656;
+}
+.blog-pw-input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.blog-pw-error {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: #BF5656;
+  margin: 0;
 }
 
 @keyframes nitishTypewriter {
@@ -3163,6 +3341,7 @@ html {
 .site-footer-matcha-emoji {
   display: inline-flex;
   align-items: center;
+  position: relative;
   font-size: 44px;
   line-height: 1;
   cursor: default;
@@ -3173,6 +3352,32 @@ html {
   transform: translateY(-4px);
 }
 
+/* ── Footer icon tooltips (clawd + matcha) ───────────────────────── */
+.site-footer-icon-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background-color: #2b3532;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-family: 'Apfel Grotezk', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 8px 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+}
+
+.site-footer-clawd-link:hover .site-footer-icon-tooltip,
+.site-footer-matcha-emoji:hover .site-footer-icon-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .site-footer-drinking span[role="img"] {
   font-size: 24px;
   line-height: 1;
@@ -3181,6 +3386,7 @@ html {
 .site-footer-clawd-link {
   display: inline-flex;
   align-items: center;
+  position: relative;
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
