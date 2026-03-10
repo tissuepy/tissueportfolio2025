@@ -1,5 +1,8 @@
 import React, { useState, useRef } from 'react';
 import './App.css';
+import emojiBeaker   from './assets/emoji-beaker.png';
+import emojiBarChart from './assets/emoji-barchart.png';
+import emojiDizzy    from './assets/emoji-dizzy.png';
 
 /* SVG northeast arrow — renders identically on every platform/font/OS */
 const ArrowNE = () => (
@@ -46,7 +49,20 @@ function About() {
             I've never been great at picking{' '}
             <span className="one-path-wrapper">
               <span className="one-path">one path</span>
-              <span className="one-path-tooltip">I was first a competitive esports gamer, then computational biologist, then data scientist, and now a product designer.</span>
+              <span className="one-path-tooltip">
+                <span className="one-path-tooltip-row">
+                  <span className="one-path-tooltip-role"><img src={emojiBeaker} className="one-path-tooltip-emoji" alt="" />Computational Biologist</span>
+                  <span className="one-path-tooltip-date">2023 – 2024</span>
+                </span>
+                <span className="one-path-tooltip-row">
+                  <span className="one-path-tooltip-role"><img src={emojiBarChart} className="one-path-tooltip-emoji" alt="" />Data Scientist</span>
+                  <span className="one-path-tooltip-date">2024 – 2025</span>
+                </span>
+                <span className="one-path-tooltip-row">
+                  <span className="one-path-tooltip-role"><img src={emojiDizzy} className="one-path-tooltip-emoji" alt="" />Product Designer</span>
+                  <span className="one-path-tooltip-date">2025 – Present</span>
+                </span>
+              </span>
             </span>
             {' '}and sticking to it, but design feels right at the moment, so that's where I'm spending my time.
           </p>
