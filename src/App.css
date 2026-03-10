@@ -3129,18 +3129,23 @@ html {
 }
 
 /* ── "writing" toggle word in body text ───────────────────────── */
-/* "blogging" toggle — same grey highlight as "Nitish" */
+/* "blogging" toggle — same grey highlight as "Nitish", no color change on click */
 .about-writing-toggle {
   background-color: rgba(92, 92, 92, 0.45);
   padding: 4px 2px;
   cursor: pointer;
-  transition: opacity 0.18s ease;
+  position: relative;
 }
-.about-writing-toggle:hover {
-  opacity: 0.75;
+
+/* Writing entry row — pointer cursor, title fades to same grey as 01 on hover */
+.about-writing-entry {
+  cursor: pointer;
 }
-.about-writing-toggle.active {
-  opacity: 0.6;
+.about-writing-title {
+  transition: color 0.18s ease;
+}
+.about-writing-entry:hover .about-writing-title {
+  color: rgba(255, 255, 255, 0.28);
 }
 
 /* ── [4] WRITING collapsible section ──────────────────────────── */
@@ -3173,6 +3178,98 @@ html {
   font-family: 'Apfel Grotezk', 'Inter', sans-serif;
   font-size: 15px;
   color: #ffffff;
+}
+
+/* ── Blog password modal ───────────────────────────────────────── */
+.blog-pw-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-pw-modal {
+  position: relative;
+  background: #2b3532;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 40px 48px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  min-width: 300px;
+}
+
+.blog-pw-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+.blog-pw-close:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.blog-pw-lock {
+  color: rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.blog-pw-label {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+}
+
+.blog-pw-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #ffffff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.18s ease;
+}
+.blog-pw-input:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.blog-pw-input.error {
+  border-color: #BF5656;
+}
+.blog-pw-input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.blog-pw-error {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: #BF5656;
+  margin: 0;
 }
 
 @keyframes nitishTypewriter {
