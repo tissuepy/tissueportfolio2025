@@ -2939,10 +2939,11 @@ html {
 }
 
 .about-entry-arrow {
-  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
   color: #9a9a9a;
   margin-left: 16px;
-  line-height: 1;
 }
 
 .about-contact-link {

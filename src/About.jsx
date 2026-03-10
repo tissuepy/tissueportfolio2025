@@ -1,6 +1,14 @@
 import React, { useState, useRef } from 'react';
 import './App.css';
 
+/* SVG northeast arrow — renders identically on every platform/font/OS */
+const ArrowNE = () => (
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
+    <path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5"
+      stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
 function About() {
   const [hoverState, setHoverState] = useState('hidden'); // 'hidden' | 'in' | 'out'
   const timeoutRef = useRef(null);
@@ -51,15 +59,15 @@ function About() {
               <span className="about-section-label"><span className="about-section-num">[2]</span> CONTACT</span>
               <div className="about-entry">
                 <a href="https://www.linkedin.com/in/nitishgannu/" target="_blank" rel="noopener noreferrer" className="about-contact-link">LinkedIn<sup className="about-sup">1</sup></a>
-                <span className="about-entry-arrow">↗</span>
+                <span className="about-entry-arrow"><ArrowNE /></span>
               </div>
               <div className="about-entry">
                 <a href="mailto:ng545@cornell.edu" className="about-contact-link">Mail<sup className="about-sup">2</sup></a>
-                <span className="about-entry-arrow">↗</span>
+                <span className="about-entry-arrow"><ArrowNE /></span>
               </div>
               <div className="about-entry">
                 <a href="https://x.com/nitishgannu" target="_blank" rel="noopener noreferrer" className="about-contact-link">X<sup className="about-sup">3</sup></a>
-                <span className="about-entry-arrow">↗</span>
+                <span className="about-entry-arrow"><ArrowNE /></span>
               </div>
             </div>
             <div className="about-section-col">
