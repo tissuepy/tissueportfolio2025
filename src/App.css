@@ -3128,6 +3128,62 @@ html {
   line-height: 1;
 }
 
+/* ── "writing" toggle word in body text ───────────────────────── */
+.about-writing-toggle {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: #BF5656;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: opacity 0.18s ease;
+}
+.about-writing-toggle:hover {
+  opacity: 0.7;
+}
+.about-writing-toggle.active {
+  opacity: 0.6;
+}
+
+/* ── [4] WRITING collapsible section ──────────────────────────── */
+.about-writing-section {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity    0.28s ease;
+}
+.about-writing-section.open {
+  max-height: 200px;
+  opacity: 1;
+}
+.about-writing-inner {
+  padding-top: 40px;
+}
+
+/* "01" index number — muted */
+.about-writing-num {
+  color: rgba(255, 255, 255, 0.28);
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+}
+
+/* Article title ("New School") — white */
+.about-writing-title {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+/* Date — IBM Plex Mono, light grey, paragraph-text size */
+.about-writing-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.32);
+  white-space: nowrap;
+}
+
 @keyframes nitishTypewriter {
   from { clip-path: inset(0 100% 0 0); }
   to   { clip-path: inset(0 0% 0 0); }

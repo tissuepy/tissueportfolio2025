@@ -13,7 +13,8 @@ const ArrowNE = () => (
 );
 
 function About() {
-  const [hoverState, setHoverState] = useState('hidden'); // 'hidden' | 'in' | 'out'
+  const [hoverState, setHoverState]     = useState('hidden'); // 'hidden' | 'in' | 'out'
+  const [isWritingOpen, setIsWritingOpen] = useState(false);
   const timeoutRef = useRef(null);
 
   const handleMouseEnter = () => {
@@ -64,11 +65,12 @@ function About() {
                 </span>
               </span>
             </span>
-            {' '}and sticking to it, but design feels right at the moment, so that's where I'm spending my time.
-          </p>
-
-          <p className="about-body">
-            I'm also trying my hand at blogging, whether to inspire others or just express myself.
+            {' '}and sticking to it, but design feels right at the moment, so that's where I'm spending my time. I'm also trying my hand at{' '}
+            <span
+              className={`about-writing-toggle${isWritingOpen ? ' active' : ''}`}
+              onClick={() => setIsWritingOpen(prev => !prev)}
+            >writing</span>
+            , potentially to inspire others.
           </p>
 
           <p className="about-body">
@@ -106,6 +108,22 @@ function About() {
               </div>
             </div>
           </div>
+
+          {/* [4] WRITING — expands when "writing" is clicked */}
+          <div className={`about-writing-section${isWritingOpen ? ' open' : ''}`}>
+            <div className="about-writing-inner">
+              <span className="about-section-label">
+                <span className="about-section-num">[4]</span> WRITING
+              </span>
+              <div className="about-entry">
+                <span className="about-writing-title">
+                  <span className="about-writing-num">01</span>{' '}New School
+                </span>
+                <span className="about-writing-date">03-2026</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
