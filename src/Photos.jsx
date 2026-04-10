@@ -149,22 +149,22 @@ export default function Photos() {
         <img src={cloudIcon} className="canvas-top-cloud" alt="" draggable={false} />
 
         {/* Deco icons at low z-index so photos always cover them */}
-        <img src={cloudIcon}  className="deco-icon deco-cloud"  alt="" draggable={false} />
-        <img src={planeIcon}  className="deco-icon deco-plane"  alt="" draggable={false} />
-        <img src={planetIcon} className="deco-icon deco-planet" alt="" draggable={false} />
+        <img src={cloudIcon}  className="deco-icon deco-cloud"  alt="" draggable={false} style={{ filter: 'invert(1)' }} />
+        <img src={planeIcon}  className="deco-icon deco-plane"  alt="" draggable={false} style={{ filter: 'invert(1)' }} />
+        <img src={planetIcon} className="deco-icon deco-planet" alt="" draggable={false} style={{ filter: 'invert(1)' }} />
 
-        {/* Hint text at high z-index so it stays readable */}
+        {/* Drag hint */}
         <div className="photos-hint-group">
-          <p className="hint-main">Look around and stay awhile.</p>
           <p className="hint-sub">DRAG TO MOVE</p>
         </div>
 
+
         {/* Scattered clouds + saturns near photos */}
-        <img src={cloudIcon}  className="scatter-deco" style={{ left: -900, top: -400, width: 90,  '--base-rot': '-6deg', animation: 'fadeIn 0.55s ease-out 1.30s both, cartoon-rock 3s steps(1,end) -2.4s infinite' }} alt="" draggable={false} />
-        <img src={cloudIcon}  className="scatter-deco" style={{ left:  530, top: -490, width: 75,  '--base-rot':  '4deg', animation: 'fadeIn 0.55s ease-out 1.40s both, cartoon-rock 3s steps(1,end) -0.8s infinite' }} alt="" draggable={false} />
-        <img src={cloudIcon}  className="scatter-deco" style={{ left: -130, top:  430, width: 80,  '--base-rot': '-3deg', animation: 'fadeIn 0.55s ease-out 1.35s both, cartoon-rock 3s steps(1,end) -1.8s infinite' }} alt="" draggable={false} />
-        <img src={planetIcon} className="scatter-deco" style={{ left:  870, top: -110, width: 100, '--base-rot':  '8deg', animation: 'fadeIn 0.55s ease-out 1.45s both, cartoon-rock 3s steps(1,end) -1.2s infinite' }} alt="" draggable={false} />
-        <img src={planetIcon} className="scatter-deco" style={{ left: -820, top:  170, width: 90,  '--base-rot': '-5deg', animation: 'fadeIn 0.55s ease-out 1.38s both, cartoon-rock 3s steps(1,end) -2.7s infinite' }} alt="" draggable={false} />
+        <img src={cloudIcon}  className="scatter-deco" style={{ filter: 'invert(1)', left: -900, top: -400, width: 90,  '--base-rot': '-6deg', animation: 'fadeIn 0.55s ease-out 1.30s both, cartoon-rock 3s steps(1,end) -2.4s infinite' }} alt="" draggable={false} />
+        <img src={cloudIcon}  className="scatter-deco" style={{ filter: 'invert(1)', left:  530, top: -490, width: 75,  '--base-rot':  '4deg', animation: 'fadeIn 0.55s ease-out 1.40s both, cartoon-rock 3s steps(1,end) -0.8s infinite' }} alt="" draggable={false} />
+        <img src={cloudIcon}  className="scatter-deco" style={{ filter: 'invert(1)', left: -130, top:  430, width: 80,  '--base-rot': '-3deg', animation: 'fadeIn 0.55s ease-out 1.35s both, cartoon-rock 3s steps(1,end) -1.8s infinite' }} alt="" draggable={false} />
+        <img src={planetIcon} className="scatter-deco" style={{ filter: 'invert(1)', left:  870, top: -110, width: 100, '--base-rot':  '8deg', animation: 'fadeIn 0.55s ease-out 1.45s both, cartoon-rock 3s steps(1,end) -1.2s infinite' }} alt="" draggable={false} />
+        <img src={planetIcon} className="scatter-deco" style={{ filter: 'invert(1)', left: -820, top:  170, width: 90,  '--base-rot': '-5deg', animation: 'fadeIn 0.55s ease-out 1.38s both, cartoon-rock 3s steps(1,end) -2.7s infinite' }} alt="" draggable={false} />
 
         {/* Photos — each staggered 90ms after the previous */}
         {photos.map((photo, i) => (

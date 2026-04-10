@@ -1,4 +1,8 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const EXPAND_DURATION  = 700; // ms for full 0→100 reveal
+const COLLAPSE_DURATION = 500; // ms for full 100→0 collapse
 import './App.css';
 import emojiBeaker   from './assets/emoji-beaker.png';
 import emojiBarChart from './assets/emoji-barchart.png';
@@ -35,26 +39,39 @@ const CloseIcon = () => (
 const BLOG_PASSWORD = 'tissue2025';
 
 function About() {
-  const [hoverState, setHoverState]       = useState('hidden'); // 'hidden' | 'in' | 'out'
+  const [hoverProgress, setHoverProgress] = useState(0); // 0–100
+  const progressRef   = useRef(0);   // current value without triggering re-render
+  const animFrameRef  = useRef(null);
+  const navigate = useNavigate();
   const [isWritingOpen, setIsWritingOpen] = useState(false);
   const [isPasswordOpen, setIsPasswordOpen] = useState(false);
   const [passwordValue, setPasswordValue] = useState('');
   const [passwordError, setPasswordError] = useState(false);
-  const timeoutRef = useRef(null);
 
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setHoverState('in');
+  const animateTo = (target) => {
+    if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+    const startProgress = progressRef.current;
+    const distance = Math.abs(target - startProgress);
+    if (distance < 0.01) return;
+    const fullDuration = target > startProgress ? EXPAND_DURATION : COLLAPSE_DURATION;
+    const duration = fullDuration * (distance / 100);
+    const startTime = performance.now();
+    const step = (now) => {
+      const t = Math.min((now - startTime) / duration, 1);
+      const current = startProgress + (target - startProgress) * t;
+      progressRef.current = current;
+      setHoverProgress(current);
+      if (t < 1) animFrameRef.current = requestAnimationFrame(step);
+    };
+    animFrameRef.current = requestAnimationFrame(step);
   };
 
-  const handleMouseLeave = () => {
-    setHoverState('out');
-    timeoutRef.current = setTimeout(() => setHoverState('hidden'), 600);
-  };
+  const handleMouseEnter = () => animateTo(100);
+  const handleMouseLeave = () => animateTo(0);
 
-  // Clicking "blogging" just toggles the WRITING section
+  // Clicking "blogging" navigates to the writing page
   const handleBloggingClick = () => {
-    setIsWritingOpen(prev => !prev);
+    navigate('/writing');
   };
 
   // Clicking an article opens the password modal
@@ -93,8 +110,11 @@ function About() {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >Nitish</span>.{' '}
-            {hoverState !== 'hidden' && (
-              <span className={hoverState === 'in' ? 'nitish-hover-text' : 'nitish-hover-text-out'}>
+            {hoverProgress > 0 && (
+              <span
+                className="nitish-hover-text"
+                style={{ clipPath: `inset(0 ${(100 - hoverProgress).toFixed(2)}% 0 0)` }}
+              >
                 I'm a <span className="nitish-red">Product Designer</span> and an <span className="nitish-red">avid traveler</span> that enjoys the occasional <span className="nitish-red">cat cafe</span>.
               </span>
             )}
@@ -102,23 +122,7 @@ function About() {
 
           <p className="about-body">
             I've never been great at picking{' '}
-            <span className="one-path-wrapper">
-              <span className="one-path">one path</span>
-              <span className="one-path-tooltip">
-                <span className="one-path-tooltip-row">
-                  <span className="one-path-tooltip-role"><img src={emojiBeaker} className="one-path-tooltip-emoji" alt="" />Computational Biologist</span>
-                  <span className="one-path-tooltip-date">2023 – 2024</span>
-                </span>
-                <span className="one-path-tooltip-row">
-                  <span className="one-path-tooltip-role"><img src={emojiBarChart} className="one-path-tooltip-emoji" alt="" />Data Scientist</span>
-                  <span className="one-path-tooltip-date">2024 – 2025</span>
-                </span>
-                <span className="one-path-tooltip-row">
-                  <span className="one-path-tooltip-role"><img src={emojiDizzy} className="one-path-tooltip-emoji" alt="" />Product Designer</span>
-                  <span className="one-path-tooltip-date">2025 – Present</span>
-                </span>
-              </span>
-            </span>
+            <span className="one-path">one path</span>
             {' '}and sticking to it, but design feels right at the moment, so that's where I'm spending my time. I'm also trying my hand at{' '}
             <span
               className="about-writing-toggle"
@@ -128,7 +132,7 @@ function About() {
           </p>
 
           <p className="about-body">
-            Outside of designing in Figma, you'll probably find me on a hiking trail, searching for the best Thai restaurants in my area to rate on <span className="about-beli-link">Beli<span className="about-beli-tooltip">@tissuepoo</span></span>, or adding another Smiski to my growing collection.
+            Outside of designing in Figma, you'll probably find me on a hiking trail, searching for the best Thai restaurants in my area to rate on <span className="about-beli-link cursor-beli">Beli</span>, or adding another Smiski to my growing collection.
           </p>
 
           <div className="about-sections-row">
@@ -150,7 +154,7 @@ function About() {
             <div className="about-section-col">
               <span className="about-section-label"><span className="about-section-num">[3]</span> EXPERIENCE</span>
               <div className="about-entry">
-                <span className="about-entry-name"><span className="about-entry-company">Conair</span>, Product Management Intern</span>
+                <span className="about-entry-name"><span className="about-entry-company">Walmart</span>, Systems & Automation Engineering Intern</span>
                 <span className="about-entry-date">Incoming Summer 2026</span>
               </div>
               <div className="about-entry">
@@ -164,20 +168,6 @@ function About() {
             </div>
           </div>
 
-          {/* [4] WRITING — expands after correct password, pushes content down */}
-          <div className={`about-writing-section${isWritingOpen ? ' open' : ''}`}>
-            <div className="about-writing-inner">
-              <span className="about-section-label">
-                <span className="about-section-num">[4]</span> WRITING
-              </span>
-              <div className="about-entry about-writing-entry" onClick={handleArticleClick}>
-                <span className="about-writing-title">
-                  <span className="about-writing-num">01</span>&nbsp;&nbsp;New School
-                </span>
-                <span className="about-entry-date">03-2026</span>
-              </div>
-            </div>
-          </div>
 
         </div>
       </div>
