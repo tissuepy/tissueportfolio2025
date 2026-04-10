@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import './WalletCard.css';
 import scannerImg       from './matchagallery/scanner.png';
 import chatgptLogo      from './matchagallery/chatlogo.png';
-import walletHolderImg  from './matchagallery/second base 2.png';
-import secondBaseImg    from './matchagallery/wallet front.png';
+import walletHolderImg  from './matchagallery/wallet front 2.png';
+import secondBaseImg    from './matchagallery/second base 3.png';
 import sosButtonImg     from './matchagallery/sos button.png';
-import searchPortionImg from './newthumbnaildesigns/searchportion.png';
+import pogoLogo from './assets/pogo-logo3.png';
 
 // ── Card metadata keyed by item id ────────────────────────────
 const CARD_DATA = {
@@ -21,10 +21,10 @@ const CARD_DATA = {
     title: 'SAFEHUB',
     deImg: sosButtonImg,     deClass: 'wallet-card-sos-button',
   },
-  SEARCHNEU: {
-    badge: '03', badgeClass: 'wallet-card-badge-cerulean',
-    title: 'SEARCHNEU',
-    deImg: searchPortionImg, deClass: 'wallet-card-search-portion',
+  POGO: {
+    badge: '03', badgeClass: 'wallet-card-badge-purple',
+    title: 'POGO',
+    deImg: pogoLogo, deClass: 'wallet-card-pogo-logo',
   },
   WRAP: {
     badge: '04', badgeClass: 'wallet-card-badge-yellow',
@@ -49,7 +49,7 @@ const WalletCard = () => {
     if (item === activeItem) return;
     setActiveItem(item);
     // Ensure the item's section is open
-    const section = ['SEARCHNEU', 'WRAP'].includes(item) ? 'TEAM' : 'INDIVIDUAL';
+    const section = ['POGO', 'WRAP'].includes(item) ? 'TEAM' : 'INDIVIDUAL';
     setActiveSection(section);
     setIsCardHovered(false);
   };
@@ -62,8 +62,8 @@ const WalletCard = () => {
       case 'SAFEHUB':
         navigate('/work/safehub');
         break;
-      case 'SEARCHNEU':
-        navigate('/work/searchneu');
+      case 'POGO':
+        navigate('/work/pogo');
         break;
       case 'WRAP':
         window.open('https://trywrap.com/', '_blank', 'noopener,noreferrer');
@@ -95,26 +95,38 @@ const WalletCard = () => {
 
         {/* ── Left column: wallet with sandwiched card ──────── */}
         <div className="wallet-container">
-          {/* key on pocket remounts entire wallet + card together on switch */}
-          <div className="wallet-pocket" key={activeItem}>
+          <div className="wallet-pocket">
             {/* z:1 — back wallet graphic */}
             <img src={walletHolderImg} alt="" className="wallet-pocket-image" />
 
             {/* z:3 — card sandwiched between the two wallet images */}
             <div
+              key={activeItem}
               className={`wallet-card ${isCardHovered ? 'card-hovered' : ''}`}
               onClick={handleCardClick}
               onMouseEnter={handleCardMouseEnter}
               onMouseLeave={handleCardMouseLeave}
               style={{ cursor: 'pointer' }}
             >
+              {/* Guilloche pattern — all cards */}
+              <svg
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', borderRadius: '16px', pointerEvents: 'none', overflow: 'hidden' }}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <clipPath id="card-clip">
+                  <rect width="100%" height="100%" rx="16" />
+                </clipPath>
+                <g clipPath="url(#card-clip)">
+                  {Array.from({ length: 120 }, (_, i) => (
+                    <circle key={i} cx="0" cy="0" r={20 + i * 6} fill="none" stroke="rgba(0,0,0,0.025)" strokeWidth="1" />
+                  ))}
+                </g>
+              </svg>
               <div className="wallet-card-header">
                 <div className={`wallet-card-badge ${card.badgeClass}`}>{card.badge}</div>
                 <span className="wallet-card-title">{card.title}</span>
               </div>
-              {card.deImg && (
-                <img src={card.deImg} alt="" className={card.deClass} />
-              )}
+              {card.deImg && <img src={card.deImg} alt="" className={card.deClass} />}
               <img src={scannerImg} alt="" className="wallet-card-chip" />
             </div>
 
@@ -158,9 +170,9 @@ const WalletCard = () => {
             </button>
             <div className="wallet-nav-items">
               <div
-                className={`wallet-nav-item${activeItem === 'SEARCHNEU' ? ' active' : ''}`}
-                onClick={() => handleItemClick('SEARCHNEU')}
-              >SEARCHNEU</div>
+                className={`wallet-nav-item${activeItem === 'POGO' ? ' active' : ''}`}
+                onClick={() => handleItemClick('POGO')}
+              >POGO</div>
               <div
                 className={`wallet-nav-item${activeItem === 'WRAP' ? ' active' : ''}`}
                 onClick={() => handleItemClick('WRAP')}

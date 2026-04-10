@@ -6,16 +6,11 @@
   to   { opacity: 1; }
 }
 
-/* ── Card slides in from above the pocket ─────────────────── */
+
+/* ── Card rises up from under the wallet pocket ───────────── */
 @keyframes cardSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-65px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { transform: translateY(80px); }
+  to   { transform: translateY(0); }
 }
 
 /* ── Section label — absolutely positioned just above the wallet pocket ── */
@@ -26,7 +21,7 @@
   font-weight: 400;
   letter-spacing: 0em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #000000;
   position: absolute;
   top: 112px;
   left: 40px;
@@ -98,11 +93,11 @@
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.9);
   transition: color 0.2s;
 }
 .wallet-nav-header:hover {
-  color: #ffffff;
+  color: #000000;
 }
 
 /* Section label text */
@@ -115,8 +110,8 @@
   display: inline-block;
   width: 8px;
   height: 8px;
-  border-right: 1.5px solid rgba(255, 255, 255, 0.55);
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.55);
+  border-right: 1.5px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.4);
   transform: rotate(45deg);     /* pointing down */
   margin-bottom: 3px;           /* optical vertical align */
   flex-shrink: 0;
@@ -125,7 +120,7 @@
 .wallet-nav-chevron.rotated {
   transform: rotate(-135deg);   /* pointing up */
   margin-bottom: -3px;
-  border-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.7);
 }
 
 /* Dropdown items — smooth reveal */
@@ -160,20 +155,20 @@
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(0, 0, 0, 0.4);
   padding: 8px 14px;
   border-radius: 10px;
   cursor: pointer;
   transition: color 0.18s;
 }
 .wallet-nav-item:hover {
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(0, 0, 0, 0.65);
 }
 
 /* Active item — full-width lighter pill, no border */
 .wallet-nav-item.active {
-  color: rgba(255, 255, 255, 0.92);
-  background: rgba(255, 255, 255, 0.14);
+  color: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.07);
 }
 
 /* CSS-only hover: hovering INDIVIDUAL dims TEAM label */
@@ -186,23 +181,22 @@
    Coordinates are relative to .wallet-pocket (not .wallet-container). */
 .wallet-card {
   position: absolute;
-  top: 60px;       /* further down so card sits deeper inside the pocket */
-  left: 50px;      /* container left 90px → pocket left 40px → 90-40=50 */
-  right: 70px;     /* container right 110px → pocket right 40px → 110-40=70 */
-  bottom: 30px;
+  top: 60px;
+  left: 50px;
+  right: 70px;
+  bottom: 90px;
   background-color: #ffffff;
   border-radius: 16px;
   border: 1px solid #d8d8d8;
   padding: 24px 28px;
   box-sizing: border-box;
-  z-index: 3;      /* in front of pocket-image (z:1), behind front overlay (z:4) */
+  z-index: 3;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   pointer-events: auto;
   transform: translateY(0);
   overflow: hidden;
-  /* backwards: card is invisible during 0.08s delay so there's no flash */
-  animation: cardSlideIn 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.08s backwards;
+  animation: cardSlideIn 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Only trigger hover when directly hovering the card itself */
@@ -232,8 +226,8 @@
   color: #ffffff;
 }
 
-.wallet-card-badge-cerulean {
-  background-color: #0055ff;
+.wallet-card-badge-purple {
+  background-color: #7c3aed;
   color: #ffffff;
 }
 
@@ -266,9 +260,17 @@
   height: auto;
 }
 
+.wallet-card-pogo-logo {
+  position: absolute;
+  bottom: 30px;
+  right: -60px;
+  width: 320px;
+  height: auto;
+}
+
 .wallet-card-chip {
   position: absolute;
-  bottom: 130px;
+  bottom: 70px;
   left: 28px;
   width: 50px;
   height: auto;
@@ -329,9 +331,9 @@
 /* Back wallet graphic — z-index 1, behind the card */
 .wallet-pocket-image {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 20px;
+  left: 0%;
+  width: 98%;
   height: 100%;
   object-fit: contain;
   pointer-events: none;
@@ -345,7 +347,7 @@
   top: 70px;
   left: 0px;
   right: 0px;
-  width: calc(100% + 12px);
+  width: 100%;
   height: 100%;
   object-fit: contain;
   pointer-events: none;

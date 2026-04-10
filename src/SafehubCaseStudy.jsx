@@ -1,506 +1,239 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import './SafehubCaseStudy.css';
-import affinityMap from './casestudyassets/affinity map - safehub.png';
-import safehubQuestion from './casestudyassets/boy red.jpg';
-import informationArchitecture from './casestudyassets/information architecture.png';
-import fistIcon from './casestudyassets/fist.png';
-import lowFidelityMainComparison from './casestudyassets/low fidelity main compariosn.png';
-import locationLowFidelity from './casestudyassets/location low fidelity.png';
-import mapColors from './casestudyassets/Map Colors.png';
-import mapDisplay from './casestudyassets/Map (display).png';
-import temporaryFinalDesigns from './casestudyassets/Temporary Final Designs.png';
-import darkModeIteration from './casestudyassets/Dark Mode Iteration.png';
-import iconsRedefined from './casestudyassets/Icons Redefined.png';
-import revampedMap from './casestudyassets/Revamped Map.png';
-import newLocationUpdated from './casestudyassets/New Location Updated.png';
-import thumbsUpGuy from './casestudyassets/thumbs up guy.jpg';
+import safehubMain from './casestudyassets/safehub-main.png';
 import statsSafehub from './casestudyassets/stats safehub.png';
 import safehubQuotes from './casestudyassets/safehub quotes.png';
-import safehubSurvey from './casestudyassets/Safehub Survey.png';
-import emergenciesSafehub from './casestudyassets/Emergencies Safehub.png';
-import redGuy from './casestudyassets/red guy.png';
-import pinkGuy from './casestudyassets/pink guy.png';
-import greyGuy from './casestudyassets/grey guy.png';
-import locationLogics from './casestudyassets/Logics of Location Modals.png';
-import locationLogics2 from './casestudyassets/Logistics of Location Modal 2.png';
-import userFeelings from './casestudyassets/User feelings.png';
-import happyUsers from './casestudyassets/Happy Users.png';
-import finalDesignsPerma from './casestudyassets/Final Designs (perma).png';
-import versionA from './assets/assets2/version A.png';
-import versionB from './assets/assets2/version B.png';
-import versionA2 from './assets/assets2/version A - 2.png';
-import versionB2 from './assets/assets2/version B - 2.png';
-import safehubThumbnail from './assets/assets2/thumbnail.png';
+import safehubInterviews from './casestudyassets/safehub-interviews.png';
+import safehubV1 from './casestudyassets/safehub-v1.png';
+import safehubV2 from './casestudyassets/safehub-v2.png';
+import safehubLocationV1 from './casestudyassets/safehub-location-v1.png';
+import safehubMapsVideo from './casestudyassets/safehub-maps-video.mov';
+import safehubTooltipVideo from './casestudyassets/safehub-tooltip-recording-2.mov';
+import safehubYouAreHere from './casestudyassets/safehub-you-are-here.mov';
+import safehubLocationV2 from './casestudyassets/safehub-location-v2.png';
+import safehubEmergencyV1 from './casestudyassets/safehub-emergency-v1.png';
+
+const ArrowNE = () => (
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
+    <path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5"
+      stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
 
 const SafehubCaseStudy = () => {
-  const navigate = useNavigate();
-  const [activeSection, setActiveSection] = useState('');
-  const [hideSidebar, setHideSidebar] = useState(false);
-  const sectionRefs = useRef({});
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    const checkZoom = () => {
-      // Detect zoom level by comparing viewport width to screen width
-      // At 110% zoom, viewport width would be approximately screen.width / 1.1
-      const zoomLevel = screen.width / window.innerWidth;
-      setHideSidebar(zoomLevel > 1.1);
-    };
-
-    checkZoom();
-    window.addEventListener('resize', checkZoom);
-    return () => window.removeEventListener('resize', checkZoom);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
-
-      const sections = ['context', 'user-research', 'problem', 'design-decisions', 'user-testing', 'final-product', 'reflection'];
-      let currentSection = '';
-
-      for (const section of sections) {
-        const element = sectionRefs.current[section];
-        if (element) {
-          const offsetTop = element.offsetTop;
-          if (scrollPosition >= offsetTop) {
-            currentSection = section;
-          }
-        }
-      }
-
-      setActiveSection(currentSection);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId) => {
-    const element = sectionRefs.current[sectionId];
-    if (element) {
-      const offset = 100;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  const handleBackToProjects = () => {
-    navigate('/');
-  };
-
-        const sections = [
-          { id: 'context', label: 'CONTEXT' },
-          { id: 'user-research', label: 'USER RESEARCH' },
-          { id: 'problem', label: 'THE PROBLEM' },
-          { id: 'design-decisions', label: 'DESIGN DECISIONS' },
-          { id: 'user-testing', label: 'USER TESTING' },
-          { id: 'final-product', label: 'FINAL PRODUCT' },
-          { id: 'reflection', label: 'REFLECTION' }
-        ];
-
   return (
     <div className="case-study-container">
-      {!hideSidebar && (
-        <aside className="case-study-sidebar">
-          <nav className="sidebar-nav">
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                className={`sidebar-nav-link ${activeSection === section.id ? 'active' : ''}`}
-                onClick={() => scrollToSection(section.id)}
-              >
-                {section.label}
-              </button>
-            ))}
-          </nav>
-        </aside>
-      )}
-      <div className="case-study-content" style={hideSidebar ? { marginLeft: 0, padding: '80px 100px 40px 40px' } : {}}>
-        <div className="safehub-thumbnail-container">
-          <img 
-            src={safehubThumbnail} 
-            alt="High Fidelity Designs" 
-            className="safehub-thumbnail-image"
-          />
-        </div>
-        
-        <h1 className="safehub-case-study-title">Improving Campus Safety with Safehub</h1>
-          
-          <div className="case-study-columns">
-            <div className="case-study-column">
-              <h3 className="column-title">TEAM</h3>
-              <p className="column-content">Just Me!</p>
-            </div>
-            <div className="case-study-column">
-              <h3 className="column-title">ROLE</h3>
-              <p className="column-content">Product Designer</p>
-            </div>
-            <div className="case-study-column">
-              <h3 className="column-title">TIMELINE</h3>
-              <p className="column-content">7 months</p>
-            </div>
-            <div className="case-study-column">
-              <h3 className="column-title">SKILLS & TOOLS</h3>
-              <p className="column-content">Figma, Notion</p>
+      <div className="safehub-content">
+        <div className="safehub-header">
+          <div className="safehub-header-left">
+            <h1 className="safehub-header-title">Safehub</h1>
+            <p className="safehub-header-date">Spring 2024</p>
           </div>
-        </div>
-        
-        {/* Introduction Section */}
-        <div className="case-study-section" id="context" ref={(el) => (sectionRefs.current['context'] = el)}>
-          <h2 className="section-title">[1] CONTEXT</h2>
-          <h3 className="section-subtitle">
-            Understanding the Safety Deficit
-          </h3>
-          
-          <div className="attention-grabbing-text">
-            Stamford High School faces <span className="highlight-text">significant challenges</span> in maintaining rapid and reliable emergency response.
-          </div>
-          
-            <div className="news-headlines">
-              <div className="news-headline-right">
-                <h4 className="news-headline-text">
-                  <a href="https://www.stamfordadvocate.com/news/article/stamford-school-shooting-threat-student-arrest-19749508.php" target="_blank" rel="noopener noreferrer" className="news-headline-link">
-                    ↖"Stamford High School student threatened to 'shoot up the school' on Snapchat"
-                  </a>
-                </h4>
-                <p className="news-headline-caption">The Stamford Advocate, September 7th, 2025</p>
-              </div>
-              
-              <div className="news-headline-left">
-                <h4 className="news-headline-text">
-                  <a href="https://www.nbcnewyork.com/news/local/active-shooter-hoax-call-triggers-lockdown-at-ct-schools-week-after-nj-swatting-spree/3917578/" target="_blank" rel="noopener noreferrer" className="news-headline-link">
-                    "Extremely Traumatic:' CT Official Blasts 'Active Shooter' Hoax"↗
-                  </a>
-                </h4>
-                <p className="news-headline-caption">NBC New York, October 21, 2022</p>
-              </div>
-            </div>
-            
-            <p className="stats-intro-text">
-              In recent years, Stamford High School has experienced the following:
+          <div className="safehub-header-right">
+            <p className="safehub-description">
+              A 0→1 mobile safety app for Stamford High School, enabling students, teachers, and staff a faster way to report and respond to on-campus emergencies.
             </p>
-            
-            <div className="stats-container">
-              <img 
-                src={statsSafehub} 
-                alt="Safehub Statistics" 
-                className="stats-image"
-              />
-            <span className="container-caption"></span>
-            </div>
-          
-          <p className="section-paragraph">
-            I noticed that students had very different reactions when I asked how safe campus felt. That curiosity led me to conduct user research to better understand those experiences.
-          </p>
+          </div>
         </div>
-        
-        {/* User Research Section */}
-        <div className="case-study-section" id="user-research" ref={(el) => (sectionRefs.current['user-research'] = el)}>
-          <h2 className="section-title">[2] USER RESEARCH</h2>
-          <h3 className="section-subtitle">
-            <em>Asking my friends and teachers how they felt</em>
-          </h3>
-          
-          <h2 className="section-title">[2.1] INTERVIEWS</h2>
-          
-          <p className="section-paragraph">
-            There were three types of individuals I was interested in interviewing:
-          </p>
-          
-          <div className="interview-callouts roles">
-            <div className="callout role-students">
-              <span className="callout-label">STUDENTS</span>
-              <img src={redGuy} alt="Student icon" className="callout-character-image" />
-            </div>
-            <div className="callout role-teachers">
-              <span className="callout-label">TEACHERS</span>
-              <img src={pinkGuy} alt="Teacher icon" className="callout-character-image" />
-            </div>
-            <div className="callout role-security">
-              <span className="callout-label">SECURITY GUARDS</span>
-              <img src={greyGuy} alt="Security guard icon" className="callout-character-image" />
-            </div>
-          </div>
-          
-          <p className="section-paragraph">
-            I found some prominent concerns, primarily from the students that I spoke to.
-          </p>
-          
-          <div className="quotes-container">
-            <img 
-              src={safehubQuotes} 
-              alt="Safehub Student Quotes" 
-              className="quotes-image"
-            />
-            <span className="container-caption"></span>
-          </div>
-          
-          <h2 className="section-title">[2.2] SURVEY</h2>
-          
-          <p className="section-paragraph">
-            I realized I first needed to understand which emergency situations students struggled with the most. Conducting a survey seemed like the most reasonable way to gather those insights.
-          </p>
-          
-          <div className="survey-container">
-            <img 
-              src={safehubSurvey} 
-              alt="Safehub Survey" 
-              className="survey-image"
-            />
-            <span className="container-caption"></span>
-          </div>
-          
-          <p className="section-paragraph">
-            The survey revealed that students were mainly concerned about <span className="dotted-underline">medical emergencies</span>, <span className="dotted-underline">strangers</span>, <span className="dotted-underline">physical altercations</span>, <span className="dotted-underline">suspicious objects</span>, and <span className="dotted-underline">fires</span>.
-          </p>
+
+        <div className="safehub-image-container">
+          <img src={safehubMain} alt="Safehub app" className="safehub-main-image" />
         </div>
-        
-        {/* Problem Statement Section */}
-        <div className="case-study-section" id="problem" ref={(el) => (sectionRefs.current['problem'] = el)}>
-          <h3 className="section-title">[3] THE PROBLEM</h3>
-          <h3 className="section-subtitle">
-            Okay so what's actually wrong?
-          </h3>
-          
-          <p className="problem-statement-text">
-            Stamford High faces critical safety risks due to <span className="red-emphasis">limited security staff</span> and the absence of an <span className="red-emphasis">efficient emergency response system</span>, highlighting the need for a faster, technology-driven solution.
+
+        <div className="safehub-section">
+          <p className="safehub-section-heading">Introduction</p>
+          <p className="safehub-section-body">
+            Stamford High School faces significant challenges in maintaining rapid and reliable emergency response.
           </p>
-          
-          <p className="section-paragraph">
-            This made me wonder.
+
+          <div className="safehub-news-links">
+            <a
+              href="https://www.stamfordadvocate.com/news/article/stamford-school-shooting-threat-student-arrest-19749508.php"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="safehub-news-card"
+            >
+              <span className="safehub-news-text">Stamford High School student threatened to 'shoot up the school' on Snapchat</span>
+              <span className="safehub-news-arrow"><ArrowNE /></span>
+            </a>
+            <a
+              href="https://www.nbcnewyork.com/news/local/active-shooter-hoax-call-triggers-lockdown-at-ct-schools-week-after-nj-swatting-spree/3917578/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="safehub-news-card"
+            >
+              <span className="safehub-news-text">'Extremely Traumatic:' CT Official Blasts 'Active Shooter' Hoax</span>
+              <span className="safehub-news-arrow"><ArrowNE /></span>
+            </a>
+          </div>
+
+        </div>
+
+        <div className="safehub-section">
+          <p className="safehub-section-heading">User Research</p>
+          <p className="safehub-section-body">
+            I noticed that students had very different reactions when I asked how safe campus felt. This led me to conduct user research to better understand those experiences.
           </p>
-          
-          <div className="consideration-callouts">
-            <div className="consideration-callout">
-              <div className="callout-content">
-                <span className="callout-icon">⚠</span>
-                <span className="callout-text">How might we empower students, teachers, and staff with tools that improve emergency preparedness and response?</span>
-              </div>
+
+          <div className="safehub-quotes">
+            <div className="safehub-quote-block">
+              <p className="safehub-quote-text">"Marijuana and Vaping are relatively common in the Bathrooms, especially on the 6th & 7th floors, but the fights get out of hand since there are no cameras and staff can't intervene"</p>
+              <p className="safehub-quote-attribution">Stamford High Junior</p>
+            </div>
+            <div className="safehub-quote-block">
+              <p className="safehub-quote-text">"There was a fight near the auditorium one afternoon, and it honestly terrified me. It took almost ten minutes before anyone showed up to help, and by then, everyone was already panicking."</p>
+              <p className="safehub-quote-attribution">Stamford High Sophomore</p>
             </div>
           </div>
-          
+
         </div>
-        
-        {/* Low-Fidelity Designs Section */}
-        <div className="case-study-section" id="design-decisions" ref={(el) => (sectionRefs.current['design-decisions'] = el)}>
-          <h2 className="section-title">[4] DESIGN DECISIONS</h2>
-          <h3 className="section-subtitle">
-            My first time drawing to solve
-          </h3>
-          
-          <p className="section-paragraph" style={{ marginBottom: '2rem' }}>
+
+        <div className="safehub-section">
+          <p className="safehub-section-heading">Insights</p>
+          <p className="safehub-section-body">I combined AI with affinity diagramming to determine common themes and found 2 insights that stood out:</p>
+          <div className="safehub-key-insights">
+            <div className="safehub-key-insight">
+              <p className="safehub-key-insight-label">Key Insight #1</p>
+              <p className="safehub-key-insight-text">Students were most concerned about medical emergencies, strangers, fights, suspicious objects, and fires.</p>
+            </div>
+            <div className="safehub-key-insight">
+              <p className="safehub-key-insight-label">Key Insight #2</p>
+              <p className="safehub-key-insight-text">Students questioned the effectiveness of current safety measures, including guards and cameras.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="safehub-section">
+          <p className="safehub-section-heading">The Problem</p>
+          <p className="safehub-section-body">
+            Stamford High faces critical safety risks due to limited security staff and the absence of an efficient emergency response system, highlighting the need for a faster, technology-driven solution.
+          </p>
+
+          <div className="safehub-callout">
+            <span className="safehub-callout-icon">⚠</span>
+            <p className="safehub-callout-text">How might we empower students, teachers, and staff with tools that improve emergency preparedness and response?</p>
+          </div>
+        </div>
+
+        <div className="safehub-section">
+          <p className="safehub-section-heading">Design</p>
+          <p className="safehub-section-body">
             After taking into account all of the insights from my research, I started defining how I wanted the core elements of the app to look.
           </p>
-          
-          <h2 className="section-title">[4.1] MINIMAL DESIGN</h2>
-          
-          <div className="two-column-canvas-container">
-            <div className="canvas-column">
-              <img src={versionB} alt="Version B" className="canvas-column-image" />
-              <span className="canvas-column-caption canvas-column-caption-iteration">ITERATION</span>
+
+          <div className="safehub-image-container" style={{ position: 'relative' }}>
+            <div className="safehub-design-label safehub-design-label--iteration">
+              <span className="safehub-design-label-icon safehub-design-label-icon--red">
+                <svg width="6" height="6" viewBox="0 0 8 8" fill="none"><path d="M1.5 1.5L6.5 6.5M6.5 1.5L1.5 6.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/></svg>
+              </span>
+              <span className="safehub-design-label-text">ITERATION</span>
             </div>
-            <div className="canvas-column">
-              <img src={versionA} alt="Version A" className="canvas-column-image" />
-              <span className="canvas-column-caption canvas-column-caption-final">FINAL DESIGN</span>
+            <img src={safehubV2} alt="Main screen v2" className="safehub-main-image" />
+          </div>
+
+          <p className="safehub-section-body" style={{ marginTop: '28px' }}>
+            Iteration led me to a final concept that felt adequate.
+          </p>
+
+          <div className="safehub-image-container" style={{ position: 'relative' }}>
+            <div className="safehub-design-label safehub-design-label--final">
+              <span className="safehub-design-label-icon safehub-design-label-icon--green">
+                <svg width="6" height="6" viewBox="0 0 8 8" fill="none"><path d="M1.5 4L3.5 6L6.5 2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </span>
+              <span className="safehub-design-label-text">FINAL DESIGN</span>
             </div>
-          </div>
-          
-        
-          <h2 className="section-title">[4.2] LOCATION TRACKING</h2>
-          
-          <p className="section-paragraph">
-            There were two key avenues I explored for enabling accurate location reporting.
-          </p>
-          
-          <div className="location-logistics-container location-logistics-container--tall">
-            <img 
-              src={locationLogics} 
-              alt="Logistics of Location Modals"
-              className="location-logistics-image"
-            />
-            <span className="container-caption"></span>
-          </div>
-          
-          <p className="section-paragraph">
-            Manual input would allow the user to provide more precise building and room details that would not be captured by the GPS location.
-          </p>
-          
-          <p className="section-paragraph">
-            The real challenge was figuring out an <span className="dotted-underline">elegant</span> way to allow the user to specify this information.
-          </p>
-          
-          <div className="two-column-canvas-container">
-            <div className="canvas-column">
-              <img src={versionB2} alt="Version B - 2" className="canvas-column-image" />
-              <span className="canvas-column-caption canvas-column-caption-iteration-black">ITERATION</span>
-          </div>
-            <div className="canvas-column">
-              <img src={versionA2} alt="Version A - 2" className="canvas-column-image" />
-              <span className="canvas-column-caption canvas-column-caption-final-red">FINAL DESIGN</span>
-        </div>
-          </div>
-          
-          <p className="section-paragraph">
-            Routine <span className="dotted-underline">A/B testing</span> helped me conclude that using maps was a more efficient and simpler way of allowing students to specify their location during emergencies.
-          </p>
-        </div>
-        
-        {/* User Testing Section */}
-        <div className="case-study-section" id="user-testing" ref={(el) => (sectionRefs.current['user-testing'] = el)}>
-          <h2 className="section-title">[5] USER TESTING</h2>
-          <h3 className="section-subtitle">
-            Conducting user testing with my classmates
-          </h3>
-          
-          <p className="section-paragraph">
-            I conducted usability testing with five students and found the following insights:
-          </p>
-          
-          <div className="interview-callouts">
-            <div className="callout safehub-user-testing-callout">
-              <h4 className="safehub-user-testing-title">[5.1] DARK MODE</h4>
-              <p className="safehub-user-testing-content">All five students requested a dark mode feature, explaining it was easier on the eyes in low-light settings like early mornings or dim classrooms.</p>
-            </div>
-          </div>
-          
-          <div className="final-designs-container">
-            <img 
-              src={darkModeIteration} 
-              alt="Dark Mode Iteration" 
-              className="final-designs-image dark-mode-image"
-            />
-            <span className="container-caption container-caption--top-left"></span>
-          </div>
-          
-          <div className="interview-callouts interview-callouts--compact">
-            <div className="callout safehub-user-testing-callout">
-              <h4 className="safehub-user-testing-title">[5.2] DETAILED MAPS</h4>
-              <p className="safehub-user-testing-content">Students wanted maps with more defined landmarks and reference points to help them better understand where an emergency was occurring relative to other areas of the school.</p>
-            </div>
-          </div>
-          
-          <p className="section-paragraph">
-            This was an imperative piece of feedback, and admittedly, something I should have noticed earlier in my design process.
-          </p>
-          
-          <div className="location-logistics-container">
-            <img 
-              src={iconsRedefined} 
-              alt="Icons Redefined" 
-              className="location-logistics-image icons-image-small"
-            />
-            <span className="container-caption"></span>
-          </div>
-          
-          <p className="section-paragraph">
-            Accordingly, I integrated this new set of icons into my map design to create something more clear and accessible for all users.
-          </p>
-          
-          <div className="location-logistics-container">
-            <img 
-              src={revampedMap} 
-              alt="Revamped Map Design" 
-              className="location-logistics-image revamped-map-image"
-            />
-            <span className="container-caption"></span>
-          </div>
-          
-          <p className="section-paragraph">
-          I also decided to add zooming and scrolling so navigation would stay clear and easy to use.
-          </p>
-          
-          <div className="location-logistics-container location-logistics-container--large">
-            <img 
-              src={newLocationUpdated} 
-              alt="New Location Updated" 
-              className="location-logistics-image location-logistics-image--big"
-            />
-            <span className="container-caption"></span>
+            <img src={safehubV1} alt="Main screen v1" className="safehub-main-image" />
           </div>
         </div>
-        
-        {/* Final Product Section */}
-        <div className="case-study-section" id="final-product" ref={(el) => (sectionRefs.current['final-product'] = el)}>
-          <h2 className="section-title">[6] FINAL PRODUCT</h2>
-          <h3 className="section-subtitle">
-            <em>A 0→1 product that makes an impact</em>
-          </h3>
-          
-          <p className="section-paragraph">
-            While it took quite some time and multiple rounds of refinement, the final product turned into something I'm genuinely proud of: an app that I'm happy to call my own work.
+
+        <div className="safehub-section">
+          <p className="safehub-section-heading">Location</p>
+          <p className="safehub-section-body">
+            While exploring location reporting, I aimed to find a balance between giving users control to report locations accurately and keeping the process simple and effortless.
           </p>
-          
-          <div className="final-designs-container">
-            <img 
-              src={finalDesignsPerma} 
-              alt="Final Designs" 
-              className="final-designs-image"
-            />
-            <span className="container-caption container-caption--top-left"></span>
+
+          <div className="safehub-image-container" style={{ position: 'relative' }}>
+            <div className="safehub-design-label safehub-design-label--iteration">
+              <span className="safehub-design-label-icon safehub-design-label-icon--red">
+                <svg width="6" height="6" viewBox="0 0 8 8" fill="none"><path d="M1.5 1.5L6.5 6.5M6.5 1.5L1.5 6.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/></svg>
+              </span>
+              <span className="safehub-design-label-text">ITERATION</span>
+            </div>
+            <img src={safehubLocationV1} alt="Location v1" className="safehub-main-image" />
           </div>
-          
-          <div className="location-logistics-container happy-users-container">
-            <img 
-              src={happyUsers} 
-              alt="Happy Users" 
-              className="location-logistics-image happy-users-image"
-            />
-            <span className="container-caption"></span>
-          </div>
-              </div>
-        
-        {/* Reflection Section */}
-        <div className="case-study-section" id="reflection" ref={(el) => (sectionRefs.current['reflection'] = el)}>
-          <h2 className="section-title">[7] REFLECTIONS</h2>
-          <h3 className="section-subtitle">
-            A senior year filled with Figma critique sessions.
-          </h3>
-          
-          <p className="section-paragraph">
-            Here are some things that I took away after creating Safehub.
+          <p className="safehub-image-caption">BRUTE FORCE APPROACH</p>
+
+          <p className="safehub-section-body" style={{ marginTop: '28px' }}>
+            I tried to explore a way to integrate maps, following patterns from familiar tools like Google Maps, Uber, and Lyft.
           </p>
-          
-          <div className="reflection-takeaways">
-            <div className="reflection-takeaway">
-              <span className="reflection-takeaway-emoji">⭐</span>
-              <div className="reflection-takeaway-content">
-                <h4 className="reflection-takeaway-title">[7.1] BALANCING SIMPLICITY AND FUNCTIONALITY</h4>
-                <p className="reflection-takeaway-text">
-                  Early on, I struggled to decide between a minimalist interface and a more feature-rich experience. Over time, I learned to balance the two by focusing on essential functionality without overwhelming users.
-              </p>
-              </div>
+
+          <div className="safehub-image-container safehub-image-container--video">
+            <video
+              className="safehub-video"
+              src={safehubMapsVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
+
+          <div className="safehub-video-pair">
+            <div className="safehub-video-block">
+              <video
+                className="safehub-video"
+                src={safehubTooltipVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
             </div>
-            
-            <div className="reflection-takeaway">
-              <span className="reflection-takeaway-emoji">🧪</span>
-              <div className="reflection-takeaway-content">
-                <h4 className="reflection-takeaway-title">[7.2] LETTING USER RESEARCH LEAD</h4>
-                <p className="reflection-takeaway-text">
-                  Consistently returning to user research helped ground my decisions. Instead of guessing what students needed, real feedback clarified priorities and shaped more confident design choices.
-              </p>
-              </div>
+            <div className="safehub-video-block">
+              <video
+                className="safehub-video"
+                src={safehubYouAreHere}
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
             </div>
-            
-            <div className="reflection-takeaway">
-              <span className="reflection-takeaway-emoji">🎨</span>
-              <div className="reflection-takeaway-content">
-                <h4 className="reflection-takeaway-title">[7.3] LEARNING PATIENCE IN THE DESIGN PROCESS</h4>
-                <p className="reflection-takeaway-text">
-                  This project taught me that good design takes time. Strong solutions come from iteration and refinement, not from quick judgments or eyeballing a first pass.
-              </p>
+          </div>
+
+          <p className="safehub-section-body" style={{ marginTop: '28px' }}>
+            Putting that together, I assembled a solid design.
+          </p>
+
+          <div className="safehub-image-container" style={{ position: 'relative' }}>
+            <div className="safehub-design-label safehub-design-label--final">
+              <span className="safehub-design-label-icon safehub-design-label-icon--green">
+                <svg width="6" height="6" viewBox="0 0 8 8" fill="none"><path d="M1.5 4L3.5 6L6.5 2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </span>
+              <span className="safehub-design-label-text">FINAL DESIGN</span>
             </div>
+            <img src={safehubLocationV2} alt="Location v2" className="safehub-main-image" />
+          </div>
+        </div>
+
+        <div className="safehub-section">
+          <p className="safehub-section-heading">Emergency Selection</p>
+          <p className="safehub-section-body">
+            Accounting for how users specify their emergency felt relatively straightforward to incorporate into the flow. I compiled these emergency choices from user research.
+          </p>
+
+          <div className="safehub-image-container" style={{ position: 'relative' }}>
+            <div className="safehub-design-label safehub-design-label--final">
+              <span className="safehub-design-label-icon safehub-design-label-icon--green">
+                <svg width="6" height="6" viewBox="0 0 8 8" fill="none"><path d="M1.5 4L3.5 6L6.5 2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </span>
+              <span className="safehub-design-label-text">FINAL DESIGN</span>
             </div>
+            <img src={safehubEmergencyV1} alt="Emergency selection" className="safehub-main-image" />
           </div>
         </div>
       </div>
