@@ -154,7 +154,7 @@ function About() {
             <div className="about-section-col">
               <span className="about-section-label"><span className="about-section-num">[3]</span> EXPERIENCE</span>
               <div className="about-entry">
-                <span className="about-entry-name"><span className="about-entry-company">Walmart</span>, Systems & Automation Engineering Intern</span>
+                <span className="about-entry-name"><span className="about-entry-company">Cisco</span>, Technical Product Management Intern</span>
                 <span className="about-entry-date">Incoming Summer 2026</span>
               </div>
               <div className="about-entry">

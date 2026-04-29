@@ -145,9 +145,6 @@ export default function Photos() {
         className="photos-canvas"
         style={{ transform: `translate(${canvasOffset.x}px, ${canvasOffset.y}px)` }}
       >
-        {/* Cloud at top of canvas — appears near top of screen on load */}
-        <img src={cloudIcon} className="canvas-top-cloud" alt="" draggable={false} />
-
         {/* Deco icons at low z-index so photos always cover them */}
         <img src={cloudIcon}  className="deco-icon deco-cloud"  alt="" draggable={false} style={{ filter: 'invert(1)' }} />
         <img src={planeIcon}  className="deco-icon deco-plane"  alt="" draggable={false} style={{ filter: 'invert(1)' }} />
