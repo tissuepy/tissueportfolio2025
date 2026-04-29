@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import './PogoFeatures.css';
 
 const FEATURES = [
-  { name: 'Branching',             date: 'APR 26', comingSoon: true  },
+  { name: 'AI Qualitative Branching', date: 'APR 26', comingSoon: true  },
   { name: 'Virtual Backgrounds',   date: 'MAR 26', comingSoon: false },
   { name: 'Monadic Study Builder', date: 'FEB 26', comingSoon: false },
   { name: 'TURF Study Builder',    date: 'JAN 26', comingSoon: false },
