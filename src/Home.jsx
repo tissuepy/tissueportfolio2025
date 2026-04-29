@@ -16,6 +16,7 @@ const PHRASES = [
 function Home() {
   const heroSectionRef = useRef(null);
   const heroTextRef = useRef(null);
+  const workSectionRef = useRef(null);
   const [showWallet, setShowWallet] = useState(true);
   const [phraseIdx, setPhraseIdx] = useState(0);
   const [phraseVisible, setPhraseVisible] = useState(true);
@@ -170,7 +171,7 @@ function Home() {
                 <span style={{ color: 'rgba(0,0,0,0.35)' }}>{estTime} EST</span>
               </div>
               <p className="hero-heading-inter">
-                <span className="cursor-thats-me">Nitish Gannu</span> is a <span className="product-designer-hover">Product Designer</span> crafting delightful digital experiences that{' '}
+                <span className="cursor-thats-me">Nitish Gannu</span> is a <span className="product-designer-hover cursor-work" style={{ cursor: 'none' }} onClick={() => workSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}>Product Designer</span> crafting delightful digital experiences that{' '}
                 <span style={{ display: 'inline-block', overflow: 'hidden', verticalAlign: 'bottom' }}>
                   <span
                     style={{
@@ -192,10 +193,10 @@ function Home() {
                   <span className="hero-meta-body">Product Design @ <a href="https://www.joinpogo.com/" target="_blank" rel="noopener noreferrer" className="hero-dotted-link">Pogo</a></span>
                 </div>
                 <div className="hero-meta-block">
-                  <span className="hero-meta-label">CURRENTLY STUDYING</span>
+                  <span className="hero-meta-label">STUDYING</span>
                   <span className="hero-meta-body">Data Science & Statistics @ <a href="https://www.cornell.edu" target="_blank" rel="noopener noreferrer" className="hero-dotted-link">Cornell</a></span>
                 </div>
-                <div className="hero-meta-block">
+                <div className="hero-meta-block" style={{ display: 'none' }}>
                   <span className="hero-meta-label">PREVIOUSLY</span>
                   <span className="hero-meta-body">Product Design @ <a href="https://openai.com/chatgpt" target="_blank" rel="noopener noreferrer" className="hero-dotted-link">ChatGPT</a> & <a href="https://trywrap.com/" target="_blank" rel="noopener noreferrer" className="hero-dotted-link">Wrap</a></span>
                 </div>
@@ -215,6 +216,7 @@ function Home() {
               }
             `}</style>
             <pre aria-hidden="true" style={{
+              display: 'none',
               fontFamily: 'monospace',
               fontSize: '9px',
               lineHeight: '1.15',
@@ -275,7 +277,7 @@ function Home() {
       </div>
 
       {showWallet ? (
-        <div className="main-content-container">
+        <div className="main-content-container" ref={workSectionRef}>
           <div className="wallet-side-panel">
             <WalletCard />
           </div>

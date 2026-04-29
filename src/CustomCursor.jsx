@@ -11,7 +11,8 @@ export default function CustomCursor() {
   const [beli,        setBeli]        = useState(false);
   const [arrow,       setArrow]       = useState(false);
   const [newYork,     setNewYork]     = useState(false);
-  const [claudeCode,  setClaudeCode]  = useState(false);
+  const [work,        setWork]        = useState(false);
+  const [workClicked, setWorkClicked] = useState(false);
 
   useEffect(() => {
     const outer = posRef.current;
@@ -31,12 +32,18 @@ export default function CustomCursor() {
       setComingSoon(!!(el && el.closest('.cursor-coming-soon')));
       setNotion(!!(el && el.closest('.cursor-notion')));
       setBeli(!!(el && el.closest('.cursor-beli')));
-      setArrow(!!(el && el.closest('.wallet-card')));
+      setArrow(false);
       setNewYork(!!(el && el.closest('.cursor-newyork')));
-      setClaudeCode(!!(el && el.closest('.cursor-claude-code')));
+      const onWork = !!(el && el.closest('.cursor-work'));
+      setWork(onWork);
+      if (!onWork) setWorkClicked(false);
     };
 
-    const onDown = () => setClicking(true);
+    const onDown = (e) => {
+      setClicking(true);
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      if (el && el.closest('.cursor-work')) setWorkClicked(true);
+    };
     const onUp   = () => setClicking(false);
 
     window.addEventListener('mousemove', onMove);
@@ -52,10 +59,11 @@ export default function CustomCursor() {
   }, []);
 
   // Expand into pill for any label state
-  const expanded   = label || comingSoon || beli || claudeCode;
-  const w          = notion ? 36 : newYork ? 36 : claudeCode ? 120 : beli ? 130 : expanded ? 110 : arrow ? 28 : 20;
-  const h          = notion ? 36 : newYork ? 36 : expanded ? 36 : arrow ? 28 : 20;
-  const cursorText = label ? 'THATS ME!' : comingSoon ? 'COMING SOON' : beli ? '@TISSUEPOO' : claudeCode ? 'CLAUDE CODE' : null;
+  const showWork   = work && !workClicked;
+  const expanded   = label || comingSoon || beli || showWork;
+  const w          = notion ? 36 : newYork ? 36 : showWork ? 155 : beli ? 130 : expanded ? 110 : arrow ? 28 : 20;
+  const h          = notion ? 36 : newYork ? 36 : expanded ? 28 : arrow ? 28 : 20;
+  const cursorText = label ? 'THATS ME!' : comingSoon ? 'COMING SOON' : beli ? '@TISSUEPOO' : showWork ? 'CHECK OUT WORK' : null;
 
   return (
     <>
@@ -111,6 +119,9 @@ export default function CustomCursor() {
               whiteSpace:    'nowrap',
             }}>
               {cursorText}
+              {showWork && (
+                <span style={{ fontFamily: 'Inter, sans-serif', marginLeft: '4px', fontSize: '13px' }}>↗</span>
+              )}
             </span>
           )}
           {newYork && (

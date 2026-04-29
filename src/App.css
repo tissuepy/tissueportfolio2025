@@ -1,6 +1,6 @@
 ::selection {
-  background-color: #f0b0b0;
-  color: #ffffff;
+  background-color: #f5c8c8;
+  color: #111111;
 }
 
 
@@ -59,8 +59,8 @@ html {
 
 /* Text selection highlight */
 ::selection {
-  background-color: #f0b0b0;
-  color: #ffffff;
+  background-color: #f5c8c8;
+  color: #111111;
 }
 
 ::-moz-selection {
@@ -551,7 +551,7 @@ html {
 
 /* Hero Section - Centered text */
 .hero-section {
-  padding: 160px 80px 40px 80px;
+  padding: 110px 80px 40px 80px;
   margin-top: 0;
   margin-bottom: 0;
   position: relative;
@@ -629,7 +629,7 @@ html {
   left: 0;
   right: 0;
   height: 4px;
-  background-image: radial-gradient(circle at center, #BF5656 1.8px, transparent 1.8px);
+  background-image: radial-gradient(circle at center, #BF5656 1.2px, transparent 2px);
   background-size: 8px 4px;
   background-repeat: repeat-x;
   background-position: 0 50%;
@@ -672,7 +672,7 @@ html {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.06em;
-  color: #aaaaaa;
+  color: #BF5656;
   text-transform: uppercase;
 }
 
@@ -2890,7 +2890,7 @@ html {
 .wallet-side-panel {
   display: flex;
   justify-content: flex-start;
-  padding-left: 80px;
+  padding-left: 40px;
   padding-bottom: 80px;
 }
 
@@ -3407,8 +3407,8 @@ html {
 .site-footer-content {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 44px 160px 32px 120px;
+  align-items: center;
+  padding: 28px 160px 28px 120px;
 }
 
 .site-footer-made-block {
@@ -3580,6 +3580,37 @@ html {
 .site-footer-nav {
   display: flex;
   gap: 64px;
+}
+
+.site-footer-links-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.site-footer-simple-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #111111;
+  text-decoration: none;
+  transition: opacity 0.18s ease;
+}
+
+.site-footer-simple-link:hover {
+  color: #BF5656;
+}
+
+.site-footer-sep {
+  color: #111111;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  padding: 0 8px;
 }
 
 .site-footer-nav-col {

@@ -1,0 +1,37 @@
+.article-page {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  padding: 60px 40px 80px;
+  box-sizing: border-box;
+}
+
+.article-inner {
+  width: 100%;
+  max-width: 560px;
+}
+
+.article-title {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 35px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+  line-height: 1.1;
+}
+
+.article-dateline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.article-date {
+  color: #aaaaaa;
+}
+
+.article-subtitle {
+  color: #111111;
+}
