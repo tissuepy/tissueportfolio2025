@@ -4,7 +4,7 @@ import './PogoFeatures.css';
 import './Writing.css';
 
 const ARTICLES = [
-  { num: '01', title: 'New School', date: '03-2026' },
+  { num: '01', title: 'Rejection', date: 'APR 2026', path: '/writing/rejection' },
 ];
 
 export default function Writing() {
@@ -13,10 +13,6 @@ export default function Writing() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
-
-  const handleArticleClick = () => {
-    window.open('https://medium.com/@nitishgannu', '_blank', 'noopener,noreferrer');
-  };
 
   return (
     <div className="pogo-features-page">
@@ -28,7 +24,7 @@ export default function Writing() {
               key={a.num}
               className="pogo-features-row writing-row"
               style={{ animationDelay: `${0.2 + i * 0.08}s`, cursor: 'pointer' }}
-              onClick={handleArticleClick}
+              onClick={() => navigate(a.path)}
             >
               <span className="pogo-features-name">
                 <span className="writing-num">{a.num}</span>&nbsp;&nbsp;{a.title}
