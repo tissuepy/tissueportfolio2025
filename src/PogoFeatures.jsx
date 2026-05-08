@@ -19,8 +19,8 @@ export default function PogoFeatures() {
       <div className="pogo-features-inner">
         <div className="pogo-header">
           <div className="pogo-header-left">
-            <h1 className="pogo-header-title">Pogo</h1>
-            <p className="pogo-header-date">2024 – Present</p>
+            <h1 className="pogo-header-title">Pogo AI Survey Platform</h1>
+            <p className="pogo-header-date">Spring 2026</p>
           </div>
           <div className="pogo-header-right">
             <p className="pogo-header-desc">
