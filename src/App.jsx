@@ -64,7 +64,7 @@ function App() {
       const timeout = setTimeout(() => {
         setCurrentPath(location.pathname);
         setFadeClass('fade-in');
-      }, 300);
+      }, 180);
       return () => clearTimeout(timeout);
     }
   }, [location, currentPath]);

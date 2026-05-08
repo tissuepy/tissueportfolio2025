@@ -1,8 +1,35 @@
+@keyframes chatgptFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .chatgpt-article-content {
   width: 100%;
   max-width: 520px;
   padding: 60px 0 80px 0;
   margin: 0 auto;
+}
+
+.chatgpt-article-header {
+  animation: chatgptFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+
+.chatgpt-feedback-section {
+  animation: chatgptFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.chatgpt-article-canvas {
+  animation: chatgptFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+.chatgpt-last-updated {
+  animation: chatgptFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
 }
 
 .chatgpt-article-header {
