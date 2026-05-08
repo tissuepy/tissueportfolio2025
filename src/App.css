@@ -37,7 +37,7 @@
 }
 
 :root {
-  --bg-color:          #eff1f5;
+  --bg-color:          #ffffff;
   --grid-color:        rgba(76, 79, 105, 0.04);   /* 4 % opacity */
   --grid-size:         48px;
   --gradient-overlay:  rgba(76, 79, 105, 0.03);   /* 3 % opacity */
@@ -56,6 +56,11 @@ html {
 
 /* Hide default cursor — CustomCursor replaces it */
 *, *::before, *::after { cursor: none !important; }
+
+/* Restore default cursor on touch/mobile devices */
+@media (pointer: coarse) {
+  *, *::before, *::after { cursor: auto !important; }
+}
 
 /* Text selection highlight */
 ::selection {
@@ -3687,4 +3692,45 @@ html {
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.35);
   margin-top: 16px;
+}
+
+/* ── Mobile responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 24px 20px 16px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+  }
+
+  .navbar-notion-face {
+    margin-left: auto;
+  }
+
+  .hero-section {
+    padding: 80px 20px 32px 20px;
+  }
+
+  .main-content-container {
+    padding: 0 20px;
+  }
+
+  .site-footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .site-footer-made-block {
+    max-width: 100%;
+  }
+
+  .article-page {
+    padding: 60px 20px 60px 20px;
+  }
+
+  .article-inner {
+    max-width: 100%;
+  }
 }

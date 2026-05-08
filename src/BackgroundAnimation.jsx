@@ -68,7 +68,7 @@ void main() {
   // Neutral colour #4C4F69
   vec3 color = vec3(0.298, 0.310, 0.412);
 
-  gl_FragColor = vec4(color, filled * 0.08);
+  gl_FragColor = vec4(color, filled * 0.045);
 }
 `;
 

@@ -35,3 +35,12 @@
 .article-subtitle {
   color: #111111;
 }
+
+.article-body {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.7;
+  margin: 32px 0 0 0;
+}

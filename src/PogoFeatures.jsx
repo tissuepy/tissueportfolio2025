@@ -2,10 +2,11 @@ import { useEffect } from 'react';
 import './PogoFeatures.css';
 
 const FEATURES = [
-  { name: 'AI Qualitative Branching', date: 'APR 26', comingSoon: true  },
-  { name: 'Virtual Backgrounds',   date: 'MAR 26', comingSoon: false },
-  { name: 'Monadic Study Builder', date: 'FEB 26', comingSoon: false },
-  { name: 'TURF Study Builder',    date: 'JAN 26', comingSoon: false },
+  { name: 'AI Qualitative Branching', date: 'May 26', comingSoon: true  },
+  { name: 'Sections',                 date: 'Apr 26', comingSoon: false },
+  { name: 'Virtual Backgrounds',      date: 'Apr 26', comingSoon: false },
+  { name: 'Monadic Study Builder',    date: 'Mar 26', comingSoon: false },
+  { name: 'TURF Study Builder',       date: 'Feb 26', comingSoon: false },
 ];
 
 export default function PogoFeatures() {
@@ -16,7 +17,6 @@ export default function PogoFeatures() {
   return (
     <div className="pogo-features-page">
       <div className="pogo-features-inner">
-        <p className="pogo-features-heading">SHIPPED FEATURES</p>
         <ul className="pogo-features-list">
           {FEATURES.map((f, i) => (
             <li
