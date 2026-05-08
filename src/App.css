@@ -3704,6 +3704,11 @@ html {
   margin-top: 16px;
 }
 
+/* Hide mobile list by default (desktop) — overridden inside the media query below */
+.mobile-project-list {
+  display: none;
+}
+
 /* ── Mobile responsive ─────────────────────────────────────────────── */
 @media (max-width: 600px) {
   .navbar {
@@ -3759,11 +3764,6 @@ html {
     gap: 8px;
     padding: 0 20px 48px 20px;
   }
-}
-
-/* Desktop: hide mobile list */
-.mobile-project-list {
-  display: none;
 }
 
 .mobile-project-row {
