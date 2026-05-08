@@ -3768,6 +3768,42 @@ html {
   .mobile-project-heading {
     display: block;
   }
+
+  /* ── About page mobile ───────────────────────────────────── */
+  .about-hero {
+    padding: 20px 20px 0 20px;
+    max-width: 100%;
+  }
+
+  .about-sections-row {
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .about-section-col:first-child {
+    flex: unset;
+    width: 100%;
+  }
+
+  .about-section-col:last-child {
+    flex: unset;
+    width: 100%;
+  }
+
+  .about-body {
+    font-size: 15px;
+  }
+
+  .about-entry {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .about-entry-date {
+    margin-left: 0;
+  }
 }
 
 .mobile-project-heading {
