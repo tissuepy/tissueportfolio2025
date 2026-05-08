@@ -24,7 +24,7 @@ export default function PogoFeatures() {
           </div>
           <div className="pogo-header-right">
             <p className="pogo-header-desc">
-              I work on product design at Pogo, a platform for market research teams. I design and ship features end-to-end — from AI-powered qualitative tools to study layouts and collaboration flows.
+              Currently working as a Product Design Intern at Pogo, an enterprise AI survey platform that has raised $14.8M in funding, including a $12.3M seed round led by Josh Buckley and a $2.5M pre-seed round.
             </p>
           </div>
         </div>
