@@ -3769,6 +3769,11 @@ html {
     display: block;
   }
 
+  .hero-heading-inter {
+    font-size: 24px !important;
+    margin-bottom: 32px;
+  }
+
   /* ── About page mobile ───────────────────────────────────── */
   .about-hero {
     padding: 20px 20px 0 20px;
