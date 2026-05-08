@@ -17,60 +17,10 @@ function Home() {
   const heroSectionRef = useRef(null);
   const heroTextRef = useRef(null);
   const workSectionRef = useRef(null);
-  const [showWallet, setShowWallet] = useState(true);
+  const showWallet = true;
   const [phraseIdx, setPhraseIdx] = useState(0);
   const [phraseVisible, setPhraseVisible] = useState(true);
   const [estTime, setEstTime] = useState('');
-
-  useEffect(() => {
-    let timeoutId;
-    
-    const checkViewport = () => {
-      // Clear any pending timeout
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      
-      // Debounce the check to avoid rapid state changes
-      timeoutId = setTimeout(() => {
-        // Only show project gallery when viewport is small (zoomed in)
-        // Viewport must be less than 900px for project gallery to appear
-        const isSmallViewport = window.innerWidth < 900;
-        setShowWallet(!isSmallViewport);
-      }, 100);
-    };
-
-    // Use matchMedia for better zoom detection
-    const mediaQuery = window.matchMedia('(max-width: 899px)');
-    const handleChange = (e) => {
-      // Only show project gallery when media query matches (zoomed in)
-      setShowWallet(!e.matches);
-    };
-
-    // Check on mount
-    checkViewport();
-    
-    // Listen for changes
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener('change', handleChange);
-    } else {
-      // Fallback for older browsers
-      mediaQuery.addListener(handleChange);
-    }
-    window.addEventListener('resize', checkViewport);
-    
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      if (mediaQuery.removeEventListener) {
-        mediaQuery.removeEventListener('change', handleChange);
-      } else {
-        mediaQuery.removeListener(handleChange);
-      }
-      window.removeEventListener('resize', checkViewport);
-    };
-  }, []);
 
   useEffect(() => {
     const tick = () => {
