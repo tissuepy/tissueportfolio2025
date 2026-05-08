@@ -3795,14 +3795,25 @@ html {
     font-size: 15px;
   }
 
-  .about-entry {
+  /* CONTACT col — keep row layout, constrain width so lines aren't full-screen */
+  .about-section-col:first-child {
+    max-width: 220px;
+  }
+
+  /* EXPERIENCE col — stack name above date */
+  .about-section-col:last-child .about-entry {
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
   }
 
-  .about-entry-date {
+  .about-section-col:last-child .about-entry-date {
     margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .about-section-col:last-child .about-entry {
+    gap: 6px;
   }
 }
 
