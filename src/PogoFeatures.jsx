@@ -17,6 +17,17 @@ export default function PogoFeatures() {
   return (
     <div className="pogo-features-page">
       <div className="pogo-features-inner">
+        <div className="pogo-header">
+          <div className="pogo-header-left">
+            <h1 className="pogo-header-title">Pogo</h1>
+            <p className="pogo-header-date">2024 – Present</p>
+          </div>
+          <div className="pogo-header-right">
+            <p className="pogo-header-desc">
+              I work on product design at Pogo, a platform for market research teams. I design and ship features end-to-end — from AI-powered qualitative tools to study layouts and collaboration flows.
+            </p>
+          </div>
+        </div>
         <ul className="pogo-features-list">
           {FEATURES.map((f, i) => (
             <li

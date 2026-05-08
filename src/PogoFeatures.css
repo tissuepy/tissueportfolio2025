@@ -23,6 +23,66 @@
   max-width: 640px;
 }
 
+/* ── Header (same two-column format as ChatGPT article) ── */
+.pogo-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 36px;
+  padding: 0 20px;
+}
+
+.pogo-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.pogo-header-title {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.pogo-header-date {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.55);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.pogo-header-right {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.pogo-header-desc {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.55);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .pogo-header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin-bottom: 24px;
+  }
+}
+
 .pogo-features-heading {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
@@ -49,7 +109,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 14px 20px;
+  padding: 14px 20px 14px 20px;
   border-radius: 14px;
   cursor: default;
   transition: background-color 0.15s ease;
