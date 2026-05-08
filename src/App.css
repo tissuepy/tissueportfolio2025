@@ -3733,4 +3733,9 @@ html {
   .article-inner {
     max-width: 100%;
   }
+
+  .wallet-side-panel {
+    padding-left: 20px;
+    padding-bottom: 48px;
+  }
 }
