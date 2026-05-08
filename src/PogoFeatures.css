@@ -25,8 +25,20 @@
 
 @media (max-width: 600px) {
   .pogo-features-page {
-    padding: 40px 20px 60px 20px;
+    padding: 40px 24px 60px 24px;
     align-items: flex-start;
+  }
+
+  .pogo-header {
+    padding: 0;
+  }
+
+  .pogo-section-label {
+    padding: 0;
+  }
+
+  .pogo-features-row {
+    padding: 12px 0;
   }
 }
 
