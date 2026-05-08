@@ -96,6 +96,11 @@
   animation: pogoFadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
 }
 
+.pogo-section-label {
+  padding: 0 20px;
+  margin: 0 0 8px 0;
+}
+
 .pogo-features-list {
   list-style: none;
   margin: 0;

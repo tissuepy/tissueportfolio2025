@@ -28,6 +28,7 @@ export default function PogoFeatures() {
             </p>
           </div>
         </div>
+        <p className="pogo-header-title pogo-section-label">Shipped Features</p>
         <ul className="pogo-features-list">
           {FEATURES.map((f, i) => (
             <li
