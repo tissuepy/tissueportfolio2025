@@ -24,7 +24,7 @@ export default function PogoFeatures() {
           </div>
           <div className="pogo-header-right">
             <p className="pogo-header-desc">
-              Currently working as a Product Design Intern at Pogo, an enterprise AI survey platform that has raised $14.8M in funding, including a $12.3M seed round led by Josh Buckley and a $2.5M pre-seed round.
+              Currently working as a Product Design Intern at Pogo, an enterprise AI survey platform that has raised $14.8M in funding.
             </p>
           </div>
         </div>
