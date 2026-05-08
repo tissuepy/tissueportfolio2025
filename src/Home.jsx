@@ -2,6 +2,7 @@
 import './App.css';
 import './About.jsx';
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProjectsMasonry from './ProjectsMasonry';
 import WalletCard from './WalletCard';
 import cloudImg from './assets/cloud.png';
@@ -14,6 +15,7 @@ const PHRASES = [
 ];
 
 function Home() {
+  const navigate = useNavigate();
   const heroSectionRef = useRef(null);
   const heroTextRef = useRef(null);
   const workSectionRef = useRef(null);
@@ -226,17 +228,37 @@ function Home() {
         </div>
       </div>
 
-      {showWallet ? (
-        <div className="main-content-container" ref={workSectionRef}>
-          <div className="wallet-side-panel">
-            <WalletCard />
-          </div>
+      {/* Desktop: wallet */}
+      <div className="main-content-container wallet-desktop-only" ref={workSectionRef}>
+        <div className="wallet-side-panel">
+          <WalletCard />
         </div>
-      ) : (
-        <div className="bottom-half fade-in-on-scroll fade-in-visible wallet-hidden" style={{ paddingTop: '40px' }}>
-          <ProjectsMasonry />
-        </div>
-      )}
+      </div>
+
+      {/* Mobile: project list */}
+      <div className="mobile-project-list">
+        {[
+          { num: '01', bg: '#111111', color: '#ffffff', label: 'ChatGPT Bookmarks', path: '/work/chatgpt/article' },
+          { num: '02', bg: '#d5061b', color: '#ffffff', label: 'Safehub',            path: '/work/safehub'         },
+          { num: '03', bg: '#7c3aed', color: '#ffffff', label: 'Pogo',               path: '/work/pogo'            },
+          { num: '04', bg: '#ffb700', color: '#ffffff', label: 'Wrap',               href: 'https://trywrap.com/'  },
+        ].map(({ num, bg, color, label, path, href }) => (
+          <a
+            key={num}
+            href={href || path}
+            onClick={path ? (e) => { e.preventDefault(); navigate(path); } : undefined}
+            target={href ? '_blank' : undefined}
+            rel={href ? 'noopener noreferrer' : undefined}
+            className="mobile-project-row"
+          >
+            <span className="mobile-project-badge" style={{ backgroundColor: bg, color }}>
+              {num}
+            </span>
+            <span className="mobile-project-title">{label}</span>
+            <span className="mobile-project-arrow">↗</span>
+          </a>
+        ))}
+      </div>
     </>
   );
 }
