@@ -23,25 +23,6 @@
   max-width: 520px;
 }
 
-@media (max-width: 600px) {
-  .pogo-features-page {
-    padding: 40px 24px 60px 24px;
-    align-items: flex-start;
-  }
-
-  .pogo-header {
-    padding: 0;
-  }
-
-  .pogo-section-label {
-    padding: 0;
-  }
-
-  .pogo-features-row {
-    padding: 12px 0;
-  }
-}
-
 /* ── Header (same two-column format as ChatGPT article) ── */
 .pogo-header {
   display: flex;
@@ -93,15 +74,6 @@
   margin: 0;
 }
 
-@media (max-width: 600px) {
-  .pogo-header {
-    flex-direction: column;
-    gap: 12px;
-    padding: 0;
-    margin-bottom: 24px;
-  }
-}
-
 .pogo-features-heading {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
@@ -117,7 +89,7 @@
 
 .pogo-section-label {
   padding: 0 20px;
-  margin: 0 0 8px 0;
+  margin: 16px 0 8px 0;
 }
 
 .pogo-features-list {
@@ -169,3 +141,31 @@
   background-color: transparent;
 }
 
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .pogo-features-page {
+    padding: 40px 20px 60px 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .pogo-features-inner {
+    width: 100%;
+  }
+
+  .pogo-header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin-bottom: 24px;
+  }
+
+  .pogo-section-label {
+    padding: 0;
+    margin-left: 0;
+  }
+
+  .pogo-features-row {
+    padding: 12px 0;
+  }
+}
