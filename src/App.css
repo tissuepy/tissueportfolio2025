@@ -37,7 +37,7 @@
 }
 
 :root {
-  --bg-color:          #eff1f5;
+  --bg-color:          #ffffff;
   --grid-color:        rgba(76, 79, 105, 0.04);   /* 4 % opacity */
   --grid-size:         48px;
   --gradient-overlay:  rgba(76, 79, 105, 0.03);   /* 3 % opacity */
@@ -56,6 +56,11 @@ html {
 
 /* Hide default cursor — CustomCursor replaces it */
 *, *::before, *::after { cursor: none !important; }
+
+/* Restore default cursor on touch/mobile devices */
+@media (pointer: coarse) {
+  *, *::before, *::after { cursor: auto !important; }
+}
 
 /* Text selection highlight */
 ::selection {
@@ -207,22 +212,32 @@ html {
 }
 
 
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .page-wrapper {
   position: relative;
   z-index: 10;
-  transition: opacity 900ms ease-in-out;
-  opacity: 1;
 }
 
 .page-wrapper.fade-out {
   opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
 
 /* Navbar visibility classes removed - navbar is now static */
 
-
 .page-wrapper.fade-in {
-  opacity: 1;
+  animation: pageEnter 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .right-section {
@@ -3687,4 +3702,177 @@ html {
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.35);
   margin-top: 16px;
+}
+
+/* Hide mobile list by default (desktop) — overridden inside the media query below */
+.mobile-project-list {
+  display: none;
+}
+
+/* ── Mobile responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 24px 20px 16px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+  }
+
+  .navbar-notion-face {
+    margin-left: auto;
+  }
+
+  .hero-section {
+    padding: 80px 20px 32px 20px;
+  }
+
+  .main-content-container {
+    padding: 0;
+  }
+
+  .site-footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .site-footer-made-block {
+    max-width: 100%;
+  }
+
+  .article-page {
+    padding: 60px 20px 60px 20px;
+  }
+
+  .article-inner {
+    max-width: 100%;
+  }
+
+  .wallet-side-panel {
+    padding-left: 20px;
+    padding-bottom: 48px;
+  }
+
+  .wallet-desktop-only {
+    display: none;
+  }
+
+  .mobile-project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 20px 48px 20px;
+  }
+
+  .mobile-project-heading {
+    display: block;
+  }
+
+  .hero-heading-inter {
+    font-size: 24px !important;
+    margin-bottom: 32px;
+  }
+
+  /* ── About page mobile ───────────────────────────────────── */
+  .about-hero {
+    padding: 20px 20px 0 20px;
+    max-width: 100%;
+  }
+
+  .about-sections-row {
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .about-section-col:first-child {
+    flex: unset;
+    width: 100%;
+  }
+
+  .about-section-col:last-child {
+    flex: unset;
+    width: 100%;
+  }
+
+  .about-body {
+    font-size: 15px;
+  }
+
+  /* CONTACT col — keep row layout, constrain width so lines aren't full-screen */
+  .about-section-col:first-child {
+    max-width: 220px;
+  }
+
+  /* EXPERIENCE col — stack name above date */
+  .about-section-col:last-child .about-entry {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .about-section-col:last-child .about-entry-date {
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .about-section-col:last-child .about-entry {
+    gap: 6px;
+  }
+}
+
+.mobile-project-heading {
+  display: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+}
+
+.mobile-project-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  background-color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+  box-sizing: border-box;
+}
+
+.mobile-project-row:hover {
+  background-color: #f9f9f9;
+}
+
+.mobile-project-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 5px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.mobile-project-title {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #111111;
+  flex: 1;
+}
+
+.mobile-project-arrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
 }

@@ -57,7 +57,7 @@ const WalletCard = () => {
   const handleCardClick = () => {
     switch (activeItem) {
       case 'CHATGPT':
-        window.open('https://medium.com/@nitishgannu/building-bookmarks-into-chatgpt-46ca50a7b2a4', '_blank', 'noopener,noreferrer');
+        navigate('/work/chatgpt/article');
         break;
       case 'SAFEHUB':
         navigate('/work/safehub');

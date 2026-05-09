@@ -1,0 +1,236 @@
+@keyframes chatgptFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chatgpt-article-content {
+  width: 100%;
+  max-width: 520px;
+  padding: 60px 0 80px 0;
+  margin: 0 auto;
+}
+
+.chatgpt-article-header {
+  animation: chatgptFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+
+.chatgpt-feedback-section {
+  animation: chatgptFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.chatgpt-article-canvas {
+  animation: chatgptFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+.chatgpt-last-updated {
+  animation: chatgptFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+.chatgpt-article-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.chatgpt-article-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.chatgpt-article-title {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.chatgpt-article-date {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.55);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.chatgpt-article-case-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #111111;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+  margin-top: 12px;
+  line-height: 1.4;
+}
+
+.chatgpt-case-arrow {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  filter: brightness(0);
+}
+
+.chatgpt-article-case-link:hover {
+  color: #BF5656;
+  text-decoration-color: #BF5656;
+}
+
+.chatgpt-article-header-right {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.chatgpt-article-body {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.55);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.chatgpt-feedback-section {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chatgpt-feedback-heading {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #111111;
+  margin: 0 0 8px 0;
+}
+
+.chatgpt-feedback-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  background-color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.chatgpt-feedback-card--reddit {
+  padding-left: 6px;
+  gap: 8px;
+}
+
+.chatgpt-feedback-card:hover {
+  background-color: #f9f9f9;
+}
+
+.chatgpt-feedback-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.chatgpt-feedback-text {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #111111;
+  flex: 1;
+}
+
+.chatgpt-feedback-logo--sm {
+  width: 21px;
+  height: 21px;
+}
+
+.chatgpt-feedback-arrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .chatgpt-article-content {
+    padding: 40px 20px 60px 20px;
+  }
+
+  .chatgpt-article-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .chatgpt-article-header-right {
+    flex: unset;
+    width: 100%;
+  }
+}
+
+.chatgpt-last-updated {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  margin: 32px 0 0 0;
+}
+
+.chatgpt-last-updated-label {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.chatgpt-last-updated-date {
+  color: #000000;
+}
+
+.chatgpt-article-canvas {
+  margin-top: 24px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.chatgpt-screen-img {
+  height: 90%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.chatgpt-screen-large {
+  height: 150%;
+  margin-top: 300px;
+}

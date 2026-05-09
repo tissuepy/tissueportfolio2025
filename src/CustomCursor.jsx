@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import notionLogo from './assets/notion-logo.png';
+import mediumLogo from './assets/medium-logo.webp';
 
 export default function CustomCursor() {
+  // Don't render on touch/mobile devices
+  if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
+    return null;
+  }
+
   const posRef    = useRef(null);   // outer div — handles position only
   const pos       = useRef({ x: -200, y: -200 });
   const [clicking,    setClicking]    = useState(false);
@@ -13,6 +19,7 @@ export default function CustomCursor() {
   const [newYork,     setNewYork]     = useState(false);
   const [work,        setWork]        = useState(false);
   const [workClicked, setWorkClicked] = useState(false);
+  const [medium,      setMedium]      = useState(false);
 
   useEffect(() => {
     const outer = posRef.current;
@@ -34,6 +41,7 @@ export default function CustomCursor() {
       setBeli(!!(el && el.closest('.cursor-beli')));
       setArrow(false);
       setNewYork(!!(el && el.closest('.cursor-newyork')));
+      setMedium(!!(el && el.closest('.cursor-medium')));
       const onWork = !!(el && el.closest('.cursor-work'));
       setWork(onWork);
       if (!onWork) setWorkClicked(false);
@@ -61,8 +69,8 @@ export default function CustomCursor() {
   // Expand into pill for any label state
   const showWork   = work && !workClicked;
   const expanded   = label || comingSoon || beli || showWork;
-  const w          = notion ? 36 : newYork ? 36 : showWork ? 155 : beli ? 130 : expanded ? 110 : arrow ? 28 : 20;
-  const h          = notion ? 36 : newYork ? 36 : expanded ? 28 : arrow ? 28 : 20;
+  const w          = notion ? 36 : medium ? 36 : newYork ? 36 : showWork ? 155 : beli ? 130 : expanded ? 110 : arrow ? 28 : 20;
+  const h          = notion ? 36 : medium ? 36 : newYork ? 36 : expanded ? 28 : arrow ? 28 : 20;
   const cursorText = label ? 'THATS ME!' : comingSoon ? 'COMING SOON' : beli ? '@TISSUEPOO' : showWork ? 'CHECK OUT WORK' : null;
 
   return (
@@ -129,6 +137,15 @@ export default function CustomCursor() {
           )}
           {notion && !newYork && (
             <img src={notionLogo} alt="" style={{
+              width:     '17px',
+              height:    '17px',
+              objectFit: 'contain',
+              userSelect:'none',
+              pointerEvents: 'none',
+            }} />
+          )}
+          {medium && (
+            <img src={mediumLogo} alt="" style={{
               width:     '17px',
               height:    '17px',
               objectFit: 'contain',

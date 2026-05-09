@@ -2,6 +2,7 @@
 import './App.css';
 import './About.jsx';
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProjectsMasonry from './ProjectsMasonry';
 import WalletCard from './WalletCard';
 import cloudImg from './assets/cloud.png';
@@ -14,63 +15,14 @@ const PHRASES = [
 ];
 
 function Home() {
+  const navigate = useNavigate();
   const heroSectionRef = useRef(null);
   const heroTextRef = useRef(null);
   const workSectionRef = useRef(null);
-  const [showWallet, setShowWallet] = useState(true);
+  const showWallet = true;
   const [phraseIdx, setPhraseIdx] = useState(0);
   const [phraseVisible, setPhraseVisible] = useState(true);
   const [estTime, setEstTime] = useState('');
-
-  useEffect(() => {
-    let timeoutId;
-    
-    const checkViewport = () => {
-      // Clear any pending timeout
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      
-      // Debounce the check to avoid rapid state changes
-      timeoutId = setTimeout(() => {
-        // Only show project gallery when viewport is small (zoomed in)
-        // Viewport must be less than 900px for project gallery to appear
-        const isSmallViewport = window.innerWidth < 900;
-        setShowWallet(!isSmallViewport);
-      }, 100);
-    };
-
-    // Use matchMedia for better zoom detection
-    const mediaQuery = window.matchMedia('(max-width: 899px)');
-    const handleChange = (e) => {
-      // Only show project gallery when media query matches (zoomed in)
-      setShowWallet(!e.matches);
-    };
-
-    // Check on mount
-    checkViewport();
-    
-    // Listen for changes
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener('change', handleChange);
-    } else {
-      // Fallback for older browsers
-      mediaQuery.addListener(handleChange);
-    }
-    window.addEventListener('resize', checkViewport);
-    
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      if (mediaQuery.removeEventListener) {
-        mediaQuery.removeEventListener('change', handleChange);
-      } else {
-        mediaQuery.removeListener(handleChange);
-      }
-      window.removeEventListener('resize', checkViewport);
-    };
-  }, []);
 
   useEffect(() => {
     const tick = () => {
@@ -276,17 +228,38 @@ function Home() {
         </div>
       </div>
 
-      {showWallet ? (
-        <div className="main-content-container" ref={workSectionRef}>
-          <div className="wallet-side-panel">
-            <WalletCard />
-          </div>
+      {/* Desktop: wallet */}
+      <div className="main-content-container wallet-desktop-only" ref={workSectionRef}>
+        <div className="wallet-side-panel">
+          <WalletCard />
         </div>
-      ) : (
-        <div className="bottom-half fade-in-on-scroll fade-in-visible wallet-hidden" style={{ paddingTop: '40px' }}>
-          <ProjectsMasonry />
-        </div>
-      )}
+      </div>
+
+      {/* Mobile: project list */}
+      <div className="mobile-project-list">
+        <p className="mobile-project-heading">Projects</p>
+        {[
+          { num: '01', bg: '#111111', color: '#ffffff', label: 'ChatGPT Bookmarks', path: '/work/chatgpt/article' },
+          { num: '02', bg: '#d5061b', color: '#ffffff', label: 'Safehub',            path: '/work/safehub'         },
+          { num: '03', bg: '#7c3aed', color: '#ffffff', label: 'Pogo',               path: '/work/pogo'            },
+          { num: '04', bg: '#ffb700', color: '#ffffff', label: 'Wrap',               href: 'https://trywrap.com/'  },
+        ].map(({ num, bg, color, label, path, href }) => (
+          <a
+            key={num}
+            href={href || path}
+            onClick={path ? (e) => { e.preventDefault(); navigate(path); } : undefined}
+            target={href ? '_blank' : undefined}
+            rel={href ? 'noopener noreferrer' : undefined}
+            className="mobile-project-row"
+          >
+            <span className="mobile-project-badge" style={{ backgroundColor: bg, color }}>
+              {num}
+            </span>
+            <span className="mobile-project-title">{label}</span>
+            <span className="mobile-project-arrow">↗</span>
+          </a>
+        ))}
+      </div>
     </>
   );
 }
