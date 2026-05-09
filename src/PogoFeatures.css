@@ -168,5 +168,7 @@
   .pogo-features-row {
     padding: 12px 10px;
     margin: 0 -10px;
+    justify-content: flex-start;
+    gap: 12px;
   }
 }
