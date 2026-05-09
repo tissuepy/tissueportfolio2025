@@ -256,7 +256,9 @@ function Home() {
               {num}
             </span>
             <span className="mobile-project-title">{label}</span>
-            <span className="mobile-project-arrow">↗</span>
+            <svg className="mobile-project-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2.5 11.5L11.5 2.5M11.5 2.5H4.5M11.5 2.5V9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
           </a>
         ))}
       </div>
