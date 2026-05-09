@@ -3871,8 +3871,7 @@ html {
 }
 
 .mobile-project-arrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
   color: rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
+  display: block;
 }
