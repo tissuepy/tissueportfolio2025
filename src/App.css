@@ -3179,10 +3179,7 @@ html {
 }
 
 .one-path {
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-decoration-color: #BF5656;
-  text-underline-offset: 4px;
+  text-decoration: none;
   cursor: default;
 }
 
