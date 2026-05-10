@@ -3725,8 +3725,12 @@ html {
   transition: opacity 0.15s ease;
 }
 
-.mobile-project-row:hover {
-  opacity: 0.6;
+.mobile-project-row:hover .mobile-project-title {
+  color: #BF5656;
+}
+
+.mobile-project-row:hover .mobile-project-arrow {
+  color: #BF5656;
 }
 
 .mobile-project-badge {
@@ -3812,6 +3816,10 @@ html {
   .hero-meta-blocks {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .hero-meta-body {
+    font-size: 15px;
   }
 
   .mobile-project-list {
