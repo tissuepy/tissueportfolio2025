@@ -239,7 +239,7 @@ function Home() {
       <div className="mobile-project-list">
         <p className="mobile-project-heading">Projects</p>
         {[
-          { num: '01', bg: '#111111', color: '#ffffff', label: 'ChatGPT Bookmarks', path: '/work/chatgpt/article' },
+          { num: '01', bg: '#111111', color: '#ffffff', label: 'ChatGPT', path: '/work/chatgpt/article' },
           { num: '02', bg: '#d5061b', color: '#ffffff', label: 'Safehub',            path: '/work/safehub'         },
           { num: '03', bg: '#7c3aed', color: '#ffffff', label: 'Pogo',               path: '/work/pogo'            },
           { num: '04', bg: '#ffb700', color: '#ffffff', label: 'Wrap',               href: 'https://trywrap.com/'  },
