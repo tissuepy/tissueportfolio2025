@@ -117,7 +117,7 @@ function Home() {
               }}>
                 <span>
                   <span style={{ color: 'rgba(0,0,0,0.35)' }}>BASED IN </span>
-                  <span style={{ color: '#BF5656' }} className="cursor-newyork">NEW YORK <svg style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '1px' }} width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+                  <span style={{ color: '#BF5656' }} className="cursor-newyork">NEW YORK</span>
                 </span>
                 <span style={{ color: 'rgba(0,0,0,0.25)' }}>✦</span>
                 <span style={{ color: 'rgba(0,0,0,0.35)' }}>{estTime} EST</span>
