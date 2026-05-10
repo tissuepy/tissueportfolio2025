@@ -240,8 +240,8 @@ function Home() {
         <p className="mobile-project-heading">FEATURED WORK</p>
         {[
           { num: '01', bg: '#111111', color: '#ffffff', label: 'ChatGPT',  date: 'Fall 2025',   path: '/work/chatgpt/article' },
-          { num: '02', bg: '#d5061b', color: '#ffffff', label: 'Safehub',  date: 'Spring 2024', path: '/work/safehub'         },
-          { num: '03', bg: '#7c3aed', color: '#ffffff', label: 'Pogo',     date: 'Spring 2026', path: '/work/pogo'            },
+          { num: '02', bg: '#7c3aed', color: '#ffffff', label: 'Pogo',     date: 'Spring 2026', path: '/work/pogo'            },
+          { num: '03', bg: '#d5061b', color: '#ffffff', label: 'Safehub',  date: 'Spring 2024', path: '/work/safehub'         },
           { num: '04', bg: '#ffb700', color: '#ffffff', label: 'Wrap',     date: 'Summer 2025', href: 'https://trywrap.com/'  },
         ].map(({ num, bg, color, label, date, path, href }) => (
           <a
