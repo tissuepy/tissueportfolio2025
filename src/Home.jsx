@@ -237,7 +237,7 @@ function Home() {
 
       {/* Mobile: project list */}
       <div className="mobile-project-list">
-        <p className="mobile-project-heading">Projects</p>
+        <p className="mobile-project-heading">FEATURED WORK</p>
         {[
           { num: '01', bg: '#111111', color: '#ffffff', label: 'ChatGPT', path: '/work/chatgpt/article' },
           { num: '02', bg: '#d5061b', color: '#ffffff', label: 'Safehub',            path: '/work/safehub'         },
