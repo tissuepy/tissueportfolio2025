@@ -52,18 +52,7 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    // Make hero section visible immediately
-    const heroSection = document.querySelector('.hero-section');
-    const heroText = document.querySelector('.hero-text');
-    
-    if (heroSection) {
-      heroSection.classList.add('fade-in-visible');
-    }
-    if (heroText) {
-      setTimeout(() => heroText.classList.add('fade-in-visible'), 200);
-    }
-
-    // Observer for scroll-triggered animations
+    // Observer for scroll-triggered animations (non-hero elements only)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -75,36 +64,27 @@ function Home() {
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
 
-    // Function to observe fade-in elements
     const observeFadeElements = () => {
-      const fadeElements = document.querySelectorAll('.fade-in-on-scroll:not(.hero-section):not(.hero-text)');
-      fadeElements.forEach((el) => {
-        observer.observe(el);
-      });
+      const fadeElements = document.querySelectorAll('.fade-in-on-scroll');
+      fadeElements.forEach((el) => observer.observe(el));
     };
 
-    // Observe initially
     observeFadeElements();
-
-    // Also observe when showWallet changes (project gallery appears/disappears)
-    const timeoutId = setTimeout(() => {
-      observeFadeElements();
-    }, 100);
+    const timeoutId = setTimeout(observeFadeElements, 100);
 
     return () => {
       clearTimeout(timeoutId);
-      const fadeElements = document.querySelectorAll('.fade-in-on-scroll:not(.hero-section):not(.hero-text)');
-      fadeElements.forEach((el) => observer.unobserve(el));
+      document.querySelectorAll('.fade-in-on-scroll').forEach((el) => observer.unobserve(el));
     };
   }, [showWallet]);
 
   return (
     <>
       <div className="main-content-container">
-        <div className="hero-section fade-in-on-scroll" ref={heroSectionRef}>
+        <div className="hero-section" ref={heroSectionRef}>
           <div className="hero-content hero-content-centered" style={{display:'flex', flexDirection:'row', alignItems:'flex-start', width:'100%'}}>
             {/* Left: text */}
-            <div className="hero-text hero-text-centered fade-in-on-scroll" ref={heroTextRef} style={{flex:'0 0 auto'}}>
+            <div className="hero-text hero-text-centered" ref={heroTextRef} style={{flex:'0 0 auto'}}>
               <div style={{
                 fontFamily: "'IBM Plex Mono', monospace",
                 fontSize: '14px',
