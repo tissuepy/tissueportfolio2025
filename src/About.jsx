@@ -139,15 +139,15 @@ function About() {
             <div className="about-section-col">
               <span className="about-section-label"><span className="about-section-num">[2]</span> CONTACT</span>
               <div className="about-entry">
-                <a href="https://www.linkedin.com/in/nitishgannu/" target="_blank" rel="noopener noreferrer" className="about-contact-link">LinkedIn<sup className="about-sup">1</sup></a>
+                <a href="https://www.linkedin.com/in/nitishgannu/" target="_blank" rel="noopener noreferrer" className="about-contact-link">LinkedIn</a>
                 <span className="about-entry-arrow"><ArrowNE /></span>
               </div>
               <div className="about-entry">
-                <a href="mailto:ng545@cornell.edu" className="about-contact-link">Mail<sup className="about-sup">2</sup></a>
+                <a href="mailto:ng545@cornell.edu" className="about-contact-link">Mail</a>
                 <span className="about-entry-arrow"><ArrowNE /></span>
               </div>
               <div className="about-entry">
-                <a href="https://x.com/nitishgannu" target="_blank" rel="noopener noreferrer" className="about-contact-link">X<sup className="about-sup">3</sup></a>
+                <a href="https://x.com/nitishgannu" target="_blank" rel="noopener noreferrer" className="about-contact-link">X</a>
                 <span className="about-entry-arrow"><ArrowNE /></span>
               </div>
             </div>

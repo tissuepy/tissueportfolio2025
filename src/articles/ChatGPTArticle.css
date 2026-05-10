@@ -189,6 +189,11 @@
     flex: unset;
     width: 100%;
   }
+
+  .chatgpt-feedback-card:not(.chatgpt-feedback-card--reddit) {
+    height: auto;
+    padding: 16px 16px;
+  }
 }
 
 .chatgpt-last-updated {

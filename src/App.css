@@ -3046,7 +3046,7 @@ html {
   justify-content: space-between;
   align-items: baseline;
   padding: 10px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .about-entry-name {
@@ -3056,12 +3056,11 @@ html {
 }
 
 .about-entry-date {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 14px;
   color: #9a9a9a;
   white-space: nowrap;
   margin-left: 16px;
-  text-transform: uppercase;
 }
 
 .about-entry-arrow {
@@ -3180,10 +3179,7 @@ html {
 }
 
 .one-path {
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-decoration-color: #BF5656;
-  text-underline-offset: 4px;
+  text-decoration: none;
   cursor: default;
 }
 
@@ -3709,6 +3705,65 @@ html {
   display: none;
 }
 
+.mobile-project-heading {
+  display: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #BF5656;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+}
+
+.mobile-project-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.mobile-project-row:hover .mobile-project-title {
+  color: #BF5656;
+}
+
+.mobile-project-row:hover .mobile-project-arrow {
+  color: #BF5656;
+}
+
+.mobile-project-badge {
+  display: none;
+}
+
+.mobile-project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.mobile-project-title {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #111111;
+}
+
+.mobile-project-date {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.mobile-project-arrow {
+  color: rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+  display: block;
+}
+
 /* ── Mobile responsive ─────────────────────────────────────────────── */
 @media (max-width: 600px) {
   .navbar {
@@ -3758,11 +3813,20 @@ html {
     display: none;
   }
 
+  .hero-meta-blocks {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero-meta-body {
+    font-size: 15px;
+  }
+
   .mobile-project-list {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 0 20px 48px 20px;
+    padding: 32px 20px 48px 20px;
   }
 
   .mobile-project-heading {
@@ -3770,7 +3834,7 @@ html {
   }
 
   .hero-heading-inter {
-    font-size: 24px !important;
+    font-size: 30px !important;
     margin-bottom: 32px;
   }
 
@@ -3822,56 +3886,3 @@ html {
   }
 }
 
-.mobile-project-heading {
-  display: none;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  color: rgba(0, 0, 0, 0.4);
-  text-transform: uppercase;
-  margin: 0 0 10px 0;
-}
-
-.mobile-project-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  height: 48px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 14px;
-  background-color: #ffffff;
-  text-decoration: none;
-  transition: background-color 0.15s ease;
-  box-sizing: border-box;
-}
-
-.mobile-project-row:hover {
-  background-color: #f9f9f9;
-}
-
-.mobile-project-badge {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  padding: 5px 8px;
-  border-radius: 6px;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.mobile-project-title {
-  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: #111111;
-  flex: 1;
-}
-
-.mobile-project-arrow {
-  color: rgba(0, 0, 0, 0.35);
-  flex-shrink: 0;
-  display: block;
-}
