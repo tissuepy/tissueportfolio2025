@@ -3056,12 +3056,11 @@ html {
 }
 
 .about-entry-date {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 14px;
   color: #9a9a9a;
   white-space: nowrap;
   margin-left: 16px;
-  text-transform: uppercase;
 }
 
 .about-entry-arrow {
