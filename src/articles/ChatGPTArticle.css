@@ -190,13 +190,9 @@
     width: 100%;
   }
 
-  .chatgpt-feedback-card {
+  .chatgpt-feedback-card:not(.chatgpt-feedback-card--reddit) {
     height: auto;
     padding: 16px 16px;
-  }
-
-  .chatgpt-feedback-card--reddit {
-    padding-left: 6px;
   }
 }
 
