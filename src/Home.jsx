@@ -239,11 +239,11 @@ function Home() {
       <div className="mobile-project-list">
         <p className="mobile-project-heading">FEATURED WORK</p>
         {[
-          { num: '01', bg: '#111111', color: '#ffffff', label: 'ChatGPT', path: '/work/chatgpt/article' },
-          { num: '02', bg: '#d5061b', color: '#ffffff', label: 'Safehub',            path: '/work/safehub'         },
-          { num: '03', bg: '#7c3aed', color: '#ffffff', label: 'Pogo',               path: '/work/pogo'            },
-          { num: '04', bg: '#ffb700', color: '#ffffff', label: 'Wrap',               href: 'https://trywrap.com/'  },
-        ].map(({ num, bg, color, label, path, href }) => (
+          { num: '01', bg: '#111111', color: '#ffffff', label: 'ChatGPT',  date: 'Fall 2025',   path: '/work/chatgpt/article' },
+          { num: '02', bg: '#d5061b', color: '#ffffff', label: 'Safehub',  date: 'Spring 2024', path: '/work/safehub'         },
+          { num: '03', bg: '#7c3aed', color: '#ffffff', label: 'Pogo',     date: 'Spring 2026', path: '/work/pogo'            },
+          { num: '04', bg: '#ffb700', color: '#ffffff', label: 'Wrap',     date: 'Summer 2025', href: 'https://trywrap.com/'  },
+        ].map(({ num, bg, color, label, date, path, href }) => (
           <a
             key={num}
             href={href || path}
@@ -255,7 +255,10 @@ function Home() {
             <span className="mobile-project-badge" style={{ backgroundColor: bg, color }}>
               {num}
             </span>
-            <span className="mobile-project-title">{label}</span>
+            <span className="mobile-project-info">
+              <span className="mobile-project-title">{label}</span>
+              <span className="mobile-project-date">{date}</span>
+            </span>
             <svg className="mobile-project-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M2.5 11.5L11.5 2.5M11.5 2.5H4.5M11.5 2.5V9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

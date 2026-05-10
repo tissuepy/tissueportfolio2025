@@ -3733,12 +3733,25 @@ html {
   display: none;
 }
 
+.mobile-project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
 .mobile-project-title {
   font-family: 'Apfel Grotezk', 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 400;
   color: #111111;
-  flex: 1;
+}
+
+.mobile-project-date {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.35);
 }
 
 .mobile-project-arrow {
