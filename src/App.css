@@ -20,6 +20,15 @@
   font-display: swap;
 }
 
+/* ABC Diatype – place .otf file in public/fonts/ to use */
+@font-face {
+  font-family: 'ABC Diatype';
+  src: url('/fonts/ABCDiatype-Regular-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Apfel Grotezk – place .woff2 files in public/fonts/ to use */
 @font-face {
   font-family: 'Apfel Grotezk';
@@ -47,7 +56,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-family: 'Apfel Grotezk', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   /* Layer 1: base colour */
   background-color: var(--bg-color);
   color: #000000;
@@ -697,6 +706,101 @@ html {
   font-weight: 400;
   color: #1a1a1a;
   line-height: 1.4;
+}
+
+/* ── New minimal hero ─────────────────────────────────────────── */
+.new-hero-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 100px 40px 80px;
+  box-sizing: border-box;
+}
+
+.new-hero-content {
+  max-width: 520px;
+  width: 100%;
+}
+
+.new-hero-top {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.new-hero-name {
+  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.new-hero-location {
+  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.new-hero-body {
+  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.new-hero-body-grey {
+  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.4);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.hero-inline-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+}
+
+.hero-inline-link:hover {
+  text-decoration-color: currentColor;
+}
+
+.hero-inline-sup {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: super;
+  font-size: 0;
+  line-height: 0;
+  margin-left: 1px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.new-hero-body-grey .hero-inline-sup {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 600px) {
+  .new-hero-wrap {
+    padding: 80px 20px 48px;
+    min-height: unset;
+    align-items: flex-start;
+  }
+
+  .new-hero-body,
+  .new-hero-body-grey {
+    font-size: 16px;
+  }
 }
 
 .hero-deco-cluster {
