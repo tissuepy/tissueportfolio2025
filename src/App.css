@@ -805,25 +805,41 @@ html {
 
 /* Staggered blur-in for home hero — top clears before bottom */
 .new-hero-top         { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.00s both; transition: filter 0.25s ease, opacity 0.25s ease; }
-.new-hero-body        { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both; transition: filter 0.25s ease, opacity 0.25s ease; }
-.new-hero-body-grey   { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both; transition: filter 0.25s ease, opacity 0.25s ease; }
+.new-hero-body        { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both; transition: filter 0.25s ease, opacity 0.25s ease, color 0.25s ease; }
+.new-hero-body-grey   { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both; transition: filter 0.25s ease, opacity 0.25s ease, color 0.25s ease; }
 
-/* Link hover: blur everything except the paragraph containing the hovered link */
+/* Link hover: only the hovered link stays sharp — everything else dims/blurs */
+
+/* Sections with no hovered link: full blur + dim */
 .new-hero-content:has(.hero-inline-link:hover) .new-hero-top {
   filter: blur(3px);
-  opacity: 0.35;
+  opacity: 0.2;
 }
 .new-hero-content:has(.hero-inline-link:hover) .new-hero-body:not(:has(.hero-inline-link:hover)) {
   filter: blur(3px);
-  opacity: 0.35;
+  opacity: 0.2;
 }
 .new-hero-content:has(.hero-inline-link:hover) .new-hero-body-grey:not(:has(.hero-inline-link:hover)) {
   filter: blur(3px);
-  opacity: 0.35;
+  opacity: 0.2;
 }
 .new-hero-content:has(.hero-inline-link:hover) .hero-contact-block {
   filter: blur(3px);
-  opacity: 0.35;
+  opacity: 0.2;
+}
+
+/* Paragraph that contains the hovered link: dim surrounding text via color
+   (filter:blur on the parent would also blur the link, so we use color instead) */
+.new-hero-content:has(.hero-inline-link:hover) .new-hero-body:has(.hero-inline-link:hover) {
+  color: rgba(0, 0, 0, 0.12);
+}
+.new-hero-content:has(.hero-inline-link:hover) .new-hero-body-grey:has(.hero-inline-link:hover) {
+  color: rgba(0, 0, 0, 0.08);
+}
+
+/* The hovered link itself stays at full red (existing :hover rule handles color) */
+.new-hero-content .hero-inline-link:hover {
+  opacity: 1;
 }
 
 .hero-contact-block {
@@ -832,7 +848,7 @@ html {
   gap: 10px;
   margin-top: 40px;
   animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.38s both;
-  transition: filter 0.25s ease, opacity 0.25s ease;
+  transition: filter 0.25s ease, opacity 0.25s ease, color 0.25s ease;
 }
 
 .wallet-desktop-only  { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.50s both; }
