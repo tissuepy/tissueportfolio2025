@@ -125,7 +125,7 @@ function Home() {
             >
               <img src={emojiFolder} alt="" className="hero-contact-emoji" aria-hidden="true" />
               <span className="hero-linkedin-text">linkedin.com/in/nitishg/</span>
-              <span className="hero-email-icon"><LinkIcon /></span>
+              <span className="hero-linkedin-icon"><LinkIcon /></span>
             </a>
           </div>
         </div>

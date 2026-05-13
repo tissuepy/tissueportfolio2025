@@ -806,6 +806,8 @@ html {
   flex-shrink: 0;
   position: relative;
   top: 1px;
+  opacity: 0.38;
+  transition: opacity 0.15s ease;
 }
 
 .hero-email-row {
@@ -824,13 +826,23 @@ html {
   font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 400;
+  color: rgba(0, 0, 0, 0.38);
+  transition: color 0.15s ease;
+}
+
+.hero-email-row:hover .hero-email-text {
   color: #000000;
+}
+
+.hero-email-row:hover .hero-contact-emoji,
+.hero-linkedin-row:hover .hero-contact-emoji {
+  opacity: 1;
 }
 
 .hero-email-icon {
   display: inline-flex;
   align-items: center;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.38);
   transition: color 0.15s ease;
   flex-shrink: 0;
 }
@@ -851,11 +863,25 @@ html {
   font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 400;
-  color: #000000;
+  color: rgba(0, 0, 0, 0.38);
+  transition: color 0.15s ease;
 }
 
 .hero-linkedin-row:hover .hero-linkedin-text {
-  color: #BF5656;
+  color: #000000;
+}
+
+.hero-linkedin-icon {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.38);
+  transition: color 0.15s ease;
+  flex-shrink: 0;
+  margin-left: -6px;
+}
+
+.hero-linkedin-row:hover .hero-linkedin-icon {
+  color: #000000;
 }
 
 @media (max-width: 600px) {
