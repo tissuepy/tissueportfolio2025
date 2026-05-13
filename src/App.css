@@ -804,9 +804,27 @@ html {
 }
 
 /* Staggered blur-in for home hero — top clears before bottom */
-.new-hero-top         { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.00s both; }
-.new-hero-body        { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both; }
-.new-hero-body-grey   { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both; }
+.new-hero-top         { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.00s both; transition: filter 0.25s ease, opacity 0.25s ease; }
+.new-hero-body        { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both; transition: filter 0.25s ease, opacity 0.25s ease; }
+.new-hero-body-grey   { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both; transition: filter 0.25s ease, opacity 0.25s ease; }
+
+/* Link hover: blur everything except the paragraph containing the hovered link */
+.new-hero-content:has(.hero-inline-link:hover) .new-hero-top {
+  filter: blur(3px);
+  opacity: 0.35;
+}
+.new-hero-content:has(.hero-inline-link:hover) .new-hero-body:not(:has(.hero-inline-link:hover)) {
+  filter: blur(3px);
+  opacity: 0.35;
+}
+.new-hero-content:has(.hero-inline-link:hover) .new-hero-body-grey:not(:has(.hero-inline-link:hover)) {
+  filter: blur(3px);
+  opacity: 0.35;
+}
+.new-hero-content:has(.hero-inline-link:hover) .hero-contact-block {
+  filter: blur(3px);
+  opacity: 0.35;
+}
 
 .hero-contact-block {
   display: flex;
@@ -814,6 +832,7 @@ html {
   gap: 10px;
   margin-top: 40px;
   animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.38s both;
+  transition: filter 0.25s ease, opacity 0.25s ease;
 }
 
 .wallet-desktop-only  { animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.50s both; }
