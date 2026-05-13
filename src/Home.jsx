@@ -110,6 +110,9 @@ function Home() {
           </p>
 
           <div className="hero-contact-block">
+            <span className="about-section-label" style={{ marginBottom: '12px' }}>
+              <span className="about-section-num">[2]</span> BUSINESS
+            </span>
             <button className="hero-email-row" onClick={handleCopy} aria-label="Copy email address">
               <img src={emojiMail} alt="" className="hero-contact-emoji" aria-hidden="true" />
               <span className="hero-email-text">ng545@cornell.edu</span>
