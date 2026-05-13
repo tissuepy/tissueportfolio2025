@@ -719,7 +719,7 @@ html {
 }
 
 .new-hero-content {
-  max-width: 520px;
+  max-width: 600px;
   width: 100%;
 }
 
@@ -774,7 +774,8 @@ html {
 }
 
 .hero-inline-link:hover {
-  text-decoration-color: currentColor;
+  color: #BF5656;
+  text-decoration-color: #BF5656;
 }
 
 .hero-inline-sup {
