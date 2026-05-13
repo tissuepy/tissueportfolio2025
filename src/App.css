@@ -805,27 +805,23 @@ html {
 
 .hero-email-text {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 0.06em;
-  color: rgba(0, 0, 0, 0.45);
+  color: #000000;
   text-transform: uppercase;
 }
 
 .hero-email-icon {
   display: inline-flex;
   align-items: center;
-  color: rgba(0, 0, 0, 0.35);
+  color: rgba(0, 0, 0, 0.5);
   transition: color 0.15s ease;
   flex-shrink: 0;
 }
 
-.hero-email-row:hover .hero-email-text {
-  color: rgba(0, 0, 0, 0.7);
-}
-
 .hero-email-row:hover .hero-email-icon:not(.hero-email-icon--copied) {
-  color: rgba(0, 0, 0, 0.6);
+  color: #000000;
 }
 
 @media (max-width: 600px) {
