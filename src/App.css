@@ -224,11 +224,22 @@ html {
 @keyframes pageEnter {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    filter: blur(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes heroBlurIn {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
   }
 }
 
@@ -239,8 +250,8 @@ html {
 
 .page-wrapper.fade-out {
   opacity: 0;
-  transform: translateY(-6px);
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  filter: blur(6px);
+  transition: opacity 0.18s ease, filter 0.18s ease;
 }
 
 /* Navbar visibility classes removed - navbar is now static */
@@ -792,12 +803,21 @@ html {
   color: rgba(0, 0, 0, 0.35);
 }
 
+/* Staggered blur-in for home hero — top clears before bottom */
+.new-hero-top         { animation: heroBlurIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.00s both; }
+.new-hero-body        { animation: heroBlurIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.10s both; }
+.new-hero-body-grey   { animation: heroBlurIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.20s both; }
+
 .hero-contact-block {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 40px;
+  animation: heroBlurIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
 }
+
+.wallet-desktop-only  { animation: heroBlurIn 0.7s  cubic-bezier(0.22, 1, 0.36, 1) 0.42s both; }
+.mobile-project-list  { animation: heroBlurIn 0.7s  cubic-bezier(0.22, 1, 0.36, 1) 0.42s both; }
 
 .hero-contact-emoji {
   width: 17px;
