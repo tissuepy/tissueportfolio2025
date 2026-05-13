@@ -711,10 +711,10 @@ html {
 /* ── New minimal hero ─────────────────────────────────────────── */
 .new-hero-wrap {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   min-height: 80vh;
-  padding: 100px 40px 80px;
+  padding: 60px 40px 80px;
   box-sizing: border-box;
 }
 
