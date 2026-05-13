@@ -80,6 +80,17 @@ function Home() {
     return () => els.forEach((el) => observer.unobserve(el));
   }, []);
 
+  // After each hero element's blur-in animation ends, remove the animation
+  // so CSS hover rules (filter/opacity) can take effect without being blocked
+  // by animation fill-mode.
+  useEffect(() => {
+    const sel = '.new-hero-top, .new-hero-body, .new-hero-body-grey, .hero-contact-block, .wallet-desktop-only, .mobile-project-list';
+    const els = document.querySelectorAll(sel);
+    const onEnd = (e) => { e.currentTarget.style.animation = 'none'; };
+    els.forEach((el) => el.addEventListener('animationend', onEnd));
+    return () => els.forEach((el) => el.removeEventListener('animationend', onEnd));
+  }, []);
+
   return (
     <>
       {/* Hero */}
