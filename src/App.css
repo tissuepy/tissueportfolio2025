@@ -818,12 +818,10 @@ html {
 }
 
 .hero-email-text {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 400;
-  letter-spacing: 0.06em;
   color: #000000;
-  text-transform: uppercase;
 }
 
 .hero-email-icon {
@@ -846,10 +844,9 @@ html {
 }
 
 .hero-linkedin-text {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 400;
-  letter-spacing: 0.06em;
   color: #000000;
 }
 

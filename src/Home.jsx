@@ -105,7 +105,7 @@ function Home() {
           <div className="hero-contact-block">
             <button className="hero-email-row" onClick={handleCopy} aria-label="Copy email address">
               <img src={emojiMail} alt="" className="hero-contact-emoji" aria-hidden="true" />
-              <span className="hero-email-text">NG545@CORNELL.EDU</span>
+              <span className="hero-email-text">ng545@cornell.edu</span>
               <span className={`hero-email-icon${copied ? ' hero-email-icon--copied' : ''}`}>
                 {copied ? <CheckIcon /> : <CopyIcon />}
               </span>
