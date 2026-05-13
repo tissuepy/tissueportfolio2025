@@ -739,8 +739,8 @@ html {
 }
 
 .new-hero-location {
-  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
-  font-size: 15px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.38);
 }
@@ -790,6 +790,42 @@ html {
 
 .new-hero-body-grey .hero-inline-sup {
   color: rgba(0, 0, 0, 0.35);
+}
+
+.hero-email-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.hero-email-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(0, 0, 0, 0.45);
+  text-transform: uppercase;
+}
+
+.hero-email-icon {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.35);
+  transition: color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.hero-email-row:hover .hero-email-text {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.hero-email-row:hover .hero-email-icon:not(.hero-email-icon--copied) {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 600px) {

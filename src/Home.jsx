@@ -1,6 +1,6 @@
 // Home.jsx
 import './App.css';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import WalletCard from './WalletCard';
 
@@ -33,9 +33,29 @@ const L = ({ href, children, internal = false }) => {
   );
 };
 
+const CopyIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M20 6L9 17l-5-5" stroke="#BF5656" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
 function Home() {
   const navigate = useNavigate();
   const workSectionRef = useRef(null);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText('ng545@cornell.edu');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,6 +81,7 @@ function Home() {
             <span className="new-hero-location">New York</span>
           </div>
 
+
           <p className="new-hero-body">
             I'm a designer building ambitious tools that feel surprisingly simple. Currently studying Data Science &amp; Statistics @{' '}
             <L href="https://www.cornell.edu">Cornell University</L>{' '}
@@ -78,6 +99,13 @@ function Home() {
             conversations, and led the design of a consumer dating app for{' '}
             <L href="https://trywrap.com/">Wrap</L>.
           </p>
+
+          <button className="hero-email-row" onClick={handleCopy} aria-label="Copy email address">
+            <span className="hero-email-text">NG545@CORNELL.EDU</span>
+            <span className={`hero-email-icon${copied ? ' hero-email-icon--copied' : ''}`}>
+              {copied ? <CheckIcon /> : <CopyIcon />}
+            </span>
+          </button>
         </div>
       </div>
 
