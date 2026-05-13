@@ -64,7 +64,7 @@ html {
 /* Layer 3 (grain shader) lives in BackgroundAnimation.jsx at opacity: 0.05 */
 
 /* Hide default cursor — CustomCursor replaces it */
-*, *::before, *::after { cursor: none !important; }
+/* *, *::before, *::after { cursor: none !important; } *//* Disabled — re-enable with CustomCursor */
 
 /* Restore default cursor on touch/mobile devices */
 @media (pointer: coarse) {

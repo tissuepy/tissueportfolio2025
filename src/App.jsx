@@ -86,7 +86,7 @@ function App() {
 
   return (
     <>
-      <CustomCursor />
+      {/* <CustomCursor /> */}{/* Disabled — uncomment to re-enable the custom red cursor */}
       {!NO_NOISE_ROUTES.includes(location.pathname) && <BackgroundAnimation />}
       {/* Navbar */}
       <div className={`navbar${location.pathname === '/photos' ? ' navbar--solid' : ''}`}>
