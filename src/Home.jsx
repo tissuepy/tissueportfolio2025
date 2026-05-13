@@ -21,7 +21,7 @@ const L = ({ href, children, internal = false }) => {
     return (
       <span
         className="hero-inline-link"
-        style={{ cursor: 'none' }}
+        style={{ cursor: 'pointer' }}
         onClick={() => navigate(href)}
       >
         {children}<sup className="hero-inline-sup"><SupArrow /></sup>
