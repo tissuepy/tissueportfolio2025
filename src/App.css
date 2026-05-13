@@ -804,6 +804,7 @@ html {
   height: 18px;
   object-fit: contain;
   flex-shrink: 0;
+  display: block;
 }
 
 .hero-email-row {
@@ -815,6 +816,7 @@ html {
   border: none;
   padding: 0;
   cursor: pointer;
+  line-height: 1;
 }
 
 .hero-email-text {
@@ -841,6 +843,7 @@ html {
   align-items: center;
   gap: 12px;
   text-decoration: none;
+  line-height: 1;
 }
 
 .hero-linkedin-text {
