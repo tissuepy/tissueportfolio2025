@@ -725,16 +725,17 @@ html {
 
 .new-hero-top {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
+  flex-direction: column;
+  gap: 4px;
   margin-bottom: 28px;
 }
 
 .new-hero-name {
   font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
-  font-size: 15px;
+  font-size: 22px;
   font-weight: 400;
   color: #000000;
+  line-height: 1.2;
 }
 
 .new-hero-location {
@@ -746,16 +747,16 @@ html {
 
 .new-hero-body {
   font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 400;
   color: #000000;
   line-height: 1.6;
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
 }
 
 .new-hero-body-grey {
   font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.4);
   line-height: 1.6;
@@ -799,7 +800,7 @@ html {
 
   .new-hero-body,
   .new-hero-body-grey {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
