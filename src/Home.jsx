@@ -3,6 +3,8 @@ import './App.css';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import WalletCard from './WalletCard';
+import emojiMail from './assets/emoji-mail.png';
+import emojiFolder from './assets/emoji-folder.png';
 
 /* Inline SVG NE arrow for superscript links */
 const SupArrow = () => (
@@ -100,12 +102,24 @@ function Home() {
             <L href="https://trywrap.com/">Wrap</L>.
           </p>
 
-          <button className="hero-email-row" onClick={handleCopy} aria-label="Copy email address">
-            <span className="hero-email-text">NG545@CORNELL.EDU</span>
-            <span className={`hero-email-icon${copied ? ' hero-email-icon--copied' : ''}`}>
-              {copied ? <CheckIcon /> : <CopyIcon />}
-            </span>
-          </button>
+          <div className="hero-contact-block">
+            <button className="hero-email-row" onClick={handleCopy} aria-label="Copy email address">
+              <img src={emojiMail} alt="" className="hero-contact-emoji" aria-hidden="true" />
+              <span className="hero-email-text">NG545@CORNELL.EDU</span>
+              <span className={`hero-email-icon${copied ? ' hero-email-icon--copied' : ''}`}>
+                {copied ? <CheckIcon /> : <CopyIcon />}
+              </span>
+            </button>
+            <a
+              href="https://www.linkedin.com/in/nitishgannu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-linkedin-row"
+            >
+              <img src={emojiFolder} alt="" className="hero-contact-emoji" aria-hidden="true" />
+              <span className="hero-linkedin-text">linkedin.com/in/nitishg/</span>
+            </a>
+          </div>
         </div>
       </div>
 
