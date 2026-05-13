@@ -128,8 +128,8 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 120px 20px 120px;
-  max-width: 1400px;
+  padding: 40px 40px 20px 40px;
+  max-width: 760px;
   margin: 0 auto;
   background-color: transparent;
   position: relative;

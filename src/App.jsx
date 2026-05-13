@@ -93,7 +93,6 @@ function App() {
         <div className="nav-links">
           <NavLink to="/" className="nav-item">WORK</NavLink>
           <NavLink to="/about" className="nav-item">ABOUT</NavLink>
-          <NavLink to="/photos" className="nav-item">PHOTOS</NavLink>
         </div>
         <img src={notionFace} alt="" className="navbar-notion-face cursor-notion" />
       </div>
