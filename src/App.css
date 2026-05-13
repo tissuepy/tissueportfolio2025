@@ -795,7 +795,7 @@ html {
 .hero-email-row {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   margin-top: 40px;
   background: none;
   border: none;
