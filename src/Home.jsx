@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import WalletCard from './WalletCard';
 import emojiMail from './assets/emoji-mail.png';
 import emojiFolder from './assets/emoji-folder.png';
+import emojiPaper from './assets/emoji-paper.png';
 
 /* Inline SVG NE arrow for superscript links */
 const SupArrow = () => (
@@ -126,6 +127,14 @@ function Home() {
             >
               <img src={emojiFolder} alt="" className="hero-contact-emoji" aria-hidden="true" />
               <span className="hero-linkedin-text">linkedin.com/in/nitishg/</span>
+              <span className="hero-linkedin-icon"><LinkIcon /></span>
+            </a>
+            <a
+              href="#"
+              className="hero-linkedin-row"
+            >
+              <img src={emojiPaper} alt="" className="hero-contact-emoji" aria-hidden="true" />
+              <span className="hero-linkedin-text">read.cv</span>
               <span className="hero-linkedin-icon"><LinkIcon /></span>
             </a>
           </div>
