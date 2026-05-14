@@ -89,7 +89,10 @@ function Home() {
         <div className="new-hero-content">
           <div className="new-hero-top">
             <span className="new-hero-name">Nitish's Digital Corner</span>
-            <span className="new-hero-location">NEW YORK</span>
+            <span className="new-hero-location">
+              <span className="new-hero-status-dot" />
+              currently designing in new york
+            </span>
           </div>
 
 

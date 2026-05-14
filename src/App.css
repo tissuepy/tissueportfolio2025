@@ -750,10 +750,21 @@ html {
 }
 
 .new-hero-location {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.38);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.new-hero-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #6abf8a;
+  flex-shrink: 0;
 }
 
 .new-hero-body {
