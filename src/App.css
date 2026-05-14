@@ -760,11 +760,13 @@ html {
 }
 
 .new-hero-status-dot {
-  width: 7px;
-  height: 7px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background-color: #6abf8a;
   flex-shrink: 0;
+  position: relative;
+  top: 1px;
 }
 
 .new-hero-body {
