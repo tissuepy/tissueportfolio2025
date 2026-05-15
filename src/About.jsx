@@ -15,16 +15,9 @@ export default function About() {
           <h1 className="about-hero-title">Hey, I'm Nitish.</h1>
 
           <p className="about-body-text">
-            I'm a designer building ambitious tools that feel surprisingly simple.
-            Currently studying Data Science &amp; Statistics at Cornell University
-            while conducting HCI research with the Interplay Research Studio and
-            working as a Product Design Intern at Pogo.
-          </p>
-
-          <p className="about-body-text about-body-text--grey">
-            Incoming TPM at Cisco. Previously designed an intuitive bookmarking
-            experience for ChatGPT conversations, and led the design of a consumer
-            dating app for Wrap.
+            I've never been great at picking one path and sticking to it, but
+            design feels right at the moment, so that's where I'm spending my
+            time. I'm also trying my hand at blogging, potentially to inspire others.
           </p>
 
           <p className="about-body-text about-body-text--grey">

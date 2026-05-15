@@ -4,13 +4,13 @@
 }
 
 .about-layout {
-  max-width: 760px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 0 40px;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  gap: 48px;
+  gap: 40px;
   align-items: flex-start;
 }
 
@@ -51,18 +51,18 @@
   flex-direction: row;
   gap: 8px;
   flex-shrink: 0;
-  width: 260px;
+  width: 340px;
 }
 
 .about-photo-main {
-  flex: 1;
+  flex: 3;
 }
 
 .about-photo-stack {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  flex: 1;
+  flex: 2;
 }
 
 .about-photo {
@@ -73,11 +73,11 @@
 }
 
 .about-photo-main .about-photo {
-  height: 320px;
+  height: 380px;
 }
 
 .about-photo-stack .about-photo {
-  height: 154px;
+  height: 186px;
 }
 
 /* ── Mobile ── */
