@@ -27,7 +27,7 @@ export default function About() {
         {/* Photos row */}
         <div className="about-photo-row">
           <img src={portfolio1} alt="" className="about-photo" />
-          <img src={portfolio3} alt="" className="about-photo" />
+          <img src={portfolio3} alt="" className="about-photo" style={{ objectPosition: 'top center' }} />
           <img src={portfolio4} alt="" className="about-photo" />
         </div>
       </div>
