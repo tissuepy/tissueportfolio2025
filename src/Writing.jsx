@@ -4,7 +4,7 @@ import './PogoFeatures.css';
 import './Writing.css';
 
 const ARTICLES = [
-  { num: '01', title: 'Rejection', date: 'Mar 26', path: '/writing/rejection' },
+  { num: '01', title: 'Rejection', date: 'Mar 2026', path: '/writing/rejection' },
 ];
 
 export default function Writing() {
