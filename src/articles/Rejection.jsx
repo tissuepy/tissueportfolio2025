@@ -1,11 +1,19 @@
 import { useEffect } from 'react';
 import './Rejection.css';
 
-// External link with dotted underline + ↗ arrow
+// Same SVG arrow used on the home page
+const SupArrow = () => (
+  <svg width="9" height="9" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
+    <path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5"
+      stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+// External link with dotted underline + superscript arrow
 function EL({ href, children }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className="article-link">
-      {children}
+      {children}<sup className="article-link-sup"><SupArrow /></sup>
     </a>
   );
 }

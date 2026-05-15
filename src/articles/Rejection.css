@@ -63,13 +63,18 @@
   text-decoration-color: #BF5656;
 }
 
-.article-link::after {
-  content: '↗';
-  display: inline-block;
-  font-size: 0.58em;
+.article-link-sup {
+  display: inline-flex;
+  align-items: center;
   vertical-align: super;
+  font-size: 0;
+  line-height: 0;
   margin-left: 1px;
-  opacity: 0.45;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.article-link:hover .article-link-sup {
+  color: #BF5656;
 }
 
 /* ── Dotted underline only (no link / no arrow) ── */

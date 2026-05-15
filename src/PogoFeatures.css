@@ -160,6 +160,10 @@
     margin-bottom: 24px;
   }
 
+  .pogo-features-heading {
+    padding-left: 0;
+  }
+
   .pogo-section-label {
     padding: 0;
     margin-left: 0;
