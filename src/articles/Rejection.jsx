@@ -30,29 +30,12 @@ export default function Rejection() {
 
         <div className="article-body">
           <p>
-            At <EL href="https://www.cornell.edu">Cornell</EL>, everyone eventually finds somewhere
-            they fit. Some people find it quickly, while others take a little longer. Coming into
-            college, I thought that with so many clubs and opportunities around me, there had to be
-            at least one place where I naturally belonged too.
-          </p>
-
-          <p>It turned out to be harder than I expected.</p>
-
-          <p>
-            One of the first things I noticed at Cornell was how intense club culture could feel.
-            Everyone around me seemed incredibly accomplished and involved already, but I still
-            believed that somewhere within all the applications and interviews, there would be a
-            good fit for me.
-          </p>
-
-          <p>I was wrong.</p>
-
-          <p>
-            After rejection after rejection, I slowly started questioning my identity as a designer.
-            Before college, design was one of the few things I felt truly confident in. I loved
-            building things, refining details, and thinking deeply about how people interacted with
-            products. But after constantly feeling overlooked, I started wondering whether I was
-            even cut out for the field at all.
+            At <EL href="https://www.cornell.edu">Cornell</EL>, spring club recruiting was a lot
+            harder than I expected. Everyone around me seemed incredibly accomplished and already
+            involved in things they cared about, while I was still trying to find my place. After
+            a series of rejections, I started questioning my identity as a designer. Before college,
+            it was one of the few things I felt confident in, but over time I began wondering
+            whether I was even cut out for the field at all.
           </p>
 
           <p>
