@@ -4,7 +4,7 @@ import './PogoFeatures.css';
 import './Writing.css';
 
 const ARTICLES = [
-  { num: '01', title: 'Rejection', date: 'APR 2026', path: '/writing/rejection' },
+  { num: '01', title: 'Rejection', date: 'Mar 26', path: '/writing/rejection' },
 ];
 
 export default function Writing() {
@@ -27,7 +27,7 @@ export default function Writing() {
               onClick={() => navigate(a.path)}
             >
               <span className="pogo-features-name">
-                <span className="writing-num">{a.num}</span>&nbsp;&nbsp;{a.title}
+                {a.title}
               </span>
               <span className="pogo-features-date">{a.date}</span>
             </li>
