@@ -3,6 +3,7 @@ import './App.css';
 import './About.css';
 import portfolio1 from './assets/portfolio1.jpg';
 import portfolio2 from './assets/portfolio2.jpg';
+import portfolio3 from './assets/portfolio3.jpg';
 import portfolio4 from './assets/portfolio4.jpg';
 
 export default function About() {
@@ -26,7 +27,7 @@ export default function About() {
         {/* Photos row */}
         <div className="about-photo-row">
           <img src={portfolio1} alt="" className="about-photo" />
-          <img src={portfolio2} alt="" className="about-photo" />
+          <img src={portfolio3} alt="" className="about-photo" />
           <img src={portfolio4} alt="" className="about-photo" />
         </div>
       </div>
