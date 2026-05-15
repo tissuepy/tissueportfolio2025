@@ -958,6 +958,10 @@ html {
     align-items: flex-start;
   }
 
+  .new-hero-name {
+    font-weight: 600;
+  }
+
   .new-hero-body,
   .new-hero-body-grey {
     font-size: 15px;
