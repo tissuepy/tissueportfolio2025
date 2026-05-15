@@ -12,24 +12,24 @@
 }
 
 .article-title {
-  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 35px;
-  font-weight: 500;
-  color: #1a1a1a;
-  margin: 0 0 16px 0;
-  line-height: 1.1;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
 }
 
 .article-dateline {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   margin: 0;
 }
 
 .article-date {
-  color: #aaaaaa;
+  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.38);
+  line-height: 1.6;
 }
 
 .article-subtitle {
