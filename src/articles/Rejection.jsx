@@ -86,12 +86,14 @@ export default function Rejection() {
             Did I see myself at <EL href="https://www.walmart.com">Walmart</EL> as a{' '}
             <U>System Engineer Intern</U> re-envisioning the future of AI Digital Twins for Supply
             Chain Operations? Or maybe at{' '}
-            <EL href="https://www.mlb.com">Major League Baseball</EL> as a Product Design Intern
-            building the future of interactive baseball games in augmented reality? Did I see
-            myself back at <EL href="https://www.joinpogo.com/">Pogo</EL> helping design the first
-            AI Qualitative Survey Platform? Or was it{' '}
+            <EL href="https://www.mlb.com">Major League Baseball</EL> as a{' '}
+            <U>Product Design Intern</U> building the future of interactive baseball games in
+            augmented reality? Did I see myself back at{' '}
+            <EL href="https://www.joinpogo.com/">Pogo</EL> helping design the first AI Qualitative
+            Survey Platform? Or was it{' '}
             <EL href="https://www.cisco.com">Cisco</EL> where I saw myself shaping the direction
-            of Software-Defined WAN technology as a Technical Product Management Intern?
+            of Software-Defined WAN technology as a{' '}
+            <U>Technical Product Management Intern</U>?
           </p>
 
           <p>
