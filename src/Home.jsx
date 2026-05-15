@@ -56,10 +56,28 @@ const LinkIcon = () => (
   </svg>
 );
 
+const STATUS_PHRASES = [
+  'currently designing in new york',
+  'currently sipping on matcha',
+  'currently decorating my laptop with stickers',
+  'currently listening to don toliver',
+  'currently playing animal crossing new horizons',
+  'currently jamming to lofi',
+  'currently watching masterchef canada',
+];
+
 function Home() {
   const navigate = useNavigate();
   const workSectionRef = useRef(null);
   const [copied, setCopied] = useState(false);
+  const [phraseIndex, setPhraseIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setPhraseIndex(i => (i + 1) % STATUS_PHRASES.length);
+    }, 3500);
+    return () => clearInterval(id);
+  }, []);
 
   const handleCopy = () => {
     navigator.clipboard.writeText('ng545@cornell.edu');
@@ -91,7 +109,9 @@ function Home() {
             <span className="new-hero-name">Nitish's Digital Corner</span>
             <span className="new-hero-location">
               <span className="new-hero-status-dot" />
-              currently designing in new york
+              <span key={phraseIndex} className="new-hero-location-text">
+                {STATUS_PHRASES[phraseIndex]}
+              </span>
             </span>
           </div>
 
