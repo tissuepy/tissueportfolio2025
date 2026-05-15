@@ -161,6 +161,23 @@ html {
   gap: 28px;
 }
 
+.nav-back-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #000000;
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 5px 12px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-back-btn:hover {
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
 .nav-item {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
