@@ -163,19 +163,20 @@ html {
 
 .nav-back-btn {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.08em;
   color: #000000;
   text-decoration: none;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  padding: 5px 12px;
+  padding: 8px 18px;
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 .nav-back-btn:hover {
-  border-color: rgba(0, 0, 0, 0.5);
+  color: #BF5656;
+  border-color: #BF5656;
 }
 
 .nav-item {
