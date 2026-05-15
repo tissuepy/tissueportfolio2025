@@ -25,7 +25,7 @@ export default function Rejection() {
       <div className="article-inner">
         <h1 className="article-title">Rejection</h1>
         <p className="article-dateline">
-          <span className="article-date">March 2026, written from my dorm room</span>
+          <span className="article-date">March 2026, written from the comfort of my dorm room</span>
         </p>
 
         <div className="article-body">
