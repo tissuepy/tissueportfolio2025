@@ -91,9 +91,11 @@ function App() {
       {/* Navbar */}
       <div className={`navbar${location.pathname === '/photos' ? ' navbar--solid' : ''}`}>
         <div className="nav-links">
-          {location.pathname.startsWith('/work/') && (
-            <NavLink to="/" className="nav-back-btn">BACK</NavLink>
-          )}
+          <NavLink to="/" className="nav-item">WORK</NavLink>
+          <span className="nav-sep">/</span>
+          <NavLink to="/about" className="nav-item">ABOUT</NavLink>
+          <span className="nav-sep">/</span>
+          <NavLink to="/writing" className="nav-item">WRITING</NavLink>
         </div>
         <img src={notionFace} alt="" className="navbar-notion-face cursor-notion" />
       </div>
