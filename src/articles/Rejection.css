@@ -80,6 +80,13 @@
   text-underline-offset: 3px;
 }
 
+/* ── Bottom divider ── */
+.article-divider {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 56px 0 0 0;
+}
+
 /* ── Mobile ── */
 @media (max-width: 600px) {
   .article-inner {

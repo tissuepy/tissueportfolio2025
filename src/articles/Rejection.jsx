@@ -92,6 +92,8 @@ export default function Rejection() {
             stayed with it when it mattered most.
           </p>
         </div>
+
+        <hr className="article-divider" />
       </div>
     </div>
   );
