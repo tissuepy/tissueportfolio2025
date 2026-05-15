@@ -158,7 +158,8 @@ html {
 .nav-links {
   display: flex;
   flex-direction: row;
-  gap: 28px;
+  gap: 0;
+  align-items: center;
 }
 
 .nav-back-btn {
@@ -202,6 +203,7 @@ html {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.25);
+  padding: 0 8px;
   user-select: none;
 }
 
