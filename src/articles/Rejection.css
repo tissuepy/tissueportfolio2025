@@ -36,7 +36,7 @@
   font-size: 17px;
   font-weight: 400;
   color: #1a1a1a;
-  line-height: 1.75;
+  line-height: 1.65;
   margin: 0;
 }
 
@@ -55,11 +55,12 @@
   text-decoration-style: dotted;
   text-decoration-color: rgba(0, 0, 0, 0.4);
   text-underline-offset: 3px;
-  transition: text-decoration-color 0.15s ease;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 .article-link:hover {
-  text-decoration-color: rgba(0, 0, 0, 0.75);
+  color: #BF5656;
+  text-decoration-color: #BF5656;
 }
 
 .article-link::after {
