@@ -86,14 +86,14 @@ function App() {
 
   return (
     <>
-      <CustomCursor />
+      {/* <CustomCursor /> */}{/* Disabled — uncomment to re-enable the custom red cursor */}
       {!NO_NOISE_ROUTES.includes(location.pathname) && <BackgroundAnimation />}
       {/* Navbar */}
       <div className={`navbar${location.pathname === '/photos' ? ' navbar--solid' : ''}`}>
         <div className="nav-links">
-          <NavLink to="/" className="nav-item">WORK</NavLink>
-          <NavLink to="/about" className="nav-item">ABOUT</NavLink>
-          <NavLink to="/photos" className="nav-item">PHOTOS</NavLink>
+          {location.pathname.startsWith('/work/') && (
+            <NavLink to="/" className="nav-back-btn">BACK</NavLink>
+          )}
         </div>
         <img src={notionFace} alt="" className="navbar-notion-face cursor-notion" />
       </div>
