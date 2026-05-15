@@ -953,9 +953,13 @@ html {
 
 @media (max-width: 600px) {
   .new-hero-wrap {
-    padding: 80px 20px 48px;
+    padding: 36px 20px 48px;
     min-height: unset;
     align-items: flex-start;
+  }
+
+  .new-hero-name {
+    font-weight: 500;
   }
 
   .new-hero-body,
@@ -3977,7 +3981,7 @@ html {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.06em;
-  color: #BF5656;
+  color: #000000;
   text-transform: uppercase;
   margin: 0 0 10px 0;
 }
