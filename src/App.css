@@ -953,7 +953,7 @@ html {
 
 @media (max-width: 600px) {
   .new-hero-wrap {
-    padding: 80px 20px 48px;
+    padding: 36px 20px 48px;
     min-height: unset;
     align-items: flex-start;
   }
