@@ -50,7 +50,7 @@
   object-fit: cover;
   border-radius: 3px;
   display: block;
-  filter: saturate(1.35) contrast(1.1) brightness(1.04);
+  filter: saturate(1.1) contrast(1.05);
   transition: filter 0.2s ease;
 }
 
