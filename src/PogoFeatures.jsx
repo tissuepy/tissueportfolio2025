@@ -1,15 +1,18 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './PogoFeatures.css';
 
 const FEATURES = [
-  { name: 'AI Qualitative Branching', date: 'May 26', comingSoon: true  },
-  { name: 'Sections',                 date: 'Apr 26', comingSoon: false },
-  { name: 'Virtual Backgrounds',      date: 'Apr 26', comingSoon: false },
-  { name: 'Monadic Study Builder',    date: 'Mar 26', comingSoon: false },
-  { name: 'TURF Study Builder',       date: 'Feb 26', comingSoon: false },
+  { name: 'AI Qualitative Branching', date: 'May 26', comingSoon: true,  path: null },
+  { name: 'Sections',                 date: 'Apr 26', comingSoon: false, path: '/work/pogo/sections' },
+  { name: 'Virtual Backgrounds',      date: 'Apr 26', comingSoon: false, path: null },
+  { name: 'Monadic Study Builder',    date: 'Mar 26', comingSoon: false, path: null },
+  { name: 'TURF Study Builder',       date: 'Feb 26', comingSoon: false, path: null },
 ];
 
 export default function PogoFeatures() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
@@ -33,8 +36,9 @@ export default function PogoFeatures() {
           {FEATURES.map((f, i) => (
             <li
               key={f.name}
-              className={`pogo-features-row${f.comingSoon ? ' pogo-features-row--dim cursor-coming-soon' : ''}`}
-              style={{ animationDelay: `${0.2 + i * 0.08}s` }}
+              className={`pogo-features-row${f.comingSoon ? ' pogo-features-row--dim cursor-coming-soon' : ''}${f.path ? ' pogo-features-row--link' : ''}`}
+              style={{ animationDelay: `${0.2 + i * 0.08}s`, cursor: f.path ? 'pointer' : 'default' }}
+              onClick={() => f.path && navigate(f.path)}
             >
               <span className="pogo-features-name">{f.name}</span>
               <span className="pogo-features-date">{f.date}</span>
