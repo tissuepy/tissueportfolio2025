@@ -3,6 +3,7 @@ import './SectionsCaseStudy.css';
 import sectionsThumbnail from './assets/sections-portfolio-thumbnail-2.png';
 import sectionsMoving from './assets/sections-moving-question.png';
 import movingToMenu from './assets/moving-question-to-section-menu.png';
+import convertingToSection from './assets/converting-question-to-section.png';
 
 export default function SectionsCaseStudy() {
   useEffect(() => {
@@ -69,6 +70,19 @@ export default function SectionsCaseStudy() {
           <img
             src={movingToMenu}
             alt="Moving question to section menu"
+            className="sections-thumbnail-img"
+          />
+        </div>
+
+        <div className="sections-text-block sections-text-block--tight" style={{ marginTop: '40px' }}>
+          <p className="sections-section-label sections-section-label--dark">INTERACTION #3</p>
+          <h2 className="sections-section-title">Converting a question to a section</h2>
+        </div>
+
+        <div className="sections-thumbnail-canvas">
+          <img
+            src={convertingToSection}
+            alt="Converting a question to a section"
             className="sections-thumbnail-img"
           />
         </div>
