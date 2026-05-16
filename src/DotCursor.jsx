@@ -14,9 +14,8 @@ export default function DotCursor() {
 
       const under = document.elementFromPoint(e.clientX, e.clientY);
       const onTitle = !!(under && under.closest('h1, h2, h3'));
-      el.style.width  = onTitle ? '64px' : '13px';
-      el.style.height = onTitle ? '64px' : '13px';
-      el.style.backgroundColor = onTitle ? '#000000' : '#000000';
+      el.style.backgroundColor = onTitle ? 'transparent' : '#000000';
+      el.style.border = onTitle ? '2px solid #000000' : 'none';
     };
 
     const onDown = () => {
