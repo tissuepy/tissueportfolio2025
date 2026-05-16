@@ -128,6 +128,24 @@
   margin: 0;
 }
 
+/* ── States canvas ── */
+.sections-thumbnail-canvas--states {
+  height: 300px;
+  margin-top: 16px;
+}
+
+.sections-states-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62%;
+  height: auto;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+}
+
 /* ── Side-by-side canvas row ── */
 .sections-canvas-row {
   display: flex;
