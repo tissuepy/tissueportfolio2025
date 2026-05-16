@@ -60,7 +60,7 @@ export default function SectionsCaseStudy() {
           />
         </div>
 
-        <div className="sections-text-block sections-text-block--tight">
+        <div className="sections-text-block sections-text-block--tight" style={{ marginTop: '40px' }}>
           <p className="sections-section-label sections-section-label--dark">INTERACTION #2</p>
           <h2 className="sections-section-title">Moving questions into a section</h2>
         </div>
