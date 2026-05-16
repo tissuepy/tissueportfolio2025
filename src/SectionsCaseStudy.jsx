@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import './SectionsCaseStudy.css';
-import sectionsThumbnail from './assets/sections-portfolio-thumbnail.png';
+import sectionsThumbnail from './assets/sections-portfolio-thumbnail-2.png';
 
 export default function SectionsCaseStudy() {
   useEffect(() => {
