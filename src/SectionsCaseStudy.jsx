@@ -47,7 +47,7 @@ export default function SectionsCaseStudy() {
         </div>
 
         <div className="sections-text-block sections-text-block--tight">
-          <p className="sections-section-label">INTERACTION #1</p>
+          <p className="sections-section-label sections-section-label--light">INTERACTION #1</p>
           <h2 className="sections-section-title">Dragging questions into a section</h2>
         </div>
 

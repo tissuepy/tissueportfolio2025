@@ -90,6 +90,10 @@
   padding: 48px 0;
 }
 
+.sections-section-label--light {
+  color: rgba(0, 0, 0, 0.38);
+}
+
 .sections-text-block--tight {
   padding-top: 20px;
   padding-bottom: 20px;
