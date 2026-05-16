@@ -87,7 +87,7 @@
 
 /* Override for second image which has baked-in whitespace at the top of the PNG */
 .sections-thumbnail-img--moving {
-  top: -60px;
+  top: 10px;
 }
 
 /* ── Mobile ── */
