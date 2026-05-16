@@ -140,13 +140,18 @@
 }
 
 .sections-thumbnail-canvas--mini {
-  height: 260px;
+  height: 210px;
+  border: none;
+  background-color: transparent;
 }
 
 .sections-thumbnail-img--mini {
-  top: 20px;
-  left: 20px;
-  width: 120%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: none;
+  border: none;
+  border-radius: 6px;
 }
 
 /* ── Mobile ── */
@@ -180,8 +185,10 @@
   }
 
   .sections-thumbnail-img--mini {
-    top: 12px;
-    left: 12px;
+    top: 0;
+    left: 0;
     width: 100%;
+    box-shadow: none;
+    border: none;
   }
 }
