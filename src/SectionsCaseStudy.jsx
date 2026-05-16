@@ -4,8 +4,6 @@ import sectionsThumbnail from './assets/sections-portfolio-thumbnail-2.png';
 import sectionsMoving from './assets/sections-moving-question.png';
 import movingToMenu from './assets/moving-question-to-section-menu.png';
 import convertingToSection from './assets/converting-question-to-section.png';
-import questionsWithout from './assets/questions-without-section.png';
-import sectionWith from './assets/section-with-questions.png';
 
 export default function SectionsCaseStudy() {
   useEffect(() => {
@@ -89,22 +87,6 @@ export default function SectionsCaseStudy() {
           />
         </div>
 
-        <div className="sections-canvas-row">
-          <div className="sections-thumbnail-canvas sections-thumbnail-canvas--mini" style={{ height: '210px', minHeight: '210px' }}>
-            <img
-              src={questionsWithout}
-              alt="Questions without section"
-              className="sections-thumbnail-img sections-thumbnail-img--mini"
-            />
-          </div>
-          <div className="sections-thumbnail-canvas sections-thumbnail-canvas--mini" style={{ height: '210px', minHeight: '210px' }}>
-            <img
-              src={sectionWith}
-              alt="Section with questions"
-              className="sections-thumbnail-img sections-thumbnail-img--mini"
-            />
-          </div>
-        </div>
       </div>
     </div>
   );
