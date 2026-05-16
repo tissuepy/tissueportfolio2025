@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 
 export default function DotCursor() {
-  // No-op on touch/stylus devices
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) return null;
 
   const ref = useRef(null);
@@ -15,12 +14,12 @@ export default function DotCursor() {
 
       const under = document.elementFromPoint(e.clientX, e.clientY);
       const onTitle = !!(under && under.closest('h1, h2, h3'));
-      el.style.width  = onTitle ? '60px' : '10px';
-      el.style.height = onTitle ? '60px' : '10px';
+      el.style.width  = onTitle ? '64px' : '13px';
+      el.style.height = onTitle ? '64px' : '13px';
+      el.style.backgroundColor = onTitle ? '#000000' : '#000000';
     };
 
     const onDown = () => {
-      // Force reflow so re-triggering the animation works
       el.style.animation = 'none';
       void el.offsetWidth;
       el.style.animation = 'dotShrink 0.38s cubic-bezier(0.22,1,0.36,1) forwards';
@@ -60,11 +59,10 @@ export default function DotCursor() {
           position:        'fixed',
           top:             '-200px',
           left:            '-200px',
-          width:           '10px',
-          height:          '10px',
+          width:           '13px',
+          height:          '13px',
           borderRadius:    '50%',
-          backgroundColor: 'white',
-          mixBlendMode:    'difference',
+          backgroundColor: '#000000',
           transform:       'translate(-50%, -50%)',
           transition:      'width 0.28s cubic-bezier(0.34,1.56,0.64,1), height 0.28s cubic-bezier(0.34,1.56,0.64,1)',
           pointerEvents:   'none',
