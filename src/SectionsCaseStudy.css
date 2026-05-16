@@ -41,7 +41,7 @@
 .sections-thumbnail-img {
   position: absolute;
   /* shifted down and right — only top-left corner of the image shows */
-  top: 28px;
+  top: 36px;
   left: 36px;
   width: 150%;
   height: auto;
