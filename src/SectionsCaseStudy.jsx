@@ -46,6 +46,11 @@ export default function SectionsCaseStudy() {
           </p>
         </div>
 
+        <div className="sections-text-block">
+          <p className="sections-section-label">INTERACTION #1</p>
+          <h2 className="sections-section-title">Dragging questions into a section</h2>
+        </div>
+
         <div className="sections-thumbnail-canvas">
           <img
             src={sectionsMoving}
