@@ -3,19 +3,33 @@ import { useEffect, useRef } from 'react';
 export default function DotCursor() {
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) return null;
 
-  const ref = useRef(null);
+  const ref     = useRef(null);
+  const textRef = useRef(null);
 
   useEffect(() => {
-    const el = ref.current;
+    const el   = ref.current;
+    const text = textRef.current;
 
     const onMove = (e) => {
       el.style.left = e.clientX + 'px';
       el.style.top  = e.clientY + 'px';
 
-      const under = document.elementFromPoint(e.clientX, e.clientY);
-      const onTitle = !!(under && under.closest('h1, h2, h3'));
-      el.style.backgroundColor = onTitle ? 'transparent' : '#000000';
-      el.style.border = onTitle ? '2px solid #000000' : 'none';
+      const under      = document.elementFromPoint(e.clientX, e.clientY);
+      const onCompanies = !!(under && under.closest('.cursor-companies'));
+
+      if (onCompanies) {
+        text.style.display     = 'inline';
+        el.style.padding       = '9px 16px';
+        el.style.width         = 'auto';
+        el.style.height        = 'auto';
+        el.style.borderRadius  = '999px';
+      } else {
+        text.style.display     = 'none';
+        el.style.padding       = '0';
+        el.style.width         = '13px';
+        el.style.height        = '13px';
+        el.style.borderRadius  = '50%';
+      }
     };
 
     const onDown = () => {
@@ -24,9 +38,7 @@ export default function DotCursor() {
       el.style.animation = 'dotShrink 0.38s cubic-bezier(0.22,1,0.36,1) forwards';
     };
 
-    const onAnimEnd = () => {
-      el.style.animation = 'none';
-    };
+    const onAnimEnd = () => { el.style.animation = 'none'; };
 
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mousedown', onDown);
@@ -63,11 +75,30 @@ export default function DotCursor() {
           borderRadius:    '50%',
           backgroundColor: '#000000',
           transform:       'translate(-50%, -50%)',
-          transition:      'width 0.28s cubic-bezier(0.34,1.56,0.64,1), height 0.28s cubic-bezier(0.34,1.56,0.64,1)',
+          transition:      'width 0.22s cubic-bezier(0.34,1.56,0.64,1), height 0.22s cubic-bezier(0.34,1.56,0.64,1), padding 0.22s cubic-bezier(0.34,1.56,0.64,1)',
           pointerEvents:   'none',
           zIndex:          99999,
+          display:         'flex',
+          alignItems:      'center',
+          justifyContent:  'center',
         }}
-      />
+      >
+        <span
+          ref={textRef}
+          style={{
+            display:       'none',
+            fontFamily:    "'IBM Plex Mono', monospace",
+            fontSize:      '11px',
+            fontWeight:    500,
+            letterSpacing: '0.08em',
+            color:         '#ffffff',
+            whiteSpace:    'nowrap',
+            userSelect:    'none',
+          }}
+        >
+          CHATGPT, NOTION, AND TYPEFORM!
+        </span>
+      </div>
     </>
   );
 }
