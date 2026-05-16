@@ -9,22 +9,53 @@
   box-sizing: border-box;
 }
 
+.sections-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.sections-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.sections-header-right {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+}
+
 .sections-title {
-  font-family: 'Lora', Georgia, serif;
-  font-size: 28px;
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 15px;
   font-weight: 400;
   color: #000000;
-  margin: 0 0 8px 0;
-  line-height: 1.2;
+  margin: 0;
+  line-height: 1.4;
 }
 
 .sections-meta {
-  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.38);
-  line-height: 1.6;
-  margin: 0 0 28px 0;
+  color: rgba(0, 0, 0, 0.55);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.sections-desc {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.55);
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* ── Thumbnail canvas ── */
@@ -54,6 +85,12 @@
 @media (max-width: 600px) {
   .sections-inner {
     padding: 40px 20px 60px;
+  }
+
+  .sections-header {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
   }
 
   .sections-thumbnail-canvas {
