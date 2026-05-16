@@ -6,6 +6,7 @@ import movingToMenu from './assets/moving-question-to-section-menu.png';
 import convertingToSection from './assets/converting-question-to-section.png';
 import sectionStates from './assets/section-states-1.png';
 import emptyStates from './assets/empty-states-sections.png';
+import companies from './assets/companies.png';
 
 export default function SectionsCaseStudy() {
   useEffect(() => {
@@ -41,6 +42,22 @@ export default function SectionsCaseStudy() {
           <p className="sections-section-body">
             While working on the AI Qualitative Survey branching editor, I identified enterprise user demand for more organized branching logic workflows. "Sections" emerged as a key solution to improve question organization and simplify navigation within complex surveys on the Pogo platform.
           </p>
+        </div>
+
+        <div className="sections-text-block sections-text-block--tight">
+          <p className="sections-section-label sections-section-label--dark">COMPETITOR RESEARCH</p>
+          <h2 className="sections-section-title">Finding inspiration in popular tools</h2>
+          <p className="sections-section-body">
+            I first conducted competitor analysis across survey platforms and workspace tools to understand how other products approached sections, organization, and information hierarchy. This research helped inform interaction patterns and usability decisions for the feature's overall design.
+          </p>
+        </div>
+
+        <div className="sections-thumbnail-canvas sections-thumbnail-canvas--half">
+          <img
+            src={companies}
+            alt="Competitor companies"
+            className="sections-companies-img"
+          />
         </div>
 
         <div className="sections-text-block sections-text-block--tight">
