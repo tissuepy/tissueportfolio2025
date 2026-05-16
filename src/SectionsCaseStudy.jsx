@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import './SectionsCaseStudy.css';
 import sectionsThumbnail from './assets/sections-portfolio-thumbnail-2.png';
 import sectionsMoving from './assets/sections-moving-question.png';
+import movingToMenu from './assets/moving-question-to-section-menu.png';
 
 export default function SectionsCaseStudy() {
   useEffect(() => {
@@ -55,6 +56,19 @@ export default function SectionsCaseStudy() {
           <img
             src={sectionsMoving}
             alt="Sections moving question"
+            className="sections-thumbnail-img"
+          />
+        </div>
+
+        <div className="sections-text-block sections-text-block--tight">
+          <p className="sections-section-label">INTERACTION #2</p>
+          <h2 className="sections-section-title">Moving questions into a section</h2>
+        </div>
+
+        <div className="sections-thumbnail-canvas">
+          <img
+            src={movingToMenu}
+            alt="Moving question to section menu"
             className="sections-thumbnail-img"
           />
         </div>
