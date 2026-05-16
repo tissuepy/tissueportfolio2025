@@ -17,7 +17,7 @@ export default function SectionsCaseStudy() {
           </div>
           <div className="sections-header-right">
             <p className="sections-desc">
-              I led a key initiative to design and launch a minimal "Sections" feature for the AI Qualitative Survey creation experience within the Pogo enterprise platform. The goal was to give researchers a lightweight way to structure long-form AI-generated surveys into clear thematic groups without introducing unnecessary complexity.
+              Designed a minimal "Sections" feature for the AI Qualitative Survey creation experience within the Pogo enterprise platform. The goal was to give researchers a lightweight way to structure long-form AI-generated surveys into clear thematic groups without introducing unnecessary complexity.
             </p>
           </div>
         </div>
