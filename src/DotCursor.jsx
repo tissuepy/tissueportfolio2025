@@ -26,8 +26,8 @@ export default function DotCursor() {
       } else {
         text.style.display     = 'none';
         el.style.padding       = '0';
-        el.style.width         = '13px';
-        el.style.height        = '13px';
+        el.style.width         = '17px';
+        el.style.height        = '17px';
         el.style.borderRadius  = '50%';
       }
     };
@@ -70,8 +70,8 @@ export default function DotCursor() {
           position:        'fixed',
           top:             '-200px',
           left:            '-200px',
-          width:           '13px',
-          height:          '13px',
+          width:           '17px',
+          height:          '17px',
           borderRadius:    '50%',
           backgroundColor: '#000000',
           transform:       'translate(-50%, -50%)',
@@ -88,7 +88,7 @@ export default function DotCursor() {
           style={{
             display:       'none',
             fontFamily:    "'IBM Plex Mono', monospace",
-            fontSize:      '11px',
+            fontSize:      '13px',
             fontWeight:    500,
             letterSpacing: '0.08em',
             color:         '#ffffff',
