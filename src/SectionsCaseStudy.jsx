@@ -39,7 +39,7 @@ export default function SectionsCaseStudy() {
           </p>
         </div>
 
-        <div className="sections-text-block">
+        <div className="sections-text-block sections-text-block--tight">
           <h2 className="sections-section-title">Fast forward to the interactions</h2>
           <p className="sections-section-body">
             The feature supported several intuitive interactions, including creating sections from multiple entry points, grouping existing questions into sections, and quickly removing or ungrouping content when restructuring surveys.
