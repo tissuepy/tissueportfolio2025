@@ -90,14 +90,14 @@ export default function SectionsCaseStudy() {
         </div>
 
         <div className="sections-canvas-row">
-          <div className="sections-thumbnail-canvas sections-thumbnail-canvas--mini" style={{ height: '280px', minHeight: '280px' }}>
+          <div className="sections-thumbnail-canvas sections-thumbnail-canvas--mini" style={{ height: '210px', minHeight: '210px' }}>
             <img
               src={questionsWithout}
               alt="Questions without section"
               className="sections-thumbnail-img sections-thumbnail-img--mini"
             />
           </div>
-          <div className="sections-thumbnail-canvas sections-thumbnail-canvas--mini" style={{ height: '280px', minHeight: '280px' }}>
+          <div className="sections-thumbnail-canvas sections-thumbnail-canvas--mini" style={{ height: '210px', minHeight: '210px' }}>
             <img
               src={sectionWith}
               alt="Section with questions"
