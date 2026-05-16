@@ -48,7 +48,7 @@ export default function SectionsCaseStudy() {
         </div>
 
         <div className="sections-text-block sections-text-block--tight">
-          <p className="sections-section-label">INTERACTION #1</p>
+          <p className="sections-section-label sections-section-label--dark">INTERACTION #1</p>
           <h2 className="sections-section-title">Dragging questions into a section</h2>
         </div>
 
@@ -61,7 +61,7 @@ export default function SectionsCaseStudy() {
         </div>
 
         <div className="sections-text-block sections-text-block--tight">
-          <p className="sections-section-label">INTERACTION #2</p>
+          <p className="sections-section-label sections-section-label--dark">INTERACTION #2</p>
           <h2 className="sections-section-title">Moving questions into a section</h2>
         </div>
 

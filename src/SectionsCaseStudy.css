@@ -91,6 +91,10 @@
 }
 
 
+.sections-section-label--dark {
+  color: rgba(0, 0, 0, 0.55);
+}
+
 .sections-text-block--tight {
   padding-top: 20px;
   padding-bottom: 20px;
