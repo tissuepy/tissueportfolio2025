@@ -1,12 +1,11 @@
 .sections-page {
   width: 100%;
-  padding: 0;
 }
 
 .sections-inner {
-  max-width: 750px;
+  max-width: 520px;
   margin: 0 auto;
-  padding: 40px 40px 80px;
+  padding: 60px 0 80px;
   box-sizing: border-box;
 }
 
@@ -54,7 +53,7 @@
 /* ── Mobile ── */
 @media (max-width: 600px) {
   .sections-inner {
-    padding: 24px 20px 60px;
+    padding: 40px 20px 60px;
   }
 
   .sections-thumbnail-canvas {
