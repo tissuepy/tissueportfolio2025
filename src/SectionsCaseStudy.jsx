@@ -17,7 +17,7 @@ export default function SectionsCaseStudy() {
           </div>
           <div className="sections-header-right">
             <p className="sections-desc">
-              A feature that lets survey creators organize questions into labeled groups, giving respondents a clearer sense of progress and structure throughout longer studies.
+              I led a key initiative to design and launch a minimal "Sections" feature for the AI Qualitative Survey creation experience within the Pogo enterprise platform. The goal was to give researchers a lightweight way to structure long-form AI-generated surveys into clear thematic groups without introducing unnecessary complexity.
             </p>
           </div>
         </div>
