@@ -19,7 +19,7 @@ export default function DotCursor() {
 
       if (onCompanies) {
         text.style.display     = 'inline';
-        el.style.padding       = '6px 11px';
+        el.style.padding       = '8px 14px';
         el.style.width         = 'auto';
         el.style.height        = 'auto';
         el.style.borderRadius  = '999px';
@@ -88,7 +88,7 @@ export default function DotCursor() {
           style={{
             display:       'none',
             fontFamily:    "'IBM Plex Mono', monospace",
-            fontSize:      '10px',
+            fontSize:      '12px',
             fontWeight:    500,
             letterSpacing: '0.08em',
             color:         '#ffffff',
