@@ -89,6 +89,7 @@ export default function SectionsCaseStudy() {
           />
         </div>
 
+        {/* Hidden for now — re-enable when ready
         <div className="sections-thumbnail-canvas sections-thumbnail-canvas--states">
           <img
             src={sectionStates}
@@ -104,6 +105,7 @@ export default function SectionsCaseStudy() {
             className="sections-states-img"
           />
         </div>
+        */}
 
       </div>
     </div>
