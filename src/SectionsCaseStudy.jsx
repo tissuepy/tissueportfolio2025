@@ -31,6 +31,14 @@ export default function SectionsCaseStudy() {
           />
         </div>
 
+        <div className="sections-text-block">
+          <p className="sections-section-label">BACKGROUND</p>
+          <h2 className="sections-section-title">Clients requested a special feature</h2>
+          <p className="sections-section-body">
+            While working on the AI Qualitative Survey branching editor, I identified enterprise user demand for more organized branching logic workflows. "Sections" emerged as a key solution to improve question organization and simplify navigation within complex surveys on the Pogo platform.
+          </p>
+        </div>
+
         <div className="sections-thumbnail-canvas">
           <img
             src={sectionsMoving}
