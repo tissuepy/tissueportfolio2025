@@ -85,11 +85,6 @@
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
 }
 
-/* Override for second image which has baked-in whitespace at the top of the PNG */
-.sections-thumbnail-img--moving {
-  top: 10px;
-}
-
 /* ── Mobile ── */
 @media (max-width: 600px) {
   .sections-inner {

@@ -35,7 +35,7 @@ export default function SectionsCaseStudy() {
           <img
             src={sectionsMoving}
             alt="Sections moving question"
-            className="sections-thumbnail-img sections-thumbnail-img--moving"
+            className="sections-thumbnail-img"
           />
         </div>
       </div>
