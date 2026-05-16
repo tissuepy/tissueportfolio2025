@@ -90,6 +90,10 @@
   padding: 48px 0;
 }
 
+.sections-text-block--tight {
+  padding-bottom: 20px;
+}
+
 .sections-section-label {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
