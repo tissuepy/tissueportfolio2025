@@ -14,6 +14,7 @@ import Rejection from './articles/Rejection';
 import ChatGPTArticle from './articles/ChatGPTArticle';
 import InteractiveMatcha from './InteractiveMatcha'; // Added
 import BackgroundAnimation from './BackgroundAnimation';
+import DotCursor from './DotCursor';
 import CustomCursor from './CustomCursor';
 import logo from './assets/logo.png';
 import notionFace from './assets/notion-nitu.png';
@@ -87,7 +88,8 @@ function App() {
 
   return (
     <>
-      {/* <CustomCursor /> */}{/* Disabled — uncomment to re-enable the custom red cursor */}
+      <DotCursor />
+      {/* <CustomCursor /> */}{/* old red cursor — kept for reference */}
       {!NO_NOISE_ROUTES.includes(location.pathname) && <BackgroundAnimation />}
       {/* Navbar */}
       <div className={`navbar${location.pathname === '/photos' ? ' navbar--solid' : ''}`}>
