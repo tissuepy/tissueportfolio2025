@@ -56,7 +56,7 @@ export default function SectionsCaseStudy() {
           <img
             src={companies}
             alt="Competitor companies"
-            className="sections-companies-img"
+            className="sections-companies-img cursor-companies"
           />
         </div>
 
