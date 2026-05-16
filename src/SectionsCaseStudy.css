@@ -156,6 +156,11 @@
   border-radius: 0;
 }
 
+.sections-canvas-row .sections-thumbnail-canvas:first-child .sections-thumbnail-img--mini {
+  transform: scale(0.88);
+  transform-origin: top left;
+}
+
 /* ── Mobile ── */
 @media (max-width: 600px) {
   .sections-inner {
