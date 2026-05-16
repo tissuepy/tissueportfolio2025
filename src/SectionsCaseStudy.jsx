@@ -5,6 +5,7 @@ import sectionsMoving from './assets/sections-moving-question.png';
 import movingToMenu from './assets/moving-question-to-section-menu.png';
 import convertingToSection from './assets/converting-question-to-section.png';
 import sectionStates from './assets/section-states-1.png';
+import emptyStates from './assets/empty-states-sections.png';
 
 export default function SectionsCaseStudy() {
   useEffect(() => {
@@ -92,6 +93,14 @@ export default function SectionsCaseStudy() {
           <img
             src={sectionStates}
             alt="Section states"
+            className="sections-states-img"
+          />
+        </div>
+
+        <div className="sections-thumbnail-canvas sections-thumbnail-canvas--states">
+          <img
+            src={emptyStates}
+            alt="Empty states sections"
             className="sections-states-img"
           />
         </div>
