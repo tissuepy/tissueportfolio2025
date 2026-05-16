@@ -33,7 +33,7 @@
   height: 380px;
   background-color: #f9f9f9;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
+  border-radius: 10px;
   overflow: hidden;
   position: relative;
 }
@@ -41,7 +41,7 @@
 .sections-thumbnail-img {
   position: absolute;
   /* shifted down and right — only top-left corner of the image shows */
-  top: 28px;
+  top: 70px;
   left: 60px;
   width: 150%;
   height: auto;
