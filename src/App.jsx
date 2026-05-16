@@ -8,6 +8,7 @@ import WrapCaseStudy from './WrapCaseStudy';
 import SafehubCaseStudy from './SafehubCaseStudy';
 import ChatGPTCaseStudy from './ChatGPTCaseStudy';
 import PogoFeatures from './PogoFeatures';
+import SectionsCaseStudy from './SectionsCaseStudy';
 import Writing from './Writing';
 import Rejection from './articles/Rejection';
 import ChatGPTArticle from './articles/ChatGPTArticle';
@@ -43,7 +44,7 @@ function Breadcrumb({ pathname }) {
   );
 }
 
-const NO_NOISE_ROUTES = ['/work/searchneu', '/work/wrap', '/work/safehub', '/work/chatgpt', '/work/pogo', '/writing', '/writing/rejection', '/work/chatgpt/article'];
+const NO_NOISE_ROUTES = ['/work/searchneu', '/work/wrap', '/work/safehub', '/work/chatgpt', '/work/pogo', '/work/pogo/sections', '/writing', '/writing/rejection', '/work/chatgpt/article'];
 
 function App() {
   const location = useLocation();
@@ -111,6 +112,7 @@ function App() {
           <Route path="/work/chatgpt" element={<ChatGPTCaseStudy />} />
           <Route path="/photos" element={<Photos />} />
           <Route path="/work/pogo" element={<PogoFeatures />} />
+          <Route path="/work/pogo/sections" element={<SectionsCaseStudy />} />
           <Route path="/writing" element={<Writing />} />
           <Route path="/writing/rejection" element={<Rejection />} />
           <Route path="/work/chatgpt/article" element={<ChatGPTArticle />} />
