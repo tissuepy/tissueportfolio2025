@@ -128,6 +128,23 @@
   margin: 0;
 }
 
+/* ── Comic canvas ── */
+.sections-thumbnail-canvas--comic {
+  height: 220px;
+}
+
+.sections-comic-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72%;
+  height: auto;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+}
+
 /* ── Half canvas ── */
 .sections-thumbnail-canvas--half {
   height: 190px;
