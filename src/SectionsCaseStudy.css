@@ -92,10 +92,10 @@
 
 .sections-section-label {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
-  color: #000000;
+  color: rgba(0, 0, 0, 0.5);
   margin: 0 0 14px 0;
   text-transform: uppercase;
 }
@@ -110,11 +110,11 @@
 }
 
 .sections-section-body {
-  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
-  font-size: 15px;
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 13px;
   font-weight: 400;
-  color: #000000;
-  line-height: 1.65;
+  color: rgba(0, 0, 0, 0.55);
+  line-height: 1.5;
   margin: 0;
 }
 
