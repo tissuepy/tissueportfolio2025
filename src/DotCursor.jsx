@@ -1,48 +1,45 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function DotCursor() {
-  // Skip on touch / stylus devices — they have no pointer
+  // No-op on touch/stylus devices
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) return null;
 
-  const outerRef  = useRef(null);
-  const pos       = useRef({ x: -200, y: -200 });
-  const [isTitle,   setIsTitle]   = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
+  const ref = useRef(null);
 
   useEffect(() => {
-    const outer = outerRef.current;
-    let animId;
-
-    // Use rAF for silky-smooth position tracking
-    const raf = () => {
-      outer.style.left = `${pos.current.x}px`;
-      outer.style.top  = `${pos.current.y}px`;
-      animId = requestAnimationFrame(raf);
-    };
-    animId = requestAnimationFrame(raf);
+    const el = ref.current;
 
     const onMove = (e) => {
-      pos.current = { x: e.clientX, y: e.clientY };
-      const el = document.elementFromPoint(e.clientX, e.clientY);
-      setIsTitle(!!(el && el.closest('h1, h2, h3')));
+      el.style.left = e.clientX + 'px';
+      el.style.top  = e.clientY + 'px';
+
+      const under = document.elementFromPoint(e.clientX, e.clientY);
+      const onTitle = !!(under && under.closest('h1, h2, h3'));
+      el.style.width  = onTitle ? '60px' : '10px';
+      el.style.height = onTitle ? '60px' : '10px';
     };
 
     const onDown = () => {
-      setIsClicked(true);
-      setTimeout(() => setIsClicked(false), 380);
+      // Force reflow so re-triggering the animation works
+      el.style.animation = 'none';
+      void el.offsetWidth;
+      el.style.animation = 'dotShrink 0.38s cubic-bezier(0.22,1,0.36,1) forwards';
+    };
+
+    const onAnimEnd = () => {
+      el.style.animation = 'none';
     };
 
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mousedown', onDown);
+    el.addEventListener('animationend', onAnimEnd);
 
     return () => {
-      cancelAnimationFrame(animId);
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mousedown', onDown);
+      el.removeEventListener('animationend', onAnimEnd);
     };
   }, []);
-
-  const size = isTitle ? 60 : 10;
 
   return (
     <>
@@ -57,31 +54,23 @@ export default function DotCursor() {
         }
       `}</style>
 
-      {/* Outer div: only handles position via rAF */}
       <div
-        ref={outerRef}
+        ref={ref}
         style={{
-          position:      'fixed',
-          top:           0,
-          left:          0,
-          zIndex:        99999,
-          pointerEvents: 'none',
+          position:        'fixed',
+          top:             '-200px',
+          left:            '-200px',
+          width:           '10px',
+          height:          '10px',
+          borderRadius:    '50%',
+          backgroundColor: 'white',
+          mixBlendMode:    'difference',
+          transform:       'translate(-50%, -50%)',
+          transition:      'width 0.28s cubic-bezier(0.34,1.56,0.64,1), height 0.28s cubic-bezier(0.34,1.56,0.64,1)',
+          pointerEvents:   'none',
+          zIndex:          99999,
         }}
-      >
-        {/* Inner div: size, blend, animation */}
-        <div
-          style={{
-            width:           `${size}px`,
-            height:          `${size}px`,
-            borderRadius:    '50%',
-            backgroundColor: 'white',
-            mixBlendMode:    'difference',
-            transform:       'translate(-50%, -50%)',
-            transition:      'width 0.28s cubic-bezier(0.34,1.56,0.64,1), height 0.28s cubic-bezier(0.34,1.56,0.64,1)',
-            animation:       isClicked ? 'dotShrink 0.38s cubic-bezier(0.22,1,0.36,1) forwards' : 'none',
-          }}
-        />
-      </div>
+      />
     </>
   );
 }
