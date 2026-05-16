@@ -13,7 +13,7 @@ export default function SectionsCaseStudy() {
         <div className="sections-header">
           <div className="sections-header-left">
             <h1 className="sections-title">Survey Sections</h1>
-            <p className="sections-meta">Pogo, Spring 2026</p>
+            <p className="sections-meta">Spring 2026</p>
           </div>
           <div className="sections-header-right">
             <p className="sections-desc">
