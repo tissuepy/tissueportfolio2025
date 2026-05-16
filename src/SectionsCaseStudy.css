@@ -58,7 +58,11 @@
   margin: 0;
 }
 
-/* ── Thumbnail canvas ── */
+/* ── Thumbnail canvases ── */
+.sections-thumbnail-canvas + .sections-thumbnail-canvas {
+  margin-top: 16px;
+}
+
 .sections-thumbnail-canvas {
   width: 100%;
   height: 380px;

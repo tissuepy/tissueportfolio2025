@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import './SectionsCaseStudy.css';
 import sectionsThumbnail from './assets/sections-portfolio-thumbnail-2.png';
+import sectionsMoving from './assets/sections-moving-question.png';
 
 export default function SectionsCaseStudy() {
   useEffect(() => {
@@ -26,6 +27,14 @@ export default function SectionsCaseStudy() {
           <img
             src={sectionsThumbnail}
             alt="Sections feature thumbnail"
+            className="sections-thumbnail-img"
+          />
+        </div>
+
+        <div className="sections-thumbnail-canvas">
+          <img
+            src={sectionsMoving}
+            alt="Sections moving question"
             className="sections-thumbnail-img"
           />
         </div>
