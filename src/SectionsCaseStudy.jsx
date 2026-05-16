@@ -39,6 +39,13 @@ export default function SectionsCaseStudy() {
           </p>
         </div>
 
+        <div className="sections-text-block">
+          <h2 className="sections-section-title">Fast forward to the interactions</h2>
+          <p className="sections-section-body">
+            The feature supported several intuitive interactions, including creating sections from multiple entry points, grouping existing questions into sections, and quickly removing or ungrouping content when restructuring surveys.
+          </p>
+        </div>
+
         <div className="sections-thumbnail-canvas">
           <img
             src={sectionsMoving}
