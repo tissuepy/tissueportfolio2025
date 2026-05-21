@@ -3183,9 +3183,15 @@ html {
 .wallet-side-panel {
   display: flex;
   justify-content: flex-start;
-  padding-left: 40px;
   padding-bottom: 80px;
   margin-top: -48px;
+  max-width: 680px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-sizing: border-box;
 }
 
 /* About Page */
@@ -4106,6 +4112,11 @@ html {
     flex-direction: column;
     gap: 8px;
     padding: 32px 20px 48px 20px;
+    max-width: 680px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
   }
 
   .mobile-project-heading {
