@@ -9,39 +9,48 @@
   box-sizing: border-box;
 }
 
-/* ── Header ── */
+/* ── Header: two-column ── */
 .chatgpt-full-header {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 28px;
+  justify-content: space-between;
+  gap: 32px;
 }
 
-/* Logo square */
-.chatgpt-full-logo-box {
+/* Left: logo box + title/date side by side */
+.chatgpt-full-header-left {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 12px;
   flex-shrink: 0;
-  width: 80px;
-  height: 80px;
-  border-radius: 10px;
+}
+
+/* Logo box — height stretches to match the title+date stack */
+.chatgpt-full-logo-box {
+  border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.07);
   display: flex;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 1 / 1;
+  padding: 8px;
   background: #fff;
+  box-sizing: border-box;
 }
 
 .chatgpt-full-logo-img {
-  width: 44px;
-  height: 44px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
 }
 
-/* Text side */
-.chatgpt-full-header-text {
+/* Title + date stacked */
+.chatgpt-full-title-group {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  flex: 1;
+  gap: 2px;
 }
 
 .chatgpt-full-title {
@@ -62,13 +71,18 @@
   line-height: 1.4;
 }
 
+/* Right: description */
+.chatgpt-full-header-right {
+  flex: 1;
+}
+
 .chatgpt-full-desc {
   font-family: 'Apfel Grotezk', 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.55);
   line-height: 1.5;
-  margin: 12px 0 0 0;
+  margin: 0;
 }
 
 /* ── Mobile ── */
