@@ -74,9 +74,7 @@
   text-decoration-style: dotted;
   text-underline-offset: 3px;
   text-decoration-thickness: 1.5px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+  display: inline-block;
   width: fit-content;
   margin-top: 12px;
   line-height: 1.4;

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './ChatGPTArticle.css';
 import screen1 from './screen1.png';
 import screen2 from './screen2.png';
@@ -17,8 +17,6 @@ const ArrowNE = () => (
 );
 
 export default function ChatGPTArticle() {
-  const navigate = useNavigate();
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
@@ -30,13 +28,9 @@ export default function ChatGPTArticle() {
           <div className="chatgpt-article-header-left">
             <h1 className="chatgpt-article-title">ChatGPT Bookmarks</h1>
             <p className="chatgpt-article-date">Fall 2025</p>
-            <span
-              className="chatgpt-article-case-link"
-              style={{ cursor: 'pointer' }}
-              onClick={() => navigate('/work/chatgpt/full')}
-            >
+            <Link to="/work/chatgpt/full" className="chatgpt-article-case-link">
               Full Case Study
-            </span>
+            </Link>
           </div>
           <div className="chatgpt-article-header-right">
             <p className="chatgpt-article-body">
