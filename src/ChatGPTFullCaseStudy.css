@@ -132,6 +132,37 @@
   object-fit: contain;
 }
 
+@keyframes carouselSlideInDown {
+  from {
+    transform: translate(-50%, -110%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes carouselSlideOutDown {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, 30%);
+    opacity: 0;
+  }
+}
+
+.chatgpt-full-carousel-img--enter {
+  animation: carouselSlideInDown 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.chatgpt-full-carousel-img--exit {
+  animation: carouselSlideOutDown 0.38s cubic-bezier(0.4, 0, 1, 1) forwards;
+  pointer-events: none;
+}
+
 .chatgpt-full-chevron {
   position: absolute;
   top: 50%;
