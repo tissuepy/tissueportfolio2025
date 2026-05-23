@@ -52,8 +52,8 @@ const ProjectsMasonry = () => {
       duration: 'Mobile App',
       team: 'Product Design',
       growth: '2025',
-      caseStudyUrl: 'https://medium.com/@nitishgannu/building-bookmarks-into-chatgpt-46ca50a7b2a4',
-      isExternal: true,
+      caseStudyUrl: '/work/chatgpt/full',
+      isExternal: false,
       hasLogo: false
     },
     {
