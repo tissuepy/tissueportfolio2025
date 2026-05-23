@@ -18,7 +18,7 @@ export default function ChatGPTFullCaseStudy() {
               <img src={chatgptLogo} alt="ChatGPT" className="chatgpt-full-logo-img" />
             </div>
             <div className="chatgpt-full-title-group">
-              <h1 className="chatgpt-full-title">ChatGPT Bookmarks Case Study</h1>
+              <h1 className="chatgpt-full-title">ChatGPT Bookmarks</h1>
               <p className="chatgpt-full-date">Fall 2025</p>
             </div>
           </div>
