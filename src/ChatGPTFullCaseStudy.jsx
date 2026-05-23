@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import './ChatGPTFullCaseStudy.css';
 import chatgptLogo from './articles/chatgpt-logo.png';
+import bookmarkImg from './assets/chatgpt-bookmark-1.png';
 
 export default function ChatGPTFullCaseStudy() {
   useEffect(() => {
@@ -31,6 +32,12 @@ export default function ChatGPTFullCaseStudy() {
           </div>
 
         </div>
+
+        {/* Thumbnail canvas */}
+        <div className="chatgpt-full-canvas">
+          <img src={bookmarkImg} alt="ChatGPT Bookmarks" className="chatgpt-full-canvas-img" />
+        </div>
+
       </div>
     </div>
   );
