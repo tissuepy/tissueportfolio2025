@@ -95,14 +95,14 @@ export default function ChatGPTFullCaseStudy() {
             <img
               src={RESEARCH_SLIDES[prevIndex]}
               alt={`Research slide ${prevIndex + 1}`}
-              className="chatgpt-full-carousel-img chatgpt-full-carousel-img--exit"
+              className={`chatgpt-full-carousel-img chatgpt-full-carousel-img--exit${prevIndex === 1 ? ' chatgpt-full-carousel-img--lower' : ''}`}
             />
           )}
           <img
             key={slideIndex}
             src={RESEARCH_SLIDES[slideIndex]}
             alt={`Research slide ${slideIndex + 1}`}
-            className={`chatgpt-full-carousel-img${animating ? ' chatgpt-full-carousel-img--enter' : ''}`}
+            className={`chatgpt-full-carousel-img${animating ? ' chatgpt-full-carousel-img--enter' : ''}${slideIndex === 1 ? ' chatgpt-full-carousel-img--lower' : ''}`}
           />
           <button className="chatgpt-full-chevron chatgpt-full-chevron--left" onClick={prevSlide} aria-label="Previous">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">

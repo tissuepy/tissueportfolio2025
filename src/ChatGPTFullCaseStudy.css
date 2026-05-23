@@ -134,7 +134,7 @@
 
 @keyframes carouselSlideInDown {
   from {
-    transform: translate(-50%, -110%);
+    transform: translate(-50%, -160%);
     opacity: 0;
   }
   to {
@@ -143,24 +143,24 @@
   }
 }
 
-@keyframes carouselSlideOutDown {
-  from {
-    transform: translate(-50%, -50%);
-    opacity: 1;
-  }
-  to {
-    transform: translate(-50%, 30%);
-    opacity: 0;
-  }
+@keyframes carouselFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
 
 .chatgpt-full-carousel-img--enter {
-  animation: carouselSlideInDown 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: carouselSlideInDown 0.44s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  z-index: 2;
 }
 
 .chatgpt-full-carousel-img--exit {
-  animation: carouselSlideOutDown 0.38s cubic-bezier(0.4, 0, 1, 1) forwards;
+  animation: carouselFadeOut 0.12s ease forwards;
   pointer-events: none;
+  z-index: 1;
+}
+
+.chatgpt-full-carousel-img--lower {
+  top: 62%;
 }
 
 .chatgpt-full-chevron {
