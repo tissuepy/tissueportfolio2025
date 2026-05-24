@@ -33,9 +33,9 @@ const RESEARCH_SLIDES = [
     type: 'profile',
     src: user3Img,
     frustrations: [
-      'Lost in long threads',
-      'Hard to revisit interactions',
-      'Confidently incorrect answers',
+      'Lags in long conversations',
+      'Mobile scrolling is exhausting',
+      'No performance issue alerts',
     ],
   },
 ];
