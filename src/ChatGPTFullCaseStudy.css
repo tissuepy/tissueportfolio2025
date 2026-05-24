@@ -379,6 +379,64 @@
   transition: color 0.2s ease;
 }
 
+/* ── Feedback links ── */
+.chatgpt-full-feedback-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chatgpt-full-feedback-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  background-color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.chatgpt-full-feedback-card--reddit {
+  padding-left: 6px;
+  gap: 8px;
+}
+
+.chatgpt-full-feedback-card:hover {
+  background-color: #f9f9f9;
+}
+
+.chatgpt-full-feedback-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.chatgpt-full-feedback-logo--sm {
+  width: 21px;
+  height: 21px;
+}
+
+.chatgpt-full-feedback-text {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #111111;
+  flex: 1;
+}
+
+.chatgpt-full-feedback-arrow {
+  color: rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
 /* ── Mobile ── */
 @media (max-width: 600px) {
   .chatgpt-full-inner {

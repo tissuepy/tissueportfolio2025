@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './ChatGPTFullCaseStudy.css';
 import chatgptLogo from './articles/chatgpt-logo.png';
+import redditLogo from './articles/reddit-logo2.webp';
 import bookmarkImg from './assets/chatgpt-bookmark-1.png';
 import participantsImg from './assets/chatgpt-participants.png';
 import user1Img from './assets/chatgpt-user-1.png';
@@ -39,6 +40,12 @@ const RESEARCH_SLIDES = [
     ],
   },
 ];
+
+const ArrowNE = () => (
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
+    <path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
 
 const RedXIcon = () => (
   <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
@@ -187,6 +194,25 @@ export default function ChatGPTFullCaseStudy() {
               />
             ))}
           </div>
+        </div>
+
+        {/* Internet complaining section */}
+        <div className="chatgpt-full-text-block">
+          <h2 className="chatgpt-full-section-title">The internet had already been complaining</h2>
+          <p className="chatgpt-full-section-body">Beyond my interviews, I surfaced Reddit threads and ChatGPT community forums where users were describing the exact same frustrations, confirming this wasn't isolated to the people I spoke with.</p>
+        </div>
+
+        <div className="chatgpt-full-feedback-links">
+          <a href="https://www.reddit.com/r/ChatGPT/comments/1oxm491/feature_suggestion_bookmarks_table_of_contents_in/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="chatgpt-full-feedback-card chatgpt-full-feedback-card--reddit">
+            <img src={redditLogo} alt="Reddit" className="chatgpt-full-feedback-logo" />
+            <span className="chatgpt-full-feedback-text">Feature Suggestion: Bookmarks</span>
+            <span className="chatgpt-full-feedback-arrow"><ArrowNE /></span>
+          </a>
+          <a href="https://community.openai.com/t/add-ability-to-bookmark-favorite-a-message-in-any-chat-thread/1086947" target="_blank" rel="noopener noreferrer" className="chatgpt-full-feedback-card">
+            <img src={chatgptLogo} alt="ChatGPT" className="chatgpt-full-feedback-logo chatgpt-full-feedback-logo--sm" />
+            <span className="chatgpt-full-feedback-text">Add ability to bookmark / favorite a message</span>
+            <span className="chatgpt-full-feedback-arrow"><ArrowNE /></span>
+          </a>
         </div>
 
         {/* Problem section */}
