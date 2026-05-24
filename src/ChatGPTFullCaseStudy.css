@@ -166,33 +166,20 @@
 .chatgpt-full-profile-slide {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-
-.chatgpt-full-profile-img-panel {
-  width: 40%;
   position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.chatgpt-full-profile-char-img {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  height: 80%;
-  width: auto;
-  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .chatgpt-full-profile-content {
-  flex: 1;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 28px 0 4px;
   gap: 16px;
 }
 

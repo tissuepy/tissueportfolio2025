@@ -59,9 +59,7 @@ function SlideContent({ slide }) {
   }
   return (
     <div className="chatgpt-full-profile-slide">
-      <div className="chatgpt-full-profile-img-panel">
-        <img src={slide.src} alt="User" className="chatgpt-full-profile-char-img" />
-      </div>
+      <img src={slide.src} alt="User" className="chatgpt-full-carousel-img" />
       <div className="chatgpt-full-profile-content">
         <div className="chatgpt-full-profile-label-row">
           <RedXIcon />
