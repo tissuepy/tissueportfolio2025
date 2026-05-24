@@ -228,7 +228,7 @@
 }
 
 .chatgpt-full-profile-item-text {
-  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.8);
