@@ -10,11 +10,75 @@ import textExampleImg from './assets/chatgpt-text-example.png';
 import problem2Img from './assets/chatgpt-problem-2.png';
 
 const RESEARCH_SLIDES = [
-  participantsImg,
-  user1Img,
-  user2Img,
-  user3Img,
+  { type: 'participants', src: participantsImg },
+  {
+    type: 'profile',
+    src: user1Img,
+    frustrations: [
+      'Lost in long threads',
+      'Hard to revisit interactions',
+      'Confidently incorrect answers',
+    ],
+  },
+  {
+    type: 'profile',
+    src: user2Img,
+    frustrations: [
+      'Lost in long threads',
+      'Hard to revisit interactions',
+      'Confidently incorrect answers',
+    ],
+  },
+  {
+    type: 'profile',
+    src: user3Img,
+    frustrations: [
+      'Lost in long threads',
+      'Hard to revisit interactions',
+      'Confidently incorrect answers',
+    ],
+  },
 ];
+
+const RedXIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+    <circle cx="7.5" cy="7.5" r="7.5" fill="#E03131" />
+    <path d="M5 5l5 5M10 5l-5 5" stroke="#fff" strokeWidth="1.7" strokeLinecap="round" />
+  </svg>
+);
+
+function SlideContent({ slide }) {
+  if (slide.type === 'participants') {
+    return (
+      <img
+        src={slide.src}
+        alt="Research participants"
+        className="chatgpt-full-carousel-img"
+      />
+    );
+  }
+  return (
+    <div className="chatgpt-full-profile-slide">
+      <div className="chatgpt-full-profile-img-panel">
+        <img src={slide.src} alt="User" className="chatgpt-full-profile-char-img" />
+      </div>
+      <div className="chatgpt-full-profile-content">
+        <div className="chatgpt-full-profile-label-row">
+          <RedXIcon />
+          <span className="chatgpt-full-profile-label">FRUSTRATIONS</span>
+        </div>
+        <ul className="chatgpt-full-profile-list">
+          {slide.frustrations.map((item, i) => (
+            <li key={i} className="chatgpt-full-profile-item">
+              <span className="chatgpt-full-profile-badge">{i + 1}</span>
+              <span className="chatgpt-full-profile-item-text">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
 
 export default function ChatGPTFullCaseStudy() {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -96,18 +160,16 @@ export default function ChatGPTFullCaseStudy() {
 
         <div className="chatgpt-full-canvas chatgpt-full-canvas--half chatgpt-full-carousel">
           {prevIndex !== null && (
-            <img
-              src={RESEARCH_SLIDES[prevIndex]}
-              alt={`Research slide ${prevIndex + 1}`}
-              className="chatgpt-full-carousel-img chatgpt-full-carousel-img--exit"
-            />
+            <div className="chatgpt-full-slide-wrapper chatgpt-full-slide-wrapper--exit">
+              <SlideContent slide={RESEARCH_SLIDES[prevIndex]} />
+            </div>
           )}
-          <img
+          <div
             key={slideIndex}
-            src={RESEARCH_SLIDES[slideIndex]}
-            alt={`Research slide ${slideIndex + 1}`}
-            className={`chatgpt-full-carousel-img${animating ? ' chatgpt-full-carousel-img--enter' : ''}`}
-          />
+            className={`chatgpt-full-slide-wrapper${animating ? ' chatgpt-full-slide-wrapper--enter' : ''}`}
+          >
+            <SlideContent slide={RESEARCH_SLIDES[slideIndex]} />
+          </div>
           <button className="chatgpt-full-chevron chatgpt-full-chevron--left" onClick={prevSlide} aria-label="Previous">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -120,7 +182,11 @@ export default function ChatGPTFullCaseStudy() {
           </button>
           <div className="chatgpt-full-carousel-dots">
             {RESEARCH_SLIDES.map((_, i) => (
-              <span key={i} className={`chatgpt-full-carousel-dot${i === slideIndex ? ' chatgpt-full-carousel-dot--active' : ''}`} onClick={() => setSlideIndex(i)} />
+              <span
+                key={i}
+                className={`chatgpt-full-carousel-dot${i === slideIndex ? ' chatgpt-full-carousel-dot--active' : ''}`}
+                onClick={() => changeSlide(i)}
+              />
             ))}
           </div>
         </div>

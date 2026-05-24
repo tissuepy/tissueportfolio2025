@@ -122,25 +122,21 @@
   justify-content: center;
 }
 
-.chatgpt-full-carousel-img {
+/* Slide wrappers */
+.chatgpt-full-slide-wrapper {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 68%;
-  height: auto;
-  object-fit: contain;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes carouselSlideInDown {
-  from {
-    transform: translate(-50%, -160%);
-    opacity: 0;
-  }
-  to {
-    transform: translate(-50%, -50%);
-    opacity: 1;
-  }
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
 }
 
 @keyframes carouselFadeOut {
@@ -148,15 +144,108 @@
   to   { opacity: 0; }
 }
 
-.chatgpt-full-carousel-img--enter {
+.chatgpt-full-slide-wrapper--enter {
   animation: carouselSlideInDown 0.44s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   z-index: 2;
 }
 
-.chatgpt-full-carousel-img--exit {
+.chatgpt-full-slide-wrapper--exit {
   animation: carouselFadeOut 0.12s ease forwards;
   pointer-events: none;
   z-index: 1;
+}
+
+/* Participants slide image */
+.chatgpt-full-carousel-img {
+  width: 68%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ── Profile slide (user 1/2/3) ── */
+.chatgpt-full-profile-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.chatgpt-full-profile-img-panel {
+  width: 40%;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.chatgpt-full-profile-char-img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 80%;
+  width: auto;
+  transform: translateY(-50%);
+}
+
+.chatgpt-full-profile-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 28px 0 4px;
+  gap: 16px;
+}
+
+.chatgpt-full-profile-label-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.chatgpt-full-profile-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.chatgpt-full-profile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chatgpt-full-profile-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chatgpt-full-profile-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #111;
+  border-radius: 5px;
+  color: #fff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.chatgpt-full-profile-item-text {
+  font-family: 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 1.3;
 }
 
 .chatgpt-full-chevron {
