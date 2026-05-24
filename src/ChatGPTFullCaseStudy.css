@@ -113,7 +113,7 @@
 /* ── Half canvas ── */
 .chatgpt-full-canvas--half {
   height: 300px;
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 /* ── Carousel ── */
@@ -287,7 +287,7 @@
 /* ── Problem canvas ── */
 .chatgpt-full-canvas--problem {
   height: 380px;
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .chatgpt-full-problem-img {
@@ -305,7 +305,7 @@
 /* ── Empty canvas ── */
 .chatgpt-full-canvas--empty {
   height: 380px;
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .chatgpt-full-problem2-img {
@@ -321,7 +321,7 @@
 
 /* ── Text blocks ── */
 .chatgpt-full-text-block {
-  padding: 48px 0 20px;
+  padding: 48px 0;
 }
 
 .chatgpt-full-label {
