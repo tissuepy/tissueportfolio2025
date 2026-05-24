@@ -235,6 +235,23 @@ export default function ChatGPTFullCaseStudy() {
           <img src={problem2Img} alt="Problem 2" className="chatgpt-full-problem2-img" />
         </div>
 
+        {/* Solution section */}
+        <div className="chatgpt-full-text-block">
+          <p className="chatgpt-full-label">SOLUTION</p>
+          <h2 className="chatgpt-full-section-title">A preview of the final designs</h2>
+        </div>
+
+        <div className="chatgpt-full-designs-grid">
+          <div className="chatgpt-full-designs-col">
+            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall" />
+            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--short" />
+          </div>
+          <div className="chatgpt-full-designs-col">
+            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--short" />
+            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall" />
+          </div>
+        </div>
+
       </div>
     </div>
   );
