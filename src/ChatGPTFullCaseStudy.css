@@ -1,5 +1,6 @@
 .chatgpt-full-page {
   width: 100%;
+  overflow-x: hidden;
 }
 
 .chatgpt-full-inner {
