@@ -24,9 +24,9 @@ const RESEARCH_SLIDES = [
     type: 'profile',
     src: user2Img,
     frustrations: [
-      'Lost in long threads',
-      'Hard to revisit interactions',
-      'Confidently incorrect answers',
+      'Mobile layout feels cramped',
+      'Long conversations overwhelm quickly',
+      'Hard to retrieve information',
     ],
   },
   {
