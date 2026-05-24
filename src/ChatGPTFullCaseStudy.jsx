@@ -9,6 +9,7 @@ import user2Img from './assets/chatgpt-user-2.png';
 import user3Img from './assets/chatgpt-user-3.png';
 import textExampleImg from './assets/chatgpt-text-example.png';
 import problem2Img from './assets/chatgpt-problem-2.png';
+import design1Img from './assets/chatgpt-design-1.png';
 
 const RESEARCH_SLIDES = [
   { type: 'participants', src: participantsImg },
@@ -243,7 +244,9 @@ export default function ChatGPTFullCaseStudy() {
 
         <div className="chatgpt-full-designs-grid">
           <div className="chatgpt-full-designs-col">
-            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall" />
+            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall">
+              <img src={design1Img} alt="Bookmarks panel" className="chatgpt-full-design-img chatgpt-full-design-img--1" />
+            </div>
             <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--short" />
           </div>
           <div className="chatgpt-full-designs-col">

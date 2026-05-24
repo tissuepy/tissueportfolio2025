@@ -404,6 +404,20 @@
 .chatgpt-full-design-canvas--tall  { height: 480px; }
 .chatgpt-full-design-canvas--short { height: 370px; }
 
+.chatgpt-full-design-img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+}
+
+.chatgpt-full-design-img--1 {
+  width: 74%;
+  top: 8%;
+}
+
 /* ── Feedback links ── */
 .chatgpt-full-feedback-links {
   display: flex;
