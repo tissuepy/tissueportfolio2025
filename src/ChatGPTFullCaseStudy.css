@@ -401,8 +401,8 @@
   position: relative;
 }
 
-.chatgpt-full-design-canvas--tall  { height: 280px; }
-.chatgpt-full-design-canvas--short { height: 200px; }
+.chatgpt-full-design-canvas--tall  { height: 340px; }
+.chatgpt-full-design-canvas--short { height: 255px; }
 
 /* ── Feedback links ── */
 .chatgpt-full-feedback-links {
