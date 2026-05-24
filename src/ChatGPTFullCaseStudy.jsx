@@ -4,12 +4,16 @@ import chatgptLogo from './articles/chatgpt-logo.png';
 import bookmarkImg from './assets/chatgpt-bookmark-1.png';
 import participantsImg from './assets/chatgpt-participants.png';
 import user1Img from './assets/chatgpt-user-1.png';
+import user2Img from './assets/chatgpt-user-2.png';
+import user3Img from './assets/chatgpt-user-3.png';
 import textExampleImg from './assets/chatgpt-text-example.png';
 import problem2Img from './assets/chatgpt-problem-2.png';
 
 const RESEARCH_SLIDES = [
   participantsImg,
   user1Img,
+  user2Img,
+  user3Img,
 ];
 
 export default function ChatGPTFullCaseStudy() {
@@ -95,14 +99,14 @@ export default function ChatGPTFullCaseStudy() {
             <img
               src={RESEARCH_SLIDES[prevIndex]}
               alt={`Research slide ${prevIndex + 1}`}
-              className={`chatgpt-full-carousel-img chatgpt-full-carousel-img--exit${prevIndex === 1 ? ' chatgpt-full-carousel-img--lower' : ''}`}
+              className="chatgpt-full-carousel-img chatgpt-full-carousel-img--exit"
             />
           )}
           <img
             key={slideIndex}
             src={RESEARCH_SLIDES[slideIndex]}
             alt={`Research slide ${slideIndex + 1}`}
-            className={`chatgpt-full-carousel-img${animating ? ' chatgpt-full-carousel-img--enter' : ''}${slideIndex === 1 ? ' chatgpt-full-carousel-img--lower' : ''}`}
+            className={`chatgpt-full-carousel-img${animating ? ' chatgpt-full-carousel-img--enter' : ''}`}
           />
           <button className="chatgpt-full-chevron chatgpt-full-chevron--left" onClick={prevSlide} aria-label="Previous">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
