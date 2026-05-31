@@ -331,11 +331,10 @@
 /* Back wallet graphic — z-index 1, behind the card */
 .wallet-pocket-image {
   position: absolute;
-  top: 20px;
-  left: 0%;
-  width: 98%;
-  height: 100%;
-  object-fit: contain;
+  top: 5px;
+  left: 0;
+  width: 91%;
+  height: auto;
   pointer-events: none;
   z-index: 1;
   animation: walletPocketFadeIn 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) both;
@@ -345,11 +344,9 @@
 .wallet-second-base {
   position: absolute;
   top: 70px;
-  left: 0px;
-  right: 0px;
+  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
   pointer-events: none;
   z-index: 4;
   /* No fade animation — must stay fully opaque to avoid x-ray effect */
