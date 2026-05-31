@@ -751,8 +751,7 @@ html {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  min-height: 80vh;
-  padding: 60px 40px 80px;
+  padding: 60px 40px 60px;
   box-sizing: border-box;
 }
 
@@ -3184,7 +3183,7 @@ html {
   display: flex;
   justify-content: center;
   padding-bottom: 80px;
-  margin-top: -48px;
+  margin-top: -32px;
   width: 100%;
 }
 
