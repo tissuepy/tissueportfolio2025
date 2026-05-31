@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import './WalletCard.css';
 import scannerImg       from './matchagallery/scanner.png';
 import chatgptLogo      from './matchagallery/chatlogo.png';
-import walletHolderImg  from './matchagallery/wallet front 2.png';
-import secondBaseImg    from './matchagallery/second base 3.png';
+import walletHolderImg  from './assets/wallet-back-card.png';
+import secondBaseImg    from './assets/wallet-front-card.png';
 import sosButtonImg     from './matchagallery/sos button.png';
 import pogoLogo from './assets/pogo-logo3.png';
 
