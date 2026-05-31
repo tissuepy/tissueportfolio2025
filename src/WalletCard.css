@@ -181,7 +181,7 @@
    Coordinates are relative to .wallet-pocket (not .wallet-container). */
 .wallet-card {
   position: absolute;
-  top: 60px;
+  top: 38px;
   left: 50px;
   right: 70px;
   bottom: 90px;
@@ -320,7 +320,7 @@
 /* Wallet pocket — contains all three layers */
 .wallet-pocket {
   position: absolute;
-  top: 145px;
+  top: 165px;
   left: 40px;
   right: 40px;
   bottom: 50px;
@@ -331,9 +331,9 @@
 /* Back wallet graphic — z-index 1, behind the card */
 .wallet-pocket-image {
   position: absolute;
-  top: 5px;
-  left: 0;
-  width: 91%;
+  top: 22px;
+  left: 3%;
+  width: 95%;
   height: auto;
   pointer-events: none;
   z-index: 1;
