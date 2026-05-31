@@ -3182,16 +3182,10 @@ html {
 /* Wallet below hero, left-aligned to match hero text */
 .wallet-side-panel {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding-bottom: 80px;
   margin-top: -48px;
-  max-width: 680px;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 40px;
-  padding-right: 40px;
-  box-sizing: border-box;
 }
 
 /* About Page */
