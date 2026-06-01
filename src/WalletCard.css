@@ -110,8 +110,8 @@
   display: inline-block;
   width: 8px;
   height: 8px;
-  border-right: 1.5px solid rgba(0, 0, 0, 0.4);
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.4);
+  border-right: 2.2px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 2.2px solid rgba(0, 0, 0, 0.5);
   transform: rotate(45deg);     /* pointing down */
   margin-bottom: 3px;           /* optical vertical align */
   flex-shrink: 0;
