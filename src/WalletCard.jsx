@@ -17,12 +17,12 @@ const CARD_DATA = {
     deImg: chatgptLogo,      deClass: 'wallet-card-logo',
   },
   SAFEHUB: {
-    badge: '02', badgeClass: 'wallet-card-badge-red',
+    badge: '03', badgeClass: 'wallet-card-badge-red',
     title: 'SAFEHUB',
     deImg: sosButtonImg,     deClass: 'wallet-card-sos-button',
   },
   POGO: {
-    badge: '03', badgeClass: 'wallet-card-badge-purple',
+    badge: '02', badgeClass: 'wallet-card-badge-purple',
     title: 'POGO',
     deImg: pogoLogo, deClass: 'wallet-card-pogo-logo',
   },
