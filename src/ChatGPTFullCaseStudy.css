@@ -1,3 +1,14 @@
+@keyframes chatgptFullBlurIn {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
 .chatgpt-full-page {
   width: 100%;
   overflow-x: hidden;
@@ -8,6 +19,7 @@
   margin: 0 auto;
   padding: 60px 40px 80px;
   box-sizing: border-box;
+  animation: chatgptFullBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
 }
 
 /* ── Header: two-column ── */
