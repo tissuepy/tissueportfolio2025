@@ -140,15 +140,17 @@
     padding-bottom 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .wallet-nav-section.open .wallet-nav-items {
-  max-height: 200px;
+  max-height: 360px;
   opacity: 1;
   transform: translateY(0);
   padding-bottom: 12px;
 }
 
-/* Individual item — full-width block, clickable, title-case */
+/* Individual item */
 .wallet-nav-item {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
   font-family: 'IBM Plex Mono', monospace;
@@ -165,10 +167,23 @@
   color: rgba(0, 0, 0, 0.65);
 }
 
-/* Active item — full-width lighter pill, no border */
+.wallet-nav-item-label {
+  flex: 1;
+}
+
+.wallet-nav-item-arrow {
+  display: flex;
+  align-items: center;
+  opacity: 0.5;
+}
+
+/* Active item */
 .wallet-nav-item.active {
   color: rgba(0, 0, 0, 0.9);
   background: rgba(0, 0, 0, 0.07);
+}
+.wallet-nav-item.active .wallet-nav-item-arrow {
+  opacity: 1;
 }
 
 /* CSS-only hover: hovering INDIVIDUAL dims TEAM label */
