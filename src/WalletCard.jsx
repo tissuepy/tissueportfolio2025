@@ -40,9 +40,9 @@ const NAV_ITEMS = [
   { id: 'WRAP',    label: 'Wrap'    },
 ];
 
-const ArrowNE = () => (
-  <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-    <path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+const CheckIcon = () => (
+  <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+    <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -158,7 +158,9 @@ const WalletCard = () => {
                   onClick={() => handleItemClick(id)}
                 >
                   <span className="wallet-nav-item-label">{label}</span>
-                  <span className="wallet-nav-item-arrow"><ArrowNE /></span>
+                  {activeItem === id && (
+                    <span className="wallet-nav-item-check"><CheckIcon /></span>
+                  )}
                 </div>
               ))}
             </div>

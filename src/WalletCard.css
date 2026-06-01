@@ -173,19 +173,16 @@
   flex: 1;
 }
 
-.wallet-nav-item-arrow {
+.wallet-nav-item-check {
   display: flex;
   align-items: center;
-  opacity: 0.5;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 /* Active item */
 .wallet-nav-item.active {
   color: rgba(0, 0, 0, 0.9);
   background: rgba(0, 0, 0, 0.07);
-}
-.wallet-nav-item.active .wallet-nav-item-arrow {
-  opacity: 1;
 }
 
 /* CSS-only hover: hovering INDIVIDUAL dims TEAM label */
