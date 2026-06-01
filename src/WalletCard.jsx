@@ -150,6 +150,7 @@ const WalletCard = () => {
               <span className="wallet-nav-label">RECENT WORK</span>
               <span className={`wallet-nav-chevron${isOpen ? ' rotated' : ''}`}></span>
             </button>
+            <div className="wallet-nav-items-grid">
             <div className="wallet-nav-items">
               {NAV_ITEMS.map(({ id, label }) => (
                 <div
@@ -163,6 +164,7 @@ const WalletCard = () => {
                   )}
                 </div>
               ))}
+            </div>
             </div>
           </div>
         </div>
