@@ -62,7 +62,7 @@ const WalletCard = () => {
   const handleCardClick = () => {
     switch (activeItem) {
       case 'CHATGPT':
-        navigate('/work/chatgpt/article');
+        navigate('/work/chatgpt/full');
         break;
       case 'SAFEHUB':
         navigate('/work/safehub');
