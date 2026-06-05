@@ -9,7 +9,7 @@
 
 /* ── Card rises up from under the wallet pocket ───────────── */
 @keyframes cardSlideIn {
-  from { transform: translateY(80px); }
+  from { transform: translateY(36px); }
   to   { transform: translateY(0); }
 }
 
@@ -53,7 +53,7 @@
 
 .wallet-container {
   position: relative;
-  width: 680px;
+  width: 700px;
   height: 560px;
   background-color: transparent;
   border-radius: 24px;
@@ -110,8 +110,8 @@
   display: inline-block;
   width: 8px;
   height: 8px;
-  border-right: 1.5px solid rgba(0, 0, 0, 0.4);
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.4);
+  border-right: 2.2px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 2.2px solid rgba(0, 0, 0, 0.5);
   transform: rotate(45deg);     /* pointing down */
   margin-bottom: 3px;           /* optical vertical align */
   flex-shrink: 0;
@@ -123,38 +123,40 @@
   border-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Dropdown items — smooth reveal */
+/* Dropdown — CSS Grid trick for perfectly smooth reveal */
+.wallet-nav-items-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wallet-nav-section.open .wallet-nav-items-grid {
+  grid-template-rows: 1fr;
+}
+
 .wallet-nav-items {
   display: flex;
   flex-direction: column;
   gap: 4px;
   overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-5px);
   padding-bottom: 0;
-  transition:
-    max-height     0.32s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity        0.22s cubic-bezier(0.4, 0, 0.2, 1),
-    transform      0.28s cubic-bezier(0.4, 0, 0.2, 1),
-    padding-bottom 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: padding-bottom 0.38s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .wallet-nav-section.open .wallet-nav-items {
-  max-height: 200px;
-  opacity: 1;
-  transform: translateY(0);
   padding-bottom: 12px;
 }
 
-/* Individual item — full-width block, clickable, title-case */
+/* Individual item */
 .wallet-nav-item {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: rgba(0, 0, 0, 0.4);
   padding: 8px 14px;
   border-radius: 10px;
@@ -165,7 +167,17 @@
   color: rgba(0, 0, 0, 0.65);
 }
 
-/* Active item — full-width lighter pill, no border */
+.wallet-nav-item-label {
+  flex: 1;
+}
+
+.wallet-nav-item-check {
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Active item */
 .wallet-nav-item.active {
   color: rgba(0, 0, 0, 0.9);
   background: rgba(0, 0, 0, 0.07);
@@ -181,9 +193,9 @@
    Coordinates are relative to .wallet-pocket (not .wallet-container). */
 .wallet-card {
   position: absolute;
-  top: 60px;
-  left: 50px;
-  right: 70px;
+  top: -14px;
+  left: 68px;
+  right: 52px;
   bottom: 90px;
   background-color: #ffffff;
   border-radius: 16px;
@@ -262,7 +274,7 @@
 
 .wallet-card-pogo-logo {
   position: absolute;
-  bottom: 30px;
+  top: 55px;
   right: -60px;
   width: 320px;
   height: auto;
@@ -270,7 +282,7 @@
 
 .wallet-card-chip {
   position: absolute;
-  bottom: 70px;
+  top: 96px;
   left: 28px;
   width: 50px;
   height: auto;
@@ -320,7 +332,7 @@
 /* Wallet pocket — contains all three layers */
 .wallet-pocket {
   position: absolute;
-  top: 145px;
+  top: 165px;
   left: 40px;
   right: 40px;
   bottom: 50px;
@@ -331,11 +343,10 @@
 /* Back wallet graphic — z-index 1, behind the card */
 .wallet-pocket-image {
   position: absolute;
-  top: 20px;
-  left: 0%;
-  width: 98%;
-  height: 100%;
-  object-fit: contain;
+  top: 10px;
+  left: 0;
+  width: 104.5%;
+  height: auto;
   pointer-events: none;
   z-index: 1;
   animation: walletPocketFadeIn 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) both;
@@ -344,12 +355,10 @@
 /* Front wallet overlay — z-index 4, in front of the card (z-index 3) */
 .wallet-second-base {
   position: absolute;
-  top: 70px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  top: 60px;
+  left: 0;
+  width: 108%;
+  height: auto;
   pointer-events: none;
   z-index: 4;
   /* No fade animation — must stay fully opaque to avoid x-ray effect */

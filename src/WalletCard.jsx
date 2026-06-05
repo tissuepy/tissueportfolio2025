@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import './WalletCard.css';
 import scannerImg       from './matchagallery/scanner.png';
 import chatgptLogo      from './matchagallery/chatlogo.png';
-import walletHolderImg  from './matchagallery/wallet front 2.png';
-import secondBaseImg    from './matchagallery/second base 3.png';
+import walletHolderImg  from './assets/wallet-back-card.png';
+import secondBaseImg    from './assets/wallet-front-card.png';
 import sosButtonImg     from './matchagallery/sos button.png';
 import pogoLogo from './assets/pogo-logo3.png';
 
@@ -17,12 +17,12 @@ const CARD_DATA = {
     deImg: chatgptLogo,      deClass: 'wallet-card-logo',
   },
   SAFEHUB: {
-    badge: '02', badgeClass: 'wallet-card-badge-red',
+    badge: '03', badgeClass: 'wallet-card-badge-red',
     title: 'SAFEHUB',
     deImg: sosButtonImg,     deClass: 'wallet-card-sos-button',
   },
   POGO: {
-    badge: '03', badgeClass: 'wallet-card-badge-purple',
+    badge: '02', badgeClass: 'wallet-card-badge-purple',
     title: 'POGO',
     deImg: pogoLogo, deClass: 'wallet-card-pogo-logo',
   },
@@ -33,31 +33,36 @@ const CARD_DATA = {
   },
 };
 
+const NAV_ITEMS = [
+  { id: 'CHATGPT', label: 'ChatGPT' },
+  { id: 'POGO',    label: 'Pogo'    },
+  { id: 'SAFEHUB', label: 'Safehub' },
+  { id: 'WRAP',    label: 'Wrap'    },
+];
+
+const CheckIcon = () => (
+  <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+    <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
 const WalletCard = () => {
   const navigate = useNavigate();
-  const [activeSection, setActiveSection] = useState('INDIVIDUAL');
-  const [activeItem, setActiveItem]       = useState('CHATGPT');
+  const [isOpen,       setIsOpen]       = useState(true);
+  const [activeItem,   setActiveItem]   = useState('CHATGPT');
   const [isCardHovered, setIsCardHovered] = useState(false);
 
   // ── Navigation handlers ──────────────────────────────────────
-  const handleSectionClick = (section) => {
-    // Toggle: clicking open section closes it, clicking closed section opens it
-    setActiveSection(prev => prev === section ? null : section);
-  };
-
   const handleItemClick = (item) => {
     if (item === activeItem) return;
     setActiveItem(item);
-    // Ensure the item's section is open
-    const section = ['POGO', 'WRAP'].includes(item) ? 'TEAM' : 'INDIVIDUAL';
-    setActiveSection(section);
     setIsCardHovered(false);
   };
 
   const handleCardClick = () => {
     switch (activeItem) {
       case 'CHATGPT':
-        navigate('/work/chatgpt/article');
+        navigate('/work/chatgpt/full');
         break;
       case 'SAFEHUB':
         navigate('/work/safehub');
@@ -135,51 +140,33 @@ const WalletCard = () => {
           </div>
         </div>
 
-        {/* ── Right column: accordion nav (INDIVIDUAL above TEAM) ── */}
+        {/* ── Right column: single accordion nav ── */}
         <div className="wallet-nav">
-
-          {/* INDIVIDUAL section — default open, ChatGPT default */}
-          <div className={`wallet-nav-section wallet-nav-individual${activeSection === 'INDIVIDUAL' ? ' open' : ''}`}>
+          <div className={`wallet-nav-section${isOpen ? ' open' : ''}`}>
             <button
               className="wallet-nav-header"
-              onClick={() => handleSectionClick('INDIVIDUAL')}
+              onClick={() => setIsOpen(prev => !prev)}
             >
-              <span className="wallet-nav-label">INDIVIDUAL</span>
-              <span className={`wallet-nav-chevron${activeSection === 'INDIVIDUAL' ? ' rotated' : ''}`}></span>
+              <span className="wallet-nav-label">RECENT WORK</span>
+              <span className={`wallet-nav-chevron${isOpen ? ' rotated' : ''}`}></span>
             </button>
+            <div className="wallet-nav-items-grid">
             <div className="wallet-nav-items">
-              <div
-                className={`wallet-nav-item${activeItem === 'CHATGPT' ? ' active' : ''}`}
-                onClick={() => handleItemClick('CHATGPT')}
-              >CHATGPT</div>
-              <div
-                className={`wallet-nav-item${activeItem === 'SAFEHUB' ? ' active' : ''}`}
-                onClick={() => handleItemClick('SAFEHUB')}
-              >SAFEHUB</div>
+              {NAV_ITEMS.map(({ id, label }) => (
+                <div
+                  key={id}
+                  className={`wallet-nav-item${activeItem === id ? ' active' : ''}`}
+                  onClick={() => handleItemClick(id)}
+                >
+                  <span className="wallet-nav-item-label">{label}</span>
+                  {activeItem === id && (
+                    <span className="wallet-nav-item-check"><CheckIcon /></span>
+                  )}
+                </div>
+              ))}
+            </div>
             </div>
           </div>
-
-          {/* TEAM section */}
-          <div className={`wallet-nav-section wallet-nav-team${activeSection === 'TEAM' ? ' open' : ''}`}>
-            <button
-              className="wallet-nav-header"
-              onClick={() => handleSectionClick('TEAM')}
-            >
-              <span className="wallet-nav-label">TEAM</span>
-              <span className={`wallet-nav-chevron${activeSection === 'TEAM' ? ' rotated' : ''}`}></span>
-            </button>
-            <div className="wallet-nav-items">
-              <div
-                className={`wallet-nav-item${activeItem === 'POGO' ? ' active' : ''}`}
-                onClick={() => handleItemClick('POGO')}
-              >POGO</div>
-              <div
-                className={`wallet-nav-item${activeItem === 'WRAP' ? ' active' : ''}`}
-                onClick={() => handleItemClick('WRAP')}
-              >WRAP</div>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>

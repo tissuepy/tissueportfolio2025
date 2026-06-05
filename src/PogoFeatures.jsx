@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './PogoFeatures.css';
 
 const FEATURES = [
+  { name: 'Insights Library',          date: 'May 26', comingSoon: false, path: null },
   { name: 'AI Qualitative Branching', date: 'May 26', comingSoon: true,  path: null },
   { name: 'Sections',                 date: 'Apr 26', comingSoon: false, path: '/work/pogo/sections' },
   { name: 'Virtual Backgrounds',      date: 'Apr 26', comingSoon: false, path: null },

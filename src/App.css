@@ -751,8 +751,7 @@ html {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  min-height: 80vh;
-  padding: 60px 40px 80px;
+  padding: 60px 40px 60px;
   box-sizing: border-box;
 }
 
@@ -835,7 +834,7 @@ html {
   text-decoration: underline;
   text-decoration-style: dotted;
   text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.8px;
   text-decoration-color: rgba(0, 0, 0, 0.35);
   white-space: nowrap;
 }
@@ -3182,10 +3181,10 @@ html {
 /* Wallet below hero, left-aligned to match hero text */
 .wallet-side-panel {
   display: flex;
-  justify-content: flex-start;
-  padding-left: 40px;
+  justify-content: center;
   padding-bottom: 80px;
-  margin-top: -48px;
+  margin-top: -32px;
+  width: 100%;
 }
 
 /* About Page */
@@ -4106,6 +4105,11 @@ html {
     flex-direction: column;
     gap: 8px;
     padding: 32px 20px 48px 20px;
+    max-width: 680px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
   }
 
   .mobile-project-heading {
