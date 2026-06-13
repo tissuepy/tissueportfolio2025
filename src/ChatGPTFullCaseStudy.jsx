@@ -7,7 +7,7 @@ import participantsImg from './assets/chatgpt-participants.png';
 import user1Img from './assets/chatgpt-user-1.png';
 import user2Img from './assets/chatgpt-user-2.png';
 import user3Img from './assets/chatgpt-user-3.png';
-import textExampleImg from './assets/chatgpt-text-example.png';
+import textExampleImg from './assets/chatgpt-explanation-1.png';
 import problem2Img from './assets/chatgpt-problem-2.png';
 import design1Img from './assets/chatgpt-design-1.png';
 import tooltipImg from './assets/chatgpt-tooltip-example.png';
