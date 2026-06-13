@@ -266,7 +266,6 @@ export default function ChatGPTFullCaseStudy() {
             </div>
             <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall-xl">
               <img src={announcementBannerImg} alt="Announcement banner" className="chatgpt-full-design-img chatgpt-full-design-img--banner" />
-              <img src={modal2Img} alt="Onboarding modal 2" className="chatgpt-full-design-img chatgpt-full-design-img--modal2" />
             </div>
           </div>
         </div>
