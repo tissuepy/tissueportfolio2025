@@ -17,6 +17,8 @@ import toastDesignsImg from './assets/chatgpt-toast-designs.png';
 import modal1Img from './assets/chatgpt-modal-1.png';
 import modal2Img from './assets/chatgpt-modal-2.png';
 import announcementBannerImg from './assets/chatgpt-announcement-banner.png';
+import bookmarkPopupImg from './assets/chatgpt-bookmark-popup.png';
+import colorSelectionImg from './assets/chatgpt-color-selection.png';
 
 const RESEARCH_SLIDES = [
   { type: 'participants', src: participantsImg },
@@ -266,6 +268,8 @@ export default function ChatGPTFullCaseStudy() {
             </div>
             <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall-xl">
               <img src={announcementBannerImg} alt="Announcement banner" className="chatgpt-full-design-img chatgpt-full-design-img--banner" />
+              <img src={bookmarkPopupImg} alt="Bookmark creation popup" className="chatgpt-full-design-img chatgpt-full-design-img--bookmark-popup" />
+              <img src={colorSelectionImg} alt="Color selection" className="chatgpt-full-design-img chatgpt-full-design-img--color-selection" />
             </div>
           </div>
         </div>

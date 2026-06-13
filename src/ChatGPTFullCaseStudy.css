@@ -489,6 +489,26 @@
   background: transparent;
 }
 
+.chatgpt-full-design-img--bookmark-popup {
+  width: 72%;
+  top: 32%;
+  left: 68%;
+  transform: translateX(-50%);
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.chatgpt-full-design-img--color-selection {
+  width: 72%;
+  top: 58%;
+  left: 68%;
+  transform: translateX(-50%);
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
 .chatgpt-full-design-img--modal2 {
   width: 112%;
   top: calc(36% - 9px);
