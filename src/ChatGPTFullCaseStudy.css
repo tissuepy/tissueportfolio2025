@@ -523,7 +523,7 @@
 .chatgpt-full-design-img--chatbox-banner {
   width: 210%;
   top: 50%;
-  left: 80%;
+  left: 100%;
   transform: translate(-50%, -50%);
   border-radius: 12px;
   border: none;
