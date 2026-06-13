@@ -479,7 +479,7 @@
 
 .chatgpt-full-design-img--modal2 {
   width: 112%;
-  top: calc(36% - 2px);
+  top: calc(36% - 4px);
   left: 66%;
   transform: translateX(-50%);
   border: none;
