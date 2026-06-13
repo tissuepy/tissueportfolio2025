@@ -415,6 +415,7 @@
 
 .chatgpt-full-design-canvas--tall  { height: 480px; }
 .chatgpt-full-design-canvas--short { height: 370px; }
+.chatgpt-full-design-canvas--wide  { height: 280px; margin-top: 12px; }
 
 .chatgpt-full-design-img {
   position: absolute;
@@ -428,6 +429,11 @@
 .chatgpt-full-design-img--1 {
   width: 74%;
   top: 8%;
+}
+
+.chatgpt-full-design-img--tooltip {
+  width: 88%;
+  top: 12%;
 }
 
 /* ── Feedback links ── */
