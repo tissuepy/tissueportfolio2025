@@ -478,9 +478,9 @@
 }
 
 .chatgpt-full-design-img--banner {
-  width: 135%;
+  width: 140%;
   top: 10%;
-  left: 75%;
+  left: calc(75% - 6px);
   transform: translateX(-50%);
   border: none;
   box-shadow: none;
