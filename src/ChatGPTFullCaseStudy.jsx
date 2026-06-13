@@ -288,7 +288,8 @@ export default function ChatGPTFullCaseStudy() {
         {/* Design Decisions section */}
         <div className="chatgpt-full-text-block">
           <p className="chatgpt-full-label">DESIGN DECISIONS</p>
-          <h2 className="chatgpt-full-section-title">Let's take a step back</h2>
+          <h2 className="chatgpt-full-section-title">Designing the bookmarking experience</h2>
+          <p className="chatgpt-full-section-body">Throughout the project, design decisions extended beyond visual direction alone. Every interaction was considered from the user's perspective, accounting for edge cases, connected workflows, and the small moments that shape the overall experience.</p>
         </div>
 
       </div>
