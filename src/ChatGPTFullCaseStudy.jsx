@@ -11,6 +11,7 @@ import textExampleImg from './assets/chatgpt-explanation-1.png';
 import problem2Img from './assets/chatgpt-problem-2.png';
 import design1Img from './assets/chatgpt-design-1.png';
 import brandingBgImg from './assets/chatgpt-branding-bg.png';
+import brandingBg3Img from './assets/chatgpt-branding-bg-3.png';
 import tooltipImg from './assets/chatgpt-tooltip-example.png';
 
 const RESEARCH_SLIDES = [
@@ -257,7 +258,8 @@ export default function ChatGPTFullCaseStudy() {
             <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall" />
           </div>
         </div>
-        <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--wide">
+        <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--wide chatgpt-full-design-canvas--branded">
+          <img src={brandingBg3Img} alt="" className="chatgpt-full-design-canvas-bg" />
           <img src={tooltipImg} alt="Tooltip example" className="chatgpt-full-design-img chatgpt-full-design-img--tooltip" />
         </div>
 
