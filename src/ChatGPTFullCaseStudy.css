@@ -122,6 +122,26 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
 }
 
+/* ── Branded canvas (background image replaces grey) ── */
+.chatgpt-full-canvas--branded {
+  border: none;
+  background: transparent;
+}
+
+.chatgpt-full-canvas-cover-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  z-index: 0;
+}
+
+.chatgpt-full-canvas--branded .chatgpt-full-canvas-img {
+  z-index: 1;
+}
+
 /* ── Half canvas ── */
 .chatgpt-full-canvas--half {
   height: 300px;

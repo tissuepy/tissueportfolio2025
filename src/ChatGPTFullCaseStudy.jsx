@@ -138,7 +138,8 @@ export default function ChatGPTFullCaseStudy() {
         </div>
 
         {/* Thumbnail canvas */}
-        <div className="chatgpt-full-canvas">
+        <div className="chatgpt-full-canvas chatgpt-full-canvas--branded">
+          <img src={brandingBg3Img} alt="" className="chatgpt-full-canvas-cover-bg" />
           <img src={bookmarkImg} alt="ChatGPT Bookmarks" className="chatgpt-full-canvas-img" />
         </div>
 
