@@ -304,10 +304,10 @@
 
 .chatgpt-full-problem-img {
   position: absolute;
-  width: 104%;
+  width: 92%;
   height: auto;
   top: 14%;
-  left: 58%;
+  left: 50%;
   transform: translateX(-50%);
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.08);
