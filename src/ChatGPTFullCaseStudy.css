@@ -467,6 +467,16 @@
   top: 8%;
 }
 
+.chatgpt-full-design-img--toasts {
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
 .chatgpt-full-design-img--tooltip {
   width: 190%;
   top: 12%;
