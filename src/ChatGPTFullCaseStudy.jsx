@@ -12,6 +12,7 @@ import problem2Img from './assets/chatgpt-problem-2.png';
 import design1Img from './assets/chatgpt-design-1.png';
 import brandingBgImg from './assets/chatgpt-branding-bg.png';
 import brandingBg3Img from './assets/chatgpt-branding-bg-3.png';
+import brandingBg4Img from './assets/chatgpt-branding-bg-4.png';
 import tooltipImg from './assets/chatgpt-tooltip-example.png';
 import toastDesignsImg from './assets/chatgpt-toast-designs.png';
 import modal1Img from './assets/chatgpt-modal-1.png';
@@ -266,7 +267,8 @@ export default function ChatGPTFullCaseStudy() {
             <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--short">
               <img src={toastDesignsImg} alt="Toast designs" className="chatgpt-full-design-img chatgpt-full-design-img--toasts" />
             </div>
-            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall-xl">
+            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall-xl chatgpt-full-design-canvas--branded">
+              <img src={brandingBg4Img} alt="" className="chatgpt-full-design-canvas-bg" />
               <img src={bookmarkPopupImg} alt="Bookmark creation popup" className="chatgpt-full-design-img chatgpt-full-design-img--bookmark-popup" />
               <img src={colorSelectionImg} alt="Color selection" className="chatgpt-full-design-img chatgpt-full-design-img--color-selection" />
             </div>
