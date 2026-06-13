@@ -435,6 +435,8 @@
 
 .chatgpt-full-design-canvas--tall  { height: 480px; }
 .chatgpt-full-design-canvas--short { height: 370px; }
+.chatgpt-full-design-canvas--tall-xl  { height: 560px; }
+.chatgpt-full-design-canvas--short-xl { height: 450px; }
 .chatgpt-full-design-canvas--wide  { height: 420px; margin-top: 12px; }
 .chatgpt-full-design-canvas--branded { border: none; background: transparent; }
 

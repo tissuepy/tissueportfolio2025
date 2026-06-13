@@ -256,7 +256,7 @@ export default function ChatGPTFullCaseStudy() {
               <img src={brandingBgImg} alt="" className="chatgpt-full-design-canvas-bg" />
               <img src={design1Img} alt="Bookmarks panel" className="chatgpt-full-design-img chatgpt-full-design-img--1" />
             </div>
-            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--short">
+            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--short-xl">
               <img src={modal1Img} alt="Onboarding modal" className="chatgpt-full-design-img chatgpt-full-design-img--modal1" />
             </div>
           </div>
@@ -264,7 +264,7 @@ export default function ChatGPTFullCaseStudy() {
             <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--short">
               <img src={toastDesignsImg} alt="Toast designs" className="chatgpt-full-design-img chatgpt-full-design-img--toasts" />
             </div>
-            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall">
+            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall-xl">
               <img src={announcementBannerImg} alt="Announcement banner" className="chatgpt-full-design-img chatgpt-full-design-img--banner" />
               <img src={modal2Img} alt="Onboarding modal 2" className="chatgpt-full-design-img chatgpt-full-design-img--modal2" />
             </div>
