@@ -17,6 +17,7 @@ import tooltipImg from './assets/chatgpt-tooltip-example.png';
 import toastDesignsImg from './assets/chatgpt-toast-designs.png';
 import chatboxBannerImg from './assets/chatgpt-chatbox-banner.png';
 import modal1Img from './assets/chatgpt-modal-1.png';
+import optionMenuImg from './assets/chatgpt-option-menu.png';
 import modal2Img from './assets/chatgpt-modal-2.png';
 import announcementBannerImg from './assets/chatgpt-announcement-banner.png';
 import bookmarkPopupImg from './assets/chatgpt-bookmark-popup.png';
@@ -261,7 +262,7 @@ export default function ChatGPTFullCaseStudy() {
               <img src={design1Img} alt="Bookmarks panel" className="chatgpt-full-design-img chatgpt-full-design-img--1" />
             </div>
             <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--short-xl">
-              <img src={modal1Img} alt="Onboarding modal" className="chatgpt-full-design-img chatgpt-full-design-img--modal1" />
+              <img src={optionMenuImg} alt="Option menu design" className="chatgpt-full-design-img chatgpt-full-design-img--option-menu" />
             </div>
           </div>
           <div className="chatgpt-full-designs-col">
