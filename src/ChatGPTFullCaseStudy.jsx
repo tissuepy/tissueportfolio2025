@@ -16,6 +16,7 @@ import tooltipImg from './assets/chatgpt-tooltip-example.png';
 import toastDesignsImg from './assets/chatgpt-toast-designs.png';
 import modal1Img from './assets/chatgpt-modal-1.png';
 import modal2Img from './assets/chatgpt-modal-2.png';
+import announcementBannerImg from './assets/chatgpt-announcement-banner.png';
 
 const RESEARCH_SLIDES = [
   { type: 'participants', src: participantsImg },
@@ -264,6 +265,7 @@ export default function ChatGPTFullCaseStudy() {
               <img src={toastDesignsImg} alt="Toast designs" className="chatgpt-full-design-img chatgpt-full-design-img--toasts" />
             </div>
             <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall">
+              <img src={announcementBannerImg} alt="Announcement banner" className="chatgpt-full-design-img chatgpt-full-design-img--banner" />
               <img src={modal2Img} alt="Onboarding modal 2" className="chatgpt-full-design-img chatgpt-full-design-img--modal2" />
             </div>
           </div>

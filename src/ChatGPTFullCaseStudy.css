@@ -477,6 +477,16 @@
   background: transparent;
 }
 
+.chatgpt-full-design-img--banner {
+  width: 80%;
+  top: 10%;
+  left: 58%;
+  transform: translateX(-50%);
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
 .chatgpt-full-design-img--modal2 {
   width: 112%;
   top: calc(36% - 9px);
