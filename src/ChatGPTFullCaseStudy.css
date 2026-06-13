@@ -543,6 +543,16 @@
   box-shadow: none;
 }
 
+.chatgpt-full-design-img--chatbox-popup {
+  width: 230%;
+  top: 60%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  border: none;
+  box-shadow: none;
+}
+
 .chatgpt-full-design-img--toasts {
   width: 80%;
   top: 50%;
