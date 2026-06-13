@@ -430,6 +430,7 @@
 
 .chatgpt-full-design-canvas--branded .chatgpt-full-design-img {
   z-index: 1;
+  box-shadow: none;
 }
 
 .chatgpt-full-design-img {
