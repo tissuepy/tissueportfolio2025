@@ -437,7 +437,8 @@
 .chatgpt-full-design-canvas--short { height: 370px; }
 .chatgpt-full-design-canvas--tall-xl  { height: 560px; }
 .chatgpt-full-design-canvas--short-xl { height: 450px; }
-.chatgpt-full-design-canvas--wide  { height: 420px; margin-top: 12px; }
+.chatgpt-full-design-canvas--wide  { height: 420px; }
+.chatgpt-full-design-canvas--wide + .chatgpt-full-designs-grid { margin-top: 12px; }
 .chatgpt-full-design-canvas--branded { border: none; background: transparent; }
 
 .chatgpt-full-design-canvas-bg {
@@ -481,12 +482,13 @@
 }
 
 .chatgpt-full-design-img--option-menu {
-  width: 140%;
+  width: 55%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: none;
   box-shadow: none;
+  border-radius: 0;
   background: transparent;
 }
 

@@ -255,14 +255,15 @@ export default function ChatGPTFullCaseStudy() {
           <h2 className="chatgpt-full-section-title">A preview of the final designs</h2>
         </div>
 
+        <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--wide">
+          <img src={optionMenuImg} alt="Option menu design" className="chatgpt-full-design-img chatgpt-full-design-img--option-menu" />
+        </div>
+
         <div className="chatgpt-full-designs-grid">
           <div className="chatgpt-full-designs-col">
             <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall chatgpt-full-design-canvas--branded">
               <img src={brandingBgImg} alt="" className="chatgpt-full-design-canvas-bg" />
               <img src={design1Img} alt="Bookmarks panel" className="chatgpt-full-design-img chatgpt-full-design-img--1" />
-            </div>
-            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--short-xl">
-              <img src={optionMenuImg} alt="Option menu design" className="chatgpt-full-design-img chatgpt-full-design-img--option-menu" />
             </div>
           </div>
           <div className="chatgpt-full-designs-col">
