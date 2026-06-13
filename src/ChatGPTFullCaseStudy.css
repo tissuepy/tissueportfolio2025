@@ -482,7 +482,7 @@
 }
 
 .chatgpt-full-design-img--option-menu {
-  width: 55%;
+  width: 120%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
