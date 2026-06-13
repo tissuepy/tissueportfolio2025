@@ -467,6 +467,13 @@
   top: 8%;
 }
 
+.chatgpt-full-design-img--modal1 {
+  width: 78%;
+  top: 18%;
+  left: 38%;
+  transform: translateX(-50%);
+}
+
 .chatgpt-full-design-img--toasts {
   width: 80%;
   top: 50%;
