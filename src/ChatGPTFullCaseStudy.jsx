@@ -280,6 +280,12 @@ export default function ChatGPTFullCaseStudy() {
           <img src={tooltipImg} alt="Tooltip example" className="chatgpt-full-design-img chatgpt-full-design-img--tooltip" />
         </div>
 
+        {/* Design Decisions section */}
+        <div className="chatgpt-full-text-block">
+          <p className="chatgpt-full-label">DESIGN DECISIONS</p>
+          <h2 className="chatgpt-full-section-title">Let's take a step back</h2>
+        </div>
+
       </div>
     </div>
   );
