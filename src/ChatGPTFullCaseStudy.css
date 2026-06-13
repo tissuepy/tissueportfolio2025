@@ -468,10 +468,13 @@
 }
 
 .chatgpt-full-design-img--modal1 {
-  width: 110%;
+  width: 95%;
   top: 28%;
   left: 32%;
   transform: translateX(-50%);
+  border: none;
+  box-shadow: none;
+  background: transparent;
 }
 
 .chatgpt-full-design-img--toasts {
