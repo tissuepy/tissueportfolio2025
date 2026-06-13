@@ -526,8 +526,8 @@
   left: 20%;
   transform: translate(-50%, -50%);
   border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  border: none;
+  box-shadow: none;
 }
 
 .chatgpt-full-design-img--toasts {
