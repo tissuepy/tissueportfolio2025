@@ -280,7 +280,6 @@ export default function ChatGPTFullCaseStudy() {
             <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall-xl chatgpt-full-design-canvas--branded">
               <img src={brandingBg4Img} alt="" className="chatgpt-full-design-canvas-bg" />
               <img src={bookmarkPopupImg} alt="Bookmark creation popup" className="chatgpt-full-design-img chatgpt-full-design-img--bookmark-popup" />
-              <img src={colorSelectionImg} alt="Color selection" className="chatgpt-full-design-img chatgpt-full-design-img--color-selection" />
             </div>
           </div>
         </div>
