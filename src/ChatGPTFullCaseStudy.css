@@ -483,7 +483,7 @@
 }
 
 .chatgpt-full-design-img--only-one {
-  width: 200%;
+  width: 175%;
   top: 6%;
   left: 10%;
   transform: none;
@@ -494,7 +494,7 @@
 }
 
 .chatgpt-full-design-img--more-than-one {
-  width: 200%;
+  width: 175%;
   top: 32%;
   left: 20%;
   transform: none;
@@ -526,7 +526,7 @@
 }
 
 .chatgpt-full-design-img--bookmark-popup {
-  width: 170%;
+  width: 150%;
   top: 12%;
   left: 90%;
   transform: translateX(-50%);
