@@ -483,8 +483,8 @@
 }
 
 .chatgpt-full-design-img--only-one {
-  width: 110%;
-  top: 10%;
+  width: 200%;
+  top: 6%;
   left: 55%;
   transform: none;
   border: none;
@@ -494,8 +494,8 @@
 }
 
 .chatgpt-full-design-img--more-than-one {
-  width: 110%;
-  top: 54%;
+  width: 200%;
+  top: 52%;
   left: 55%;
   transform: none;
   border: none;
