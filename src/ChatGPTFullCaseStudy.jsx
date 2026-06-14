@@ -19,6 +19,8 @@ import chatboxBannerImg from './assets/chatgpt-chatbox-banner.png';
 import chatboxPopupImg from './assets/chatgpt-chatbox-popup.png';
 import modal1Img from './assets/chatgpt-modal-1.png';
 import optionMenuImg from './assets/chatgpt-option-menu.png';
+import onlyOneImg from './assets/chatgpt-only-one.png';
+import moreThanOneImg from './assets/chatgpt-more-than-one.png';
 import modal2Img from './assets/chatgpt-modal-2.png';
 import announcementBannerImg from './assets/chatgpt-announcement-banner.png';
 import bookmarkPopupImg from './assets/chatgpt-bookmark-popup.png';
@@ -267,6 +269,8 @@ export default function ChatGPTFullCaseStudy() {
               <img src={design1Img} alt="Bookmarks panel" className="chatgpt-full-design-img chatgpt-full-design-img--1" />
             </div>
             <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--short-xl">
+              <img src={onlyOneImg} alt="Only one bookmark" className="chatgpt-full-design-img chatgpt-full-design-img--only-one" />
+              <img src={moreThanOneImg} alt="More than one bookmark" className="chatgpt-full-design-img chatgpt-full-design-img--more-than-one" />
             </div>
           </div>
           <div className="chatgpt-full-designs-col">
