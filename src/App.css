@@ -22,13 +22,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Francisco Serial', Georgia, 'Times New Roman', serif;
-  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-size: clamp(1.4rem, 3.2vw, 2.6rem);
   color: #111;
   white-space: nowrap;
   margin: 0;
   opacity: 0;
   z-index: 0;
-  animation: loader-text-in 0.7s ease 1.05s forwards;
+  animation: loader-text-in 0s linear 0.75s forwards;
 }
 
 .loader-face {
