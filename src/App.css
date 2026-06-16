@@ -27,15 +27,15 @@
 
 @keyframes notion-physics {
   0%   {
-    transform: translate(-50%, calc(-50% + 110vh)) rotate(-6deg);
-    animation-timing-function: cubic-bezier(0.15, 0, 0.3, 1);
+    transform: translate(-50%, calc(-50% + 110vh)) rotate(-4deg);
+    animation-timing-function: cubic-bezier(0.15, 0, 0.35, 1);
   }
-  38%  {
-    transform: translate(-50%, calc(-50% - 80vh)) rotate(-14deg);
+  42%  {
+    transform: translate(-50%, calc(-50% - 8vh)) rotate(-8deg);
     animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
   }
   100% {
-    transform: translate(-50%, calc(-50% + 120vh)) rotate(10deg);
+    transform: translate(-50%, calc(-50% + 110vh)) rotate(8deg);
   }
 }
 
