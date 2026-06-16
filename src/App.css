@@ -12,8 +12,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: loader-fade-out 0.4s ease 1.8s forwards;
+  animation: loader-fade-out 0.5s ease 2.6s forwards;
   pointer-events: none;
+}
+
+.loader-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Francisco Serial', Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  color: #111;
+  white-space: nowrap;
+  margin: 0;
+  opacity: 0;
+  z-index: 0;
+  animation: loader-text-in 0.7s ease 1.05s forwards;
 }
 
 .loader-face {
@@ -22,6 +37,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 1;
   animation: notion-physics 1.8s ease forwards;
 }
 
@@ -37,6 +53,11 @@
   100% {
     transform: translate(-50%, calc(-50% + 110vh)) rotate(8deg);
   }
+}
+
+@keyframes loader-text-in {
+  from { opacity: 0; transform: translate(-50%, -50%); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
 }
 
 @keyframes loader-fade-out {

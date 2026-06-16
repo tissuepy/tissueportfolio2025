@@ -26,11 +26,12 @@ import clocktowerOnImage from './assets/scribbles/clocktower on 2.png';
 
 function LoadingScreen({ onComplete }) {
   useEffect(() => {
-    const t = setTimeout(onComplete, 2200);
+    const t = setTimeout(onComplete, 3100);
     return () => clearTimeout(t);
   }, [onComplete]);
   return (
     <div className="loader-overlay">
+      <p className="loader-title">Nitish Gannu</p>
       <img src={notionFace} alt="" className="loader-face" />
     </div>
   );
