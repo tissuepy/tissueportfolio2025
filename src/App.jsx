@@ -31,7 +31,7 @@ function LoadingScreen({ onComplete }) {
   }, [onComplete]);
   return (
     <div className="loader-overlay">
-      <p className="loader-title">Nitish Gannu</p>
+      <p className="loader-title">Nitish Gannu.</p>
       <img src={notionFace} alt="" className="loader-face" />
     </div>
   );
