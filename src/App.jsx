@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
@@ -23,6 +23,18 @@ import matchaImage from './drink/matcha 1.png';
 import clawdLogo from './assets/clawd-logo.png';
 import clocktowerOffImage from './assets/scribbles/clocktower off 1.png';
 import clocktowerOnImage from './assets/scribbles/clocktower on 2.png';
+
+function LoadingScreen({ onComplete }) {
+  useEffect(() => {
+    const t = setTimeout(onComplete, 2500);
+    return () => clearTimeout(t);
+  }, [onComplete]);
+  return (
+    <div className="loader-overlay">
+      <img src={notionFace} alt="" className="loader-face" />
+    </div>
+  );
+}
 
 const PAGE_NAMES = {
   '/': null,
@@ -53,6 +65,16 @@ function App() {
   const [currentPath, setCurrentPath] = useState(location.pathname);
   const [fadeClass, setFadeClass] = useState('fade-in');
   const [clocktowerOn, setClocktowerOn] = useState(false);
+
+  const isFirstVisit = !sessionStorage.getItem('nitu-visited');
+  const [showLoader, setShowLoader] = useState(isFirstVisit);
+  const [contentReady, setContentReady] = useState(!isFirstVisit);
+
+  const handleLoaderComplete = useCallback(() => {
+    sessionStorage.setItem('nitu-visited', '1');
+    setShowLoader(false);
+    setTimeout(() => setContentReady(true), 50);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -89,6 +111,8 @@ function App() {
 
   return (
     <>
+      {showLoader && <LoadingScreen onComplete={handleLoaderComplete} />}
+      <div className={contentReady ? 'content-visible' : 'content-hidden'}>
       <DotCursor />
       {/* <CustomCursor /> */}{/* old red cursor — kept for reference */}
       {!NO_NOISE_ROUTES.includes(location.pathname) && <BackgroundAnimation />}
@@ -149,6 +173,7 @@ function App() {
         </div>
       </footer>
 
+      </div>
     </>
   );
 }
