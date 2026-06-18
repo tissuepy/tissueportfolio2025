@@ -9,55 +9,88 @@
   inset: 0;
   z-index: 9999;
   background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: loader-fade-out 0.5s ease 2.6s forwards;
   pointer-events: none;
 }
 
-.loader-title {
-  position: absolute;
+.loader-overlay--out {
+  animation: loader-fade-out 0.5s ease forwards;
+}
+
+.loader-row {
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.loader-dot {
+  width: 11px;
+  height: 11px;
+  background: #111;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.loader-dot--pulse {
+  animation: dot-pulse 0.7s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(2.2); }
+}
+
+.loader-text-container {
+  position: relative;
   font-family: 'Francisco Serial', Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.4rem, 3.2vw, 2.6rem);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loader-text-container--open {
+  max-width: 20rem;
+}
+
+.loader-ghost {
+  visibility: hidden;
+  white-space: nowrap;
+  display: block;
+  line-height: 1.2;
+  user-select: none;
+}
+
+.loader-typed {
+  position: absolute;
+  top: 0;
+  left: 0;
   color: #111;
   white-space: nowrap;
-  margin: 0;
-  opacity: 0;
-  z-index: 0;
-  animation: loader-text-in 0s linear 0.75s forwards;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
 }
 
-.loader-face {
-  width: 90vmin;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 1;
-  animation: notion-physics 1.8s ease forwards;
+.loader-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #111;
+  margin-left: 2px;
+  flex-shrink: 0;
 }
 
-@keyframes notion-physics {
-  0%   {
-    transform: translate(-50%, calc(-50% + 110vh)) rotate(-4deg);
-    animation-timing-function: cubic-bezier(0.15, 0, 0.35, 1);
-  }
-  42%  {
-    transform: translate(-50%, calc(-50% - 8vh)) rotate(-8deg);
-    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
-  }
-  100% {
-    transform: translate(-50%, calc(-50% + 110vh)) rotate(8deg);
-  }
+.loader-caret--blink {
+  animation: caret-blink 0.8s step-end infinite;
 }
 
-@keyframes loader-text-in {
-  from { opacity: 0; transform: translate(-50%, -50%); }
-  to   { opacity: 1; transform: translate(-50%, -50%); }
+@keyframes caret-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
 @keyframes loader-fade-out {

@@ -25,14 +25,49 @@ import clocktowerOffImage from './assets/scribbles/clocktower off 1.png';
 import clocktowerOnImage from './assets/scribbles/clocktower on 2.png';
 
 function LoadingScreen({ onComplete }) {
+  const [phase, setPhase] = useState(0);
+  const [typed, setTyped] = useState('');
+  const FULL = 'Nitish Gannu.';
+
   useEffect(() => {
-    const t = setTimeout(onComplete, 3100);
+    const t1 = setTimeout(() => setPhase(1), 1000);
+    const t2 = setTimeout(() => setPhase(2), 1600);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+
+  useEffect(() => {
+    if (phase !== 2) return;
+    if (typed.length >= FULL.length) {
+      const t = setTimeout(() => setPhase(3), 100);
+      return () => clearTimeout(t);
+    }
+    const t = setTimeout(() => setTyped(FULL.slice(0, typed.length + 1)), 65);
     return () => clearTimeout(t);
-  }, [onComplete]);
+  }, [phase, typed]);
+
+  useEffect(() => {
+    if (phase !== 3) return;
+    const t = setTimeout(() => {
+      setPhase(4);
+      setTimeout(onComplete, 500);
+    }, 800);
+    return () => clearTimeout(t);
+  }, [phase, onComplete]);
+
   return (
-    <div className="loader-overlay">
-      <p className="loader-title">Nitish Gannu.</p>
-      <img src={notionFace} alt="" className="loader-face" />
+    <div className={`loader-overlay${phase === 4 ? ' loader-overlay--out' : ''}`}>
+      <div className="loader-row">
+        <div className={`loader-dot${phase === 0 ? ' loader-dot--pulse' : ''}`} />
+        <div className={`loader-text-container${phase >= 1 ? ' loader-text-container--open' : ''}`}>
+          <span className="loader-ghost" aria-hidden="true">{FULL}</span>
+          <span className="loader-typed">
+            {typed}
+            {phase >= 2 && (
+              <span className={`loader-caret${phase === 3 ? ' loader-caret--blink' : ''}`} />
+            )}
+          </span>
+        </div>
+      </div>
     </div>
   );
 }
