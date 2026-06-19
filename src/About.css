@@ -38,7 +38,7 @@
 .about-stack-col {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 14px;
   margin-top: 12px;
 }
 
@@ -50,7 +50,7 @@
 
 .about-stack-label {
   font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   color: rgba(0, 0, 0, 0.4);
 }
 
@@ -130,12 +130,12 @@
   margin-top: 28px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 .about-spotify-label {
   font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   color: rgba(0, 0, 0, 0.4);
   margin: 0;
 }
