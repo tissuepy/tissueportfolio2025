@@ -5,30 +5,19 @@ import portfolio1 from './assets/portfolio1.jpg';
 import portfolio2 from './assets/portfolio2.jpg';
 import portfolio3 from './assets/portfolio3.jpg';
 import portfolio4 from './assets/portfolio4.jpg';
+import matcha1 from './assets/matcha1.png';
+import matchaPlain from './assets/matcha plain.png';
+import matchaArt from './assets/matcha art.png';
 
-const PHOTO_SETS = [
-  {
-    prefix: 'me in Miami',
-    emoji: '🌴',
-    cards: [
-      { src: portfolio4, cls: 'back' },
-      { src: portfolio3, cls: 'mid', style: { objectPosition: 'top center' } },
-      { src: portfolio1, cls: 'front' },
-    ],
-  },
-  {
-    prefix: 'me in NYC',
-    emoji: '🏙️',
-    cards: [
-      { src: portfolio2, cls: 'back' },
-      { src: portfolio1, cls: 'mid' },
-      { src: portfolio4, cls: 'front' },
-    ],
-  },
+const LOCATION_SETS = [
+  { label: 'me in Miami', emoji: '🌴', photos: [portfolio1, portfolio3, portfolio4] },
+  { label: 'me in NYC', emoji: '🏙️', photos: [portfolio4, portfolio2, portfolio1] },
 ];
 
+const MATCHA_PHOTOS = [matcha1, matchaPlain, matchaArt];
+
 const RepeatIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M17 1l4 4-4 4" />
     <path d="M3 11V9a4 4 0 0 1 4-4h14" />
     <path d="M7 23l-4-4 4-4" />
@@ -36,15 +25,38 @@ const RepeatIcon = () => (
   </svg>
 );
 
-export default function About() {
-  const [setIdx, setSetIdx] = useState(0);
-  const [spinning, setSpinning] = useState(false);
-  const current = PHOTO_SETS[setIdx];
+const ShuffleIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="16 3 21 3 21 8" />
+    <line x1="4" y1="20" x2="21" y2="3" />
+    <polyline points="21 16 21 21 16 21" />
+    <line x1="15" y1="15" x2="21" y2="21" />
+    <line x1="4" y1="4" x2="9" y2="9" />
+  </svg>
+);
 
-  const handleRotate = () => {
-    setSpinning(true);
-    setSetIdx((setIdx + 1) % PHOTO_SETS.length);
-    setTimeout(() => setSpinning(false), 400);
+function cardClass(i, topIdx, n) {
+  if (i === topIdx % n) return 'front';
+  if (i === (topIdx + 1) % n) return 'mid';
+  return 'back';
+}
+
+export default function About() {
+  const [locationIdx, setLocationIdx] = useState(0);
+  const [locationTopIdx, setLocationTopIdx] = useState(0);
+  const [matchaTopIdx, setMatchaTopIdx] = useState(0);
+
+  const location = LOCATION_SETS[locationIdx];
+  const locN = location.photos.length;
+  const matchaN = MATCHA_PHOTOS.length;
+
+  const cycleLocation = () => {
+    setLocationIdx((prev) => (prev + 1) % LOCATION_SETS.length);
+    setLocationTopIdx(0);
+  };
+
+  const shuffleMatcha = () => {
+    setMatchaTopIdx((prev) => (prev + 1 + Math.floor(Math.random() * (matchaN - 1))) % matchaN);
   };
 
   return (
@@ -64,25 +76,40 @@ export default function About() {
           Beli, or adding another Smiski to my growing collection.
         </p>
 
-        {/* Photo stack header */}
-        <div className="about-stack-header">
-          <span className="about-stack-label">
-            {current.prefix} <span className="about-stack-emoji">{current.emoji}</span> ↓
-          </span>
-          <button
-            className={`about-stack-rotate${spinning ? ' about-stack-rotate--spin' : ''}`}
-            onClick={handleRotate}
-            aria-label="Switch photo set"
-          >
-            <RepeatIcon />
-          </button>
-        </div>
+        <div className="about-stacks-row">
+          {/* Location stack */}
+          <div className="about-stack-col">
+            <div className="about-stack-header">
+              <span className="about-stack-label">
+                {location.label} <span className="about-stack-emoji">{location.emoji}</span>
+              </span>
+              <button className="about-stack-rotate" onClick={cycleLocation} aria-label="Switch location">
+                <RepeatIcon />
+              </button>
+            </div>
+            <div className="about-photo-stack" onClick={() => setLocationTopIdx((prev) => (prev + 1) % locN)}>
+              {location.photos.map((src, i) => (
+                <img key={src} src={src} alt="" className={`about-photo-card about-photo-card--${cardClass(i, locationTopIdx, locN)}`} />
+              ))}
+            </div>
+          </div>
 
-        {/* Photo stack */}
-        <div className="about-photo-stack">
-          {current.cards.map(({ src, cls, style }) => (
-            <img key={cls} src={src} alt="" className={`about-photo-card about-photo-card--${cls}`} style={style} />
-          ))}
+          {/* Matcha stack */}
+          <div className="about-stack-col">
+            <div className="about-stack-header">
+              <span className="about-stack-label">
+                me with my matcha <span className="about-stack-emoji">🍵</span>
+              </span>
+              <button className="about-stack-rotate" onClick={shuffleMatcha} aria-label="Shuffle matcha">
+                <ShuffleIcon />
+              </button>
+            </div>
+            <div className="about-photo-stack" onClick={() => setMatchaTopIdx((prev) => (prev + 1) % matchaN)}>
+              {MATCHA_PHOTOS.map((src, i) => (
+                <img key={src} src={src} alt="" className={`about-photo-card about-photo-card--${cardClass(i, matchaTopIdx, matchaN)}`} />
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Spotify embed */}
