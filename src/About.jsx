@@ -11,17 +11,33 @@ import matcha3 from './assets/matcha3-new.jpg';
 import matcha4 from './assets/matcha4-new.jpg';
 import matchaVideo from './assets/matchamovie.mov';
 
-const LOCATION_SETS = [
-  { label: 'me in Miami', emoji: '🌴', photos: [portfolio1, portfolio3, portfolio4] },
-  { label: 'me in NYC', emoji: '🏙️', photos: [portfolio4, portfolio2, portfolio1] },
-];
-
-const MATCHA_ITEMS = [
-  { type: 'img', src: matcha1 },
-  { type: 'img', src: matcha2 },
-  { type: 'img', src: matcha3 },
-  { type: 'img', src: matcha4 },
-  { type: 'video', src: matchaVideo },
+const SETS = [
+  {
+    label: 'trying everything matcha flavored ↓',
+    items: [
+      { type: 'img', src: matcha1 },
+      { type: 'img', src: matcha2 },
+      { type: 'img', src: matcha3 },
+      { type: 'img', src: matcha4 },
+      { type: 'video', src: matchaVideo },
+    ],
+  },
+  {
+    label: 'me in Miami 🌴',
+    items: [
+      { type: 'img', src: portfolio1 },
+      { type: 'img', src: portfolio3 },
+      { type: 'img', src: portfolio4 },
+    ],
+  },
+  {
+    label: 'me in NYC 🏙️',
+    items: [
+      { type: 'img', src: portfolio4 },
+      { type: 'img', src: portfolio2 },
+      { type: 'img', src: portfolio1 },
+    ],
+  },
 ];
 
 const RepeatIcon = () => (
@@ -33,16 +49,6 @@ const RepeatIcon = () => (
   </svg>
 );
 
-const ShuffleIcon = () => (
-  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="16 3 21 3 21 8" />
-    <line x1="4" y1="20" x2="21" y2="3" />
-    <polyline points="21 16 21 21 16 21" />
-    <line x1="15" y1="15" x2="21" y2="21" />
-    <line x1="4" y1="4" x2="9" y2="9" />
-  </svg>
-);
-
 function cardClass(i, topIdx, n) {
   if (i === topIdx % n) return 'front';
   if (i === (topIdx + 1) % n) return 'mid';
@@ -50,21 +56,15 @@ function cardClass(i, topIdx, n) {
 }
 
 export default function About() {
-  const [locationIdx, setLocationIdx] = useState(0);
-  const [locationTopIdx, setLocationTopIdx] = useState(0);
-  const [matchaTopIdx, setMatchaTopIdx] = useState(0);
+  const [setIdx, setSetIdx] = useState(0);
+  const [topIdx, setTopIdx] = useState(0);
 
-  const location = LOCATION_SETS[locationIdx];
-  const locN = location.photos.length;
-  const matchaN = MATCHA_ITEMS.length;
+  const current = SETS[setIdx];
+  const n = current.items.length;
 
-  const cycleLocation = () => {
-    setLocationIdx((prev) => (prev + 1) % LOCATION_SETS.length);
-    setLocationTopIdx(0);
-  };
-
-  const shuffleMatcha = () => {
-    setMatchaTopIdx((prev) => (prev + 1 + Math.floor(Math.random() * (matchaN - 1))) % matchaN);
+  const cycleSet = () => {
+    setSetIdx((prev) => (prev + 1) % SETS.length);
+    setTopIdx(0);
   };
 
   return (
@@ -84,52 +84,30 @@ export default function About() {
           Beli, or adding another Smiski to my growing collection.
         </p>
 
-        <div className="about-stacks-row">
-          {/* Location stack */}
-          <div className="about-stack-col">
-            <div className="about-stack-header">
-              <span className="about-stack-label">
-                {location.label} <span className="about-stack-emoji">{location.emoji}</span>
-              </span>
-              <button className="about-stack-rotate" onClick={cycleLocation} aria-label="Switch location">
-                <RepeatIcon />
-              </button>
-            </div>
-            <div className="about-photo-stack" onClick={() => setLocationTopIdx((prev) => (prev + 1) % locN)}>
-              {location.photos.map((src, i) => (
-                <img key={src} src={src} alt="" className={`about-photo-card about-photo-card--${cardClass(i, locationTopIdx, locN)}`} />
-              ))}
-            </div>
+        <div className="about-stack-col">
+          <div className="about-stack-header">
+            <span className="about-stack-label">{current.label}</span>
+            <button className="about-stack-rotate" onClick={cycleSet} aria-label="Switch set">
+              <RepeatIcon />
+            </button>
           </div>
-
-          {/* Matcha stack */}
-          <div className="about-stack-col">
-            <div className="about-stack-header">
-              <span className="about-stack-label">
-                me with my matcha <span className="about-stack-emoji">🍵</span>
-              </span>
-              <button className="about-stack-rotate" onClick={shuffleMatcha} aria-label="Shuffle matcha">
-                <ShuffleIcon />
-              </button>
-            </div>
-            <div className="about-photo-stack" onClick={() => setMatchaTopIdx((prev) => (prev + 1) % matchaN)}>
-              {MATCHA_ITEMS.map((item, i) =>
-                item.type === 'video' ? (
-                  <video
-                    key={item.src}
-                    src={item.src}
-                    className={`about-photo-card about-photo-card--${cardClass(i, matchaTopIdx, matchaN)}`}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    style={{ objectFit: 'cover' }}
-                  />
-                ) : (
-                  <img key={item.src} src={item.src} alt="" className={`about-photo-card about-photo-card--${cardClass(i, matchaTopIdx, matchaN)}`} />
-                )
-              )}
-            </div>
+          <div className="about-photo-stack" onClick={() => setTopIdx((prev) => (prev + 1) % n)}>
+            {current.items.map((item, i) =>
+              item.type === 'video' ? (
+                <video
+                  key={item.src}
+                  src={item.src}
+                  className={`about-photo-card about-photo-card--${cardClass(i, topIdx, n)}`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ objectFit: 'cover' }}
+                />
+              ) : (
+                <img key={item.src} src={item.src} alt="" className={`about-photo-card about-photo-card--${cardClass(i, topIdx, n)}`} />
+              )
+            )}
           </div>
         </div>
 

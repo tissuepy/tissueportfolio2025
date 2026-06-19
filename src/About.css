@@ -35,13 +35,6 @@
   color: rgba(0, 0, 0, 0.4);
 }
 
-/* ── Photo stacks row ── */
-.about-stacks-row {
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-}
-
 .about-stack-col {
   display: flex;
   flex-direction: column;
@@ -157,10 +150,6 @@
 @media (max-width: 600px) {
   .about-layout {
     padding: 0 20px;
-  }
-
-  .about-stacks-row {
-    gap: 20px;
   }
 
   .about-photo-stack {
