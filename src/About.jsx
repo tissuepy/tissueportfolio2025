@@ -33,7 +33,7 @@ export default function About() {
 
         {/* Spotify embed */}
         <div className="about-spotify-block">
-          <p className="about-spotify-label">My jams ↓</p>
+          <p className="about-spotify-label">more recently listening to ↓</p>
           <iframe
             className="about-spotify-embed"
             src="https://open.spotify.com/embed/playlist/0JzWMZwqJ1tl989E0tdZlo?utm_source=generator"
