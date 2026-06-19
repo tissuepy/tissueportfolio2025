@@ -8,7 +8,8 @@ import portfolio4 from './assets/portfolio4.jpg';
 
 const PHOTO_SETS = [
   {
-    label: 'me in Miami 🌴 ↓',
+    prefix: 'me in Miami',
+    emoji: '🌴',
     cards: [
       { src: portfolio4, cls: 'back' },
       { src: portfolio3, cls: 'mid', style: { objectPosition: 'top center' } },
@@ -16,7 +17,8 @@ const PHOTO_SETS = [
     ],
   },
   {
-    label: 'me in NYC 🏙️ ↓',
+    prefix: 'me in NYC',
+    emoji: '🏙️',
     cards: [
       { src: portfolio2, cls: 'back' },
       { src: portfolio1, cls: 'mid' },
@@ -64,7 +66,9 @@ export default function About() {
 
         {/* Photo stack header */}
         <div className="about-stack-header">
-          <span className="about-stack-label">{current.label}</span>
+          <span className="about-stack-label">
+            {current.prefix} <span className="about-stack-emoji">{current.emoji}</span> ↓
+          </span>
           <button
             className={`about-stack-rotate${spinning ? ' about-stack-rotate--spin' : ''}`}
             onClick={handleRotate}

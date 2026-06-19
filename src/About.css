@@ -48,6 +48,10 @@
   color: rgba(0, 0, 0, 0.4);
 }
 
+.about-stack-emoji {
+  color: initial;
+}
+
 .about-stack-rotate {
   background: none;
   border: none;
