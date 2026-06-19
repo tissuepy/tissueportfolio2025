@@ -30,6 +30,18 @@ export default function About() {
           <img src={portfolio3} alt="" className="about-photo" style={{ objectPosition: 'top center' }} />
           <img src={portfolio4} alt="" className="about-photo" />
         </div>
+
+        {/* Spotify embed */}
+        <div className="about-spotify-block">
+          <p className="about-spotify-label">My jams ↓</p>
+          <iframe
+            className="about-spotify-embed"
+            src="https://open.spotify.com/embed/playlist/0JzWMZwqJ1tl989E0tdZlo?utm_source=generator"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="My jams playlist"
+          />
+        </div>
       </div>
     </div>
   );

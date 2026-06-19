@@ -54,6 +54,28 @@
   transition: filter 0.2s ease;
 }
 
+/* ── Spotify ── */
+.about-spotify-block {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-spotify-label {
+  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.4);
+  margin: 0;
+}
+
+.about-spotify-embed {
+  width: 100%;
+  height: 352px;
+  border: none;
+  border-radius: 12px;
+}
+
 /* ── Mobile ── */
 @media (max-width: 600px) {
   .about-layout {
