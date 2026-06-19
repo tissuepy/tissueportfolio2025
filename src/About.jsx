@@ -24,11 +24,11 @@ export default function About() {
           Beli, or adding another Smiski to my growing collection.
         </p>
 
-        {/* Photos row */}
-        <div className="about-photo-row">
-          <img src={portfolio1} alt="" className="about-photo" />
-          <img src={portfolio3} alt="" className="about-photo" style={{ objectPosition: 'top center' }} />
-          <img src={portfolio4} alt="" className="about-photo" />
+        {/* Photo stack */}
+        <div className="about-photo-stack">
+          <img src={portfolio4} alt="" className="about-photo-card about-photo-card--back" />
+          <img src={portfolio3} alt="" className="about-photo-card about-photo-card--mid" style={{ objectPosition: 'top center' }} />
+          <img src={portfolio1} alt="" className="about-photo-card about-photo-card--front" />
         </div>
 
         {/* Spotify embed */}
