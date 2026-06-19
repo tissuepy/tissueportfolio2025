@@ -73,15 +73,15 @@
 }
 
 .about-photo-stack:hover .about-photo-card--back {
-  transform: translate(-50%, -50%) rotate(-12deg) translate(-105px, 10px);
+  transform: translate(calc(-50% - 110px), calc(-50% + 10px)) rotate(-12deg);
 }
 
 .about-photo-stack:hover .about-photo-card--mid {
-  transform: translate(-50%, -50%) rotate(0deg) translate(0, -4px);
+  transform: translate(-50%, calc(-50% - 4px)) rotate(0deg);
 }
 
 .about-photo-stack:hover .about-photo-card--front {
-  transform: translate(-50%, -50%) rotate(12deg) translate(105px, 10px);
+  transform: translate(calc(-50% + 110px), calc(-50% + 10px)) rotate(12deg);
 }
 
 /* ── Spotify ── */
