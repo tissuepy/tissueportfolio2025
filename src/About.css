@@ -46,7 +46,7 @@
 
 .about-photo-card {
   position: absolute;
-  width: min(340px, 90%);
+  width: min(240px, 80%);
   height: 240px;
   object-fit: cover;
   border-radius: 14px;
