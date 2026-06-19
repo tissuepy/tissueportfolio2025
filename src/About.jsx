@@ -5,16 +5,24 @@ import portfolio1 from './assets/portfolio1.jpg';
 import portfolio2 from './assets/portfolio2.jpg';
 import portfolio3 from './assets/portfolio3.jpg';
 import portfolio4 from './assets/portfolio4.jpg';
-import matcha1 from './assets/matcha1.png';
-import matchaPlain from './assets/matcha plain.png';
-import matchaArt from './assets/matcha art.png';
+import matcha1 from './assets/matcha1-new.jpg';
+import matcha2 from './assets/matcha2-new.jpg';
+import matcha3 from './assets/matcha3-new.jpg';
+import matcha4 from './assets/matcha4-new.jpg';
+import matchaVideo from './assets/matchamovie.mov';
 
 const LOCATION_SETS = [
   { label: 'me in Miami', emoji: '🌴', photos: [portfolio1, portfolio3, portfolio4] },
   { label: 'me in NYC', emoji: '🏙️', photos: [portfolio4, portfolio2, portfolio1] },
 ];
 
-const MATCHA_PHOTOS = [matcha1, matchaPlain, matchaArt];
+const MATCHA_ITEMS = [
+  { type: 'img', src: matcha1 },
+  { type: 'img', src: matcha2 },
+  { type: 'img', src: matcha3 },
+  { type: 'img', src: matcha4 },
+  { type: 'video', src: matchaVideo },
+];
 
 const RepeatIcon = () => (
   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -48,7 +56,7 @@ export default function About() {
 
   const location = LOCATION_SETS[locationIdx];
   const locN = location.photos.length;
-  const matchaN = MATCHA_PHOTOS.length;
+  const matchaN = MATCHA_ITEMS.length;
 
   const cycleLocation = () => {
     setLocationIdx((prev) => (prev + 1) % LOCATION_SETS.length);
@@ -105,9 +113,22 @@ export default function About() {
               </button>
             </div>
             <div className="about-photo-stack" onClick={() => setMatchaTopIdx((prev) => (prev + 1) % matchaN)}>
-              {MATCHA_PHOTOS.map((src, i) => (
-                <img key={src} src={src} alt="" className={`about-photo-card about-photo-card--${cardClass(i, matchaTopIdx, matchaN)}`} />
-              ))}
+              {MATCHA_ITEMS.map((item, i) =>
+                item.type === 'video' ? (
+                  <video
+                    key={item.src}
+                    src={item.src}
+                    className={`about-photo-card about-photo-card--${cardClass(i, matchaTopIdx, matchaN)}`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{ objectFit: 'cover' }}
+                  />
+                ) : (
+                  <img key={item.src} src={item.src} alt="" className={`about-photo-card about-photo-card--${cardClass(i, matchaTopIdx, matchaN)}`} />
+                )
+              )}
             </div>
           </div>
         </div>
