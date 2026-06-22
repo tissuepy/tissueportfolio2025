@@ -1,0 +1,336 @@
+/* Scene — full viewport, centers the native canvas */
+.wfo-scene {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Native 1450×1220 canvas, scaled to ~55% for display */
+.wfo-native {
+  position: relative;
+  width: 1450px;
+  height: 1220px;
+  transform: scale(0.55);
+  transform-origin: top center;
+  flex-shrink: 0;
+  margin-bottom: -549px; /* collapse scaled-away height: 1220 * 0.45 */
+}
+
+/* ── Shared primitives ── */
+
+/* Card face background */
+.wfo-card-body {
+  position: absolute;
+  inset: 0;
+  background: #f3f3f3;
+  border: 2px solid #b5b4b5;
+  border-radius: 37px;
+}
+
+/* Clipping container for card body + texture */
+.wfo-card-clip {
+  position: absolute;
+  border-radius: 37px;
+  overflow: hidden;
+}
+
+/* Tab strip peeking above the card */
+.wfo-card-tab {
+  position: absolute;
+  width: 604px;
+  height: 92px;
+  background: #fbfbfb;
+  border: 2px solid #b5b4b5;
+  border-radius: 21px;
+}
+
+/* Diagonal stripe texture */
+.wfo-stripes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.wfo-stripes::before {
+  content: '';
+  position: absolute;
+  left: -200px;
+  top: -200px;
+  right: -200px;
+  bottom: -200px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0px,
+    transparent 7px,
+    rgba(0, 0, 0, 0.55) 7px,
+    rgba(0, 0, 0, 0.55) 9px,
+    transparent 9px,
+    transparent 17px,
+    rgba(0, 0, 0, 0.35) 17px,
+    rgba(0, 0, 0, 0.35) 19px,
+    transparent 19px,
+    transparent 29px,
+    rgba(0, 0, 0, 0.2) 29px,
+    rgba(0, 0, 0, 0.2) 31px
+  );
+}
+.wfo-stripes--30 { opacity: 0.3; }
+.wfo-stripes--20 { opacity: 0.2; }
+
+/* Bottom dark accent bar */
+.wfo-bottom-dark {
+  position: absolute;
+}
+.wfo-bottom-dark img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Card 5 — back card, 9.73deg ── */
+.wfo-c5-outer {
+  position: absolute;
+  left: 224px;
+  top: 150px;
+  width: 1019.357px;
+  height: 766.015px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wfo-c5-group {
+  position: relative;
+  width: 928.25px;
+  height: 618px;
+  transform: rotate(9.73deg);
+  flex-shrink: 0;
+}
+
+.wfo-c5-tab {
+  left: 324.25px;
+  top: 0;
+}
+
+.wfo-c5-clip {
+  left: 0.25px;
+  top: 46px;
+  width: 893px;
+  height: 572px;
+}
+
+.wfo-c5-dark {
+  left: 323.75px;
+  top: 537px;
+  width: 569.5px;
+  height: 81px;
+}
+
+/* ── Card 6 — middle card, 6.65deg ── */
+.wfo-c6-outer {
+  position: absolute;
+  left: 20px;
+  top: 351px;
+  width: 993.323px;
+  height: 679.735px;
+}
+
+.wfo-c6-clip {
+  position: absolute;
+  left: 0;
+  top: 8.17px;
+  width: 953.232px;
+  height: 671.564px;
+  overflow: hidden;
+}
+
+/* Flex layer that centers the rotated card / lines within the clip */
+.wfo-c6-flex {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wfo-c6-card {
+  width: 893px;
+  height: 572px;
+  flex-shrink: 0;
+  background: #f3f3f3;
+  border: 2px solid #b5b4b5;
+  border-radius: 37px;
+  transform: rotate(6.65deg);
+}
+
+.wfo-c6-circ {
+  width: 893px;
+  height: 572px;
+  flex-shrink: 0;
+  display: block;
+  transform: rotate(6.65deg);
+}
+
+/* Logo positioned within the clip */
+.wfo-c6-logo-pos {
+  position: absolute;
+  left: 92.72px;
+  top: 55.33px;
+  width: 268.793px;
+  height: 153.906px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wfo-c6-logo-rot {
+  transform: rotate(6.67deg);
+  flex-shrink: 0;
+}
+
+/* Tab for card 6 — outside the clip, rotated */
+.wfo-c6-tab-outer {
+  position: absolute;
+  left: 382.73px;
+  top: 0;
+  width: 610.59px;
+  height: 161.326px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wfo-c6-tab-rot {
+  transform: rotate(6.65deg);
+  flex-shrink: 0;
+}
+
+.wfo-c6-tab-rot .wfo-card-tab {
+  position: relative;
+}
+
+/* ── ChatGPT logo assembly ── */
+/* SVGs have no intrinsic size (width="100%"), so use explicit px to avoid 300×150 fallback */
+.wfo-logo {
+  position: relative;
+  width: 256px;
+  height: 125px;
+}
+
+.wfo-logo img {
+  position: absolute;
+  display: block;
+}
+
+/* Inset values converted from Figma % to explicit px (parent 256×125) */
+.wfo-logo-v0 { top: 0;       left: 0;        width: 67.81px;  height: 92.05px; }
+.wfo-logo-v1 { top: 33.18px; left: 66.48px;  width: 60.53px;  height: 60.37px; }
+.wfo-logo-v2 { top: 33.18px; left: 130.94px; width: 60.60px;  height: 91.82px; }
+.wfo-logo-v3 { top: 33.18px; left: 195.48px; width: 60.52px;  height: 60.38px; }
+
+/* ── Card 7 — front card, 0deg ── */
+.wfo-c7-outer {
+  position: absolute;
+  left: 114px;
+  top: 600px;
+  width: 928.25px;
+  height: 618px;
+}
+
+.wfo-c7-tab {
+  left: 324.25px;
+  top: 0;
+}
+
+.wfo-c7-clip {
+  left: 0.25px;
+  top: 46px;
+  width: 893px;
+  height: 572px;
+}
+
+.wfo-c7-dark {
+  left: 323.75px;
+  top: 537px;
+  width: 569.5px;
+  height: 81px;
+}
+
+.wfo-c7-rect {
+  position: absolute;
+  left: 0;
+  top: 455px;
+  width: 348px;
+  height: 163px;
+  display: block;
+}
+
+/* ── Wallet body ── */
+.wfo-wallet-outer {
+  position: absolute;
+  left: 803px;
+  top: 50px;
+  width: 643px;
+  height: 1145px;
+}
+
+.wfo-wallet-toggle {
+  position: absolute;
+  left: 30px;
+  top: 849px;
+  width: 174px;
+  height: 240px;
+}
+
+.wfo-wallet-base {
+  position: absolute;
+  left: 1px;
+  top: -50px;
+  width: 643px;
+  height: 1032px;
+  filter: drop-shadow(0px 0px 15.75px rgba(0, 0, 0, 0.09));
+}
+
+.wfo-wallet-svg {
+  position: absolute;
+  inset: 0;
+  width: 643px;
+  height: 1032px;
+  display: block;
+}
+
+.wfo-open-label {
+  position: absolute;
+  left: 171px;
+  top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.wfo-open-arrow {
+  font-size: 14px;
+  color: #a0a0a0;
+  line-height: 1;
+}
+
+.wfo-open-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #a0a0a0;
+  letter-spacing: -0.2px;
+}
+
+.wfo-wallet-icon {
+  position: absolute;
+  left: 297px;
+  top: 916px;
+  width: 50px;
+  height: 50px;
+  display: block;
+}

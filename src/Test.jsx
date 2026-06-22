@@ -1,9 +1,9 @@
-import WalletComponent from './WalletComponent';
+import WalletFanOpen from './WalletFanOpen';
 
 export default function Test() {
   return (
-    <div style={{ minHeight: '100vh', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <WalletComponent />
+    <div style={{ minHeight: '100vh', background: '#ffffff' }}>
+      <WalletFanOpen />
     </div>
   );
 }
