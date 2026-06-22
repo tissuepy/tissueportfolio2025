@@ -11,6 +11,7 @@ import PogoFeatures from './PogoFeatures';
 import SectionsCaseStudy from './SectionsCaseStudy';
 import ChatGPTFullCaseStudy from './ChatGPTFullCaseStudy';
 import Writing from './Writing';
+import Test from './Test';
 import Rejection from './articles/Rejection';
 import ChatGPTArticle from './articles/ChatGPTArticle';
 import InteractiveMatcha from './InteractiveMatcha'; // Added
@@ -160,6 +161,8 @@ function App() {
           <NavLink to="/about" className="nav-item">ABOUT</NavLink>
           <span className="nav-sep">/</span>
           <NavLink to="/writing" className="nav-item">WRITING</NavLink>
+          <span className="nav-sep">/</span>
+          <NavLink to="/test" className="nav-item">TEST</NavLink>
         </div>
         <img src={notionFace} alt="" className="navbar-notion-face cursor-notion" />
       </div>
@@ -178,6 +181,7 @@ function App() {
           <Route path="/work/pogo/sections" element={<SectionsCaseStudy />} />
           <Route path="/writing" element={<Writing />} />
           <Route path="/writing/rejection" element={<Rejection />} />
+          <Route path="/test" element={<Test />} />
           <Route path="/work/chatgpt/article" element={<ChatGPTArticle />} />
           <Route path="/work/chatgpt/full" element={<ChatGPTFullCaseStudy />} />
         </Routes>
