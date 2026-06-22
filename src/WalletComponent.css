@@ -1,0 +1,107 @@
+.wc-scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Native 643×1032 canvas, scaled to 55% for display */
+.wc-native {
+  position: relative;
+  width: 643px;
+  height: 1032px;
+  transform: scale(0.55);
+  transform-origin: top center;
+  flex-shrink: 0;
+}
+
+/* Each card occupies the full native canvas as a positioning context */
+.wc-card-layer {
+  position: absolute;
+  inset: 0;
+}
+
+/* Card body — the credit card face in portrait orientation */
+.wc-card-body {
+  position: absolute;
+  background: #f3f3f3;
+  border: 2px solid #b5b4b5;
+  border-radius: 37px;
+  overflow: hidden;
+}
+
+.wc-card-texture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+/* Tab — the narrow strip visible through the wallet notch */
+.wc-card-tab {
+  position: absolute;
+  background: #fbfbfb;
+  border: 2px solid #b5b4b5;
+  border-radius: 21px;
+  overflow: hidden;
+}
+
+.wc-tab-dark {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+}
+
+/* Wallet body layer — on top of all cards */
+.wc-body-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+.wc-body-img {
+  position: absolute;
+  inset: 0;
+  width: 643px;
+  height: 1032px;
+}
+
+/* OPEN label — top of wallet, left=171 top=30 from Figma */
+.wc-open-label {
+  position: absolute;
+  left: 171px;
+  top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.wc-open-arrow {
+  font-size: 14px;
+  color: #a0a0a0;
+  line-height: 1;
+}
+
+.wc-open-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #a0a0a0;
+  letter-spacing: -0.2px;
+}
+
+/* Bottom icon — left=297 top=916 size=50 from Figma */
+.wc-bottom-icon {
+  position: absolute;
+  left: 297px;
+  top: 916px;
+  width: 50px;
+  height: 50px;
+}

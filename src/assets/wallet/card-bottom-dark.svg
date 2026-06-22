@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 569.5 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="bottom dark grey thingie">
+<path id="Rectangle 7" d="M470 1V80H20.6602L1.27441 1H470Z" fill="var(--fill-0, #E6E6E6)" stroke="var(--stroke-0, #B5B4B5)" stroke-width="2"/>
+<g id="Rectangle 8">
+<mask id="path-2-inside-1_0_61" fill="white">
+<path d="M460.5 0H569.5V44C569.5 64.4345 552.935 81 532.5 81H460.5V0Z"/>
+</mask>
+<path d="M460.5 0H569.5V44C569.5 64.4345 552.935 81 532.5 81H460.5V0Z" fill="var(--fill-0, #E6E6E6)"/>
+<path d="M460.5 -2H571.5L567.5 2H460.5V-2ZM571.5 44C571.5 65.5391 554.039 83 532.5 83H460.5V79H532.5C551.83 79 567.5 63.33 567.5 44H571.5ZM460.5 81V0V81ZM571.5 -2V44C571.5 65.5391 554.039 83 532.5 83V79C551.83 79 567.5 63.33 567.5 44V2L571.5 -2Z" fill="var(--stroke-0, #B5B4B5)" mask="url(#path-2-inside-1_0_61)"/>
+</g>
+</g>
+</svg>
