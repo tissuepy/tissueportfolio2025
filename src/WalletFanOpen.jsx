@@ -29,8 +29,6 @@ export default function WalletFanOpen() {
         {/* ── Card 5 — back card, 9.73deg ── */}
         <div className="wfo-c5-outer">
           <div className="wfo-c5-group">
-            {/* Tab sticking up */}
-            <div className="wfo-card-tab wfo-c5-tab" />
             {/* Card face */}
             <div className="wfo-card-clip wfo-c5-clip">
               <div className="wfo-card-body" />
@@ -40,6 +38,8 @@ export default function WalletFanOpen() {
             <div className="wfo-bottom-dark wfo-c5-dark">
               <img src={cardBottomDarkSvg} alt="" />
             </div>
+            {/* Tab last = renders above card face */}
+            <div className="wfo-card-tab wfo-c5-tab" />
           </div>
         </div>
 
@@ -72,8 +72,6 @@ export default function WalletFanOpen() {
 
         {/* ── Card 7 — front card, 0deg ── */}
         <div className="wfo-c7-outer">
-          {/* Tab */}
-          <div className="wfo-card-tab wfo-c7-tab" />
           {/* Card face */}
           <div className="wfo-card-clip wfo-c7-clip">
             <div className="wfo-card-body" />
@@ -85,6 +83,8 @@ export default function WalletFanOpen() {
           </div>
           {/* Rectangle / branding decoration */}
           <img src={rectangleSvg} className="wfo-c7-rect" alt="" />
+          {/* Tab last = renders above card face */}
+          <div className="wfo-card-tab wfo-c7-tab" />
         </div>
 
         {/* ── Wallet body — rightmost ── */}
