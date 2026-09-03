@@ -1,298 +1,600 @@
 import { useEffect, useState } from 'react';
 import './ChatGPTFullCaseStudy.css';
+import './articles/MovingOut.css';
+import bookmarksThumbnail from './assets/bookmarks-thumbnail.png';
+import hmwChatgpt from './assets/hmw-chatgpt.png';
+import softwareEngineerQuote from './assets/software-engineer-quote.png';
+import ilrQuote from './assets/ilr-quote.png';
+import buQuote from './assets/bu-quote.png';
+import redditQuote from './assets/reddit-quote.png';
+import chatgptQuote from './assets/chatgpt-quote.png';
+import projectsWireframe from './assets/projects-wireframe.png';
+import branchingAnimation from './assets/branching-animation.webm';
+import searchingMech from './assets/searching-mech.png';
+import branchIcon from './assets/branch-icon.png';
+import projectIcon from './assets/project-icon.png';
+import searchIcon from './assets/search-icon.png';
+import textFrameExample from './assets/text-frame-example.mp4';
+import bookmarkCreationFlow from './assets/bookmark-creation-flow.webm';
+import bookmarkCreation2 from './assets/bookmark-creation-flow-final.webm';
+import viewBookmarksVideo from './assets/attaching-bookmark-viewing.webm';
+import emptyStateCollections from './assets/empty-state-for-collections.webm';
+import emptyStateInsideCollection from './assets/empty-state-inside-collection.webm';
+import finalizedFlowCollections from './assets/finalized-flow-for-collections.webm';
+import collectionsVariety from './assets/collections-variety-1.png';
+import collectionsPage from './assets/collections-page.png';
 import chatgptLogo from './articles/chatgpt-logo.png';
-import redditLogo from './articles/reddit-logo2.webp';
-import bookmarkImg from './assets/chatgpt-bookmark-1.png';
-import participantsImg from './assets/chatgpt-participants.png';
-import user1Img from './assets/chatgpt-user-1.png';
-import user2Img from './assets/chatgpt-user-2.png';
-import user3Img from './assets/chatgpt-user-3.png';
-import textExampleImg from './assets/chatgpt-text-example.png';
-import problem2Img from './assets/chatgpt-problem-2.png';
-import design1Img from './assets/chatgpt-design-1.png';
-import brandingBgImg from './assets/chatgpt-branding-bg.png';
-import brandingBg3Img from './assets/chatgpt-branding-bg-3.png';
-import brandingBg4Img from './assets/chatgpt-branding-bg-4.png';
-import tooltipImg from './assets/chatgpt-tooltip-example.png';
-import toastDesignsImg from './assets/chatgpt-toast-designs.png';
-import chatboxBannerImg from './assets/chatgpt-chatbox-banner.png';
-import chatboxPopupImg from './assets/chatgpt-chatbox-popup.png';
-import modal1Img from './assets/chatgpt-modal-1.png';
-import optionMenuImg from './assets/chatgpt-option-menu.png';
-import onlyOneImg from './assets/chatgpt-only-one.png';
-import moreThanOneImg from './assets/chatgpt-more-than-one.png';
-import modal2Img from './assets/chatgpt-modal-2.png';
-import announcementBannerImg from './assets/chatgpt-announcement-banner.png';
-import bookmarkPopupImg from './assets/chatgpt-bookmark-popup.png';
-import colorSelectionImg from './assets/chatgpt-color-selection.png';
 
-const RESEARCH_SLIDES = [
-  { type: 'participants', src: participantsImg },
-  {
-    type: 'profile',
-    src: user1Img,
-    frustrations: [
-      'Lost in long threads',
-      'Hard to revisit interactions',
-      'Confidently incorrect answers',
-    ],
-  },
-  {
-    type: 'profile',
-    src: user2Img,
-    frustrations: [
-      'Mobile layout feels cramped',
-      'Long conversations overwhelm quickly',
-      'Hard to retrieve information',
-    ],
-  },
-  {
-    type: 'profile',
-    src: user3Img,
-    frustrations: [
-      'Lags in long conversations',
-      'Mobile scrolling is exhausting',
-      'No performance issue alerts',
-    ],
-  },
-];
-
-const ArrowNE = () => (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
-    <path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-const RedXIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
-    <circle cx="7.5" cy="7.5" r="7.5" fill="#E03131" />
-    <path d="M5 5l5 5M10 5l-5 5" stroke="#fff" strokeWidth="1.7" strokeLinecap="round" />
-  </svg>
-);
-
-function SlideContent({ slide }) {
-  if (slide.type === 'participants') {
-    return (
-      <img
-        src={slide.src}
-        alt="Research participants"
-        className="chatgpt-full-carousel-img"
-      />
-    );
-  }
-  return (
-    <div className="chatgpt-full-profile-slide">
-      <img src={slide.src} alt="User" className="chatgpt-full-carousel-img" />
-      <div className="chatgpt-full-profile-content">
-        <div className="chatgpt-full-profile-label-row">
-          <RedXIcon />
-          <span className="chatgpt-full-profile-label">FRUSTRATIONS</span>
-        </div>
-        <ul className="chatgpt-full-profile-list">
-          {slide.frustrations.map((item, i) => (
-            <li key={i} className="chatgpt-full-profile-item">
-              <span className="chatgpt-full-profile-badge">{i + 1}</span>
-              <span className="chatgpt-full-profile-item-text">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}
+const researchImages = [softwareEngineerQuote, ilrQuote, buQuote];
+const otherResearchImages = [redditQuote, chatgptQuote];
 
 export default function ChatGPTFullCaseStudy() {
-  const [slideIndex, setSlideIndex] = useState(0);
-  const [prevIndex, setPrevIndex] = useState(null);
-  const [animating, setAnimating] = useState(false);
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
-  const changeSlide = (newIndex) => {
-    if (animating) return;
-    setPrevIndex(slideIndex);
-    setSlideIndex(newIndex);
-    setAnimating(true);
-    setTimeout(() => {
-      setPrevIndex(null);
-      setAnimating(false);
-    }, 420);
-  };
-
-  const prevSlide = () => changeSlide((slideIndex - 1 + RESEARCH_SLIDES.length) % RESEARCH_SLIDES.length);
-  const nextSlide = () => changeSlide((slideIndex + 1) % RESEARCH_SLIDES.length);
+  const [researchIndex, setResearchIndex] = useState(0);
+  const [otherResearchIndex, setOtherResearchIndex] = useState(0);
 
   return (
-    <div className="chatgpt-full-page">
-      <div className="chatgpt-full-inner">
-        <div className="chatgpt-full-header">
+    <div className="chatgpt-full-case-study">
+      <div style={{
+        margin: '60px 40px 24px',
+        backgroundColor: '#FFFFFF',
+        border: '1px solid #E5E5E5',
+        boxSizing: 'border-box',
+        height: '520px',
+        position: 'relative',
+        overflow: 'hidden',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+      }}>
+        <img
+          src={bookmarksThumbnail}
+          alt=""
+          style={{
+            width: '85%',
+            height: 'auto',
+            display: 'block',
+            position: 'absolute',
+            top: '30px',
+            border: 'none',
+          }}
+        />
+      </div>
 
-          {/* Left: logo box + title/date */}
-          <div className="chatgpt-full-header-left">
-            <div className="chatgpt-full-logo-box">
-              <img src={chatgptLogo} alt="ChatGPT" className="chatgpt-full-logo-img" />
-            </div>
-            <div className="chatgpt-full-title-group">
-              <h1 className="chatgpt-full-title">ChatGPT Bookmarks</h1>
-              <p className="chatgpt-full-date">Fall 2025</p>
-            </div>
+      <div style={{ padding: '0 40px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '40px' }}>
+        <div className="home-wide-meta-left">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1px' }}>
+            <img src={chatgptLogo} alt="ChatGPT" style={{ width: '34px', height: '34px', objectFit: 'contain', borderRadius: '9px' }} />
+            <span className="new-hero-body" style={{ margin: 0 }}><span style={{ color: '#000000' }}>ChatGPT</span><span style={{ color: '#AAAAAA' }}>, Concept Design</span></span>
           </div>
-
-          {/* Right: description */}
-          <div className="chatgpt-full-header-right">
-            <p className="chatgpt-full-desc">
-              As part of a fun semester-wide project, I explored how bookmarking could work inside ChatGPT conversations to help users save, revisit, and navigate important messages more naturally.
-            </p>
-          </div>
-
         </div>
+        <p className="new-hero-body" style={{ margin: 0, maxWidth: '520px', textAlign: 'left', lineHeight: 1.7 }}>
+          Design engineered an intuitive bookmarking experience for <span style={{ textDecoration: 'underline' }}>ChatGPT</span> across the web and mobile platforms.
+        </p>
+      </div>
 
-        {/* Thumbnail canvas */}
-        <div className="chatgpt-full-canvas chatgpt-full-canvas--branded">
-          <img src={brandingBg3Img} alt="" className="chatgpt-full-canvas-cover-bg" />
-          <img src={bookmarkImg} alt="ChatGPT Bookmarks" className="chatgpt-full-canvas-img" />
-        </div>
-
-        {/* Context section */}
-        <div className="chatgpt-full-text-block">
-          <p className="chatgpt-full-label">CONTEXT</p>
-          <h2 className="chatgpt-full-section-title">Experimenting with AI tools led me to find something cool</h2>
-          <p className="chatgpt-full-section-body">
-            Recently, I realized it was difficult to revisit and retain valuable notes or insights I generated in{' '}
-            <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" className="chatgpt-full-inline-link">
-              ChatGPT
-              <sup className="chatgpt-full-inline-sup">
-                <svg width="8" height="8" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
-                  <path d="M2.5 11.5L11.5 2.5M11.5 2.5H5.5M11.5 2.5V8.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </sup>
-            </a>{' '}
-            because important content often became buried across long conversations. This led me to explore a bookmarking feature that could help users quickly save, organize, and return to meaningful moments within chats.
+      <div style={{ padding: '0 40px' }}>
+        <div style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <span style={{
+            fontFamily: "'Geist Mono', 'Geist Mono Fallback', monospace",
+            fontSize: '15px',
+            fontWeight: 300,
+            color: '#8C8C8C',
+            letterSpacing: 0,
+            textTransform: 'uppercase',
+          }}>Background</span>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>ChatGPT conversations are long and finding something you've already seen is hard</h2>
+          <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>
+            I recently realized I rarely use ChatGPT's mobile app. The experience just never felt as smooth or intuitive as the desktop version. Was it just me? Or were other users also struggling to rely on ChatGPT on the go? Information retrieval on the mobile app often felt like a hassle with overlapping conversations, limited screen space, and a compact interface making it difficult to find important messages or revisit past insights.<br /><br />
+            This made me wonder:
           </p>
         </div>
 
-        {/* User research section */}
-        <div className="chatgpt-full-text-block">
-          <p className="chatgpt-full-label">USER RESEARCH</p>
-          <h2 className="chatgpt-full-section-title">Discovering how others felt through contextual interviews</h2>
-          <p className="chatgpt-full-section-body">I conducted informal interviews with a small but diverse group of ChatGPT users: a mix of software engineers and college students.</p>
+        <div style={{
+          width: '100%',
+          marginTop: '24px',
+          backgroundColor: '#FFFFFF',
+          backgroundImage: 'linear-gradient(#F2F2F2 1px, transparent 1px), linear-gradient(90deg, #F2F2F2 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+          backgroundPosition: 'center center',
+          border: '1px solid #E5E5E5',
+          boxSizing: 'border-box',
+          height: '520px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          overflow: 'hidden',
+          position: 'relative',
+        }}>
+          <img src={hmwChatgpt} alt="" style={{ width: '45%', height: 'auto', display: 'block' }} />
+        </div>
+        <div style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <span style={{
+            fontFamily: "'Geist Mono', 'Geist Mono Fallback', monospace",
+            fontSize: '15px',
+            fontWeight: 300,
+            color: '#8C8C8C',
+            letterSpacing: 0,
+            textTransform: 'uppercase',
+          }}>User Research</span>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Discovering how others felt through User Research</h2>
+          <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>
+            I conducted informal interviews with a small but diverse group of ChatGPT users: a mix of software engineers and college students.
+          </p>
         </div>
 
-        <div className="chatgpt-full-canvas chatgpt-full-canvas--half chatgpt-full-carousel">
-          {prevIndex !== null && (
-            <div className="chatgpt-full-slide-wrapper chatgpt-full-slide-wrapper--exit">
-              <SlideContent slide={RESEARCH_SLIDES[prevIndex]} />
-            </div>
-          )}
-          <div
-            key={slideIndex}
-            className={`chatgpt-full-slide-wrapper${animating ? ' chatgpt-full-slide-wrapper--enter' : ''}`}
+        <div style={{
+          width: '100%',
+          marginTop: '24px',
+          backgroundColor: '#FFFFFF',
+          backgroundImage: 'linear-gradient(#F2F2F2 1px, transparent 1px), linear-gradient(90deg, #F2F2F2 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+          backgroundPosition: 'center center',
+          border: '1px solid #E5E5E5',
+          boxSizing: 'border-box',
+          height: '520px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          overflow: 'hidden',
+          position: 'relative',
+        }}>
+          <img key={researchIndex} src={researchImages[researchIndex]} alt="" className="carousel-slide" style={{ width: '55%', height: 'auto', display: 'block' }} />
+          {/* Left arrow */}
+          <button
+            onClick={() => setResearchIndex((researchIndex - 1 + researchImages.length) % researchImages.length)}
+            style={{
+              position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)',
+              background: 'rgba(255,255,255,0.8)', border: '1px solid #E5E5E5', borderRadius: '50%',
+              width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              cursor: 'pointer',
+            }}
+            className="cursor-ignore"
           >
-            <SlideContent slide={RESEARCH_SLIDES[slideIndex]} />
-          </div>
-          <button className="chatgpt-full-chevron chatgpt-full-chevron--left" onClick={prevSlide} aria-label="Previous">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-          <button className="chatgpt-full-chevron chatgpt-full-chevron--right" onClick={nextSlide} aria-label="Next">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          {/* Right arrow */}
+          <button
+            onClick={() => setResearchIndex((researchIndex + 1) % researchImages.length)}
+            style={{
+              position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)',
+              background: 'rgba(255,255,255,0.8)', border: '1px solid #E5E5E5', borderRadius: '50%',
+              width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              cursor: 'pointer',
+            }}
+            className="cursor-ignore"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-          <div className="chatgpt-full-carousel-dots">
-            {RESEARCH_SLIDES.map((_, i) => (
-              <span
+          {/* Circle indicators */}
+          <div style={{ position: 'absolute', bottom: '16px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '8px' }}>
+            {researchImages.map((_, i) => (
+              <div
                 key={i}
-                className={`chatgpt-full-carousel-dot${i === slideIndex ? ' chatgpt-full-carousel-dot--active' : ''}`}
-                onClick={() => changeSlide(i)}
+                onClick={() => setResearchIndex(i)}
+                style={{
+                  width: '8px', minWidth: '8px', height: '8px', borderRadius: '50%',
+                  backgroundColor: i === researchIndex ? '#000000' : 'transparent',
+                  border: `1.5px solid ${i === researchIndex ? '#000000' : '#AAAAAA'}`,
+                  cursor: 'pointer', transition: 'all 0.2s',
+                  boxSizing: 'content-box', flexShrink: 0, display: 'block',
+                }}
+              />
+            ))}
+          </div>
+        </div>
+        <div style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <span style={{
+            fontFamily: "'Geist Mono', 'Geist Mono Fallback', monospace",
+            fontSize: '15px',
+            fontWeight: 300,
+            color: '#8C8C8C',
+            letterSpacing: 0,
+            textTransform: 'uppercase',
+          }}>Other Research</span>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>I found the same frustrations beyond the interviews.</h2>
+          <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>
+            I examined Reddit, OpenAI Developer Community discussions, and other platforms to uncover recurring frustrations with finding, revisiting, and organizing information within long ChatGPT conversations.
+          </p>
+        </div>
+
+        <div style={{
+          width: '100%',
+          marginTop: '24px',
+          backgroundColor: '#FFFFFF',
+          backgroundImage: 'linear-gradient(#F2F2F2 1px, transparent 1px), linear-gradient(90deg, #F2F2F2 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+          backgroundPosition: 'center center',
+          border: '1px solid #E5E5E5',
+          boxSizing: 'border-box',
+          height: '520px',
+          overflow: 'hidden',
+          position: 'relative',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        className="cursor-view-source"
+        >
+          <img key={otherResearchIndex} src={otherResearchImages[otherResearchIndex]} alt="" className="carousel-slide" style={{ width: '55%', height: 'auto', display: 'block' }} />
+          {/* Left arrow */}
+          <button
+            onClick={() => setOtherResearchIndex((otherResearchIndex - 1 + otherResearchImages.length) % otherResearchImages.length)}
+            style={{
+              position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)',
+              background: 'rgba(255,255,255,0.8)', border: '1px solid #E5E5E5', borderRadius: '50%',
+              width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              cursor: 'pointer',
+            }}
+            className="cursor-ignore"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          {/* Right arrow */}
+          <button
+            onClick={() => setOtherResearchIndex((otherResearchIndex + 1) % otherResearchImages.length)}
+            style={{
+              position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)',
+              background: 'rgba(255,255,255,0.8)', border: '1px solid #E5E5E5', borderRadius: '50%',
+              width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              cursor: 'pointer',
+            }}
+            className="cursor-ignore"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          {/* Circle indicators */}
+          <div style={{ position: 'absolute', bottom: '16px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '8px' }}>
+            {otherResearchImages.map((_, i) => (
+              <div
+                key={i}
+                onClick={() => setOtherResearchIndex(i)}
+                style={{
+                  width: '8px', minWidth: '8px', height: '8px', borderRadius: '50%',
+                  backgroundColor: i === otherResearchIndex ? '#000000' : 'transparent',
+                  border: `1.5px solid ${i === otherResearchIndex ? '#000000' : '#AAAAAA'}`,
+                  cursor: 'pointer', transition: 'all 0.2s',
+                  boxSizing: 'content-box', flexShrink: 0, display: 'block',
+                }}
               />
             ))}
           </div>
         </div>
 
-        {/* Internet complaining section */}
-        <div className="chatgpt-full-text-block">
-          <h2 className="chatgpt-full-section-title">The internet had already been complaining</h2>
-          <p className="chatgpt-full-section-body">Beyond my interviews, I surfaced Reddit threads and ChatGPT community forums where users were describing the exact same frustrations, confirming this wasn't isolated to the people I spoke with.</p>
+        <p className="new-hero-body" style={{ margin: '24px 0 0', color: '#8C8C8C', lineHeight: 1.7 }}>
+          Looking beyond interviews helped uncover additional insights and narrow the solution space toward ideas that reflected what users actually needed.
+        </p>
+
+        <div style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <span style={{
+            fontFamily: "'Geist Mono', 'Geist Mono Fallback', monospace",
+            fontSize: '15px',
+            fontWeight: 300,
+            color: '#8C8C8C',
+            letterSpacing: 0,
+            textTransform: 'uppercase',
+          }}>Problem</span>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Not everything ChatGPT says is worth remembering, and finding the things that are can be surprisingly difficult</h2>
         </div>
 
-        <div className="chatgpt-full-feedback-links">
-          <a href="https://www.reddit.com/r/ChatGPT/comments/1oxm491/feature_suggestion_bookmarks_table_of_contents_in/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="chatgpt-full-feedback-card chatgpt-full-feedback-card--reddit">
-            <img src={redditLogo} alt="Reddit" className="chatgpt-full-feedback-logo" />
-            <span className="chatgpt-full-feedback-text">Feature Suggestion: Bookmarks</span>
-            <span className="chatgpt-full-feedback-arrow"><ArrowNE /></span>
-          </a>
-          <a href="https://community.openai.com/t/add-ability-to-bookmark-favorite-a-message-in-any-chat-thread/1086947" target="_blank" rel="noopener noreferrer" className="chatgpt-full-feedback-card">
-            <img src={chatgptLogo} alt="ChatGPT" className="chatgpt-full-feedback-logo chatgpt-full-feedback-logo--sm" />
-            <span className="chatgpt-full-feedback-text">Add ability to bookmark / favorite a message</span>
-            <span className="chatgpt-full-feedback-arrow"><ArrowNE /></span>
-          </a>
+        <div style={{
+          width: '100%',
+          marginTop: '24px',
+          backgroundColor: '#FFFFFF',
+          border: '1px solid #E5E5E5',
+          boxSizing: 'border-box',
+          height: '520px',
+          overflow: 'hidden',
+          position: 'relative',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+          <video
+            src={textFrameExample}
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ height: '100%', width: 'auto', display: 'block' }}
+          />
         </div>
 
-        {/* Problem section */}
-        <div className="chatgpt-full-text-block">
-          <p className="chatgpt-full-label">PROBLEM</p>
-          <h2 className="chatgpt-full-section-title">You understood it. You just can't remember it.</h2>
-          <p className="chatgpt-full-section-body">When digesting dense content like study material or technical explanations, users identify key takeaways in the moment but have no way to capture them before the conversation moves on.</p>
-        </div>
+        <h2 className="moving-out-title" style={{ color: '#000000', margin: '40px 0 0' }}>Existing forms of conversation organization have their limitations</h2>
 
-        <div className="chatgpt-full-canvas chatgpt-full-canvas--problem">
-          <img src={textExampleImg} alt="Text example" className="chatgpt-full-problem-img" />
-        </div>
-
-        <div className="chatgpt-full-text-block">
-          <h2 className="chatgpt-full-section-title">You know it exists. You just can't find it.</h2>
-          <p className="chatgpt-full-section-body">When iterating on something across a long conversation, a recipe, a cover letter, a piece of code, earlier versions get buried under new messages with no way to jump back to them.</p>
-        </div>
-
-        <div className="chatgpt-full-canvas chatgpt-full-canvas--empty">
-          <img src={problem2Img} alt="Problem 2" className="chatgpt-full-problem2-img" />
-        </div>
-
-        {/* Solution section */}
-        <div className="chatgpt-full-text-block">
-          <p className="chatgpt-full-label">SOLUTION</p>
-          <h2 className="chatgpt-full-section-title">A preview of the final designs</h2>
-        </div>
-
-        <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--wide">
-          <img src={optionMenuImg} alt="Option menu design" className="chatgpt-full-design-img chatgpt-full-design-img--option-menu" />
-        </div>
-
-        <div className="chatgpt-full-designs-grid">
-          <div className="chatgpt-full-designs-col">
-            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall chatgpt-full-design-canvas--branded">
-              <img src={brandingBgImg} alt="" className="chatgpt-full-design-canvas-bg" />
-              <img src={design1Img} alt="Bookmarks panel" className="chatgpt-full-design-img chatgpt-full-design-img--1" />
+        <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
+          {[
+            { title: 'Projects', body: 'Projects organize conversations by topic, but important information often cuts across conversations.', image: projectsWireframe, video: null, icon: projectIcon },
+            { title: 'Branching', body: 'Branching is useful for exploring different directions, but each branch creates another place where information can live.', image: null, video: branchingAnimation, icon: branchIcon },
+            { title: 'Searching', body: 'Search helps you locate a conversation, but not necessarily the specific information you remember from it.', image: searchingMech, video: null, icon: searchIcon },
+          ].map(({ title, body, image, video, icon }, i) => (
+            <div key={i} style={{ display: 'flex', gap: '40px', alignItems: 'stretch' }}>
+              <div style={{
+                flex: '0 0 40%',
+                aspectRatio: '1 / 1',
+                backgroundColor: '#FFFFFF',
+                border: '1px solid #E5E5E5',
+                boxSizing: 'border-box',
+                overflow: 'hidden',
+                position: 'relative',
+              }}>
+                {/* Fading dot pattern */}
+                <div style={{
+                  position: 'absolute', inset: 0,
+                  backgroundImage: 'radial-gradient(circle, #B8B8B8 1.5px, transparent 1.5px)',
+                  backgroundSize: '18px 18px',
+                  WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
+                  maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
+                  pointerEvents: 'none',
+                }}
+                className="dot-wave"
+                />
+                {image && <img src={image} alt="" style={{ width: '62%', height: 'auto', display: 'block', position: 'absolute', top: '36px', left: '19%' }} />}
+                {video && <video src={video} autoPlay loop muted playsInline style={{ width: '62%', height: 'auto', display: 'block', position: 'absolute', top: '75%', left: '50%', transform: 'translate(-50%, -50%)' }} />}
+              </div>
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
+                {icon && <img src={icon} alt="" style={{ width: '52px', height: '52px', objectFit: 'contain', display: 'block' }} />}
+                <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>{title}</h2>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>{body}</p>
+              </div>
             </div>
-            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--short-xl">
-              <img src={onlyOneImg} alt="Only one bookmark" className="chatgpt-full-design-img chatgpt-full-design-img--only-one" />
-              <img src={moreThanOneImg} alt="More than one bookmark" className="chatgpt-full-design-img chatgpt-full-design-img--more-than-one" />
+          ))}
+        </div>
+        <div style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <span style={{
+            fontFamily: "'Geist Mono', 'Geist Mono Fallback', monospace",
+            fontSize: '15px',
+            fontWeight: 300,
+            color: '#8C8C8C',
+            letterSpacing: 0,
+            textTransform: 'uppercase',
+          }}>Solution</span>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Bookmarks: Save what matters, not the whole conversation</h2>
+          <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>
+            Bookmarks let users save specific messages or pieces of information from any ChatGPT conversation, making important content easy to revisit and organize into collections without having to search through long conversation histories.
+          </p>
+
+        </div>
+
+        <div style={{
+          width: '100%',
+          marginTop: '24px',
+          backgroundColor: '#FFFFFF',
+          border: '1px solid #E5E5E5',
+          boxSizing: 'border-box',
+          height: '600px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          overflow: 'hidden',
+          position: 'relative',
+        }}>
+          <video
+            src={bookmarkCreation2}
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ height: '88%', width: 'auto', display: 'block', position: 'relative', zIndex: 1 }}
+          />
+        </div>
+
+        <div style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Finding & accessing bookmarks</h2>
+          <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>
+            Bookmarks give users a clear way to find, browse, and return to saved content across their conversations without having to retrace their steps or search through long conversation histories.
+          </p>
+        </div>
+
+        <div style={{
+          width: '100%',
+          marginTop: '24px',
+          backgroundColor: '#FFFFFF',
+          border: '1px solid #E5E5E5',
+          boxSizing: 'border-box',
+          height: '600px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          overflow: 'hidden',
+          position: 'relative',
+        }}>
+          <video
+            src={viewBookmarksVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ height: '88%', width: 'auto', display: 'block', position: 'relative', zIndex: 1 }}
+          />
+        </div>
+        <div style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <span style={{
+            fontFamily: "'Geist Mono', 'Geist Mono Fallback', monospace",
+            fontSize: '15px',
+            fontWeight: 300,
+            color: '#8C8C8C',
+            letterSpacing: 0,
+            textTransform: 'uppercase',
+          }}>Collections</span>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Organizing bookmarks across conversations</h2>
+          <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>
+            As I thought more about how people would actually use bookmarks, I realized that they wouldn't always come from the same conversation. If I wanted users to collect useful information around a topic, bookmarks needed to be organized across conversations, not just live within the chats they came from.
+          </p>
+        </div>
+
+        <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
+          {[
+            { title: 'Exploring a more "playful" visual language for collections', body: 'I explored a few different visual directions for how collections could appear, ultimately landing on a layered card treatment that felt more representative of what a collection actually is.', content: (
+              <>
+                <div style={{
+                  position: 'absolute', inset: 0,
+                  backgroundImage: 'radial-gradient(circle, #B8B8B8 1.5px, transparent 1.5px)',
+                  backgroundSize: '18px 18px',
+                  WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
+                  maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
+                  pointerEvents: 'none',
+                }} className="dot-wave" />
+                <img src={collectionsVariety} alt="" style={{ width: '70%', height: 'auto', display: 'block', position: 'relative', zIndex: 1 }} />
+              </>
+            )},
+            { title: 'Introducing the Collections page', body: 'The Collections page brings all of a user\'s collections together, making it easier to browse what they\'ve created and quickly get back to the information they\'ve saved.', content: (
+              <>
+                <div style={{
+                  position: 'absolute', inset: 0,
+                  backgroundImage: 'radial-gradient(circle, #B8B8B8 1.5px, transparent 1.5px)',
+                  backgroundSize: '18px 18px',
+                  WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
+                  maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
+                  pointerEvents: 'none',
+                }} className="dot-wave" />
+                <img src={collectionsPage} alt="" style={{ width: '62%', height: 'auto', display: 'block', position: 'absolute', top: '36px', left: '19%' }} />
+              </>
+            )},
+          ].map(({ title, body, content }, i) => (
+            <div key={i} style={{ display: 'flex', gap: '40px', alignItems: 'stretch' }}>
+              <div style={{
+                flex: '0 0 40%',
+                aspectRatio: '1 / 1',
+                backgroundColor: '#FFFFFF',
+                border: '1px solid #E5E5E5',
+                boxSizing: 'border-box',
+                overflow: 'hidden',
+                position: 'relative',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+                {content}
+              </div>
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
+                <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>{title}</h2>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '520px' }}>{body}</p>
+              </div>
             </div>
+          ))}
+        </div>
+
+        <div style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Enabling users to maximize organization within conversations</h2>
+          <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>
+            Here is a little flow that I made for users putting bookmarks inside of collections
+          </p>
+        </div>
+
+        <div style={{
+          width: '100%',
+          marginTop: '24px',
+          backgroundColor: '#FFFFFF',
+          border: '1px solid #E5E5E5',
+          boxSizing: 'border-box',
+          height: '600px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          overflow: 'hidden',
+          position: 'relative',
+        }}>
+          <video
+            src={finalizedFlowCollections}
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ height: '88%', width: 'auto', display: 'block', position: 'relative', zIndex: 1 }}
+          />
+        </div>
+
+        <div style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <span style={{
+            fontFamily: "'Geist Mono', 'Geist Mono Fallback', monospace",
+            fontSize: '15px',
+            fontWeight: 300,
+            color: '#8C8C8C',
+            letterSpacing: 0,
+            textTransform: 'uppercase',
+          }}>Sweating the Details</span>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Designing for the moments when users have nothing saved yet</h2>
+          <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>
+            One of the final things I considered was how this experience would feel for newer users who haven't saved anything yet, and where empty states could help introduce them to bookmarks and collections.
+          </p>
+        </div>
+
+        <div style={{ marginTop: '40px', display: 'flex', gap: '40px', alignItems: 'stretch' }}>
+          <div style={{
+            flex: '0 0 40%',
+            aspectRatio: '1 / 1',
+            backgroundColor: '#FFFFFF',
+            border: '1px solid #E5E5E5',
+            boxSizing: 'border-box',
+            overflow: 'hidden',
+            position: 'relative',
+          }}>
+            <div style={{
+              position: 'absolute', inset: 0,
+              backgroundImage: 'radial-gradient(circle, #B8B8B8 1.5px, transparent 1.5px)',
+              backgroundSize: '18px 18px',
+              WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
+              maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
+              pointerEvents: 'none',
+            }} className="dot-wave" />
+            <video
+              src={emptyStateCollections}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ width: '62%', height: 'auto', display: 'block', position: 'absolute', top: '75%', left: '50%', transform: 'translate(-50%, -50%)' }}
+            />
           </div>
-          <div className="chatgpt-full-designs-col">
-            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--short">
-              <img src={chatboxPopupImg} alt="Chatbox with popup" className="chatgpt-full-design-img chatgpt-full-design-img--chatbox-popup" />
-            </div>
-            <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--tall-xl chatgpt-full-design-canvas--branded">
-              <img src={brandingBg4Img} alt="" className="chatgpt-full-design-canvas-bg" />
-              <img src={bookmarkPopupImg} alt="Bookmark creation popup" className="chatgpt-full-design-img chatgpt-full-design-img--bookmark-popup" />
-            </div>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
+            <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>No collections created yet</h2>
+            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>I accounted for users who haven't created any collections yet by providing a clear starting point that introduces the value of collections and encourages them to create their first one.</p>
           </div>
         </div>
-        <div className="chatgpt-full-design-canvas chatgpt-full-design-canvas--wide chatgpt-full-design-canvas--branded">
-          <img src={brandingBg3Img} alt="" className="chatgpt-full-design-canvas-bg" />
-          <img src={tooltipImg} alt="Tooltip example" className="chatgpt-full-design-img chatgpt-full-design-img--tooltip" />
-        </div>
 
-        {/* Design Decisions section */}
-        <div className="chatgpt-full-text-block">
-          <p className="chatgpt-full-label">DESIGN DECISIONS</p>
-          <h2 className="chatgpt-full-section-title">Designing the bookmarking experience</h2>
-          <p className="chatgpt-full-section-body">Throughout the project, design decisions extended beyond visual direction alone. Every interaction was considered from the user's perspective, accounting for edge cases, connected workflows, and the small moments that shape the overall experience.</p>
+        <div style={{ marginTop: '40px', display: 'flex', gap: '40px', alignItems: 'stretch' }}>
+          <div style={{
+            flex: '0 0 40%',
+            aspectRatio: '1 / 1',
+            backgroundColor: '#FFFFFF',
+            border: '1px solid #E5E5E5',
+            boxSizing: 'border-box',
+            overflow: 'hidden',
+            position: 'relative',
+          }}>
+            <div style={{
+              position: 'absolute', inset: 0,
+              backgroundImage: 'radial-gradient(circle, #B8B8B8 1.5px, transparent 1.5px)',
+              backgroundSize: '18px 18px',
+              WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
+              maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)',
+              pointerEvents: 'none',
+            }} className="dot-wave" />
+            <video
+              src={emptyStateInsideCollection}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ width: '62%', height: 'auto', display: 'block', position: 'absolute', top: '75%', left: '50%', transform: 'translate(-50%, -50%)' }}
+            />
+          </div>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
+            <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Collection with no bookmarks</h2>
+            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>I also accounted for collections that haven't received any bookmarks yet, using the empty state to explain what belongs there and guide users toward adding their first bookmark.</p>
+          </div>
         </div>
 
       </div>

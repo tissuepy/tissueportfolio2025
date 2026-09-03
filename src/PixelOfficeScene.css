@@ -1,0 +1,22 @@
+.pixel-office-wrap {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  background-image: radial-gradient(circle at center, #e8e8e8 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-color: #fff;
+}
+
+.pixel-office-canvas {
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border: 3px solid #1a1a1a;
+  border-radius: 4px;
+  max-width: 100%;
+  height: auto;
+}

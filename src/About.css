@@ -1,165 +1,216 @@
 .about-page-new {
   width: 100%;
-  padding: 40px 0 80px;
-}
-
-.about-layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 40px;
-  box-sizing: border-box;
+  padding-bottom: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
-.about-hero-title {
-  font-family: 'Lora', Georgia, serif;
-  font-size: 28px;
-  font-weight: 400;
-  color: #000000;
-  margin: 0 0 8px 0;
-  line-height: 1.2;
-}
-
-.about-body-text {
-  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  color: #000000;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.about-body-text--grey {
-  color: rgba(0, 0, 0, 0.4);
-}
-
-.about-stack-col {
+/* ── Hero split ── */
+.about-hero-split {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 12px;
-}
-
-.about-stack-header {
-  display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 8px;
+  width: 100%;
+  overflow: hidden;
 }
 
-.about-stack-label {
-  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
-  font-size: 15px;
-  color: rgba(0, 0, 0, 0.4);
-}
-
-.about-stack-emoji {
-  color: initial;
-}
-
-.about-stack-rotate {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: rgba(0, 0, 0, 0.4);
-  padding: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease, transform 0.35s ease;
-  line-height: 0;
-  flex-shrink: 0;
-}
-
-.about-stack-rotate:hover {
-  color: rgba(0, 0, 0, 0.65);
-}
-
-.about-photo-stack {
+.about-grid-slot {
+  flex: 1;
   position: relative;
-  width: 260px;
-  height: 260px;
-  cursor: pointer;
+  min-height: 280px;
+  align-self: stretch;
 }
 
-.about-photo-card {
+/* ── Rolling ball ── */
+@keyframes ballRoll {
+  0%   { transform: translate(-80px, 30px); }
+  100% { transform: translate(620px, 440px); }
+}
+
+@keyframes ballSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(1440deg); }
+}
+
+.about-ball-clip {
   position: absolute;
-  width: 240px;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 14px;
-  top: 50%;
-  left: 50%;
-  box-shadow: none;
-  transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1);
-  will-change: transform;
-  user-select: none;
+  inset: 0;
   pointer-events: none;
+  z-index: 3;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 28%, transparent 62%);
+  mask-image: radial-gradient(ellipse at center, black 28%, transparent 62%);
 }
 
-.about-photo-card--back {
-  transform: translate(-50%, -50%) rotate(-9deg);
+.about-ball-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 84px;
+  animation: ballRoll 7s linear infinite alternate;
+}
+
+.about-ball {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #c0c0c0;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1;
+  overflow: hidden;
+  animation: ballSpin 7s linear infinite alternate;
 }
 
-.about-photo-card--mid {
-  transform: translate(-50%, -50%) rotate(7deg);
+.about-ball-shadow {
+  position: absolute;
+  top: 54px;
+  left: -8px;
+  width: 78px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.14);
+  filter: blur(5px);
+  transform: rotate(-30deg) scaleY(0.55);
+  z-index: 0;
+}
+
+.about-boarding-pass {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62%;
+  max-width: 460px;
+  object-fit: contain;
   z-index: 2;
+  pointer-events: auto;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.about-photo-card--front {
-  transform: translate(-50%, -50%) rotate(-1deg);
+.about-boarding-caption {
+  position: absolute;
+  top: 360px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 350;
+  color: #8C8C8C;
+  white-space: nowrap;
+  margin: 0;
   z-index: 3;
 }
 
-.about-photo-stack:hover .about-photo-card--back {
-  transform: translate(-50%, -50%) rotate(-13deg);
+.about-boarding-caption sup {
+  font-size: 10px;
+  vertical-align: super;
 }
 
-.about-photo-stack:hover .about-photo-card--mid {
-  transform: translate(-50%, -50%) rotate(10deg);
+.about-boarding-pass:hover {
+  transform: translateX(-50%) rotate(-6deg);
 }
 
-.about-photo-stack:hover .about-photo-card--front {
-  transform: translate(-50%, -50%) rotate(4deg);
+.about-square-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M 0 0 L 48 0 M 0 0 L 0 48' fill='none' stroke='%23D9D9D9' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 48px 48px;
+  opacity: 0.8;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 45%, transparent 80%),
+    linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 45%, transparent 80%),
+    linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
 }
 
-/* ── Spotify ── */
-.about-spotify-block {
-  margin-top: 28px;
+/* ── Text section ── */
+.about-text-section {
+  padding: 60px 40px 200px;
+  max-width: 480px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 20px;
 }
 
-.about-spotify-label {
-  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
+.about-section-label {
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
   font-size: 15px;
-  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+  color: rgba(50, 64, 79, 0.584);
+  letter-spacing: 0;
+  text-transform: uppercase;
   margin: 0;
 }
 
-.about-spotify-embed {
+.about-body-text {
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 350;
+  color: #8C8C8C;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Photo row ── */
+.about-photo-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 40px;
+  box-sizing: border-box;
   width: 100%;
-  height: 352px;
-  border: none;
-  border-radius: 12px;
+}
+
+.about-photo-item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Dot wave animation ── */
+@keyframes aboutDotWave {
+  from { background-position: 0px 0px; }
+  to   { background-position: 0px -18px; }
+}
+
+.about-dot-wave {
+  animation: aboutDotWave 1.2s linear infinite;
+}
+
+/* ── Writing canvas boarding pass ── */
+.about-writing-boarding-pass {
+  width: 55%;
+  height: auto;
+  display: block;
+  position: absolute;
+  top: calc(50% + 140px);
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  z-index: 1;
+  transition: top 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-writing-canvas:hover .about-writing-boarding-pass {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
 }
 
 /* ── Mobile ── */
-@media (max-width: 600px) {
-  .about-layout {
-    padding: 0 20px;
+@media (max-width: 700px) {
+  .about-text-section {
+    padding: 40px 20px 60px;
   }
 
-  .about-photo-stack {
-    width: 160px;
-    height: 200px;
-  }
-
-  .about-photo-card {
-    width: 140px;
-    height: 140px;
+  .about-photo-row {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

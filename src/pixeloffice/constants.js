@@ -1,0 +1,9 @@
+export const WALK_SPEED_PX_PER_SEC = 80
+export const WALK_FRAME_DURATION_SEC = 0.12
+export const TYPE_FRAME_DURATION_SEC = 0.4
+export const WANDER_PAUSE_MIN_SEC = 2
+export const WANDER_PAUSE_MAX_SEC = 5
+export const WANDER_MOVES_BEFORE_REST_MIN = 1
+export const WANDER_MOVES_BEFORE_REST_MAX = 3
+export const SEAT_REST_MIN_SEC = 3
+export const SEAT_REST_MAX_SEC = 8

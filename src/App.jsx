@@ -11,8 +11,12 @@ import PogoFeatures from './PogoFeatures';
 import SectionsCaseStudy from './SectionsCaseStudy';
 import ChatGPTFullCaseStudy from './ChatGPTFullCaseStudy';
 import Writing from './Writing';
+import Projects from './Projects';
+import Monadic from './Monadic';
+import InsightsLibrary from './InsightsLibrary';
 import Test from './Test';
 import Rejection from './articles/Rejection';
+import MovingOut from './articles/MovingOut';
 import ChatGPTArticle from './articles/ChatGPTArticle';
 import InteractiveMatcha from './InteractiveMatcha'; // Added
 import BackgroundAnimation from './BackgroundAnimation';
@@ -95,17 +99,21 @@ function Breadcrumb({ pathname }) {
   );
 }
 
-const NO_NOISE_ROUTES = ['/work/searchneu', '/work/wrap', '/work/safehub', '/work/chatgpt', '/work/pogo', '/work/pogo/sections', '/writing', '/writing/rejection', '/work/chatgpt/article', '/work/chatgpt/full'];
+const NO_NOISE_ROUTES = ['/work/searchneu', '/work/wrap', '/work/safehub', '/work/chatgpt', '/work/pogo', '/work/pogo/sections', '/writing', '/writing/rejection', '/writing/moving-out', '/work/chatgpt/article', '/work/chatgpt/full', '/projects', '/projects/monadic', '/projects/insights-library'];
 
 function App() {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
   const [fadeClass, setFadeClass] = useState('fade-in');
   const [clocktowerOn, setClocktowerOn] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
-  const isFirstVisit = !sessionStorage.getItem('nitu-visited');
-  const [showLoader, setShowLoader] = useState(isFirstVisit);
-  const [contentReady, setContentReady] = useState(!isFirstVisit);
+  const [showLoader] = useState(false);
+  const [contentReady] = useState(true);
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', darkMode);
+  }, [darkMode]);
 
   const handleLoaderComplete = useCallback(() => {
     sessionStorage.setItem('nitu-visited', '1');
@@ -152,19 +160,19 @@ function App() {
       <div className={contentReady ? 'content-visible' : 'content-hidden'}>
       <DotCursor />
       {/* <CustomCursor /> */}{/* old red cursor — kept for reference */}
-      {!NO_NOISE_ROUTES.includes(location.pathname) && <BackgroundAnimation />}
+      {/* BackgroundAnimation removed */}
+      <div className="site-container">
       {/* Navbar */}
       <div className={`navbar${location.pathname === '/photos' ? ' navbar--solid' : ''}`}>
         <div className="nav-links">
-          <NavLink to="/" className="nav-item">WORK</NavLink>
-          <span className="nav-sep">/</span>
-          <NavLink to="/about" className="nav-item">ABOUT</NavLink>
-          <span className="nav-sep">/</span>
-          <NavLink to="/writing" className="nav-item">WRITING</NavLink>
-          <span className="nav-sep">/</span>
-          <NavLink to="/test" className="nav-item">TEST</NavLink>
+          <NavLink to="/" className="nav-item navbar-notion-link">
+            <img src={notionFace} alt="Home" className="navbar-notion-face cursor-notion" />
+          </NavLink>
         </div>
-        <img src={notionFace} alt="" className="navbar-notion-face cursor-notion" />
+        <div className="nav-links nav-links--right">
+          <NavLink to="/" className="nav-text-link">WORK</NavLink>
+          <NavLink to="/about" className="nav-text-link">ABOUT</NavLink>
+        </div>
       </div>
 
       {/* Page content with transition */}
@@ -180,7 +188,11 @@ function App() {
           <Route path="/work/pogo" element={<PogoFeatures />} />
           <Route path="/work/pogo/sections" element={<SectionsCaseStudy />} />
           <Route path="/writing" element={<Writing />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/monadic" element={<Monadic />} />
+          <Route path="/projects/insights-library" element={<InsightsLibrary />} />
           <Route path="/writing/rejection" element={<Rejection />} />
+          <Route path="/writing/moving-out" element={<MovingOut />} />
           <Route path="/test" element={<Test />} />
           <Route path="/work/chatgpt/article" element={<ChatGPTArticle />} />
           <Route path="/work/chatgpt/full" element={<ChatGPTFullCaseStudy />} />
@@ -212,6 +224,7 @@ function App() {
 
         </div>
       </footer>
+      </div>{/* end site-container */}
 
       </div>
     </>

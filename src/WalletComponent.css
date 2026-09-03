@@ -6,14 +6,15 @@
   min-height: 100vh;
 }
 
-/* Native 643×1032 canvas, scaled to 55% for display */
+/* Native 643×1032 canvas, scaled to 65% for display */
 .wc-native {
   position: relative;
   width: 643px;
   height: 1032px;
-  transform: scale(0.55);
+  transform: scale(0.65);
   transform-origin: top center;
   flex-shrink: 0;
+  margin-bottom: -361px; /* collapse scaled-away height */
 }
 
 /* Each card occupies the full native canvas as a positioning context */
