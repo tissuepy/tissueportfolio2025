@@ -18,6 +18,7 @@ import filtersIteration from './assets/filters-iteration.png';
 import operatorAnimation from './assets/operator-animation.webm';
 import truncatedOptionsAnimation from './assets/truncated-options-animation.webm';
 import chatboxIterations from './assets/chatbox-iterations.png';
+import finalFlowAiChat from './assets/final-flow-ai-chat.webm';
 import filtersFinalMock from './assets/filters-final-mock.webm';
 import comprehensiveSearch from './assets/comprehensive-search-il.png';
 import aiChat from './assets/ai-chat-il.png';
@@ -141,7 +142,8 @@ export default function InsightsLibrary() {
             letterSpacing: 0,
             textTransform: 'uppercase',
           }}>Research</span>
-          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>A comprehensive analysis of well-designed platforms</h2>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Studying Card Patterns Across Other Platforms</h2>
+          <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>Before designing the study card, I looked at how platforms like Cloudflare, Databricks, and Snowflake display dense technical information through cards. Seeing how they handled scannability, metadata hierarchy, and disambiguation at scale gave me a clearer sense of what information the card actually needed and how it should be prioritized.</p>
         </div>
 
         <div style={{
@@ -174,7 +176,9 @@ export default function InsightsLibrary() {
             letterSpacing: 0,
             textTransform: 'uppercase',
           }}>Design Decision #1</span>
-          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Understanding the anatomy of a card</h2>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>What Actually Goes on a Card</h2>
+          <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>For Pogo specifically, the card layout couldn't be arbitrary, since there was a clear order in which clients needed to scan the library: title first, then category and brand, then wave, then report type and methodology, with sample size last.</p>
+          <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>I didn't land on this ranking right away though, it came out clearer in some of the later iterations as I kept testing what clients actually needed to see first.</p>
         </div>
 
         <div style={{
@@ -203,8 +207,8 @@ export default function InsightsLibrary() {
             <img src={visualHierarchy} alt="" style={{ width: '80%', height: 'auto', display: 'block' }} />
           </div>
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
-            <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Title goes here</h2>
-            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>Placeholder body text describing this design decision and what was considered when making it.</p>
+            <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Category Leads the Hierarchy</h2>
+            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>Category sits at the top of the card and is the only field that carries color, since it's the fastest signal of relevance a client can act on.</p>
           </div>
         </div>
 
@@ -213,12 +217,14 @@ export default function InsightsLibrary() {
             <img src={colorWeight} alt="" style={{ width: '70%', height: 'auto', display: 'block', marginTop: '6%' }} />
           </div>
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
-            <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Title goes here</h2>
-            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>Placeholder body text describing this design decision and what was considered when making it.</p>
+            <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Why Only Category Gets Color</h2>
+            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>With clients navigating thousands of studies, color gives them an immediate way to visually scan and identify relevant categories.</p>
           </div>
         </div>
 
-        <h2 className="moving-out-title" style={{ color: '#000000', margin: '48px 0 0' }}>Locked Cards</h2>
+        <h2 className="moving-out-title" style={{ color: '#000000', margin: '48px 0 0' }}>Designing Locked Cards</h2>
+        <p className="new-hero-body" style={{ margin: '12px 0 0', color: '#8C8C8C', lineHeight: 1.7 }}>Not every client has access to every study, but it was still important for them to see what research exists outside their plan, since that visibility is what shows them the value they could unlock.</p>
+        <p className="new-hero-body" style={{ margin: '12px 0 0', color: '#8C8C8C', lineHeight: 1.7 }}>The next problem became figuring out how to clearly differentiate locked cards from accessible ones without making the locked state feel like clutter or confusing it with a broken or empty card.</p>
 
         <div style={{
           width: '100%',
@@ -241,8 +247,8 @@ export default function InsightsLibrary() {
             <video src={vibratingCard} autoPlay loop muted playsInline style={{ width: '70%', height: 'auto' }} />
           </div>
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
-            <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Title goes here</h2>
-            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>Placeholder body text describing this design decision and what was considered when making it.</p>
+            <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Just a Little Shake</h2>
+            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>When a client hovers over a locked study, the lock icon gives a small shake, a subtle way of signaling the card is intentionally restricted rather than broken, without needing any extra text or a modal to explain it.</p>
           </div>
         </div>
 
@@ -256,15 +262,15 @@ export default function InsightsLibrary() {
             letterSpacing: 0,
             textTransform: 'uppercase',
           }}>Design Decision #2</span>
-          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Creating a comprehensive searching mechanism</h2>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Making Thousands of Studies Discoverable</h2>
           <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C' }}>
-            As the library grew, I needed a search experience that could help users quickly find the right study without competing with the rest of the interface. I explored search patterns that bring the search experience into focus when users need it.
+            As the library grew, clients needed a way to find the right study without digging through the interface or losing their place in it. I explored search and filtering patterns that stay out of the way by default, but bring the experience into focus the moment a client needs to narrow things down.
           </p>
         </div>
 
-        <h2 className="moving-out-title" style={{ color: '#000000', margin: '32px 0 0' }}>Figuring out filters</h2>
+        <h2 className="moving-out-title" style={{ color: '#000000', margin: '32px 0 0' }}>Filters That Don't Get in the Way</h2>
         <p className="new-hero-body" style={{ margin: '12px 0 0', lineHeight: 1.7, color: '#8C8C8C' }}>
-          Filters needed to feel lightweight and accessible without overwhelming the interface. I explored several patterns to find the right balance between visibility and control.
+          Filters needed to stay lightweight and easy to reach without cluttering the interface at rest. I looked through a few patterns before landing on one that balanced visibility with control, so filtering felt like a light touch rather than a separate mode.
         </p>
 
         <div style={{
@@ -288,8 +294,8 @@ export default function InsightsLibrary() {
             <video src={operatorAnimation} autoPlay loop muted playsInline style={{ width: '80%', height: 'auto' }} />
           </div>
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
-            <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Title goes here</h2>
-            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>Placeholder body text describing this design decision and what was considered when making it.</p>
+            <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Letting Clients Flip the Logic</h2>
+            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>Each filter's operator can be changed directly on the chip, giving clients the flexibility to include or exclude a set of values without deleting and rebuilding the filter from scratch.</p>
           </div>
         </div>
 
@@ -298,8 +304,8 @@ export default function InsightsLibrary() {
             <video src={truncatedOptionsAnimation} autoPlay loop muted playsInline style={{ width: '88%', height: 'auto' }} />
           </div>
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
-            <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Title goes here</h2>
-            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>Placeholder body text describing this design decision and what was considered when making it.</p>
+            <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Truncating to Reduce Clutter</h2>
+            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, maxWidth: '400px' }}>When a client selects more than a few values within a single filter, the chip collapses into a summary instead of listing every value out, keeping the filter row compact and readable even when a client is filtering on a lot of criteria at once.</p>
           </div>
         </div>
 
@@ -381,18 +387,19 @@ export default function InsightsLibrary() {
           backgroundColor: '#FFFFFF',
           border: '1px solid #E5E5E5',
           boxSizing: 'border-box',
+          height: '600px',
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           overflow: 'hidden',
           position: 'relative',
         }}>
-          <img
-            src={aiChat}
-            alt=""
-            style={{ width: '92%', height: 'auto', display: 'block', position: 'relative', zIndex: 1 }}
-          />
+          <video src={finalFlowAiChat} autoPlay loop muted playsInline style={{ width: '72%', height: 'auto', display: 'block', marginTop: '40px', alignSelf: 'flex-start' }} />
         </div>
+
+      <p className="new-hero-body" style={{ margin: '80px 0 60px', textAlign: 'center', color: '#BBBBBB', lineHeight: 1.7 }}>
+        Thank you for making it this far! Reach out to me at <span style={{ color: '#555555' }}>nitishgannu@gmail.com</span> if you want to learn more.
+      </p>
 
       </div>
     </div>

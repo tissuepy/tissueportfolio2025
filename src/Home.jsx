@@ -468,7 +468,7 @@ function Home() {
             </div>
           </div>
           <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div style={{
+            <div className="cursor-building" style={{
               width: '100%',
               aspectRatio: '1 / 1',
               maxHeight: '420px',
@@ -493,7 +493,7 @@ function Home() {
         {/* Two half canvases */}
         <div style={{ marginTop: '16px', display: 'flex', gap: '16px', width: '100%' }}>
           <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div style={{
+            <div className="cursor-building" style={{
               width: '100%',
               aspectRatio: '1 / 1',
               maxHeight: '420px',
@@ -515,7 +515,7 @@ function Home() {
             </div>
           </div>
           <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div style={{
+            <div className="cursor-building" style={{
               width: '100%',
               aspectRatio: '1 / 1',
               maxHeight: '420px',

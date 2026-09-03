@@ -312,6 +312,9 @@ export default function ChatGPTFullCaseStudy() {
         </div>
 
         <h2 className="moving-out-title" style={{ color: '#000000', margin: '40px 0 0' }}>Existing forms of conversation organization have their limitations</h2>
+        <p className="new-hero-body" style={{ margin: '12px 0 0', lineHeight: 1.7, color: '#8C8C8C' }}>
+          Existing organization features help users manage conversations, but they fall short when users need to quickly find a specific piece of information.
+        </p>
 
         <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
           {[
@@ -391,9 +394,9 @@ export default function ChatGPTFullCaseStudy() {
         </div>
 
         <div style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Finding & accessing bookmarks</h2>
+          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Finding & reusing bookmarks</h2>
           <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>
-            Bookmarks give users a clear way to find, browse, and return to saved content across their conversations without having to retrace their steps or search through long conversation histories.
+            Bookmarks live within the conversations they were created in, allowing users to quickly return to and reuse specific moments as context in future chats, rather than relying on a general recollection of the idea.
           </p>
         </div>
 
@@ -486,12 +489,9 @@ export default function ChatGPTFullCaseStudy() {
           ))}
         </div>
 
-        <div style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <h2 className="moving-out-title" style={{ color: '#000000', margin: 0 }}>Enabling users to maximize organization within conversations</h2>
-          <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7 }}>
-            Here is a little flow that I made for users putting bookmarks inside of collections
-          </p>
-        </div>
+        <p className="new-hero-body" style={{ margin: '24px 0 0', color: '#8C8C8C', lineHeight: 1.7 }}>
+          Bookmarks can be grouped into collections without losing their conversational context, allowing users to organize related information while still knowing exactly where each bookmark came from.
+        </p>
 
         <div style={{
           width: '100%',
@@ -598,6 +598,11 @@ export default function ChatGPTFullCaseStudy() {
         </div>
 
       </div>
+
+      <p className="new-hero-body" style={{ margin: '80px 0 60px', textAlign: 'center', color: '#BBBBBB', lineHeight: 1.7 }}>
+        Thank you for making it this far! Reach out to me at <span style={{ color: '#555555' }}>nitishgannu@gmail.com</span> if you want to learn more.
+      </p>
+
     </div>
   );
 }

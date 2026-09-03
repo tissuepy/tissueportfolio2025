@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import eyeIcon from './assets/eye.png';
 import chainLinkIcon from './assets/chain-link.png';
+import lockIcon from './assets/lock-icon.png';
 
 export default function DotCursor() {
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) return null;
@@ -23,6 +24,7 @@ export default function DotCursor() {
       const onGallery     = !!(under && under.closest('.home-gallery-canvas'));
       const onViewProject = !!(under && (under.closest('.home-wide-canvas') || under.closest('.cursor-view-project')));
       const onViewSource  = !!(under && under.closest('.cursor-view-source') && !under.closest('.cursor-ignore'));
+      const onBuilding    = !!(under && under.closest('.cursor-building'));
       const walletEl    = under && under.closest('.cursor-wallet');
       const onWallet    = !!walletEl;
       const walletOpen  = onWallet && walletEl.dataset.walletOpen === 'true';
@@ -30,6 +32,8 @@ export default function DotCursor() {
       if (labelEl) {
         setCustomLabel(labelEl.dataset.cursorLabel);
         setMode('custom-label');
+      } else if (onBuilding) {
+        setMode('building');
       } else if (onViewSource) {
         setMode('view-source');
       } else if (onViewProject) {
@@ -288,6 +292,25 @@ export default function DotCursor() {
           }}>
             <img src={eyeIcon} alt="" width="15" height="15" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)' }} />
             VIEW PROJECT
+          </span>
+        )}
+
+        {mode === 'building' && (
+          <span style={{
+            display:       'inline-flex',
+            alignItems:    'center',
+            gap:           '9px',
+            fontFamily:    "'Geist Mono', 'Geist Mono Fallback', monospace",
+            fontSize:      '13px',
+            fontWeight:    300,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            color:         '#ffffff',
+            whiteSpace:    'nowrap',
+            userSelect:    'none',
+          }}>
+            <img src={lockIcon} alt="" width="13" height="13" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)' }} />
+            CURRENTLY BUILDING
           </span>
         )}
       </div>
