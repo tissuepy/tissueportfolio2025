@@ -24,7 +24,8 @@ export default function DotCursor() {
       const onGallery     = !!(under && under.closest('.home-gallery-canvas'));
       const onViewProject = !!(under && (under.closest('.home-wide-canvas') || under.closest('.cursor-view-project')));
       const onViewSource  = !!(under && under.closest('.cursor-view-source') && !under.closest('.cursor-ignore'));
-      const onBuilding    = !!(under && under.closest('.cursor-building'));
+      const onBuilding     = !!(under && under.closest('.cursor-building'));
+      const onStillWriting = !!(under && under.closest('.cursor-still-writing'));
       const walletEl    = under && under.closest('.cursor-wallet');
       const onWallet    = !!walletEl;
       const walletOpen  = onWallet && walletEl.dataset.walletOpen === 'true';
@@ -34,6 +35,8 @@ export default function DotCursor() {
         setMode('custom-label');
       } else if (onBuilding) {
         setMode('building');
+      } else if (onStillWriting) {
+        setMode('still-writing');
       } else if (onViewSource) {
         setMode('view-source');
       } else if (onViewProject) {
@@ -311,6 +314,25 @@ export default function DotCursor() {
           }}>
             <img src={lockIcon} alt="" width="13" height="13" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)' }} />
             CURRENTLY BUILDING
+          </span>
+        )}
+
+        {mode === 'still-writing' && (
+          <span style={{
+            display:       'inline-flex',
+            alignItems:    'center',
+            gap:           '9px',
+            fontFamily:    "'Geist Mono', 'Geist Mono Fallback', monospace",
+            fontSize:      '13px',
+            fontWeight:    300,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            color:         '#ffffff',
+            whiteSpace:    'nowrap',
+            userSelect:    'none',
+          }}>
+            <img src={lockIcon} alt="" width="13" height="13" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)' }} />
+            STILL WRITING
           </span>
         )}
       </div>

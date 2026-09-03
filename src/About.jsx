@@ -162,7 +162,7 @@ export default function About() {
       <div className="about-photo-row">
         {[photo1, portfolio3, photo4].map((src, i) => (
           <img key={i} src={src} alt="" className="about-photo-item"
-            data-cursor-label={['THIS IS ME', 'THIS IS ALSO ME', 'ME THREE', 'ME FOUR'][i]}
+            data-cursor-label={['THIS IS ME', 'THIS IS ALSO ME', 'ME "TREE"', 'ME FOUR'][i]}
           />
         ))}
       </div>
@@ -174,7 +174,7 @@ export default function About() {
         padding: '0 40px',
         boxSizing: 'border-box',
       }}>
-        <div className="about-writing-canvas" style={{
+        <div className="about-writing-canvas cursor-still-writing" style={{
           width: '100%',
           height: '480px',
           backgroundColor: '#FFFFFF',

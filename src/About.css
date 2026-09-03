@@ -201,7 +201,7 @@
 
 .about-writing-canvas:hover .about-writing-boarding-pass {
   top: 50%;
-  transform: translate(-50%, -50%) rotate(-15deg);
+  transform: translate(-50%, -50%) rotate(0deg);
 }
 
 /* ── Mobile ── */
