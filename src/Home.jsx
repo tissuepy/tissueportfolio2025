@@ -3,10 +3,17 @@ import './App.css';
 import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/geist-mono/300.css';
 import '@fontsource-variable/geist';
-import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import WalletCard from './WalletCard';
 import WalletFanOpen from './WalletFanOpen';
+import notionFace from './assets/notion-nitu.png';
+import goldenGateBridgeMedia from './assets/golden-gate-bridge-6.png';
+import clawdLogo from './assets/clawd-logo.png';
+import crossIcon from './assets/CrossMedium.png';
+import arrowUpRightIcon from './assets/ArrowUpRight.png';
+import copyIconAsset from './assets/copy.png';
 import emojiMail from './assets/emoji-mail.png';
 import emojiFolder from './assets/emoji-folder.png';
 import emojiPaper from './assets/emoji-paper.png';
@@ -41,6 +48,7 @@ import iconLab from './assets/icon-lab.png';
 import pillIconCornell from './assets/arrow-triangle-top.png';
 import pillIconCisco from './assets/form-square.png';
 import pillIconPogo from './assets/form-circle.png';
+import { BusinessCard } from './SiteFooter';
 
 const POGO_VIDEOS = [journeyVideo, monadicVideo, screenerVideo];
 
@@ -326,6 +334,123 @@ const STATUS_PHRASES = [
   'currently watching masterchef canada',
 ];
 
+function NYTime() {
+  const [time, setTime] = useState('');
+  useEffect(() => {
+    const update = () => setTime(new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' }));
+    update();
+    const id = setInterval(update, 1000);
+    return () => clearInterval(id);
+  }, []);
+  return <span>{time}</span>;
+}
+
+function HeroGrid() {
+  // True isometric: 30° edge angles, rhombus cell = s*√3 wide × s tall
+  const s = 52;
+  const W = +(s * Math.sqrt(3)).toFixed(3); // ≈ 90.07
+  const H = s;
+  return (
+    <div style={{
+      width: '100%',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 0 }} xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="isogrid" width={W} height={H} patternUnits="userSpaceOnUse">
+            <line x1="0" y1={H} x2={W} y2="0" stroke="rgba(0,0,0,0.10)" strokeWidth="0.5" />
+            <line x1="0" y1="0" x2={W} y2={H} stroke="rgba(0,0,0,0.10)" strokeWidth="0.5" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#isogrid)" />
+      </svg>
+      <img
+        src={goldenGateBridgeMedia}
+        alt=""
+        style={{ position: 'relative', zIndex: 1, width: '110%', display: 'block', marginLeft: '-8%', marginTop: '-120px', pointerEvents: 'none', objectFit: 'cover', objectPosition: 'bottom' }}
+      />
+    </div>
+  );
+}
+
+function HomeContactCard({ onClose, navBottom, buttonRight }) {
+  const [copied, setCopied] = useState(false);
+  const [dropped, setDropped] = useState(false);
+  const [closing, setClosing] = useState(false);
+
+  const dismiss = useCallback(() => {
+    if (closing) return;
+    setClosing(true);
+    setTimeout(onClose, 220);
+  }, [closing, onClose]);
+
+  useEffect(() => { requestAnimationFrame(() => setDropped(true)); }, []);
+
+  useEffect(() => {
+    const onScroll = () => dismiss();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [dismiss]);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText('ng545@cornell.edu').then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const right = buttonRight != null ? `${window.innerWidth - buttonRight}px` : '26px';
+
+  return (
+    <>
+      <style>{`
+        @keyframes home-contact-card-expand {
+          0%   { opacity: 0; transform: scaleX(0.9) scaleY(0.4) translateY(-8px); }
+          55%  { opacity: 1; transform: scaleX(1.01) scaleY(1.03) translateY(2px); }
+          80%  { transform: scaleX(0.995) scaleY(0.99) translateY(-1px); }
+          100% { opacity: 1; transform: scaleX(1) scaleY(1) translateY(0); }
+        }
+      `}</style>
+      <div onClick={(e) => { if (e.target === e.currentTarget) dismiss(); }} style={{
+        position: 'fixed', top: navBottom, left: 0, right: 0, bottom: 0, zIndex: 10000,
+        backdropFilter: dropped && !closing ? 'blur(6px)' : 'blur(0px)',
+        WebkitBackdropFilter: dropped && !closing ? 'blur(6px)' : 'blur(0px)',
+        backgroundColor: dropped && !closing ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0)',
+        transition: closing
+          ? 'backdrop-filter 0.2s ease, -webkit-backdrop-filter 0.2s ease, background-color 0.2s ease'
+          : 'backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease, background-color 0.4s ease',
+      }} />
+      <div style={{
+        position: 'fixed', right, top: navBottom + 8, zIndex: 10001,
+        width: 'min(340px, 88vw)',
+        background: '#ffffff', border: '1.2px solid #EBEBEB',
+        borderRadius: 'min(20px, 4vw)', overflow: 'hidden',
+        transformOrigin: 'top right',
+        animation: !closing && dropped ? 'home-contact-card-expand 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards' : 'none',
+        ...(closing ? { opacity: 0, transition: 'opacity 0.2s ease' } : {}),
+        padding: '20px', display: 'flex', flexDirection: 'column', gap: '12px',
+      }}>
+        <div onClick={handleCopy} style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'none' }}>
+          {copied
+            ? <svg width="19" height="19" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}><path d="M20 6L9 17l-5-5" stroke="#A7A7A7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            : <img src={copyIconAsset} alt="" style={{ width: '19px', height: '19px', opacity: 0.7, flexShrink: 0 }} />
+          }
+          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '14px', fontWeight: 300, color: '#A7A7A7', whiteSpace: 'nowrap' }}>NG545@CORNELL.EDU</span>
+        </div>
+        <a href="https://www.linkedin.com/in/nitishgannu/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', cursor: 'none' }}>
+          <img src={arrowUpRightIcon} alt="" style={{ width: '19px', height: '19px', opacity: 0.7, flexShrink: 0 }} />
+          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '14px', fontWeight: 300, color: '#A7A7A7', whiteSpace: 'nowrap' }}>LINKEDIN.COM/IN/TISSUE</span>
+        </a>
+        <a href="https://x.com/nitishgannu" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', cursor: 'none' }}>
+          <img src={arrowUpRightIcon} alt="" style={{ width: '19px', height: '19px', opacity: 0.7, flexShrink: 0 }} />
+          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '14px', fontWeight: 300, color: '#A7A7A7', whiteSpace: 'nowrap' }}>X.COM/NITISHGANNU</span>
+        </a>
+      </div>
+    </>
+  );
+}
+
 function Home() {
   const navigate = useNavigate();
   const workSectionRef = useRef(null);
@@ -333,6 +458,25 @@ function Home() {
   const [ilHovered, setIlHovered] = useState(false);
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [activeFilter, setActiveFilter] = useState('work');
+  const [contactOpen, setContactOpen] = useState(false);
+  const [navBottom, setNavBottom] = useState(60);
+  const [buttonRight, setButtonRight] = useState(null);
+  const contactBtnRef = useRef(null);
+  const contactDismissRef = useRef(null);
+
+  const handleContactToggle = useCallback(() => {
+    if (contactOpen) {
+      if (contactDismissRef.current) contactDismissRef.current();
+      else setContactOpen(false);
+    } else {
+      if (contactBtnRef.current) {
+        const rect = contactBtnRef.current.getBoundingClientRect();
+        setNavBottom(rect.bottom + 8);
+        setButtonRight(rect.right);
+      }
+      setContactOpen(true);
+    }
+  }, [contactOpen]);
 
   const folderPhotos = [
     { src: folderPhoto1, cls: 'hero-folder-photo--1' },
@@ -347,6 +491,11 @@ function Home() {
       setPhraseIndex(i => (i + 1) % STATUS_PHRASES.length);
     }, 3500);
     return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = '';
+    return () => { document.body.style.overflow = ''; };
   }, []);
 
   const handleCopy = () => {
@@ -371,37 +520,107 @@ function Home() {
 
   return (
     <>
-      {/* Hero */}
-      <div className="new-hero-wrap">
-        <div className="new-hero-content new-hero-content--split">
-
-          {/* Left: text */}
-          <div className="new-hero-text">
-            <p className="new-hero-body">
-              <span style={{ color: '#555555' }}>Nitish Gannu</span> is a designer building ambitious tools<br /><span style={{ whiteSpace: 'nowrap' }}>that feel surprisingly simple.</span>
-            </p>
-            <p className="new-hero-body" style={{margin: '0'}}>
-              Studying <span style={{ color: '#555555' }}>Statistics & Data Science</span> @ <Pill href="https://www.cornell.edu" label="Cornell" icon={iconSparkles} pillIcon={pillIconCornell} />
-            </p>
-            <p className="new-hero-body">
-              Previously @ <Pill href="https://www.cisco.com" label="Cisco" icon={iconSocial} pillIcon={pillIconCisco} /> & <Pill to="/projects" label="Pogo" icon={iconLab} pillIcon={pillIconPogo} />
-            </p>
-            <HeroDots />
+      {contactOpen && createPortal(
+        <BusinessCard onClose={() => setContactOpen(false)} dismissRef={contactDismissRef} onDismissStart={() => {}} fromNav navBottom={navBottom} />,
+        document.body
+      )}
+      <style>{`
+        @keyframes home-slide-down {
+          from { opacity: 0; transform: translateY(-24px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes home-slide-up {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes home-iframe-settle {
+          from { opacity: 0; transform: translateY(-32px); }
+          to   { opacity: 0.4; transform: translateY(0); }
+        }
+        .home-anim-nav {
+          animation: home-slide-down 0.6s cubic-bezier(0.22,1,0.36,1) 0.5s both;
+        }
+        .home-anim-iframe {
+          animation: home-iframe-settle 0.8s cubic-bezier(0.22,1,0.36,1) 0s both;
+        }
+        .home-anim-hero {
+          animation: home-slide-up 0.7s cubic-bezier(0.22,1,0.36,1) 0.75s both;
+        }
+      `}</style>
+      <div style={{ width: '100%', boxSizing: 'border-box', padding: 0, paddingTop: '10px' }}>
+        <div className="home-anim-nav" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 26px 4px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', color: 'rgba(50, 64, 79, 0.584)' }}>
+            <span>New York</span>
+            <span style={{ opacity: 0.5 }}>·</span>
+            <NYTime />
           </div>
-
-          {/* Right: isometric grid + animated cubes */}
-          <div className="new-hero-wallet-slot">
-            <IsometricGrid />
-            <div className="hero-folder" style={{ display: 'none' }}>
-              <img src={folderBack} alt="" className="hero-folder-back" />
-              {folderPhotos.map((photo, i) => (
-                <img key={i} src={photo.src} alt="" className={`hero-folder-photo ${photo.cls}`} />
-              ))}
-              <img src={folderFront} alt="" className="hero-folder-front" />
+          <div style={{ display: 'flex', gap: '20px', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', alignItems: 'center' }}>
+            <div style={{
+              display: 'flex', gap: '20px', alignItems: 'center',
+              transform: contactOpen ? 'translateX(-12px)' : 'translateX(0)',
+              opacity: contactOpen ? 0 : 1,
+              transition: 'transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease',
+              pointerEvents: contactOpen ? 'none' : 'auto',
+            }}>
+              <Link to="/" style={{ color: 'rgba(50, 64, 79, 1)', textDecoration: 'none' }} onMouseEnter={e => e.target.style.color='rgba(50,64,79,1)'} onMouseLeave={e => e.target.style.color='rgba(50, 64, 79, 1)'}>Work</Link>
+              <Link to="/about" style={{ color: 'rgba(50, 64, 79, 0.584)', textDecoration: 'none' }} onMouseEnter={e => e.target.style.color='rgba(50,64,79,1)'} onMouseLeave={e => e.target.style.color='rgba(50, 64, 79, 0.584)'}>About</Link>
             </div>
+            <button ref={contactBtnRef} onClick={handleContactToggle} style={{ background: 'none', border: 'none', padding: 0, cursor: 'none', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', color: 'rgba(50, 64, 79, 0.584)', display: 'flex', alignItems: 'center', position: 'relative' }}>
+              <span style={{
+                opacity: contactOpen ? 0 : 1,
+                transition: 'opacity 0.25s ease',
+                position: contactOpen ? 'absolute' : 'static',
+                pointerEvents: 'none',
+              }}>Contact</span>
+              <img src={crossIcon} alt="" style={{
+                width: '16px', height: '16px', opacity: contactOpen ? 0.8 : 0,
+                transition: 'opacity 0.25s ease 0.1s',
+                position: 'absolute',
+              }} />
+              <span style={{ width: '16px', display: 'inline-block', visibility: 'hidden' }} aria-hidden />
+            </button>
           </div>
-          {/* <WalletFanOpen /> */}
+        </div>
+        <div className="home-anim-iframe" style={{ position: 'relative' }}>
+          <iframe
+            src="/warped-grid.html"
+            style={{ width: '100%', height: '78vh', border: 'none', display: 'block', background: 'transparent' }}
+            scrolling="no"
+            allowTransparency="true"
+            title="Warped Grid"
+          />
+          <div style={{ position: 'absolute', inset: 0, zIndex: 1 }} />
+        </div>
+        <div className="home-anim-hero" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', padding: '0 26px', marginTop: '-30px', gap: '40px' }}>
+          {/* Hero text left */}
+          <p style={{
+            fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif",
+            fontSize: '24px',
+            fontWeight: 300,
+            color: '#888888',
+            lineHeight: 1.5,
+            margin: '0',
+            padding: '0',
+            letterSpacing: '-0.3px',
+            flexShrink: 0,
+          }}>
+            Nitish Gannu is a designer who brings the precision of statistics<br />to the pixels of product design.
+          </p>
 
+          {/* Experience table right */}
+          <div style={{ flex: '1 1 0', maxWidth: '480px' }}>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: 'rgba(50, 64, 79, 0.584)', display: 'block', marginBottom: '8px' }}>RECENTLY<span style={{ letterSpacing: '-0.05em' }}>...</span></span>
+            {[
+              { year: '2026', company: 'Cisco', role: 'Engineering Product Manager Intern' },
+              { year: '2026', company: 'Pogo', role: 'Product Design Intern' },
+            ].map(({ year, company, role }) => (
+              <div key={company} style={{ display: 'flex', alignItems: 'baseline', padding: '6px 0' }}>
+                <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', color: 'rgba(50, 64, 79, 0.584)', width: '52px', flexShrink: 0 }}>{year}</span>
+                <span style={{ fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '18px', fontWeight: 350, color: '#333333', flex: '1' }}>{company}</span>
+                <span style={{ fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '18px', fontWeight: 350, color: '#AAAAAA', textAlign: 'right' }}>{role}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

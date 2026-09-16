@@ -2,15 +2,19 @@ import { useEffect, useRef, useState } from 'react';
 import eyeIcon from './assets/eye.png';
 import chainLinkIcon from './assets/chain-link.png';
 import lockIcon from './assets/lock-icon.png';
+import moonIcon from './assets/Moon.png';
+import crossIcon from './assets/CrossMedium.png';
 
 export default function DotCursor() {
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) return null;
 
   const ref          = useRef(null);
   const resetUntil   = useRef(0);
+  const posRef       = useRef({ x: 0, y: 0 });
   const [mode, setMode] = useState('dot');
   const [customLabel, setCustomLabel] = useState('');
   const [pressed, setPressed] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -20,11 +24,14 @@ export default function DotCursor() {
 
       const under       = document.elementFromPoint(clientX, clientY);
       const labelEl     = under && under.closest('[data-cursor-label]');
+      const onLink        = !!(under && under.closest('a') && !under.closest('.home-wide-canvas') && !under.closest('.cursor-view-project') && !under.closest('.cursor-view-source') && !under.closest('.cursor-view-card'));
       const onCompanies   = !!(under && under.closest('.cursor-companies'));
       const onGallery     = !!(under && under.closest('.home-gallery-canvas'));
       const onViewProject = !!(under && (under.closest('.home-wide-canvas') || under.closest('.cursor-view-project')));
       const onViewSource  = !!(under && under.closest('.cursor-view-source') && !under.closest('.cursor-ignore'));
+      const onViewCard    = !!(under && under.closest('.cursor-view-card'));
       const onBuilding     = !!(under && under.closest('.cursor-building'));
+      const onMoon         = !!(under && under.closest('.cursor-moon'));
       const onStillWriting = !!(under && under.closest('.cursor-still-writing'));
       const walletEl    = under && under.closest('.cursor-wallet');
       const onWallet    = !!walletEl;
@@ -33,6 +40,10 @@ export default function DotCursor() {
       if (labelEl) {
         setCustomLabel(labelEl.dataset.cursorLabel);
         setMode('custom-label');
+      } else if (onViewCard) {
+        setMode('view-card');
+      } else if (onMoon) {
+        setMode('moon');
       } else if (onBuilding) {
         setMode('building');
       } else if (onStillWriting) {
@@ -53,16 +64,23 @@ export default function DotCursor() {
         else              setMode('dot');
       } else if (onCompanies) {
         setMode('companies');
+      } else if (onLink) {
+        setMode('link');
       } else {
         setMode('dot');
       }
     };
 
     const onMove = (e) => {
+      posRef.current = { x: e.clientX, y: e.clientY };
       el.style.left = e.clientX + 'px';
       el.style.top  = e.clientY + 'px';
       detectMode(e.clientX, e.clientY);
+      setVisible(true);
     };
+
+    const onLeave = () => setVisible(false);
+    const onEnter = () => setVisible(true);
 
     // Re-check after click; also trigger a brief dot-reset when wallet opens.
     const onClickCapture = (e) => {
@@ -88,29 +106,38 @@ export default function DotCursor() {
     };
 
     const onDown = () => setPressed(true);
-    const onUp   = () => setPressed(false);
+    const onUp   = () => {
+      setPressed(false);
+      // Re-evaluate mode after mouseup so cursor snaps back to link state if still hovering
+      requestAnimationFrame(() => {
+        const { x, y } = posRef.current;
+        detectMode(x, y);
+      });
+    };
 
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mousedown', onDown);
     window.addEventListener('mouseup', onUp);
     window.addEventListener('click', onClickCapture);
+    document.documentElement.addEventListener('mouseleave', onLeave);
+    document.documentElement.addEventListener('mouseenter', onEnter);
 
     return () => {
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mousedown', onDown);
       window.removeEventListener('mouseup', onUp);
       window.removeEventListener('click', onClickCapture);
+      document.documentElement.removeEventListener('mouseleave', onLeave);
+      document.documentElement.removeEventListener('mouseenter', onEnter);
     };
   }, []);
 
-  const expanded = mode !== 'dot' && !pressed;
+  const isLink     = mode === 'link';
+  const expanded   = mode !== 'dot' && mode !== 'link' && !pressed;
+  const isIconOnly = mode === 'view-project' || mode === 'gallery' || mode === 'building' || mode === 'still-writing' || mode === 'view-card' || mode === 'moon' || (mode === 'custom-label' && customLabel === 'CLOSE');
 
   return (
     <>
-      <style>{`
-        *, *::before, *::after { cursor: none !important; }
-      `}</style>
-
       <div
         ref={ref}
         style={{
@@ -119,16 +146,17 @@ export default function DotCursor() {
           left:            '-200px',
           borderRadius:    expanded ? '999px' : '50%',
           backgroundColor: '#000000',
+          opacity:         !visible ? 0 : isLink ? 0.35 : 1,
           pointerEvents:   'none',
           zIndex:          99999,
           display:         'flex',
           alignItems:      'center',
           justifyContent:  'center',
-          padding:         expanded ? '8px 14px' : '0',
-          width:           expanded ? 'auto' : '17px',
-          height:          expanded ? 'auto' : '17px',
-          maxWidth:        expanded ? '280px' : '17px',
-          maxHeight:       expanded ? '60px' : '17px',
+          padding:         expanded ? (isIconOnly ? '10px' : '8px 14px') : '0',
+          width:           expanded ? 'auto' : isLink ? '24px' : '17px',
+          height:          expanded ? 'auto' : isLink ? '24px' : '17px',
+          maxWidth:        expanded ? '280px' : isLink ? '24px' : '17px',
+          maxHeight:       expanded ? '60px' : isLink ? '24px' : '17px',
           transform:       `translate(-50%, -50%) scale(${pressed ? (mode === 'dot' ? 0.65 : 0.82) : 1})`,
           overflow:        'hidden',
           transition: pressed ? [
@@ -137,16 +165,40 @@ export default function DotCursor() {
             'max-width 0.1s ease-in',
             'max-height 0.1s ease-in',
             'transform 0.1s ease-in',
+            'opacity 0.1s ease-in',
+            'width 0.1s ease-in',
+            'height 0.1s ease-in',
+          ].join(', ') : isLink ? [
+            'border-radius 0.35s cubic-bezier(0.34, 1.15, 0.64, 1)',
+            'max-width 0.35s cubic-bezier(0.34, 1.15, 0.64, 1)',
+            'max-height 0.35s cubic-bezier(0.34, 1.15, 0.64, 1)',
+            'width 0.35s cubic-bezier(0.34, 1.15, 0.64, 1)',
+            'height 0.35s cubic-bezier(0.34, 1.15, 0.64, 1)',
+            'transform 0.35s cubic-bezier(0.34, 1.15, 0.64, 1)',
+            'opacity 0.35s ease-out',
+          ].join(', ') : mode === 'dot' ? [
+            'border-radius 0.12s ease-out',
+            'padding 0.12s ease-out',
+            'max-width 0.12s ease-out',
+            'max-height 0.12s ease-out',
+            'width 0.12s ease-out',
+            'height 0.12s ease-out',
+            'transform 0.12s ease-out',
+            'opacity 0.12s ease-out',
           ].join(', ') : [
             'border-radius 0.55s cubic-bezier(0.34, 1.15, 0.64, 1)',
             'padding 0.55s cubic-bezier(0.34, 1.15, 0.64, 1)',
             'max-width 0.55s cubic-bezier(0.34, 1.15, 0.64, 1)',
             'max-height 0.55s cubic-bezier(0.34, 1.15, 0.64, 1)',
             'transform 0.55s cubic-bezier(0.34, 1.15, 0.64, 1)',
+            'opacity 0.4s cubic-bezier(0.34, 1.15, 0.64, 1)',
           ].join(', '),
         }}
       >
-        {mode === 'custom-label' && (
+        {mode === 'custom-label' && customLabel === 'CLOSE' && (
+          <img src={crossIcon} alt="" width="20" height="20" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)', display: 'block' }} />
+        )}
+        {mode === 'custom-label' && customLabel !== 'CLOSE' && (
           <span style={{
             fontFamily:    "'Geist Mono', 'Geist Mono Fallback', monospace",
             fontSize:      '13px',
@@ -261,79 +313,27 @@ export default function DotCursor() {
         )}
 
         {mode === 'view-project' && (
-          <span style={{
-            display:       'inline-flex',
-            alignItems:    'center',
-            gap:           '9px',
-            fontFamily:    "'Geist Mono', 'Geist Mono Fallback', monospace",
-            fontSize:      '13px',
-            fontWeight:    300,
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            color:         '#ffffff',
-            whiteSpace:    'nowrap',
-            userSelect:    'none',
-          }}>
-            <img src={eyeIcon} alt="" width="15" height="15" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)' }} />
-            VIEW PROJECT
-          </span>
+          <img src={eyeIcon} alt="" width="22" height="22" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)', display: 'block' }} />
         )}
 
         {mode === 'gallery' && (
-          <span style={{
-            display:       'inline-flex',
-            alignItems:    'center',
-            gap:           '9px',
-            fontFamily:    "'Geist Mono', 'Geist Mono Fallback', monospace",
-            fontSize:      '13px',
-            fontWeight:    300,
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            color:         '#ffffff',
-            whiteSpace:    'nowrap',
-            userSelect:    'none',
-          }}>
-            <img src={eyeIcon} alt="" width="15" height="15" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)' }} />
-            VIEW PROJECT
-          </span>
+          <img src={eyeIcon} alt="" width="22" height="22" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)', display: 'block' }} />
         )}
 
         {mode === 'building' && (
-          <span style={{
-            display:       'inline-flex',
-            alignItems:    'center',
-            gap:           '9px',
-            fontFamily:    "'Geist Mono', 'Geist Mono Fallback', monospace",
-            fontSize:      '13px',
-            fontWeight:    300,
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            color:         '#ffffff',
-            whiteSpace:    'nowrap',
-            userSelect:    'none',
-          }}>
-            <img src={lockIcon} alt="" width="13" height="13" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)' }} />
-            CURRENTLY BUILDING
-          </span>
+          <img src={lockIcon} alt="" width="20" height="20" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)', display: 'block' }} />
+        )}
+
+        {mode === 'moon' && (
+          <img src={moonIcon} alt="" width="22" height="22" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)', display: 'block' }} />
+        )}
+
+        {mode === 'view-card' && (
+          <img src={eyeIcon} alt="" width="22" height="22" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)', display: 'block' }} />
         )}
 
         {mode === 'still-writing' && (
-          <span style={{
-            display:       'inline-flex',
-            alignItems:    'center',
-            gap:           '9px',
-            fontFamily:    "'Geist Mono', 'Geist Mono Fallback', monospace",
-            fontSize:      '13px',
-            fontWeight:    300,
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            color:         '#ffffff',
-            whiteSpace:    'nowrap',
-            userSelect:    'none',
-          }}>
-            <img src={lockIcon} alt="" width="13" height="13" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)' }} />
-            STILL WRITING
-          </span>
+          <img src={lockIcon} alt="" width="20" height="20" style={{ flexShrink: 0, filter: 'brightness(0) invert(1)', display: 'block' }} />
         )}
       </div>
     </>

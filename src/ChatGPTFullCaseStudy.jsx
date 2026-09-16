@@ -599,6 +599,19 @@ export default function ChatGPTFullCaseStudy() {
 
       </div>
 
+      <div style={{ padding: '0 40px', marginTop: '80px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <span style={{
+            fontFamily: "'Geist Mono', 'Geist Mono Fallback', monospace",
+            fontSize: '15px',
+            fontWeight: 300,
+            color: '#8C8C8C',
+            letterSpacing: 0,
+            textTransform: 'uppercase',
+          }}>Reflections and Learnings</span>
+        </div>
+      </div>
+
       <p className="new-hero-body" style={{ margin: '80px 0 60px', textAlign: 'center', color: '#BBBBBB', lineHeight: 1.7 }}>
         Thank you for making it this far! Reach out to me at <span style={{ color: '#555555' }}>nitishgannu@gmail.com</span> if you want to learn more.
       </p>
