@@ -244,20 +244,6 @@ export default function About() {
         .about-anim-photos{ animation: about-slide-up 0.7s cubic-bezier(0.22,1,0.36,1) 0.55s both; }
       `}</style>
 
-      {/* Top nav */}
-      <div className="about-anim-nav" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 26px 4px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', color: 'rgba(50, 64, 79, 0.584)' }}>
-          <span>New York</span>
-          <span style={{ opacity: 0.5 }}>·</span>
-          <NYTime />
-        </div>
-        <div style={{ display: 'flex', gap: '20px', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase' }}>
-          <Link to="/" style={{ color: 'rgba(50, 64, 79, 0.584)', textDecoration: 'none' }} onMouseEnter={e => e.target.style.color='rgba(50,64,79,1)'} onMouseLeave={e => e.target.style.color='rgba(50, 64, 79, 0.584)'}>Work</Link>
-          <Link to="/about" style={{ color: 'rgba(50, 64, 79, 1)', textDecoration: 'none' }}>About</Link>
-          <a href="mailto:ng545@cornell.edu" style={{ color: 'rgba(50, 64, 79, 0.584)', textDecoration: 'none' }} onMouseEnter={e => e.target.style.color='rgba(50,64,79,1)'} onMouseLeave={e => e.target.style.color='rgba(50, 64, 79, 0.584)'}>Contact</a>
-        </div>
-      </div>
-
       {/* Hero: text left, grid right */}
       <div className="about-hero-split">
       <div className="about-text-section about-anim-text">

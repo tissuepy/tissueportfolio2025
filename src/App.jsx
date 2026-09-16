@@ -375,7 +375,7 @@ function App() {
 
       {/* Page content with transition */}
       <div className={`page-wrapper ${fadeClass}`}>
-        {currentPath !== '/' && currentPath !== '/about' && <SiteNav />}
+        <SiteNav />
         <Routes location={{ pathname: currentPath }}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

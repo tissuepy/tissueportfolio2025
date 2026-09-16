@@ -547,40 +547,7 @@ function Home() {
           animation: home-slide-up 0.7s cubic-bezier(0.22,1,0.36,1) 0.75s both;
         }
       `}</style>
-      <div style={{ width: '100%', boxSizing: 'border-box', padding: 0, paddingTop: '10px' }}>
-        <div className="home-anim-nav" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 26px 4px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', color: 'rgba(50, 64, 79, 0.584)' }}>
-            <span>New York</span>
-            <span style={{ opacity: 0.5 }}>·</span>
-            <NYTime />
-          </div>
-          <div style={{ display: 'flex', gap: '20px', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', alignItems: 'center' }}>
-            <div style={{
-              display: 'flex', gap: '20px', alignItems: 'center',
-              transform: contactOpen ? 'translateX(-12px)' : 'translateX(0)',
-              opacity: contactOpen ? 0 : 1,
-              transition: 'transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease',
-              pointerEvents: contactOpen ? 'none' : 'auto',
-            }}>
-              <Link to="/" style={{ color: 'rgba(50, 64, 79, 1)', textDecoration: 'none' }} onMouseEnter={e => e.target.style.color='rgba(50,64,79,1)'} onMouseLeave={e => e.target.style.color='rgba(50, 64, 79, 1)'}>Work</Link>
-              <Link to="/about" style={{ color: 'rgba(50, 64, 79, 0.584)', textDecoration: 'none' }} onMouseEnter={e => e.target.style.color='rgba(50,64,79,1)'} onMouseLeave={e => e.target.style.color='rgba(50, 64, 79, 0.584)'}>About</Link>
-            </div>
-            <button ref={contactBtnRef} onClick={handleContactToggle} style={{ background: 'none', border: 'none', padding: 0, cursor: 'none', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', color: 'rgba(50, 64, 79, 0.584)', display: 'flex', alignItems: 'center', position: 'relative' }}>
-              <span style={{
-                opacity: contactOpen ? 0 : 1,
-                transition: 'opacity 0.25s ease',
-                position: contactOpen ? 'absolute' : 'static',
-                pointerEvents: 'none',
-              }}>Contact</span>
-              <img src={crossIcon} alt="" style={{
-                width: '16px', height: '16px', opacity: contactOpen ? 0.8 : 0,
-                transition: 'opacity 0.25s ease 0.1s',
-                position: 'absolute',
-              }} />
-              <span style={{ width: '16px', display: 'inline-block', visibility: 'hidden' }} aria-hidden />
-            </button>
-          </div>
-        </div>
+      <div style={{ width: '100%', boxSizing: 'border-box', padding: 0 }}>
         <div className="home-anim-iframe" style={{ position: 'relative' }}>
           <iframe
             src="/warped-grid.html"
