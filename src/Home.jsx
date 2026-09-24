@@ -455,6 +455,7 @@ function Home() {
   const workSectionRef = useRef(null);
   const [copied, setCopied] = useState(false);
   const [ilHovered, setIlHovered] = useState(false);
+  const [chatgptCursor, setChatgptCursor] = useState({ visible: false, x: 0, y: 0 });
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [activeFilter, setActiveFilter] = useState('work');
   const [contactOpen, setContactOpen] = useState(false);
@@ -609,6 +610,11 @@ function Home() {
           {/* ChatGPT canvas */}
           <div
             onClick={() => navigate('/work/chatgpt/full')}
+            onMouseMove={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              setChatgptCursor({ visible: true, x: e.clientX - rect.left, y: e.clientY - rect.top });
+            }}
+            onMouseLeave={() => setChatgptCursor(c => ({ ...c, visible: false }))}
             style={{
               width: 'calc(100% - 72px)',
               margin: '24px 36px 0',
@@ -625,6 +631,19 @@ function Home() {
             }}
           >
             <video src={chatgptAnimation} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            {chatgptCursor.visible && (
+              <div style={{
+                position: 'absolute',
+                left: chatgptCursor.x,
+                top: chatgptCursor.y,
+                transform: 'translate(-50%, -50%)',
+                pointerEvents: 'none',
+                zIndex: 10,
+                fontSize: '22px',
+                lineHeight: 1,
+                userSelect: 'none',
+              }}>👁️</div>
+            )}
           </div>
 
           {/* Pogo meta */}
