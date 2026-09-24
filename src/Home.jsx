@@ -563,7 +563,7 @@ function Home() {
           flexDirection: 'column',
         }}>
           {/* Hero text + experience */}
-          <div className="home-anim-hero" style={{ padding: '40px 28px 0', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div className="home-anim-hero" style={{ padding: '40px 26px 0', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
               Hey there. I'm <span style={{ textDecoration: 'underline', color: '#000000' }}>Nitish Gannu</span>, a designer who brings the precision of statistics to the pixels of product design.
             </p>
@@ -574,7 +574,7 @@ function Home() {
               Inquiries: ng545 [at] cornell [dot] edu or just take my <span onClick={() => setTimeout(() => setContactOpen(true), 50)} style={{ textDecoration: 'underline', color: '#000000', cursor: 'pointer' }}>business card</span>
             </p>
           </div>
-          <div style={{ marginTop: 'auto', padding: '16px 36px 36px' }}>
+          <div style={{ marginTop: 'auto', padding: '16px 26px 36px' }}>
             <p style={{ fontFamily: "'Geist Mono', monospace", fontSize: '13px', color: '#AAAAAA', margin: 0, letterSpacing: '0.02em' }}>
               © 2026 NITISH GANNU. MADE WITH <img src={clawdLogo} alt="Claude Code" style={{ width: '15px', height: '15px', verticalAlign: 'middle', opacity: 0.6 }} />
             </p>
