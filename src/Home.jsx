@@ -574,7 +574,7 @@ function Home() {
               Inquiries: ng545 [at] cornell [dot] edu or just take my <span onClick={() => setTimeout(() => setContactOpen(true), 50)} style={{ textDecoration: 'underline', color: '#000000', cursor: 'pointer' }}>business card</span>
             </p>
           </div>
-          <div style={{ marginTop: 'auto', padding: '16px 36px 20px' }}>
+          <div style={{ marginTop: 'auto', padding: '16px 36px 36px' }}>
             <p style={{ fontFamily: "'Geist Mono', monospace", fontSize: '13px', color: '#AAAAAA', margin: 0, letterSpacing: '0.02em' }}>
               © 2026 NITISH GANNU. MADE WITH <img src={clawdLogo} alt="Claude Code" style={{ width: '15px', height: '15px', verticalAlign: 'middle', opacity: 0.6 }} />
             </p>
