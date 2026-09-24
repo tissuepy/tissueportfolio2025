@@ -576,7 +576,7 @@ function Home() {
               margin: 0,
               letterSpacing: '-0.3px',
             }}>
-              Nitish Gannu is a designer who brings the precision of statistics to the pixels of product design.
+              <span style={{ textDecoration: 'underline', color: '#000000' }}>Nitish Gannu</span> is a designer who brings the precision of statistics to the pixels of product design.
             </p>
             <p style={{
               fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif",
@@ -587,7 +587,7 @@ function Home() {
               margin: 0,
               letterSpacing: '-0.3px',
             }}>
-              I was previously a design engineer at <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Pogo</a> &amp; I'm envisioning the future of Mathematical Digital Twins at <span style={{ textDecoration: 'underline' }}>Cisco</span>
+              I was previously a design engineer at <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: '#000000', textDecoration: 'underline' }}>Pogo</a> &amp; I'm envisioning the future of Mathematical Digital Twins at <span style={{ textDecoration: 'underline', color: '#000000' }}>Cisco</span>
             </p>
           </div>
         </div>
