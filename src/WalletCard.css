@@ -16,7 +16,7 @@
 /* ── Section label — absolutely positioned just above the wallet pocket ── */
 /* pocket starts at top:145px inside .wallet-container, label sits at top:108px */
 .wallet-section-label {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0em;
@@ -88,7 +88,7 @@
   border: none;
   padding: 15px 0;
   cursor: pointer;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -152,7 +152,7 @@
   justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.04em;
@@ -225,7 +225,7 @@
 .wallet-card-badge {
   background-color: #000000;
   color: #ffffff;
-  font-family: 'SF Mono', 'IBM Plex Mono', 'Menlo', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 14px;
   font-weight: 600;
   padding: 3px 6px;
@@ -249,7 +249,7 @@
 }
 
 .wallet-card-title {
-  font-family: 'SF Mono', 'IBM Plex Mono', 'Menlo', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 14px;
   font-weight: 500;
   color: #1a1a1a;

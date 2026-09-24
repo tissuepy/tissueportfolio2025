@@ -215,7 +215,7 @@ export default function DotCursor() {
 
         {mode === 'companies' && (
           <span style={{
-            fontFamily:    "'IBM Plex Mono', monospace",
+            fontFamily:    "'Geist Mono', monospace",
             fontSize:      '12px',
             fontWeight:    500,
             letterSpacing: '0.08em',

@@ -302,7 +302,7 @@ html {
 }
 
 .nav-back-btn {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.08em;
@@ -320,7 +320,7 @@ html {
 }
 
 .nav-item {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.08em;
@@ -339,7 +339,7 @@ html {
 }
 
 .nav-sep {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.25);
   padding: 0 8px;
@@ -368,7 +368,7 @@ html {
   font-size: 1rem;
   font-weight: 600;
   margin: 0;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   color: #555555;
 }
 
@@ -453,7 +453,7 @@ html {
   padding: 4px;
   border-radius: 8px;
   border: 1px solid #e0e0e0;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-weight: 600;
   position: relative;
 }
@@ -510,7 +510,7 @@ html {
 
 
 .clocktower-click-text {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 10px;
   text-transform: uppercase;
   color: #000000;
@@ -612,7 +612,7 @@ html {
 }
 
 .footer-section-title {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 0.875rem;
   font-weight: 400;
   text-transform: uppercase;
@@ -665,7 +665,7 @@ html {
 .right-section {
   display: flex;
   gap: 24px;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   /* only here */
   font-weight: 600;
 }
@@ -869,7 +869,7 @@ html {
 }
 
 .hero-meta-label {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.06em;
@@ -1351,7 +1351,7 @@ html {
 }
 
 .hero-scroll-text {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 15px !important;
   font-weight: 400;
   color: #636363;
@@ -1391,7 +1391,7 @@ html {
 }
 
 .hero-noun {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 14px;
   font-weight: 400;
   color: #74A662;
@@ -1538,7 +1538,7 @@ html {
 }
 
 .learn-more-text {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   color: #9ca3af;
@@ -1594,7 +1594,7 @@ html {
 }
 
 .learn-more-input {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   color: #333;
@@ -1618,7 +1618,7 @@ html {
 }
 
 .learn-more-option-btn {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   font-weight: 500;
   color: white;
@@ -1922,7 +1922,7 @@ html {
 }
 
 .project-date {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   /* only here */
 }
 
@@ -3400,7 +3400,7 @@ html {
   position: absolute;
   top: -30px;
   left: 0px;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 0.875rem;
   color: #b0b0b0;
   margin: 0;
@@ -3600,7 +3600,7 @@ html {
 }
 
 .about-section-label {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   color: #000000;
@@ -3728,7 +3728,7 @@ html {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   color: #000000;
@@ -3743,7 +3743,7 @@ html {
 }
 
 .one-path-tooltip-date {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 12px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.4);
@@ -3790,7 +3790,7 @@ html {
 
 /* "01" index number — IBM Plex Mono, muted */
 .about-writing-num {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 15px;
   color: rgba(0, 0, 0, 0.28);
   margin-right: 8px;
@@ -3873,7 +3873,7 @@ html {
   border-radius: 8px;
   padding: 10px 14px;
   color: #000000;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   outline: none;
   transition: border-color 0.18s ease;
@@ -3889,7 +3889,7 @@ html {
 }
 
 .blog-pw-error {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 12px;
   color: #BF5656;
   margin: 0;
@@ -4052,7 +4052,7 @@ html {
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   color: #000000;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   line-height: 1;
@@ -4195,7 +4195,7 @@ html {
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   color: #000000;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   line-height: 1.5;
   padding: 8px 12px;
@@ -4213,7 +4213,7 @@ html {
 }
 
 .site-footer-thanks {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.06em;
@@ -4229,7 +4229,7 @@ html {
 
 .mobile-project-heading {
   display: none;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.06em;

@@ -1,6 +1,5 @@
 // Home.jsx
 import './App.css';
-import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/geist-mono/300.css';
 import '@fontsource-variable/geist';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -547,183 +546,161 @@ function Home() {
           animation: home-slide-up 0.7s cubic-bezier(0.22,1,0.36,1) 0.75s both;
         }
       `}</style>
-      <div style={{ width: '100%', boxSizing: 'border-box', padding: 0 }}>
-        <div className="home-anim-iframe" style={{ position: 'relative' }}>
-          <iframe
-            src="/warped-grid.html"
-            style={{ width: '100%', height: '78vh', border: 'none', display: 'block', background: 'transparent' }}
-            scrolling="no"
-            allowTransparency="true"
-            title="Warped Grid"
-          />
-          <div style={{ position: 'absolute', inset: 0, zIndex: 1 }} />
-        </div>
-        <div className="home-anim-hero" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', padding: '0 26px', marginTop: '-30px', gap: '40px' }}>
-          {/* Hero text left */}
-          <p style={{
-            fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif",
-            fontSize: '24px',
-            fontWeight: 300,
-            color: '#888888',
-            lineHeight: 1.5,
-            margin: '0',
-            padding: '0',
-            letterSpacing: '-0.3px',
-            flexShrink: 0,
-          }}>
-            Nitish Gannu is a designer who brings the precision of statistics<br />to the pixels of product design.
-          </p>
 
-          {/* Experience table right */}
-          <div style={{ flex: '1 1 0', maxWidth: '480px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: 'rgba(50, 64, 79, 0.584)', display: 'block', marginBottom: '8px' }}>RECENTLY<span style={{ letterSpacing: '-0.05em' }}>...</span></span>
-            {[
-              { year: '2026', company: 'Cisco', role: 'Engineering Product Manager Intern' },
-              { year: '2026', company: 'Pogo', role: 'Product Design Intern' },
-            ].map(({ year, company, role }) => (
-              <div key={company} style={{ display: 'flex', alignItems: 'baseline', padding: '6px 0' }}>
-                <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', color: 'rgba(50, 64, 79, 0.584)', width: '52px', flexShrink: 0 }}>{year}</span>
-                <span style={{ fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '18px', fontWeight: 350, color: '#333333', flex: '1' }}>{company}</span>
-                <span style={{ fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '18px', fontWeight: 350, color: '#AAAAAA', textAlign: 'right' }}>{role}</span>
+      {/* Two-column layout: 35% left panel | 65% right work panel */}
+      <div style={{ display: 'flex', alignItems: 'flex-start', width: '100%' }}>
+
+        {/* LEFT PANEL — 35%, sticky */}
+        <div style={{
+          width: '35%',
+          flexShrink: 0,
+          position: 'sticky',
+          top: 0,
+          height: '100vh',
+          overflow: 'hidden',
+          display: 'flex',
+          flexDirection: 'column',
+          borderRight: '1px solid rgba(0,0,0,0.06)',
+        }}>
+          {/* Hero text + experience */}
+          <div className="home-anim-hero" style={{ padding: '40px 28px 28px', display: 'flex', flexDirection: 'column', gap: '28px', flex: 1, overflow: 'hidden' }}>
+            <p style={{
+              fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif",
+              fontSize: '22px',
+              fontWeight: 300,
+              color: '#888888',
+              lineHeight: 1.5,
+              margin: 0,
+              letterSpacing: '-0.3px',
+            }}>
+              Nitish Gannu is a designer who brings the precision of statistics to the pixels of product design.
+            </p>
+
+            <div>
+              <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '13px', fontWeight: 400, color: 'rgba(50, 64, 79, 0.5)', display: 'block', marginBottom: '10px', letterSpacing: '0.02em' }}>RECENTLY<span style={{ letterSpacing: '-0.05em' }}>...</span></span>
+              {[
+                { year: '2026', company: 'Cisco', role: 'Engineering PM Intern' },
+                { year: '2026', company: 'Pogo', role: 'Product Design Intern' },
+              ].map(({ year, company, role }) => (
+                <div key={company} style={{ display: 'flex', alignItems: 'baseline', padding: '5px 0' }}>
+                  <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '12px', fontWeight: 400, color: 'rgba(50, 64, 79, 0.45)', width: '44px', flexShrink: 0 }}>{year}</span>
+                  <span style={{ fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 400, color: '#333333', flex: '1' }}>{company}</span>
+                  <span style={{ fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '13px', fontWeight: 350, color: '#AAAAAA', textAlign: 'right' }}>{role}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT PANEL — 65%, scrollable work */}
+        <div style={{ flex: 1, minWidth: 0 }}>
+
+          {/* ChatGPT meta */}
+          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '24px', padding: '40px 36px 0' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+              <img src={chatgptLogo} alt="ChatGPT" style={{ width: '34px', height: '34px', objectFit: 'contain', borderRadius: '9px' }} />
+              <span className="new-hero-body" style={{ margin: 0 }}><span style={{ color: '#000000' }}>ChatGPT</span><span style={{ color: '#AAAAAA' }}>, Concept Design</span></span>
+            </div>
+            <p className="new-hero-body" style={{ margin: 0, flex: 1, minWidth: 0, textAlign: 'left', lineHeight: 1.7 }}>
+              Design engineered an intuitive bookmarking experience for <span style={{ textDecoration: 'underline' }}>ChatGPT</span> across the web and mobile platforms.
+            </p>
+          </div>
+
+          {/* ChatGPT canvas */}
+          <div
+            onClick={() => navigate('/work/chatgpt/full')}
+            style={{
+              width: 'calc(100% - 72px)',
+              margin: '24px 36px 0',
+              height: '420px',
+              background: '#ffffff',
+              border: '1px solid rgba(0,0,0,0.08)',
+              boxSizing: 'border-box',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              overflow: 'hidden',
+              position: 'relative',
+              cursor: 'none',
+            }}
+          >
+            <img src={dotsPattern} alt="" className="home-wide-canvas-dots home-wide-canvas-dots--tl" />
+            <img src={dotsPattern} alt="" className="home-wide-canvas-dots home-wide-canvas-dots--br" />
+            <video src={chatgptAnimation} autoPlay loop muted playsInline className="home-wide-canvas-video" />
+          </div>
+
+          {/* Pogo meta */}
+          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '24px', padding: '52px 36px 0' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+              <img src={pogoLogoNew} alt="Pogo" style={{ width: '40px', height: '40px', objectFit: 'contain', borderRadius: '9px' }} />
+              <span className="new-hero-body" style={{ margin: 0 }}><span style={{ color: '#000000' }}>Pogo</span><span style={{ color: '#AAAAAA' }}>, Product Design Intern</span></span>
+            </div>
+            <p className="new-hero-body" style={{ margin: 0, flex: 1, minWidth: 0, textAlign: 'left', lineHeight: 1.7 }}>
+              Designed end-to-end experiences for <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Pogo</a>, an AI-powered consumer insights platform. Series B, $32M Raised.
+            </p>
+          </div>
+
+          {/* Pogo project grid */}
+          <div style={{ padding: '20px 36px 60px' }}>
+            {/* Row 1: two square thumbnails */}
+            <div style={{ display: 'flex', gap: '14px', width: '100%', alignItems: 'flex-start' }}>
+              <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div
+                  className="cursor-view-project"
+                  onClick={() => navigate('/projects/insights-library')}
+                  style={{ width: '100%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', overflow: 'hidden' }}
+                >
+                  <img src={ilThumbnail} alt="" style={{ width: '100%', height: 'auto', display: 'block', position: 'absolute', top: '25px', left: '20px' }} />
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>Insights Library</span>
+                  <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>Visual Design, Interaction Design</span>
+                </div>
               </div>
-            ))}
+              <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div
+                  className="cursor-building"
+                  style={{ width: '100%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', overflow: 'hidden' }}
+                >
+                  <img src={surveyBranchingThumbnail} alt="" style={{ width: '100%', height: 'auto', display: 'block', position: 'absolute', top: '25px', left: '20px' }} />
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>Survey Branching</span>
+                  <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>Visual Design, Interaction Design</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Row 2: two animation thumbnails */}
+            <div style={{ marginTop: '14px', display: 'flex', gap: '14px', width: '100%' }}>
+              <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div
+                  className="cursor-building"
+                  style={{ width: '100%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px', position: 'relative', overflow: 'hidden' }}
+                >
+                  <VideoCarousel />
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>Interactive Question Picker</span>
+                  <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>Animation Design</span>
+                </div>
+              </div>
+              <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div
+                  className="cursor-building"
+                  style={{ width: '100%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px', position: 'relative', overflow: 'hidden' }}
+                >
+                  <video src={addStudyAnimation} autoPlay loop muted playsInline style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block', transform: 'translateY(-18px)' }} />
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>AI Chat Interactions</span>
+                  <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>Animation Design</span>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
-      </div>
-
-      {/* ChatGPT meta */}
-      <div className="home-wide-meta" style={{ marginTop: '60px' }}>
-        <div className="home-wide-meta-left">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1px' }}>
-            <img src={chatgptLogo} alt="ChatGPT" style={{ width: '34px', height: '34px', objectFit: 'contain', borderRadius: '9px' }} />
-            <span className="new-hero-body" style={{ margin: 0 }}><span style={{ color: '#000000' }}>ChatGPT</span><span style={{ color: '#AAAAAA' }}>, Concept Design</span></span>
-          </div>
-        </div>
-        <p className="new-hero-body" style={{ margin: 0, maxWidth: '520px', textAlign: 'left', lineHeight: 1.7 }}>
-          Design engineered an intuitive bookmarking experience for <span style={{ textDecoration: 'underline' }}>ChatGPT</span> across the web and mobile platforms.
-        </p>
-      </div>
-
-      {/* ChatGPT canvas */}
-      <div className="home-wide-canvas" onClick={() => navigate('/work/chatgpt/full')} style={{ marginTop: 0 }}>
-        <img src={dotsPattern} alt="" className="home-wide-canvas-dots home-wide-canvas-dots--tl" />
-        <img src={dotsPattern} alt="" className="home-wide-canvas-dots home-wide-canvas-dots--br" />
-        <video src={chatgptAnimation} autoPlay loop muted playsInline className="home-wide-canvas-video" />
-      </div>
-
-      {/* Pogo meta — no canvas */}
-      <div className="home-wide-meta" style={{ marginTop: '60px' }}>
-        <div className="home-wide-meta-left">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1px' }}>
-            <img src={pogoLogoNew} alt="Pogo" style={{ width: '40px', height: '40px', objectFit: 'contain', borderRadius: '9px' }} />
-            <span className="new-hero-body" style={{ margin: 0 }}><span style={{ color: '#000000' }}>Pogo</span><span style={{ color: '#AAAAAA' }}>, Product Design Intern</span></span>
-          </div>
-        </div>
-        <p className="new-hero-body" style={{ margin: 0, maxWidth: '520px', textAlign: 'left', lineHeight: 1.7 }}>
-          Designed end-to-end experiences for <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Pogo</a>, an AI-powered consumer insights platform. Series B, $32M Raised.
-        </p>
-      </div>
-
-      {/* Pogo canvases — matched to home-wide-meta padding */}
-      <div style={{ padding: '0 40px 60px' }}>
-        {/* Two rectangular frames */}
-        <div style={{ display: 'flex', gap: '16px', width: '100%', alignItems: 'flex-start' }}>
-          <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div
-              className="cursor-view-project"
-              onClick={() => navigate('/projects/insights-library')}
-              style={{
-                width: '100%',
-                aspectRatio: '1 / 1',
-                maxHeight: '420px',
-                backgroundColor: '#FFFFFF',
-                border: '1px solid #E5E5E5',
-                boxSizing: 'border-box',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'flex-start',
-                position: 'relative',
-                overflow: 'hidden',
-              }}
-            >
-              <img src={ilThumbnail} alt="" style={{ width: '100%', height: 'auto', display: 'block', position: 'absolute', top: '25px', left: '20px' }} />
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>Insights Library</span>
-              <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>Visual Design, Interaction Design</span>
-            </div>
-          </div>
-          <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div className="cursor-building" style={{
-              width: '100%',
-              aspectRatio: '1 / 1',
-              maxHeight: '420px',
-              backgroundColor: '#FFFFFF',
-              border: '1px solid #E5E5E5',
-              boxSizing: 'border-box',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'flex-start',
-              position: 'relative',
-              overflow: 'hidden',
-            }}>
-              <img src={surveyBranchingThumbnail} alt="" style={{ width: '100%', height: 'auto', display: 'block', position: 'absolute', top: '25px', left: '20px' }} />
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>Survey Branching</span>
-              <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>Visual Design, Interaction Design</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Two half canvases */}
-        <div style={{ marginTop: '16px', display: 'flex', gap: '16px', width: '100%' }}>
-          <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div className="cursor-building" style={{
-              width: '100%',
-              aspectRatio: '1 / 1',
-              maxHeight: '420px',
-              backgroundColor: '#FFFFFF',
-          border: '1px solid #E5E5E5',
-              boxSizing: 'border-box',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: '24px',
-              position: 'relative',
-              overflow: 'hidden',
-            }}>
-              <VideoCarousel />
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>Interactive Question Picker</span>
-              <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>Animation Design</span>
-            </div>
-          </div>
-          <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div className="cursor-building" style={{
-              width: '100%',
-              aspectRatio: '1 / 1',
-              maxHeight: '420px',
-              backgroundColor: '#FFFFFF',
-          border: '1px solid #E5E5E5',
-              boxSizing: 'border-box',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: '24px',
-              position: 'relative',
-              overflow: 'hidden',
-            }}>
-              <video src={addStudyAnimation} autoPlay loop muted playsInline style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block', transform: 'translateY(-18px)' }} />
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>AI Chat Interactions</span>
-              <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>Animation Design</span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </>
   );
