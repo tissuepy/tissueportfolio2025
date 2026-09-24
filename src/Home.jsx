@@ -599,9 +599,9 @@ function Home() {
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '24px', padding: '40px 36px 0' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
               <img src={chatgptLogo} alt="ChatGPT" style={{ width: '34px', height: '34px', objectFit: 'contain', borderRadius: '9px' }} />
-              <span className="new-hero-body" style={{ margin: 0 }}><span style={{ color: '#000000' }}>ChatGPT</span><span style={{ color: '#AAAAAA' }}>, Concept Design</span></span>
+              <span className="new-hero-body" style={{ margin: 0 }}><span style={{ color: '#000000' }}>ChatGPT</span></span>
             </div>
-            <p className="new-hero-body" style={{ margin: 0, flex: 1, minWidth: 0, textAlign: 'right', lineHeight: 1.7, fontSize: '15px' }}>
+            <p className="new-hero-body" style={{ margin: 0, flex: 1, minWidth: 0, textAlign: 'right', lineHeight: 1.7, fontSize: '17px' }}>
               Design engineered an intuitive bookmarking experience for <span style={{ textDecoration: 'underline' }}>ChatGPT</span> across the web and mobile platforms.
             </p>
           </div>
@@ -633,7 +633,7 @@ function Home() {
               <img src={pogoLogoNew} alt="Pogo" style={{ width: '40px', height: '40px', objectFit: 'contain', borderRadius: '9px' }} />
               <span className="new-hero-body" style={{ margin: 0 }}><span style={{ color: '#000000' }}>Pogo</span><span style={{ color: '#AAAAAA' }}>, Product Design Intern</span></span>
             </div>
-            <p className="new-hero-body" style={{ margin: 0, flex: 1, minWidth: 0, textAlign: 'right', lineHeight: 1.7, fontSize: '15px' }}>
+            <p className="new-hero-body" style={{ margin: 0, flex: 1, minWidth: 0, textAlign: 'right', lineHeight: 1.7, fontSize: '17px' }}>
               Designed end-to-end experiences for <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Pogo</a>, an AI-powered consumer insights platform. Series B, $32M Raised.
             </p>
           </div>
