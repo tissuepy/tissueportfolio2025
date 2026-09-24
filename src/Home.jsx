@@ -571,7 +571,7 @@ function Home() {
               I was previously a design engineer at <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: '#000000', textDecoration: 'underline' }}>Pogo</a> &amp; I'm envisioning the future of Mathematical Digital Twins at <span style={{ textDecoration: 'underline', color: '#000000' }}>Cisco</span>
             </p>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
-              If you want to work with me: ng545 [at] cornell [dot] edu or just take my <span onClick={() => setTimeout(() => setContactOpen(true), 50)} style={{ textDecoration: 'underline', color: '#000000', cursor: 'pointer' }}>business card</span>
+              Inquiries: ng545 [at] cornell [dot] edu or just take my <span onClick={() => setTimeout(() => setContactOpen(true), 50)} style={{ textDecoration: 'underline', color: '#000000', cursor: 'pointer' }}>business card</span>
             </p>
           </div>
           <div style={{ marginTop: 'auto', padding: '16px 36px 20px' }}>
