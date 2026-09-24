@@ -21,7 +21,7 @@ import insightsThumbnail from './assets/insights-library-thumbnail.png';
 import branchingThumbnail from './assets/branching-thumbnail.png';
 import librarianThumbnail from './assets/librarian-thumbnail.png';
 import chatgptLogo from './articles/chatgpt-logo.png';
-import chatgptAnimation from './assets/chatgpt-product-walkthrough.mp4';
+import chatgptAnimation from './assets/chatgpt-final-padded.mp4';
 import dotsPattern from './assets/chatgpt-dots-pattern.png';
 import pogoLogo from './assets/pogo-logo.png';
 import pogoLogoNew from './assets/pogo-logo-new.png';
