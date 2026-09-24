@@ -589,6 +589,17 @@ function Home() {
             }}>
               I was previously a design engineer at <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: '#000000', textDecoration: 'underline' }}>Pogo</a> &amp; I'm envisioning the future of Mathematical Digital Twins at <span style={{ textDecoration: 'underline', color: '#000000' }}>Cisco</span>
             </p>
+            <p style={{
+              fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif",
+              fontSize: '17px',
+              fontWeight: 300,
+              color: '#888888',
+              lineHeight: 1.5,
+              margin: 0,
+              letterSpacing: '-0.3px',
+            }}>
+              If you want to work with me: ng545 [at] cornell [dot] edu<br />or just take my <span style={{ textDecoration: 'underline', color: '#000000', cursor: 'pointer' }}>business card</span>
+            </p>
           </div>
         </div>
 
