@@ -624,9 +624,7 @@ function Home() {
               cursor: 'none',
             }}
           >
-            <img src={dotsPattern} alt="" className="home-wide-canvas-dots home-wide-canvas-dots--tl" />
-            <img src={dotsPattern} alt="" className="home-wide-canvas-dots home-wide-canvas-dots--br" />
-            <video src={chatgptAnimation} autoPlay loop muted playsInline className="home-wide-canvas-video" />
+            <video src={chatgptAnimation} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
 
           {/* Pogo meta */}
