@@ -578,20 +578,6 @@ function Home() {
             }}>
               Nitish Gannu is a designer who brings the precision of statistics to the pixels of product design.
             </p>
-
-            <div>
-              <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: 'rgba(50, 64, 79, 0.5)', display: 'block', marginBottom: '10px', letterSpacing: '0.02em' }}>RECENTLY<span style={{ letterSpacing: '-0.05em' }}>...</span></span>
-              {[
-                { year: '2026', company: 'Cisco', role: 'Engineering PM Intern' },
-                { year: '2026', company: 'Pogo', role: 'Product Design Intern' },
-              ].map(({ year, company, role }) => (
-                <div key={company} style={{ display: 'flex', alignItems: 'baseline', padding: '5px 0' }}>
-                  <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '14px', fontWeight: 400, color: 'rgba(50, 64, 79, 0.45)', width: '44px', flexShrink: 0 }}>{year}</span>
-                  <span style={{ fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '17px', fontWeight: 400, color: '#333333', flex: '1' }}>{company}</span>
-                  <span style={{ fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '17px', fontWeight: 350, color: '#AAAAAA', textAlign: 'right' }}>{role}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 
