@@ -1,3 +1,6 @@
+import '@fontsource/geist-mono/300.css';
+import '@fontsource/geist-mono/400.css';
+import '@fontsource/geist-mono/500.css';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Routes, Route, NavLink, Link, useLocation } from 'react-router-dom';
