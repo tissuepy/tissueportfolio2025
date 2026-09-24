@@ -401,7 +401,7 @@ function App() {
         </Routes>
       </div>
 
-      {currentPath !== '/photos' && <SiteFooter />}
+      {currentPath !== '/photos' && currentPath !== '/' && <SiteFooter />}
       </div>{/* end site-container */}
 
       </div>
