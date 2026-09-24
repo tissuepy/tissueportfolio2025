@@ -22,6 +22,8 @@ import branchingThumbnail from './assets/branching-thumbnail.png';
 import librarianThumbnail from './assets/librarian-thumbnail.png';
 import chatgptLogo from './articles/chatgpt-logo.png';
 import chatgptAnimation from './assets/chatgpt-final-padded.mp4';
+import chatgptDetail1 from './assets/chatgpt-detail-1.mp4';
+import chatgptDetail2 from './assets/chatgpt-detail-2.mp4';
 import dotsPattern from './assets/chatgpt-dots-pattern.png';
 import pogoLogo from './assets/pogo-logo.png';
 import pogoLogoNew from './assets/pogo-logo-new.png';
@@ -644,6 +646,15 @@ function Home() {
                 userSelect: 'none',
               }}>👁️</div>
             )}
+          </div>
+
+          {/* ChatGPT detail canvases — two side by side */}
+          <div style={{ display: 'flex', gap: '12px', width: 'calc(100% - 72px)', margin: '12px 36px 0' }}>
+            {[chatgptDetail1, chatgptDetail2].map((src, i) => (
+              <div key={i} style={{ flex: 1, height: '320px', background: '#ffffff', border: '1px solid rgba(0,0,0,0.08)', overflow: 'hidden', position: 'relative' }}>
+                <video src={src} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              </div>
+            ))}
           </div>
 
           {/* Pogo meta */}
