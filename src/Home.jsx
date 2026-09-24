@@ -561,7 +561,6 @@ function Home() {
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column',
-          borderRight: '1px solid rgba(0,0,0,0.06)',
         }}>
           {/* Hero text + experience */}
           <div className="home-anim-hero" style={{ padding: '40px 28px 28px', display: 'flex', flexDirection: 'column', gap: '28px', flex: 1, overflow: 'hidden' }}>
