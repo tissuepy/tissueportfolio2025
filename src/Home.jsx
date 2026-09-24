@@ -563,7 +563,7 @@ function Home() {
           flexDirection: 'column',
         }}>
           {/* Hero text + experience */}
-          <div className="home-anim-hero" style={{ padding: '99px 28px 0', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div className="home-anim-hero" style={{ padding: '40px 28px 0', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
               Hey there. I'm <span style={{ textDecoration: 'underline', color: '#000000' }}>Nitish Gannu</span>, a designer who brings the precision of statistics to the pixels of product design.
             </p>
