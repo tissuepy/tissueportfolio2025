@@ -552,7 +552,7 @@ function Home() {
 
         {/* LEFT PANEL — 35%, sticky */}
         <div style={{
-          width: '35%',
+          width: '30%',
           flexShrink: 0,
           position: 'sticky',
           top: 0,
