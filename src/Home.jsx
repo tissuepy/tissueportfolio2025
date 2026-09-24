@@ -607,7 +607,7 @@ function Home() {
         </div>
 
         {/* RIGHT PANEL — 70%, scrollable */}
-        <div className="right-panel-scroll" style={{ flex: 1, minWidth: 0, height: '100vh', overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none', filter: contactOpen ? 'blur(6px)' : 'none', transition: 'filter 0.3s ease', pointerEvents: contactOpen ? 'none' : 'auto' }}>
+        <div className="right-panel-scroll" style={{ flex: 1, minWidth: 0, height: '100vh', overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none', overscrollBehavior: 'none', filter: contactOpen ? 'blur(6px)' : 'none', transition: 'filter 0.3s ease', pointerEvents: contactOpen ? 'none' : 'auto' }}>
 
           {/* ChatGPT meta */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '24px', padding: '40px 36px 0' }}>
