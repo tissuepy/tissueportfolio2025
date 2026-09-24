@@ -651,7 +651,7 @@ function Home() {
           {/* ChatGPT detail canvases — two side by side */}
           <div style={{ display: 'flex', gap: '12px', width: 'calc(100% - 72px)', margin: '12px 36px 0' }}>
             {[chatgptDetail1, chatgptDetail2].map((src, i) => (
-              <div key={i} style={{ flex: 1, height: '320px', background: '#ffffff', border: '1px solid rgba(0,0,0,0.08)', overflow: 'hidden', position: 'relative' }}>
+              <div key={i} style={{ flex: 1, height: '220px', background: '#ffffff', border: '1px solid rgba(0,0,0,0.08)', overflow: 'hidden', position: 'relative' }}>
                 <video src={src} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </div>
             ))}
