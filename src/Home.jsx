@@ -676,64 +676,24 @@ function Home() {
             </p>
           </div>
 
-          {/* Pogo project grid */}
-          <div style={{ padding: '20px 36px 60px' }}>
-            {/* Row 1: two square thumbnails */}
-            <div style={{ display: 'flex', gap: '14px', width: '100%', alignItems: 'flex-start' }}>
-              <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <div
-                  className="cursor-view-project"
-                  onClick={() => navigate('/projects/insights-library')}
-                  style={{ width: '100%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', overflow: 'hidden' }}
-                >
-                  <img src={ilThumbnail} alt="" style={{ width: '100%', height: 'auto', display: 'block', position: 'absolute', top: '25px', left: '20px' }} />
+          {/* Pogo projects stacked */}
+          <div style={{ padding: '20px 36px 60px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            {[
+              { label: 'Insights Library', sub: 'Visual Design, Interaction Design', className: 'cursor-view-project', onClick: () => navigate('/projects/insights-library'), content: <img src={ilThumbnail} alt="" style={{ width: '100%', height: 'auto', display: 'block', position: 'absolute', top: '25px', left: '20px' }} /> },
+              { label: 'Survey Branching', sub: 'Visual Design, Interaction Design', className: 'cursor-building', content: <img src={surveyBranchingThumbnail} alt="" style={{ width: '100%', height: 'auto', display: 'block', position: 'absolute', top: '25px', left: '20px' }} /> },
+              { label: 'Interactive Question Picker', sub: 'Animation Design', className: 'cursor-building', content: <VideoCarousel /> },
+              { label: 'AI Chat Interactions', sub: 'Animation Design', className: 'cursor-building', content: <video src={addStudyAnimation} autoPlay loop muted playsInline style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block', transform: 'translateY(-18px)' }} /> },
+            ].map(({ label, sub, className, onClick, content }) => (
+              <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div className={className} onClick={onClick} style={{ width: '100%', aspectRatio: '2 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px', position: 'relative', overflow: 'hidden' }}>
+                  {content}
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>Insights Library</span>
-                  <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>Visual Design, Interaction Design</span>
+                  <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>{label}</span>
+                  <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>{sub}</span>
                 </div>
               </div>
-              <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <div
-                  className="cursor-building"
-                  style={{ width: '100%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', overflow: 'hidden' }}
-                >
-                  <img src={surveyBranchingThumbnail} alt="" style={{ width: '100%', height: 'auto', display: 'block', position: 'absolute', top: '25px', left: '20px' }} />
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>Survey Branching</span>
-                  <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>Visual Design, Interaction Design</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Row 2: two animation thumbnails */}
-            <div style={{ marginTop: '14px', display: 'flex', gap: '14px', width: '100%' }}>
-              <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <div
-                  className="cursor-building"
-                  style={{ width: '100%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px', position: 'relative', overflow: 'hidden' }}
-                >
-                  <VideoCarousel />
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>Interactive Question Picker</span>
-                  <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>Animation Design</span>
-                </div>
-              </div>
-              <div style={{ flex: '1 1 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <div
-                  className="cursor-building"
-                  style={{ width: '100%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px', position: 'relative', overflow: 'hidden' }}
-                >
-                  <video src={addStudyAnimation} autoPlay loop muted playsInline style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block', transform: 'translateY(-18px)' }} />
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>AI Chat Interactions</span>
-                  <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>Animation Design</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
         </div>
