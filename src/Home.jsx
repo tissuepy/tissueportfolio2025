@@ -569,7 +569,7 @@ function Home() {
           <div className="home-anim-hero" style={{ padding: '40px 28px 28px', display: 'flex', flexDirection: 'column', gap: '28px', flex: 1, overflow: 'hidden' }}>
             <p style={{
               fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif",
-              fontSize: '22px',
+              fontSize: '17px',
               fontWeight: 300,
               color: '#888888',
               lineHeight: 1.5,
