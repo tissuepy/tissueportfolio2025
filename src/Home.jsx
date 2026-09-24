@@ -576,7 +576,7 @@ function Home() {
               margin: 0,
               letterSpacing: '-0.3px',
             }}>
-              <span style={{ textDecoration: 'underline', color: '#000000' }}>Nitish Gannu</span> is a designer who brings the precision of statistics to the pixels of product design.
+              Hey there. I'm <span style={{ textDecoration: 'underline', color: '#000000' }}>Nitish Gannu</span>, a designer who brings the precision of statistics to the pixels of product design.
             </p>
             <p style={{
               fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif",
@@ -598,13 +598,13 @@ function Home() {
               margin: 0,
               letterSpacing: '-0.3px',
             }}>
-              If you want to work with me: ng545 [at] cornell [dot] edu<br />or just take my <span style={{ textDecoration: 'underline', color: '#000000', cursor: 'pointer' }}>business card</span>
+              If you want to work with me: ng545 [at] cornell [dot] edu<br />or just take my <span onClick={() => setTimeout(() => setContactOpen(true), 50)} style={{ textDecoration: 'underline', color: '#000000', cursor: 'pointer' }}>business card</span>
             </p>
           </div>
         </div>
 
         {/* RIGHT PANEL — 65%, scrollable work */}
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ flex: 1, minWidth: 0, filter: contactOpen ? 'blur(6px)' : 'none', transition: 'filter 0.3s ease', pointerEvents: contactOpen ? 'none' : 'auto' }}>
 
           {/* ChatGPT meta */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '24px', padding: '40px 36px 0' }}>
