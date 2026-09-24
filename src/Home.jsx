@@ -564,13 +564,13 @@ function Home() {
         }}>
           {/* Hero text + experience */}
           <div className="home-anim-hero" style={{ padding: '40px 28px 28px', display: 'flex', flexDirection: 'column', gap: '28px', flex: 1, overflow: 'hidden' }}>
-            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.4 }}>
+            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7 }}>
               Hey there. I'm <span style={{ textDecoration: 'underline', color: '#000000' }}>Nitish Gannu</span>, a designer who brings the precision of statistics to the pixels of product design.
             </p>
-            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.4 }}>
+            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7 }}>
               I was previously a design engineer at <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: '#000000', textDecoration: 'underline' }}>Pogo</a> &amp; I'm envisioning the future of Mathematical Digital Twins at <span style={{ textDecoration: 'underline', color: '#000000' }}>Cisco</span>
             </p>
-            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.4 }}>
+            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7 }}>
               If you want to work with me: ng545 [at] cornell [dot] edu<br />or just take my <span onClick={() => setTimeout(() => setContactOpen(true), 50)} style={{ textDecoration: 'underline', color: '#000000', cursor: 'pointer' }}>business card</span>
             </p>
           </div>
