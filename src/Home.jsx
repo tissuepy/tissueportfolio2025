@@ -596,7 +596,7 @@ function Home() {
         <div style={{ flex: 1, minWidth: 0 }}>
 
           {/* ChatGPT meta */}
-          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '24px', padding: '40px 36px 0' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '24px', padding: '40px 36px 0' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
               <img src={chatgptLogo} alt="ChatGPT" style={{ width: '34px', height: '34px', objectFit: 'contain', borderRadius: '9px' }} />
               <span className="new-hero-body" style={{ margin: 0 }}><span style={{ color: '#000000' }}>ChatGPT</span></span>
@@ -628,7 +628,7 @@ function Home() {
           </div>
 
           {/* Pogo meta */}
-          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '24px', padding: '52px 36px 0' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '24px', padding: '52px 36px 0' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
               <img src={pogoLogoNew} alt="Pogo" style={{ width: '40px', height: '40px', objectFit: 'contain', borderRadius: '9px' }} />
               <span className="new-hero-body" style={{ margin: 0 }}><span style={{ color: '#000000' }}>Pogo</span><span style={{ color: '#AAAAAA' }}>, Product Design Intern</span></span>
