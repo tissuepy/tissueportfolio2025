@@ -1,70 +1,218 @@
 .about-page-new {
   width: 100%;
-  padding: 40px 0 80px;
-}
-
-.about-layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 40px;
-  box-sizing: border-box;
+  padding-bottom: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
-.about-hero-title {
-  font-family: 'Lora', Georgia, serif;
-  font-size: 28px;
-  font-weight: 400;
-  color: #000000;
-  margin: 0 0 8px 0;
-  line-height: 1.2;
+/* ── Hero split ── */
+.about-hero-split {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  overflow: hidden;
 }
 
-.about-body-text {
-  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
+.about-grid-slot {
+  flex: 1;
+  min-width: 400px;
+  position: relative;
+  min-height: 280px;
+  align-self: stretch;
+  background: transparent;
+}
+
+/* ── Rolling ball ── */
+@keyframes ballRoll {
+  0%   { transform: translate(-80px, 30px); }
+  100% { transform: translate(620px, 440px); }
+}
+
+@keyframes ballSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(1440deg); }
+}
+
+.about-ball-clip {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 28%, transparent 62%);
+  mask-image: radial-gradient(ellipse at center, black 28%, transparent 62%);
+}
+
+.about-ball-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 84px;
+  animation: ballRoll 7s linear infinite alternate;
+}
+
+.about-ball {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #c0c0c0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+  animation: ballSpin 7s linear infinite alternate;
+}
+
+.about-ball-shadow {
+  position: absolute;
+  top: 54px;
+  left: -8px;
+  width: 78px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.14);
+  filter: blur(5px);
+  transform: rotate(-30deg) scaleY(0.55);
+  z-index: 0;
+}
+
+.about-boarding-pass {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62%;
+  max-width: 460px;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: auto;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-boarding-caption {
+  position: absolute;
+  top: 360px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 350;
+  color: #8C8C8C;
+  white-space: nowrap;
+  margin: 0;
+  z-index: 3;
+}
+
+.about-boarding-caption sup {
+  font-size: 10px;
+  vertical-align: super;
+}
+
+.about-boarding-pass:hover {
+  transform: translateX(-50%) rotate(-6deg);
+}
+
+.about-square-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M 0 0 L 48 0 M 0 0 L 0 48' fill='none' stroke='%23D9D9D9' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 48px 48px;
+  opacity: 0.8;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 45%, transparent 80%),
+    linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 45%, transparent 80%),
+    linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+}
+
+/* ── Text section ── */
+.about-text-section {
+  padding: 60px 26px 60px;
+  max-width: 580px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-section-label {
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
   font-size: 15px;
   font-weight: 400;
-  color: #000000;
-  line-height: 1.6;
+  color: rgba(50, 64, 79, 0.584);
+  letter-spacing: 0;
+  text-transform: uppercase;
   margin: 0;
 }
 
-.about-body-text--grey {
-  color: rgba(0, 0, 0, 0.4);
+.about-body-text {
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 350;
+  color: #8C8C8C;
+  line-height: 1.75;
+  margin: 0;
 }
 
-/* ── Photos row ── */
+/* ── Photo row ── */
 .about-photo-row {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 0 26px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.about-photo {
-  flex: 1;
-  min-width: 0;
-  height: 240px;
+.about-photo-item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 3px;
   display: block;
-  filter: saturate(1.1) contrast(1.05);
-  transition: filter 0.2s ease;
+}
+
+/* ── Dot wave animation ── */
+@keyframes aboutDotWave {
+  from { background-position: 0px 0px; }
+  to   { background-position: 0px -18px; }
+}
+
+.about-dot-wave {
+  animation: aboutDotWave 1.2s linear infinite;
+}
+
+/* ── Writing canvas boarding pass ── */
+.about-writing-boarding-pass {
+  width: 55%;
+  height: auto;
+  display: block;
+  position: absolute;
+  top: calc(50% + 140px);
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  z-index: 1;
+  transition: top 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-writing-canvas:hover .about-writing-boarding-pass {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
 }
 
 /* ── Mobile ── */
-@media (max-width: 600px) {
-  .about-layout {
-    padding: 0 20px;
+@media (max-width: 700px) {
+  .about-text-section {
+    padding: 40px 20px 60px;
   }
 
   .about-photo-row {
-    gap: 6px;
-  }
-
-  .about-photo {
-    height: 120px;
+    grid-template-columns: repeat(2, 1fr);
   }
 }

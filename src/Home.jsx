@@ -567,12 +567,12 @@ function Home() {
           <div className="home-anim-hero" style={{ padding: '40px 28px 28px', display: 'flex', flexDirection: 'column', gap: '28px', flex: 1, overflow: 'hidden' }}>
             <p style={{
               fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif",
-              fontSize: '18px',
+              fontSize: '22px',
               fontWeight: 300,
               color: '#888888',
-              lineHeight: 1.55,
+              lineHeight: 1.5,
               margin: 0,
-              letterSpacing: '-0.2px',
+              letterSpacing: '-0.3px',
             }}>
               Nitish Gannu is a designer who brings the precision of statistics to the pixels of product design.
             </p>
@@ -583,7 +583,7 @@ function Home() {
                 { year: '2026', company: 'Cisco', role: 'Engineering PM Intern' },
                 { year: '2026', company: 'Pogo', role: 'Product Design Intern' },
               ].map(({ year, company, role }) => (
-                <div key={company} style={{ display: 'flex', alignItems: 'baseline', padding: '5px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
+                <div key={company} style={{ display: 'flex', alignItems: 'baseline', padding: '5px 0' }}>
                   <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '12px', fontWeight: 400, color: 'rgba(50, 64, 79, 0.45)', width: '44px', flexShrink: 0 }}>{year}</span>
                   <span style={{ fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 400, color: '#333333', flex: '1' }}>{company}</span>
                   <span style={{ fontFamily: "'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '13px', fontWeight: 350, color: '#AAAAAA', textAlign: 'right' }}>{role}</span>
