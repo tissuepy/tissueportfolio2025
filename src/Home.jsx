@@ -1,6 +1,5 @@
 // Home.jsx
 import './App.css';
-import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/geist-mono/300.css';
 import '@fontsource-variable/geist';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
