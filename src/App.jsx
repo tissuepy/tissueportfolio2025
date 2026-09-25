@@ -149,6 +149,7 @@ function SiteNav() {
 
   const isWork = location.pathname === '/' || location.pathname.startsWith('/work');
   const isAbout = location.pathname === '/about';
+  const isCraftNav = location.pathname === '/craft';
 
   useEffect(() => {
     const update = () => setTime(new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' }));
@@ -177,7 +178,7 @@ function SiteNav() {
         <BusinessCard onClose={handleContactClose} dismissRef={contactDismissRef} onDismissStart={handleDismissStart} fromNav navBottom={navBottom} />,
         document.body
       )}
-      <div ref={navRef} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '30px 26px 4px', position: 'relative', zIndex: 10002 }}>
+      <div ref={navRef} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '22px 26px', position: 'relative', zIndex: 10002 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', color: 'rgba(50, 64, 79, 0.584)' }}>
           <span>New York</span>
           <span style={{ opacity: 0.5 }}>·</span>
@@ -192,6 +193,7 @@ function SiteNav() {
             pointerEvents: contactOpen ? 'none' : 'auto',
           }}>
             <Link to="/" style={{ color: isWork ? 'rgba(50, 64, 79, 1)' : 'rgba(50, 64, 79, 0.584)', textDecoration: 'none' }} onMouseEnter={e => e.target.style.color='rgba(50,64,79,1)'} onMouseLeave={e => e.target.style.color= isWork ? 'rgba(50,64,79,1)' : 'rgba(50, 64, 79, 0.584)'}>Work</Link>
+            <Link to="/craft" style={{ color: isCraftNav ? 'rgba(50, 64, 79, 1)' : 'rgba(50, 64, 79, 0.584)', textDecoration: 'none' }} onMouseEnter={e => e.target.style.color='rgba(50,64,79,1)'} onMouseLeave={e => e.target.style.color= isCraftNav ? 'rgba(50,64,79,1)' : 'rgba(50, 64, 79, 0.584)'}>Craft</Link>
             <Link to="/about" style={{ color: isAbout ? 'rgba(50, 64, 79, 1)' : 'rgba(50, 64, 79, 0.584)', textDecoration: 'none' }} onMouseEnter={e => e.target.style.color='rgba(50,64,79,1)'} onMouseLeave={e => e.target.style.color= isAbout ? 'rgba(50,64,79,1)' : 'rgba(50, 64, 79, 0.584)'}>About</Link>
           </div>
           <button
@@ -361,7 +363,7 @@ function App() {
     <>
       {showLoader && <LoadingScreen onComplete={handleLoaderComplete} />}
       <div className={contentReady ? 'content-visible' : 'content-hidden'}>
-      <DotCursor />
+      {/* <DotCursor /> */}
       {/* <CustomCursor /> */}{/* old red cursor — kept for reference */}
       {/* BackgroundAnimation removed */}
       <div className="site-container">
@@ -381,6 +383,7 @@ function App() {
         <SiteNav />
         <Routes location={{ pathname: currentPath }}>
           <Route path="/" element={<Home />} />
+          <Route path="/craft" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/work/searchneu" element={<SearchNEUCaseStudy />} />
           <Route path="/work/wrap" element={<WrapCaseStudy />} />
@@ -401,7 +404,7 @@ function App() {
         </Routes>
       </div>
 
-      {currentPath !== '/photos' && currentPath !== '/' && <SiteFooter />}
+      {currentPath !== '/photos' && currentPath !== '/' && currentPath !== '/craft' && <SiteFooter />}
       </div>{/* end site-container */}
 
       </div>

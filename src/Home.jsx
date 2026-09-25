@@ -4,7 +4,8 @@ import '@fontsource/geist-mono/300.css';
 import '@fontsource-variable/geist';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
+import craftWalkthrough from './assets/craft-walkthrough.mp4';
 import WalletCard from './WalletCard';
 import WalletFanOpen from './WalletFanOpen';
 import notionFace from './assets/notion-nitu.png';
@@ -26,6 +27,7 @@ import chatgptDetail1 from './assets/chatgpt-detail-1.mp4';
 import chatgptDetail2 from './assets/chatgpt-detail-2.mp4';
 import dotsPattern from './assets/chatgpt-dots-pattern.png';
 import pogoLogo from './assets/pogo-logo.png';
+import ciscoLogo from './assets/cisco-logo.png';
 import pogoLogoNew from './assets/pogo-logo-new.png';
 import ilThumbnail from './assets/il-thumbnail.png';
 import surveyBranchingThumbnail from './assets/survey-branching-thumbnail.png';
@@ -454,7 +456,36 @@ function HomeContactCard({ onClose, navBottom, buttonRight }) {
 
 function Home() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isCraft = location.pathname === '/craft';
   const workSectionRef = useRef(null);
+  const rightPanelRef = useRef(null);
+  const leftPanelRef = useRef(null);
+  const [hoverCard, setHoverCard] = useState(null); // { label, x, y }
+  const hoverCardMousePos = useRef({ x: 0, y: 0 });
+
+  const handleLinkEnter = (e, label) => {
+    hoverCardMousePos.current = { x: e.clientX, y: e.clientY };
+    setHoverCard({ label, x: e.clientX, y: e.clientY });
+  };
+  const handleLinkLeave = () => setHoverCard(null);
+  const handleLinkMouseMove = (e) => {
+    if (hoverCard) {
+      hoverCardMousePos.current = { x: e.clientX, y: e.clientY };
+      setHoverCard(prev => prev ? { ...prev, x: e.clientX, y: e.clientY } : null);
+    }
+  };
+
+  useEffect(() => {
+    const el = leftPanelRef.current;
+    if (!el) return;
+    const handler = (e) => {
+      e.preventDefault();
+      if (rightPanelRef.current) rightPanelRef.current.scrollTop += e.deltaY;
+    };
+    el.addEventListener('wheel', handler, { passive: false });
+    return () => el.removeEventListener('wheel', handler);
+  }, []);
   const [copied, setCopied] = useState(false);
   const [ilHovered, setIlHovered] = useState(false);
   const [chatgptCursor, setChatgptCursor] = useState({ visible: false, x: 0, y: 0 });
@@ -526,7 +557,32 @@ function Home() {
         <BusinessCard onClose={() => setContactOpen(false)} dismissRef={contactDismissRef} onDismissStart={() => {}} fromNav navBottom={navBottom} />,
         document.body
       )}
+      {hoverCard && createPortal(
+        <div style={{
+          position: 'fixed',
+          left: hoverCard.x + 12,
+          top: hoverCard.y + 12,
+          width: '220px',
+          height: '160px',
+          background: '#ffffff',
+          borderRadius: '0px',
+          boxShadow: '0 4px 24px rgba(0,0,0,0.10)',
+          zIndex: 99999,
+          pointerEvents: 'none',
+          overflow: 'hidden',
+          animation: 'hover-card-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+        }}>
+          <div style={{ width: '100%', height: '100%', background: '#E8E8E8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '11px', color: '#999', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{hoverCard.label}</span>
+          </div>
+        </div>,
+        document.body
+      )}
       <style>{`
+        @keyframes hover-card-in {
+          from { opacity: 0; transform: scale(0.94); border-radius: 14px; }
+          to   { opacity: 1; transform: scale(1);    border-radius: 0px; }
+        }
         @keyframes home-slide-down {
           from { opacity: 0; transform: translateY(-24px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -554,7 +610,9 @@ function Home() {
       <div style={{ display: 'flex', alignItems: 'flex-start', width: '100%', height: '100vh', overflow: 'hidden' }}>
 
         {/* LEFT PANEL — 30%, fixed in place */}
-        <div style={{
+        <div
+          ref={leftPanelRef}
+          style={{
           width: '30%',
           flexShrink: 0,
           height: '100vh',
@@ -565,31 +623,38 @@ function Home() {
           {/* Hero text + experience */}
           <div className="home-anim-hero" style={{ padding: '40px 26px 0', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
-              Hey there. I'm <span style={{ textDecoration: 'underline', color: '#000000' }}>Nitish Gannu</span>, a designer who brings the precision of statistics to the pixels of product design.
+              Hey there. I'm <span style={{ textDecoration: 'underline', color: '#666666' }}>Nitish Gannu</span>, a designer who brings the precision of statistics to the pixels of product design.
             </p>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
-              I was previously a design engineer at <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: '#000000', textDecoration: 'underline' }}>Pogo</a> &amp; I'm envisioning the future of Mathematical Digital Twins at <span style={{ textDecoration: 'underline', color: '#000000' }}>Cisco</span>
+              I was previously a design engineer at <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" onMouseEnter={e => { handleLinkEnter(e, 'pogo'); const t = e.currentTarget.querySelector('.link-text'); if(t){t.style.textDecoration='none';t.style.background='#000';t.style.color='#fff';} }} onMouseLeave={e => { handleLinkLeave(); const t = e.currentTarget.querySelector('.link-text'); if(t){t.style.textDecoration='underline';t.style.background='none';t.style.color='#666666';} }} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', verticalAlign: 'middle' }}><img src={pogoLogoNew} alt="" style={{ width: '19px', height: '19px', objectFit: 'cover', borderRadius: '0px', display: 'inline-block', flexShrink: 0 }} /><span className="link-text" style={{ color: '#666666', textDecoration: 'underline', transition: 'background 0.15s, color 0.15s' }}>Pogo</span></a> &amp; I'm envisioning the future of Mathematical Digital Twins at <a href="https://www.cisco.com/" target="_blank" rel="noreferrer" onMouseEnter={e => { handleLinkEnter(e, 'cisco'); const t = e.currentTarget.querySelector('.link-text'); if(t){t.style.textDecoration='none';t.style.background='#000';t.style.color='#fff';} }} onMouseLeave={e => { handleLinkLeave(); const t = e.currentTarget.querySelector('.link-text'); if(t){t.style.textDecoration='underline';t.style.background='none';t.style.color='#666666';} }} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', verticalAlign: 'middle' }}><img src={ciscoLogo} alt="" style={{ width: '19px', height: '19px', objectFit: 'cover', borderRadius: '0px', display: 'inline-block', flexShrink: 0 }} /><span className="link-text" style={{ color: '#666666', textDecoration: 'underline', transition: 'background 0.15s, color 0.15s' }}>Cisco</span></a>
             </p>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
-              Inquiries: ng545 [at] cornell [dot] edu or just take my <span onClick={() => setTimeout(() => setContactOpen(true), 50)} style={{ textDecoration: 'underline', color: '#000000', cursor: 'pointer' }}>business card</span>
-            </p>
-          </div>
-          <div style={{ marginTop: 'auto', padding: '16px 26px 36px' }}>
-            <p style={{ fontFamily: "'Geist Mono', monospace", fontSize: '13px', color: '#AAAAAA', margin: 0, letterSpacing: '0.02em' }}>
-              © 2026 NITISH GANNU. MADE WITH <img src={clawdLogo} alt="Claude Code" style={{ width: '15px', height: '15px', verticalAlign: 'middle', opacity: 0.6 }} />
+              Inquiries: ng545 [at] cornell [dot] edu or just take my <span onClick={() => setTimeout(() => setContactOpen(true), 50)} style={{ textDecoration: 'underline', color: '#666666', cursor: 'pointer' }}>business card</span>
             </p>
           </div>
         </div>
 
         {/* RIGHT PANEL — 70%, scrollable */}
-        <div className="right-panel-scroll" style={{ flex: 1, minWidth: 0, height: '100vh', overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none', overscrollBehavior: 'none', filter: contactOpen ? 'blur(6px)' : 'none', transition: 'filter 0.3s ease', pointerEvents: contactOpen ? 'none' : 'auto' }}>
+        <div ref={rightPanelRef} className="right-panel-scroll" style={{ flex: 1, minWidth: 0, height: '100vh', overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none', overscrollBehavior: 'none', filter: contactOpen ? 'blur(6px)' : 'none', transition: 'filter 0.3s ease', pointerEvents: contactOpen ? 'none' : 'auto' }}>
+
+        {isCraft ? (
+          /* CRAFT VIEW */
+          <div style={{ padding: '40px 36px 60px' }}>
+            <div style={{ borderRadius: '16px', overflow: 'hidden', background: '#000', aspectRatio: '16 / 10', maxWidth: '520px', position: 'relative' }}>
+              <video
+                src={craftWalkthrough}
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
+          </div>
+        ) : (<>
 
           {/* ChatGPT meta */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '24px', padding: '40px 36px 0' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
-              <img src={chatgptLogo} alt="ChatGPT" style={{ width: '24px', height: '24px', objectFit: 'contain', borderRadius: '6px' }} />
-              <span className="new-hero-body" style={{ margin: 0 }}><span style={{ color: '#000000' }}>ChatGPT</span></span>
-            </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '40px 36px 0' }}>
             <p className="new-hero-body" style={{ margin: 0, maxWidth: "420px", textAlign: "right", lineHeight: 1.7, fontSize: "16px" }}>
               Design engineered an intuitive bookmarking experience for <span style={{ textDecoration: 'underline' }}>ChatGPT</span> across the web and mobile platforms.
             </p>
@@ -598,11 +663,6 @@ function Home() {
           {/* ChatGPT canvas */}
           <div
             onClick={() => navigate('/work/chatgpt/full')}
-            onMouseMove={(e) => {
-              const rect = e.currentTarget.getBoundingClientRect();
-              setChatgptCursor({ visible: true, x: e.clientX - rect.left, y: e.clientY - rect.top });
-            }}
-            onMouseLeave={() => setChatgptCursor(c => ({ ...c, visible: false }))}
             style={{
               width: 'calc(100% - 72px)',
               margin: '24px 36px 0',
@@ -615,23 +675,9 @@ function Home() {
               justifyContent: 'center',
               overflow: 'hidden',
               position: 'relative',
-              cursor: 'none',
             }}
           >
             <video src={chatgptAnimation} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            {chatgptCursor.visible && (
-              <div style={{
-                position: 'absolute',
-                left: chatgptCursor.x,
-                top: chatgptCursor.y,
-                transform: 'translate(-50%, -50%)',
-                pointerEvents: 'none',
-                zIndex: 10,
-                fontSize: '22px',
-                lineHeight: 1,
-                userSelect: 'none',
-              }}>👁️</div>
-            )}
           </div>
 
           {/* ChatGPT detail canvases — two side by side */}
@@ -644,12 +690,8 @@ function Home() {
           </div>
 
           {/* Pogo meta */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '24px', padding: '52px 36px 0' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
-              <img src={pogoLogoNew} alt="Pogo" style={{ width: '40px', height: '40px', objectFit: 'contain', borderRadius: '9px' }} />
-              <span className="new-hero-body" style={{ margin: 0 }}><span style={{ color: '#000000' }}>Pogo</span><span style={{ color: '#AAAAAA' }}>, Product Design Intern</span></span>
-            </div>
-            <p className="new-hero-body" style={{ margin: 0, maxWidth: "420px", textAlign: "right", lineHeight: 1.7, fontSize: "16px" }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '52px 36px 0' }}>
+            <p className="new-hero-body" style={{ margin: 0, maxWidth: "460px", textAlign: "right", lineHeight: 1.7, fontSize: "16px" }}>
               Designed end-to-end experiences for <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Pogo</a>, an AI-powered consumer insights platform. Series B, $32M Raised.
             </p>
           </div>
@@ -659,8 +701,8 @@ function Home() {
             {[
               { label: 'Insights Library', sub: 'Visual Design, Interaction Design', className: 'cursor-view-project', onClick: () => navigate('/projects/insights-library'), content: <img src={ilThumbnail} alt="" style={{ width: '75%', height: 'auto', display: 'block', position: 'absolute', top: '10px', left: '60px' }} /> },
               { label: 'Survey Branching', sub: 'Visual Design, Interaction Design', className: 'cursor-building', content: <img src={surveyBranchingThumbnail} alt="" style={{ width: '100%', height: 'auto', display: 'block', position: 'absolute', top: '25px', left: '20px' }} /> },
-              { label: 'Interactive Question Picker', sub: 'Animation Design', className: 'cursor-building', content: <VideoCarousel /> },
-              { label: 'AI Chat Interactions', sub: 'Animation Design', className: 'cursor-building', content: <video src={addStudyAnimation} autoPlay loop muted playsInline style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block', transform: 'translateY(-18px)' }} /> },
+              // { label: 'Interactive Question Picker', sub: 'Animation Design', className: 'cursor-building', content: <VideoCarousel /> },
+              // { label: 'AI Chat Interactions', sub: 'Animation Design', className: 'cursor-building', content: <video src={addStudyAnimation} autoPlay loop muted playsInline style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block', transform: 'translateY(-18px)' }} /> },
             ].map(({ label, sub, className, onClick, content }) => (
               <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <div className={className} onClick={onClick} style={{ width: '100%', aspectRatio: '2 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px', position: 'relative', overflow: 'hidden' }}>
@@ -674,6 +716,7 @@ function Home() {
             ))}
           </div>
 
+        </>)}
         </div>
       </div>
     </>
