@@ -51,6 +51,8 @@ import iconLab from './assets/icon-lab.png';
 import pillIconCornell from './assets/arrow-triangle-top.png';
 import pillIconCisco from './assets/form-square.png';
 import pillIconPogo from './assets/form-circle.png';
+import hoverImgPogo from './assets/pogo-office.jpeg';
+import hoverImgCisco from './assets/cisco-13.jpeg';
 import { BusinessCard } from './SiteFooter';
 
 const POGO_VIDEOS = [journeyVideo, monadicVideo, screenerVideo];
@@ -572,9 +574,7 @@ function Home() {
           overflow: 'hidden',
           animation: 'hover-card-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) forwards',
         }}>
-          <div style={{ width: '100%', height: '100%', background: '#E8E8E8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '11px', color: '#999', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{hoverCard.label}</span>
-          </div>
+          <img src={hoverCard.label === 'pogo' ? hoverImgPogo : hoverImgCisco} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
         </div>,
         document.body
       )}
