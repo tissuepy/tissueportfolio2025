@@ -574,9 +574,7 @@ function Home() {
           overflow: 'hidden',
           animation: 'hover-card-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) forwards',
         }}>
-          <div style={{ width: '100%', height: '100%', padding: '5px', boxSizing: 'border-box' }}>
-            <img src={hoverCard.label === 'pogo' ? hoverImgPogo : hoverImgCisco} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
+          <img src={hoverCard.label === 'pogo' ? hoverImgPogo : hoverImgCisco} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
         </div>,
         document.body
       )}
