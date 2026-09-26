@@ -700,7 +700,7 @@ function Home() {
           <div style={{ padding: '20px 36px 120px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {[
               { label: 'Insights Library', sub: 'Visual Design, Interaction Design', className: 'cursor-view-project', onClick: () => navigate('/projects/insights-library'), content: <img src={ilThumbnail} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', top: '5px', left: 0, right: 0, bottom: '-5px' }} /> },
-              // { label: 'Survey Branching', sub: 'Visual Design, Interaction Design', className: 'cursor-building', content: <img src={surveyBranchingThumbnail} alt="" style={{ width: '100%', height: 'auto', display: 'block', position: 'absolute', top: '25px', left: '20px' }} /> },
+              { label: 'Survey Branching', sub: 'Visual Design, Interaction Design', className: 'cursor-building', content: <img src={branchingThumbnail} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', inset: 0 }} /> },
               // { label: 'Interactive Question Picker', sub: 'Animation Design', className: 'cursor-building', content: <VideoCarousel /> },
               // { label: 'AI Chat Interactions', sub: 'Animation Design', className: 'cursor-building', content: <video src={addStudyAnimation} autoPlay loop muted playsInline style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block', transform: 'translateY(-18px)' }} /> },
             ].map(({ label, sub, className, onClick, content }) => (
