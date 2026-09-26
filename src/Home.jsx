@@ -697,7 +697,7 @@ function Home() {
           </div>
 
           {/* Pogo projects stacked */}
-          <div style={{ padding: '20px 36px 60px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div style={{ padding: '20px 36px 120px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {[
               { label: 'Insights Library', sub: 'Visual Design, Interaction Design', className: 'cursor-view-project', onClick: () => navigate('/projects/insights-library'), content: <img src={ilThumbnail} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', top: '5px', left: 0, right: 0, bottom: '-5px' }} /> },
               // { label: 'Survey Branching', sub: 'Visual Design, Interaction Design', className: 'cursor-building', content: <img src={surveyBranchingThumbnail} alt="" style={{ width: '100%', height: 'auto', display: 'block', position: 'absolute', top: '25px', left: '20px' }} /> },
