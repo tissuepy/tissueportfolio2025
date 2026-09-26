@@ -29,7 +29,7 @@ import dotsPattern from './assets/chatgpt-dots-pattern.png';
 import pogoLogo from './assets/pogo-logo.png';
 import ciscoLogo from './assets/cisco-logo.png';
 import pogoLogoNew from './assets/pogo-logo-new.png';
-import ilThumbnail from './assets/il-thumbnail.png';
+import ilThumbnail from './assets/insights-thumbnail-2.png';
 import surveyBranchingThumbnail from './assets/survey-branching-thumbnail.png';
 import firstMockup from './assets/first-mockup-il.png';
 import comprehensiveSearch from './assets/comprehensive-search-il.png';
