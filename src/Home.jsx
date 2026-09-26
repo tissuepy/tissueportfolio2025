@@ -708,10 +708,6 @@ function Home() {
                 <div className={className} onClick={onClick} style={{ width: '100%', aspectRatio: '2 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px', position: 'relative', overflow: 'hidden' }}>
                   {content}
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span className="new-hero-body" style={{ margin: 0, color: '#000000' }}>{label}</span>
-                  <span className="new-hero-body" style={{ margin: 0, color: '#AAAAAA' }}>{sub}</span>
-                </div>
               </div>
             ))}
           </div>
