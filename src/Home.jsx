@@ -469,7 +469,13 @@ function Home() {
   const [hoverCard, setHoverCard] = useState(null); // { label, x, y }
   const hoverCardMousePos = useRef({ x: 0, y: 0 });
   const [craftOpen, setCraftOpen] = useState(false);
+  const [craftClosing, setCraftClosing] = useState(false);
   const craftLightboxVideoRef = useRef(null);
+
+  const closeCraft = () => {
+    setCraftClosing(true);
+    setTimeout(() => { setCraftOpen(false); setCraftClosing(false); }, 400);
+  };
 
   const handleLinkEnter = (e, label) => {
     hoverCardMousePos.current = { x: e.clientX, y: e.clientY };
@@ -705,26 +711,35 @@ function Home() {
           {craftOpen && createPortal(
             <>
               <style>{`
-                @keyframes craft-overlay-in { from { opacity: 0; } to { opacity: 1; } }
-                @keyframes craft-canvas-in {
+                @keyframes craft-overlay-in  { from { opacity: 0; } to { opacity: 1; } }
+                @keyframes craft-overlay-out { from { opacity: 1; } to { opacity: 0; } }
+                @keyframes craft-canvas-in  {
                   from { opacity: 0; transform: translate(-50%, -50%) scale(0.82); border-radius: 18px; }
                   to   { opacity: 1; transform: translate(-50%, -50%) scale(1);    border-radius: 10px; }
                 }
+                @keyframes craft-canvas-out {
+                  from { opacity: 1; transform: translate(-50%, -50%) scale(1);    border-radius: 10px; }
+                  to   { opacity: 0; transform: translate(-50%, -50%) scale(0.86); border-radius: 14px; }
+                }
               `}</style>
               <div
-                onClick={() => setCraftOpen(false)}
+                onClick={closeCraft}
                 style={{
                   position: 'fixed', inset: 0, zIndex: 88888,
                   backdropFilter: 'blur(5px)', WebkitBackdropFilter: 'blur(5px)',
                   backgroundColor: 'rgba(0,0,0,0.28)',
-                  animation: 'craft-overlay-in 0.5s cubic-bezier(0.22,1,0.36,1) forwards',
+                  animation: craftClosing
+                    ? 'craft-overlay-out 0.38s cubic-bezier(0.22,1,0.36,1) forwards'
+                    : 'craft-overlay-in 0.5s cubic-bezier(0.22,1,0.36,1) forwards',
                 }}
               />
               <div style={{
                 position: 'fixed', top: '50%', left: '50%', zIndex: 88889,
                 width: 'min(80vw, 900px)', aspectRatio: '2 / 1',
                 overflow: 'hidden', border: '1px solid rgba(255,255,255,0.15)',
-                animation: 'craft-canvas-in 0.52s cubic-bezier(0.16,1,0.3,1) forwards',
+                animation: craftClosing
+                  ? 'craft-canvas-out 0.38s cubic-bezier(0.22,1,0.36,1) forwards'
+                  : 'craft-canvas-in 0.52s cubic-bezier(0.16,1,0.3,1) forwards',
                 pointerEvents: 'none',
               }}>
                 <img src={craftBg} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
