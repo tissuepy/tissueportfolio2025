@@ -54,7 +54,8 @@ import pillIconPogo from './assets/form-circle.png';
 import hoverImgPogo from './assets/pogo-office.jpeg';
 import hoverImgCisco from './assets/cisco-13.jpeg';
 import craftBg from './assets/craft-bg.avif';
-import airportIphone from './assets/airport-iphone.webm';
+import airportIphoneMov from './assets/airport-iphone.mov';
+import airportIphoneWebm from './assets/airport-iphone.webm';
 import { BusinessCard } from './SiteFooter';
 
 const POGO_VIDEOS = [journeyVideo, monadicVideo, screenerVideo];
@@ -725,7 +726,10 @@ function Home() {
               {/* Background image */}
               <img src={craftBg} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               {/* iPhone frame video overlay */}
-              <video src={airportIphone} autoPlay loop muted playsInline style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', height: '100%', width: 'auto', mixBlendMode: 'screen' }} />
+              <video autoPlay loop muted playsInline style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', height: '90%', width: 'auto' }}>
+                <source src={airportIphoneMov} type="video/mp4; codecs=hvc1" />
+                <source src={airportIphoneWebm} type="video/webm" />
+              </video>
             </div>
           </div>
 
