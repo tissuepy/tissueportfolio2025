@@ -573,10 +573,6 @@ function Home() {
 
   return (
     <>
-      {contactOpen && createPortal(
-        <BusinessCard onClose={() => setContactOpen(false)} dismissRef={contactDismissRef} onDismissStart={() => {}} fromNav navBottom={navBottom} />,
-        document.body
-      )}
       {hoverCard && createPortal(
         <div style={{
           position: 'fixed',
@@ -634,9 +630,13 @@ function Home() {
           width: '30%',
           flexShrink: 0,
           height: '100vh',
-          overflow: 'hidden',
+          overflowX: 'hidden',
+          overflowY: 'auto',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
           display: 'flex',
           flexDirection: 'column',
+          position: 'relative',
         }}>
           {/* Hero text + experience */}
           <div className="home-anim-hero" style={{ padding: '40px 26px 0', display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -647,13 +647,20 @@ function Home() {
               I was previously a design engineer at <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" onMouseEnter={e => { handleLinkEnter(e, 'pogo'); const t = e.currentTarget.querySelector('.link-text'); if(t){t.style.textDecoration='none';t.style.background='#555';t.style.color='#fff';} }} onMouseLeave={e => { handleLinkLeave(); const t = e.currentTarget.querySelector('.link-text'); if(t){t.style.textDecoration='underline';t.style.background='none';t.style.color='#666666';} }} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', verticalAlign: 'middle' }}><img src={pogoLogoNew} alt="" style={{ width: '19px', height: '19px', objectFit: 'cover', borderRadius: '0px', display: 'inline-block', flexShrink: 0 }} /><span className="link-text" style={{ color: '#666666', textDecoration: 'underline', transition: 'background 0.15s, color 0.15s' }}>Pogo</span></a> &amp; I'm envisioning the future of Mathematical Digital Twins at <a href="https://www.cisco.com/" target="_blank" rel="noreferrer" onMouseEnter={e => { handleLinkEnter(e, 'cisco'); const t = e.currentTarget.querySelector('.link-text'); if(t){t.style.textDecoration='none';t.style.background='#555';t.style.color='#fff';} }} onMouseLeave={e => { handleLinkLeave(); const t = e.currentTarget.querySelector('.link-text'); if(t){t.style.textDecoration='underline';t.style.background='none';t.style.color='#666666';} }} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', verticalAlign: 'middle' }}><img src={ciscoLogo} alt="" style={{ width: '19px', height: '19px', objectFit: 'cover', borderRadius: '0px', display: 'inline-block', flexShrink: 0 }} /><span className="link-text" style={{ color: '#666666', textDecoration: 'underline', transition: 'background 0.15s, color 0.15s' }}>Cisco</span></a>
             </p>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
-              Inquiries: ng545 [at] cornell [dot] edu or just take my <span onClick={() => setTimeout(() => setContactOpen(true), 50)} style={{ textDecoration: 'underline', color: '#666666', cursor: 'pointer' }}>business card</span>
+              Inquiries: ng545 [at] cornell [dot] edu or just take my <span onClick={() => contactOpen ? setContactOpen(false) : setContactOpen(true)} style={{ textDecoration: 'underline', color: '#666666', cursor: 'pointer' }}>business card</span>
             </p>
           </div>
+
+          {/* Inline business card — appears below hero text */}
+          {contactOpen && (
+            <div style={{ padding: '16px 26px 26px' }}>
+              <BusinessCard inline onClose={() => setContactOpen(false)} dismissRef={contactDismissRef} onDismissStart={() => {}} />
+            </div>
+          )}
         </div>
 
         {/* RIGHT PANEL — 70%, scrollable */}
-        <div ref={rightPanelRef} className="right-panel-scroll" style={{ flex: 1, minWidth: 0, height: '100vh', overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none', overscrollBehavior: 'none', filter: contactOpen ? 'blur(6px)' : 'none', transition: 'filter 0.3s ease', pointerEvents: contactOpen ? 'none' : 'auto' }}>
+        <div ref={rightPanelRef} className="right-panel-scroll" style={{ flex: 1, minWidth: 0, height: '100vh', overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none', overscrollBehavior: 'none' }}>
 
         {isCraft ? (
           /* CRAFT VIEW */
@@ -693,6 +700,7 @@ function Home() {
               justifyContent: 'center',
               overflow: 'hidden',
               position: 'relative',
+              cursor: 'pointer',
             }}
           >
             <video src={chatgptAnimation} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
@@ -760,7 +768,6 @@ function Home() {
                 position: 'fixed', zIndex: 88889,
                 aspectRatio: '2 / 1',
                 overflow: 'hidden',
-                border: '1px solid rgba(255,255,255,0.12)',
                 pointerEvents: 'none',
                 '--craft-x': `${craftRect.left}px`,
                 '--craft-y': `${craftRect.top}px`,
@@ -789,7 +796,7 @@ function Home() {
               // { label: 'AI Chat Interactions', sub: 'Animation Design', className: 'cursor-building', content: <video src={addStudyAnimation} autoPlay loop muted playsInline style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block', transform: 'translateY(-18px)' }} /> },
             ].map(({ label, sub, className, onClick, content }) => (
               <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <div className={className} onClick={onClick} style={{ width: '100%', aspectRatio: '2 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px', position: 'relative', overflow: 'hidden' }}>
+                <div className={className} onClick={onClick} style={{ width: '100%', aspectRatio: '2 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px', position: 'relative', overflow: 'hidden', cursor: onClick ? 'pointer' : 'default' }}>
                   {content}
                 </div>
               </div>

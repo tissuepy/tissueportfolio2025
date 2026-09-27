@@ -9,7 +9,7 @@ import crossIcon from './assets/CrossMedium.png';
 import moonIcon from './assets/Moon.png';
 import creditCardIcon from './assets/CreditCard1.png';
 
-export function BusinessCard({ onClose, dismissRef, onDismissStart, fromNav = false, navBottom = 0 }) {
+export function BusinessCard({ onClose, dismissRef, onDismissStart, fromNav = false, navBottom = 0, inline = false }) {
   const [copied, setCopied] = useState(false);
   const [dropped, setDropped] = useState(false);
   const [closing, setClosing] = useState(false);
@@ -31,10 +31,11 @@ export function BusinessCard({ onClose, dismissRef, onDismissStart, fromNav = fa
   }, []);
 
   useEffect(() => {
+    if (inline) return;
     const onScroll = () => dismiss();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [dismiss]);
+  }, [dismiss, inline]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText('ng545@cornell.edu').then(() => {
@@ -49,7 +50,7 @@ export function BusinessCard({ onClose, dismissRef, onDismissStart, fromNav = fa
 
   return (
     <>
-      <div onClick={handleBackdropClick} style={{
+      {!inline && <div onClick={handleBackdropClick} style={{
         position: 'fixed',
         top: fromNav ? navBottom : 0,
         left: 0, right: 0,
@@ -61,7 +62,7 @@ export function BusinessCard({ onClose, dismissRef, onDismissStart, fromNav = fa
         transition: closing
           ? 'backdrop-filter 0.2s ease, -webkit-backdrop-filter 0.2s ease, background-color 0.2s ease'
           : 'backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease, background-color 0.4s ease',
-      }} />
+      }} />}
       <style>{`
         @keyframes card-expand-up {
           0%   { opacity: 0; transform: scaleX(0.9) scaleY(0.4) translateY(12px); }
@@ -77,22 +78,32 @@ export function BusinessCard({ onClose, dismissRef, onDismissStart, fromNav = fa
           92%  { transform: scaleX(1.003) scaleY(1.008) translateY(1px); }
           100% { opacity: 1; transform: scaleX(1) scaleY(1) translateY(0); }
         }
+        @keyframes card-inline-in {
+          0%   { opacity: 0; transform: translateY(16px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
       `}</style>
       <div style={{
-        position: 'fixed',
-        ...(fromNav
-          ? { right: '26px', top: navBottom + 8 }
-          : { right: '26px', bottom: '76px' }),
-        zIndex: 10001,
-        width: 'min(440px, 88vw)',
+        ...(inline ? {
+          position: 'relative',
+          width: '100%',
+        } : {
+          position: 'fixed',
+          ...(fromNav
+            ? { right: '26px', top: navBottom + 8 }
+            : { right: '26px', bottom: '76px' }),
+          zIndex: 10001,
+          width: 'min(440px, 88vw)',
+          transformOrigin: fromNav ? 'top right' : 'bottom right',
+          animation: !closing && dropped ? `${fromNav ? 'card-expand-down' : 'card-expand-up'} 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards` : 'none',
+        }),
         aspectRatio: '820 / 480',
         background: dark ? '#363636' : '#ffffff',
         border: `1.2px solid ${dark ? '#363636' : '#EBEBEB'}`,
         borderRadius: 'min(28px, 4vw)',
         overflow: 'hidden',
-        transformOrigin: fromNav ? 'top right' : 'bottom right',
-        animation: !closing && dropped ? `${fromNav ? 'card-expand-down' : 'card-expand-up'} 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards` : 'none',
         transition: 'background 0.5s ease, border-color 0.5s ease',
+        ...(inline && !closing && dropped ? { animation: 'card-inline-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards' } : {}),
         ...(closing ? { opacity: 0, transition: 'opacity 0.2s ease' } : {}),
       }}>
         <img src={warpedGridBg} alt="" style={{

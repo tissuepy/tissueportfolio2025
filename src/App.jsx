@@ -149,7 +149,7 @@ function SiteNav() {
 
   const isWork = location.pathname === '/' || location.pathname.startsWith('/work');
   const isAbout = location.pathname === '/about';
-  const isCraftNav = location.pathname === '/craft';
+
 
   useEffect(() => {
     const update = () => setTime(new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' }));
@@ -193,7 +193,6 @@ function SiteNav() {
             pointerEvents: contactOpen ? 'none' : 'auto',
           }}>
             <Link to="/" style={{ color: isWork ? 'rgba(50, 64, 79, 1)' : 'rgba(50, 64, 79, 0.584)', textDecoration: 'none' }} onMouseEnter={e => e.target.style.color='rgba(50,64,79,1)'} onMouseLeave={e => e.target.style.color= isWork ? 'rgba(50,64,79,1)' : 'rgba(50, 64, 79, 0.584)'}>Work</Link>
-            <Link to="/craft" style={{ color: isCraftNav ? 'rgba(50, 64, 79, 1)' : 'rgba(50, 64, 79, 0.584)', textDecoration: 'none' }} onMouseEnter={e => e.target.style.color='rgba(50,64,79,1)'} onMouseLeave={e => e.target.style.color= isCraftNav ? 'rgba(50,64,79,1)' : 'rgba(50, 64, 79, 0.584)'}>Craft</Link>
             <Link to="/about" style={{ color: isAbout ? 'rgba(50, 64, 79, 1)' : 'rgba(50, 64, 79, 0.584)', textDecoration: 'none' }} onMouseEnter={e => e.target.style.color='rgba(50,64,79,1)'} onMouseLeave={e => e.target.style.color= isAbout ? 'rgba(50,64,79,1)' : 'rgba(50, 64, 79, 0.584)'}>About</Link>
           </div>
           <button
@@ -383,7 +382,6 @@ function App() {
         <SiteNav />
         <Routes location={{ pathname: currentPath }}>
           <Route path="/" element={<Home />} />
-          <Route path="/craft" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/work/searchneu" element={<SearchNEUCaseStudy />} />
           <Route path="/work/wrap" element={<WrapCaseStudy />} />
@@ -404,7 +402,7 @@ function App() {
         </Routes>
       </div>
 
-      {currentPath !== '/photos' && currentPath !== '/' && currentPath !== '/craft' && <SiteFooter />}
+      {currentPath !== '/photos' && currentPath !== '/' && <SiteFooter />}
       </div>{/* end site-container */}
 
       </div>
