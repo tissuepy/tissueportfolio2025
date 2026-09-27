@@ -672,7 +672,7 @@ function Home() {
         ) : (<>
 
           {/* ChatGPT meta */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '40px 36px 0' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '52px 36px 0' }}>
             <p className="new-hero-body" style={{ margin: 0, maxWidth: "420px", textAlign: "right", lineHeight: 1.7, fontSize: "16px" }}>
               Design engineered an intuitive bookmarking experience for <span style={{ textDecoration: 'underline' }}>ChatGPT</span> across the web and mobile platforms.
             </p>
@@ -781,7 +781,7 @@ function Home() {
           )}
 
           {/* Pogo projects stacked */}
-          <div style={{ padding: '20px 36px 120px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div style={{ padding: '20px 36px 0', display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {[
               { label: 'Insights Library', sub: 'Visual Design, Interaction Design', className: 'cursor-view-project', onClick: () => navigate('/projects/insights-library'), content: <img src={ilThumbnail} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', top: '5px', left: 0, right: 0, bottom: '-5px' }} /> },
               { label: 'Survey Branching', sub: 'Visual Design, Interaction Design', className: 'cursor-building', content: <img src={branchingThumbnail} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', inset: 0 }} /> },
