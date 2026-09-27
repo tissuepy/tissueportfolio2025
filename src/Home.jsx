@@ -725,7 +725,7 @@ function Home() {
               {/* Background image */}
               <img src={craftBg} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               {/* iPhone frame video overlay */}
-              <video src={airportIphone} autoPlay loop muted playsInline style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', height: '130%', width: 'auto', mixBlendMode: 'multiply' }} />
+              <video src={airportIphone} autoPlay loop muted playsInline style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', height: '130%', width: 'auto', mixBlendMode: 'screen' }} />
             </div>
           </div>
 
