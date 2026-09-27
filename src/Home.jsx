@@ -468,6 +468,8 @@ function Home() {
   const leftPanelRef = useRef(null);
   const [hoverCard, setHoverCard] = useState(null); // { label, x, y }
   const hoverCardMousePos = useRef({ x: 0, y: 0 });
+  const [craftOpen, setCraftOpen] = useState(false);
+  const craftLightboxVideoRef = useRef(null);
 
   const handleLinkEnter = (e, label) => {
     hoverCardMousePos.current = { x: e.clientX, y: e.clientY };
@@ -699,6 +701,42 @@ function Home() {
             </p>
           </div>
 
+          {/* Craft lightbox state */}
+          {craftOpen && createPortal(
+            <>
+              <style>{`
+                @keyframes craft-overlay-in { from { opacity: 0; } to { opacity: 1; } }
+                @keyframes craft-canvas-in {
+                  from { opacity: 0; transform: translate(-50%, -50%) scale(0.82); border-radius: 18px; }
+                  to   { opacity: 1; transform: translate(-50%, -50%) scale(1);    border-radius: 10px; }
+                }
+              `}</style>
+              <div
+                onClick={() => setCraftOpen(false)}
+                style={{
+                  position: 'fixed', inset: 0, zIndex: 88888,
+                  backdropFilter: 'blur(5px)', WebkitBackdropFilter: 'blur(5px)',
+                  backgroundColor: 'rgba(0,0,0,0.28)',
+                  animation: 'craft-overlay-in 0.5s cubic-bezier(0.22,1,0.36,1) forwards',
+                }}
+              />
+              <div style={{
+                position: 'fixed', top: '50%', left: '50%', zIndex: 88889,
+                width: 'min(80vw, 900px)', aspectRatio: '2 / 1',
+                overflow: 'hidden', border: '1px solid rgba(255,255,255,0.15)',
+                animation: 'craft-canvas-in 0.52s cubic-bezier(0.16,1,0.3,1) forwards',
+                pointerEvents: 'none',
+              }}>
+                <img src={craftBg} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                <video ref={craftLightboxVideoRef} autoPlay loop muted playsInline style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', height: '90%', width: 'auto' }}>
+                  <source src={airportIphoneMov} type="video/mp4; codecs=hvc1" />
+                  <source src={airportIphoneWebm} type="video/webm" />
+                </video>
+              </div>
+            </>,
+            document.body
+          )}
+
           {/* Pogo projects stacked */}
           <div style={{ padding: '20px 36px 120px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {[
@@ -715,6 +753,7 @@ function Home() {
             ))}
           </div>
 
+
           {/* Craft section */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '52px 36px 0' }}>
             <p className="new-hero-body" style={{ margin: 0, maxWidth: '460px', textAlign: 'right', lineHeight: 1.7, fontSize: '16px' }}>
@@ -722,10 +761,11 @@ function Home() {
             </p>
           </div>
           <div style={{ padding: '20px 36px 120px' }}>
-            <div style={{ width: '100%', aspectRatio: '2 / 1', position: 'relative', overflow: 'hidden', border: '1px solid #E5E5E5' }}>
-              {/* Background image */}
+            <div
+              onClick={() => setCraftOpen(true)}
+              style={{ width: '100%', aspectRatio: '2 / 1', position: 'relative', overflow: 'hidden', border: '1px solid #E5E5E5', cursor: 'pointer' }}
+            >
               <img src={craftBg} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-              {/* iPhone frame video overlay */}
               <video autoPlay loop muted playsInline style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', height: '90%', width: 'auto' }}>
                 <source src={airportIphoneMov} type="video/mp4; codecs=hvc1" />
                 <source src={airportIphoneWebm} type="video/webm" />
