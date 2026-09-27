@@ -53,6 +53,8 @@ import pillIconCisco from './assets/form-square.png';
 import pillIconPogo from './assets/form-circle.png';
 import hoverImgPogo from './assets/pogo-office.jpeg';
 import hoverImgCisco from './assets/cisco-13.jpeg';
+import craftBg from './assets/craft-bg.avif';
+import airportIphone from './assets/airport-iphone.webm';
 import { BusinessCard } from './SiteFooter';
 
 const POGO_VIDEOS = [journeyVideo, monadicVideo, screenerVideo];
@@ -710,6 +712,21 @@ function Home() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Craft section */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '52px 36px 0' }}>
+            <p className="new-hero-body" style={{ margin: 0, maxWidth: '460px', textAlign: 'right', lineHeight: 1.7, fontSize: '16px' }}>
+              Some cool crafts that I put together in my free time; a testament to my creativity
+            </p>
+          </div>
+          <div style={{ padding: '20px 36px 120px' }}>
+            <div style={{ width: '100%', aspectRatio: '2 / 1', position: 'relative', overflow: 'hidden', border: '1px solid #E5E5E5' }}>
+              {/* Background image */}
+              <img src={craftBg} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              {/* iPhone frame video overlay */}
+              <video src={airportIphone} autoPlay loop muted playsInline style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', height: '130%', width: 'auto', mixBlendMode: 'multiply' }} />
+            </div>
           </div>
 
         </>)}
