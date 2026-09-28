@@ -72,9 +72,10 @@ export default function ChatGPTFullCaseStudy() {
     if (!panel) return;
     const onScroll = () => {
       let current = SECTIONS[0].id;
+      const panelTop = panel.getBoundingClientRect().top;
       for (const { id } of SECTIONS) {
         const el = document.getElementById(id);
-        if (el && el.offsetTop - 80 <= panel.scrollTop) current = id;
+        if (el && el.getBoundingClientRect().top - panelTop <= 80) current = id;
       }
       setActiveSection(current);
     };
