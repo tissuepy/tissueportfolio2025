@@ -178,7 +178,7 @@ function SiteNav() {
         <BusinessCard onClose={handleContactClose} dismissRef={contactDismissRef} onDismissStart={handleDismissStart} fromNav navBottom={navBottom} />,
         document.body
       )}
-      <div ref={navRef} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '22px 26px', position: 'relative', zIndex: 10002 }}>
+      <div ref={navRef} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '22px 26px', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 10002, backgroundColor: '#ffffff' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', color: 'rgba(50, 64, 79, 0.584)' }}>
           <span>New York</span>
           <span style={{ opacity: 0.5 }}>·</span>
@@ -210,7 +210,7 @@ function SiteNav() {
                 setContactOpen(true);
               }
             }}
-            style={{ background: 'none', border: 'none', padding: 0, cursor: 'none', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', color: 'rgba(50, 64, 79, 0.584)', display: 'flex', alignItems: 'center', gap: '8px' }}
+            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', color: 'rgba(50, 64, 79, 0.584)', display: 'flex', alignItems: 'center', gap: '8px' }}
           >
             <span style={{
               display: 'inline-block',
@@ -366,19 +366,9 @@ function App() {
       {/* <CustomCursor /> */}{/* old red cursor — kept for reference */}
       {/* BackgroundAnimation removed */}
       <div className="site-container">
-      {/* Navbar */}
-      <div className={`navbar${location.pathname === '/photos' ? ' navbar--solid' : ''}`} style={{ display: 'none' }}>
-        <div className="nav-links">
-          <NavLink to="/"><img src={notionFace} alt="Home" style={{ width: '36px', height: '36px', objectFit: 'contain' }} /></NavLink>
-        </div>
-        <div className="nav-links nav-links--right">
-          <NavLink to="/" className="nav-text-link">WORK</NavLink>
-          <NavLink to="/about" className="nav-text-link">ABOUT</NavLink>
-        </div>
-      </div>
 
       {/* Page content with transition */}
-      <div className={`page-wrapper ${fadeClass}`}>
+      <div className={`page-wrapper ${fadeClass}`} style={{ paddingTop: '72px' }}>
         <SiteNav />
         <Routes location={{ pathname: currentPath }}>
           <Route path="/" element={<Home />} />
@@ -402,7 +392,7 @@ function App() {
         </Routes>
       </div>
 
-      {currentPath !== '/photos' && currentPath !== '/' && currentPath !== '/work/chatgpt/full' && <SiteFooter />}
+      {currentPath !== '/photos' && currentPath !== '/' && currentPath !== '/work/chatgpt/full' && currentPath !== '/projects/insights-library' && currentPath !== '/about' && <SiteFooter />}
       </div>{/* end site-container */}
 
       </div>

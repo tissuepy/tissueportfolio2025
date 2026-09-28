@@ -26,6 +26,8 @@ import collectionsPage from './assets/collections-page.png';
 import chatgptLogo from './articles/chatgpt-logo.png';
 import chatgptWalkthrough1 from './assets/chatgpt-walkthrough-1.mp4';
 import decision1 from './assets/decision-1.png';
+import decision2 from './assets/decision-2.png';
+import decision3 from './assets/decision-3.png';
 
 const researchImages = [softwareEngineerQuote, ilrQuote, buQuote];
 const otherResearchImages = [redditQuote, chatgptQuote];
@@ -39,6 +41,7 @@ const SECTIONS = [
   { id: 'collections',   label: 'Collections' },
   { id: 'details',       label: 'Details' },
   { id: 'web',           label: 'Expanding to the Web' },
+  { id: 'reflections',   label: 'Reflections' },
 ];
 
 export default function ChatGPTFullCaseStudy() {
@@ -171,8 +174,6 @@ export default function ChatGPTFullCaseStudy() {
           minWidth: 0,
           height: '100vh',
           overflowY: 'auto',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
         }}
       >
 
@@ -440,10 +441,66 @@ export default function ChatGPTFullCaseStudy() {
           </div>
 
           <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
-            <img src={decision1} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+            <img src={decision1} alt="" style={{ width: '85%', height: 'auto', display: 'block' }} />
           </div>
 
-          <div style={{ height: '80px' }} />
+          {/* DESIGN DECISION #2 */}
+          <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Design Decision #2</span>
+            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Making bookmark customization feel effortless</h2>
+            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
+              I explored how to present bookmark customization, giving users a lightweight way to personalize the color and icon without adding friction to the saving process.
+            </p>
+          </div>
+
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
+            <img src={decision2} alt="" style={{ width: '67%', height: 'auto', display: 'block', maxHeight: '100%', objectFit: 'contain', marginLeft: '8%' }} />
+          </div>
+
+          {/* DESIGN DECISION #3 */}
+          <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Design Decision #3</span>
+            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Making bookmarks accessible in context</h2>
+            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
+              I explored how to surface bookmark actions when users return to saved content, using a contextual tooltip to provide quick access without disrupting the conversation.
+            </p>
+          </div>
+
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
+            <img src={decision3} alt="" style={{ width: '72%', height: 'auto', display: 'block', maxHeight: '100%', objectFit: 'contain' }} />
+          </div>
+
+          {/* REFLECTIONS */}
+          <div id="reflections" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Reflections</span>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Think beyond the feature</h2>
+              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
+                A feature doesn't exist in isolation, so I learned to think in systems and consider how it affects the rest of the product while making sure it feels native to the tool.
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Design with engineering</h2>
+              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
+                Working with design engineering revealed interactions and edge cases that are easy to overlook when designing only with static screens.
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Do the homework first</h2>
+              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
+                Research helped me understand what users actually needed, streamline the design process, and narrow down the potential solutions before investing heavily in one direction.
+              </p>
+            </div>
+          </div>
+
+          <p className="new-hero-body" style={{ marginTop: '56px', color: '#8C8C8C', lineHeight: 1.7, fontSize: '17px', textAlign: 'center', maxWidth: '480px', margin: '56px auto 0' }}>
+            Thank you for making it this far! Reach out to me at <a href="mailto:nitishgannu@gmail.com" style={{ color: '#555555', fontWeight: 400, textDecoration: 'none' }}>nitishgannu@gmail.com</a> if you want access to the full case study for this project!
+          </p>
+
+          <div style={{ height: '160px' }} />
 
         </div>
       </div>

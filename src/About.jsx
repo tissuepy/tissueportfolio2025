@@ -231,144 +231,77 @@ function SkeuomorphCanvas() {
 }
 
 export default function About() {
+  const leftPanelRef = useRef(null);
+  const rightPanelRef = useRef(null);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  useEffect(() => {
+    const el = leftPanelRef.current;
+    if (!el) return;
+    const handler = (e) => {
+      e.preventDefault();
+      if (rightPanelRef.current) rightPanelRef.current.scrollTop += e.deltaY;
+    };
+    el.addEventListener('wheel', handler, { passive: false });
+    return () => el.removeEventListener('wheel', handler);
+  }, []);
+
+  const photos = [photo1, portfolio3, photo4, jocelyn, aditi, miami2, teatime, cornell];
+
   return (
-    <div className="about-page-new">
-      <style>{`
-        @keyframes about-slide-up {
-          from { opacity: 0; transform: translateY(28px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        .about-anim-nav   { animation: about-slide-up 0.6s cubic-bezier(0.22,1,0.36,1) 0.1s both; }
-        .about-anim-text  { animation: about-slide-up 0.7s cubic-bezier(0.22,1,0.36,1) 0.25s both; }
-        .about-anim-image { animation: about-slide-up 0.7s cubic-bezier(0.22,1,0.36,1) 0.4s both; }
-        .about-anim-photos{ animation: about-slide-up 0.7s cubic-bezier(0.22,1,0.36,1) 0.55s both; }
-      `}</style>
+    <div style={{ display: 'flex', width: '100%', height: 'calc(100vh - 72px)', overflow: 'hidden' }}>
 
-      {/* Hero: text left, grid right */}
-      <div className="about-hero-split">
-      <div className="about-text-section about-anim-text">
-        <p style={{ fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '24px', fontWeight: 300, color: '#1a1a1a', margin: 0 }}>Well, who am I?</p>
+      {/* LEFT PANEL — 30%, bio text */}
+      <div ref={leftPanelRef} style={{
+        width: '30%',
+        flexShrink: 0,
+        height: 'calc(100vh - 72px)',
+        overflow: 'hidden',
+        padding: '40px 26px 40px 26px',
+        boxSizing: 'border-box',
+      }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
+            I'm Nitish, a junior at Cornell. I've always been told to dip my toes into multiple pools, and I guess I've taken that pretty seriously. This time, I'm trying design. It feels right at the moment, so that's where I'm spending my time.
+          </p>
 
-        <p className="about-body-text" style={{ fontSize: '16px' }}>
-          I'm Nitish, a junior at Cornell. I've always been told to dip my toes into multiple pools, and I guess I've taken that pretty seriously. This time, I'm trying design. It feels right at the moment, so that's where I'm spending my time.
-        </p>
+          <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
+            Studying statistics taught me to look closely, find the details that others might overlook, and understand why they matter. It's a skill I picked up from working with numbers all the time, and one I've been training as a designer ever since.
+          </p>
 
-        <p className="about-body-text" style={{ fontSize: '16px' }}>
-          Studying statistics taught me to look closely, find the details that others might overlook, and understand why they matter. It's a skill I picked up from working with numbers all the time, and one I've been training as a designer ever since.
-        </p>
-
-        <p className="about-body-text" style={{ fontSize: '16px' }}>
-          I want to be around people who are building what comes next, and design feels like my way into that world.
-        </p>
+          <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
+            I want to be around people who are building what comes next, and design feels like my way into that world.
+          </p>
+        </div>
       </div>
 
-        <div className="about-grid-slot about-anim-image" style={{ position: 'relative', overflow: 'hidden' }}>
-          {/* Inner wrapper sized to image via contain logic */}
-          <div style={{
-            position: 'absolute', inset: 0,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            paddingTop: '100px',
-          }}>
-            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-              {/* Image on top */}
-              <img
-                src={goldenGateImg}
-                alt=""
-                style={{
-                  position: 'absolute',
-                  inset: '-20%',
-                  width: '140%',
-                  height: '140%',
-                  objectFit: 'contain',
-                  zIndex: 1,
-                  opacity: 0.6,
-                }}
-              />
+      {/* RIGHT PANEL — 70%, photos */}
+      <div ref={rightPanelRef} style={{
+        flex: 1,
+        minWidth: 0,
+        height: 'calc(100vh - 72px)',
+        overflowY: 'auto',
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none',
+        padding: '40px 40px 40px 0',
+        boxSizing: 'border-box',
+      }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '12px',
+        }}>
+          {photos.map((src, i) => (
+            <div key={i} style={{ width: '100%', aspectRatio: '4 / 3', overflow: 'hidden', borderRadius: '0px' }}>
+              <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
-          </div>
-          {/* Grid-only fades — behind image (zIndex 0), aggressive top/bottom */}
-          {[
-            { top: 0, left: 0, right: 0, height: '50%', background: 'linear-gradient(to bottom, #fbfbfa, transparent)' },
-            { bottom: 0, left: 0, right: 0, height: '65%', background: 'linear-gradient(to top, #fbfbfa, transparent)' },
-            { top: 0, left: 0, bottom: 0, width: '28%', background: 'linear-gradient(to right, #fbfbfa, transparent)' },
-            { top: 0, right: 0, bottom: 0, width: '28%', background: 'linear-gradient(to left, #fbfbfa, transparent)' },
-          ].map((style, i) => (
-            <div key={i} style={{ position: 'absolute', zIndex: 0, pointerEvents: 'none', ...style }} />
-          ))}
-          {/* Image-level fades — in front of image (zIndex 2), softer than grid fades */}
-          {[
-            { top: 0, left: 0, right: 0, height: '30%', background: 'linear-gradient(to bottom, #fbfbfa, transparent)' },
-            { bottom: 0, left: 0, right: 0, height: '38%', background: 'linear-gradient(to top, #fbfbfa, transparent)' },
-            { top: 0, left: 0, bottom: 0, width: '28%', background: 'linear-gradient(to right, #fbfbfa, transparent)' },
-            { top: 0, right: 0, bottom: 0, width: '28%', background: 'linear-gradient(to left, #fbfbfa, transparent)' },
-          ].map((style, i) => (
-            <div key={i} style={{ position: 'absolute', zIndex: 2, pointerEvents: 'none', ...style }} />
           ))}
         </div>
       </div>
-
-      {/* Photo row */}
-      <p className="about-anim-photos about-section-label" style={{ padding: '0 26px', marginBottom: '16px', marginTop: '24px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <img src={cameraIcon} alt="" style={{ width: '22px', height: '22px', opacity: 0.584 }} />
-        GET A "PICTURE" OF MY LIFE
-      </p>
-      <div className="about-photo-row about-anim-photos">
-        {[photo1, portfolio3, photo4, jocelyn].map((src, i) => (
-          <img key={i} src={src} alt="" className="about-photo-item" />
-        ))}
-      </div>
-      <div className="about-photo-row about-anim-photos" style={{ marginTop: '16px' }}>
-        {[aditi, miami2, teatime, cornell].map((src, i) => (
-          <img key={i} src={src} alt="" className="about-photo-item" />
-        ))}
-      </div>
-
-      {/* Music section */}
-      <div style={{ display: 'flex', gap: '60px', padding: '0 26px', marginTop: '60px', alignItems: 'flex-start' }}>
-        {/* Music column */}
-        <div style={{ width: '430px', flexShrink: 0 }}>
-          <p className="about-section-label" style={{ marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <img src={headphonesIcon} alt="" style={{ width: '22px', height: '22px', opacity: 0.584 }} />
-            SOME OF MY MUSICAL JAMS
-          </p>
-          <iframe
-            src="https://open.spotify.com/embed/playlist/0JzWMZwqJ1tl989E0tdZlo"
-            width="430"
-            height="380"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            style={{ borderRadius: '12px', display: 'block' }}
-          />
-        </div>
-        {/* Tinker column */}
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <p className="about-section-label" style={{ marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <img src={gameControllerIcon} alt="" style={{ width: '22px', height: '22px', opacity: 0.584 }} />
-            NEWEST TINKER OBSESSION
-          </p>
-          <div style={{ width: '100%', height: '380px', overflow: 'hidden', border: '1px solid rgba(50,64,79,0.1)' }}>
-            <video
-              src="/pixel-handheld-1080p60.webm"
-              autoPlay
-              loop
-              muted
-              playsInline
-              style={{ width: '100%', height: '130%', display: 'block', objectFit: 'cover' }}
-            />
-          </div>
-        </div>
-      </div>
-      <div style={{ padding: '0 26px', marginTop: '32px' }}>
-        <p className="about-section-label" style={{ marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <img src={testTubeIcon} alt="" style={{ width: '22px', height: '22px', opacity: 0.584 }} />
-          EXPERIMENTING WITH SKEUOMORPHISM
-        </p>
-        <div style={{ width: '58%', height: '380px', overflow: 'hidden', border: '1px solid rgba(50,64,79,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <img src={frameForSkeu} alt="" style={{ width: '160%', height: '160%', objectFit: 'cover' }} />
-        </div>
-      </div>
-
 
     </div>
   );

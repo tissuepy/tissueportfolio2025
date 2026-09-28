@@ -100,7 +100,7 @@ export function BusinessCard({ onClose, dismissRef, onDismissStart, fromNav = fa
         aspectRatio: '820 / 480',
         background: dark ? '#363636' : '#ffffff',
         border: `1.2px solid ${dark ? '#363636' : '#EBEBEB'}`,
-        borderRadius: 'min(28px, 4vw)',
+        borderRadius: 'min(14px, 2vw)',
         overflow: 'hidden',
         transition: 'background 0.5s ease, border-color 0.5s ease',
         ...(inline && !closing && dropped ? { animation: 'card-inline-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards' } : {}),
@@ -113,13 +113,13 @@ export function BusinessCard({ onClose, dismissRef, onDismissStart, fromNav = fa
         }} />
 
         <div className="cursor-moon" onClick={() => setDark(d => !d)}
-          style={{ position: 'absolute', top: '22px', left: '22px', width: '18px', height: '18px', cursor: 'none' }}>
+          style={{ position: 'absolute', top: '16px', left: '16px', width: '20px', height: '20px', cursor: 'pointer' }}>
           <img src={sunhighIcon} alt="" style={{
-            position: 'absolute', width: '18px', height: '18px',
+            position: 'absolute', width: '20px', height: '20px',
             opacity: dark ? 0 : 1, transition: 'opacity 0.4s ease',
           }} />
           <img src={moonIcon} alt="" style={{
-            position: 'absolute', width: '18px', height: '18px',
+            position: 'absolute', width: '20px', height: '20px',
             opacity: dark ? 1 : 0, transition: 'opacity 0.4s ease',
             filter: 'brightness(0) saturate(100%) invert(70%)',
           }} />
@@ -129,29 +129,29 @@ export function BusinessCard({ onClose, dismissRef, onDismissStart, fromNav = fa
           position: 'absolute', top: '20px', right: '24px',
           display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'flex-end',
         }}>
-          <div onClick={handleCopy} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'none' }}>
+          <div onClick={handleCopy} style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>
             {copied ? (
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
                 <path d="M20 6L9 17l-5-5" stroke="#A7A7A7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             ) : (
-              <img src={copyIcon} alt="" style={{ width: '19px', height: '19px', opacity: 0.7 }} />
+              <img src={copyIcon} alt="" style={{ width: '14px', height: '14px', opacity: 0.7 }} />
             )}
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 300, color: '#A7A7A7', letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '14px', fontWeight: 300, color: '#A7A7A7', letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>
               NG545@CORNELL.EDU
             </span>
           </div>
           <a href="https://www.linkedin.com/in/nitishgannu/" target="_blank" rel="noopener noreferrer"
-            style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', cursor: 'none' }}>
-            <img src={arrowUpRightIcon} alt="" style={{ width: '19px', height: '19px', opacity: 0.7 }} />
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 300, color: '#A7A7A7', letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>
+            style={{ display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none', cursor: 'pointer' }}>
+            <img src={arrowUpRightIcon} alt="" style={{ width: '14px', height: '14px', opacity: 0.7 }} />
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '14px', fontWeight: 300, color: '#A7A7A7', letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>
               LINKEDIN.COM/IN/TISSUE
             </span>
           </a>
           <a href="https://x.com/nitishgannu" target="_blank" rel="noopener noreferrer"
-            style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', cursor: 'none' }}>
-            <img src={arrowUpRightIcon} alt="" style={{ width: '19px', height: '19px', opacity: 0.7 }} />
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 300, color: '#A7A7A7', letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>
+            style={{ display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none', cursor: 'pointer' }}>
+            <img src={arrowUpRightIcon} alt="" style={{ width: '14px', height: '14px', opacity: 0.7 }} />
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '14px', fontWeight: 300, color: '#A7A7A7', letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>
               X.COM/NITISHGANNU
             </span>
           </a>
@@ -162,13 +162,13 @@ export function BusinessCard({ onClose, dismissRef, onDismissStart, fromNav = fa
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
           padding: '0 24px 22px',
         }}>
-          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '16px', fontWeight: 300, color: '#A7A7A7', letterSpacing: '0.02em', whiteSpace: 'nowrap', transition: 'color 0.5s ease' }}>
+          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 300, color: '#A7A7A7', letterSpacing: '0.02em', whiteSpace: 'nowrap', transition: 'color 0.5s ease' }}>
             NITISH GANNU
           </span>
           <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '16px', fontWeight: 300, color: dark ? '#EEEDEE' : '#666666', letterSpacing: '0.02em', transition: 'color 0.5s ease' }}>DESIGNER</span>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '16px', fontWeight: 300, color: dark ? '#EEEDEE' : '#666666', transition: 'color 0.5s ease' }}>·</span>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '16px', fontWeight: 300, color: dark ? '#EEEDEE' : '#666666', letterSpacing: '0.02em', transition: 'color 0.5s ease' }}>BUILDER</span>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 300, color: dark ? '#EEEDEE' : '#666666', letterSpacing: '0.02em', transition: 'color 0.5s ease' }}>DESIGNER</span>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 300, color: dark ? '#EEEDEE' : '#666666', transition: 'color 0.5s ease' }}>·</span>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 300, color: dark ? '#EEEDEE' : '#666666', letterSpacing: '0.02em', transition: 'color 0.5s ease' }}>BUILDER</span>
           </div>
         </div>
       </div>

@@ -3,7 +3,20 @@
 }
 
 .chatgpt-right-panel::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+}
+
+.chatgpt-right-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chatgpt-right-panel::-webkit-scrollbar-thumb {
+  background: #D0D0D0;
+  border-radius: 3px;
+}
+
+.chatgpt-right-panel::-webkit-scrollbar-thumb:hover {
+  background: #AAAAAA;
 }
 
 @keyframes carouselFade {

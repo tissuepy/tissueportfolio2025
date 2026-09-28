@@ -439,20 +439,20 @@ function HomeContactCard({ onClose, navBottom, buttonRight }) {
         ...(closing ? { opacity: 0, transition: 'opacity 0.2s ease' } : {}),
         padding: '20px', display: 'flex', flexDirection: 'column', gap: '12px',
       }}>
-        <div onClick={handleCopy} style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'none' }}>
+        <div onClick={handleCopy} style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
           {copied
             ? <svg width="19" height="19" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}><path d="M20 6L9 17l-5-5" stroke="#A7A7A7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             : <img src={copyIconAsset} alt="" style={{ width: '19px', height: '19px', opacity: 0.7, flexShrink: 0 }} />
           }
-          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '14px', fontWeight: 300, color: '#A7A7A7', whiteSpace: 'nowrap' }}>NG545@CORNELL.EDU</span>
+          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '16px', fontWeight: 300, color: '#A7A7A7', whiteSpace: 'nowrap' }}>NG545@CORNELL.EDU</span>
         </div>
-        <a href="https://www.linkedin.com/in/nitishgannu/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', cursor: 'none' }}>
+        <a href="https://www.linkedin.com/in/nitishgannu/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', cursor: 'pointer' }}>
           <img src={arrowUpRightIcon} alt="" style={{ width: '19px', height: '19px', opacity: 0.7, flexShrink: 0 }} />
-          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '14px', fontWeight: 300, color: '#A7A7A7', whiteSpace: 'nowrap' }}>LINKEDIN.COM/IN/TISSUE</span>
+          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '16px', fontWeight: 300, color: '#A7A7A7', whiteSpace: 'nowrap' }}>LINKEDIN.COM/IN/TISSUE</span>
         </a>
-        <a href="https://x.com/nitishgannu" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', cursor: 'none' }}>
+        <a href="https://x.com/nitishgannu" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', cursor: 'pointer' }}>
           <img src={arrowUpRightIcon} alt="" style={{ width: '19px', height: '19px', opacity: 0.7, flexShrink: 0 }} />
-          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '14px', fontWeight: 300, color: '#A7A7A7', whiteSpace: 'nowrap' }}>X.COM/NITISHGANNU</span>
+          <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '16px', fontWeight: 300, color: '#A7A7A7', whiteSpace: 'nowrap' }}>X.COM/NITISHGANNU</span>
         </a>
       </div>
     </>
@@ -509,6 +509,7 @@ function Home() {
   const [copied, setCopied] = useState(false);
   const [ilHovered, setIlHovered] = useState(false);
   const [chatgptCursor, setChatgptCursor] = useState({ visible: false, x: 0, y: 0 });
+  const [lockedCursor, setLockedCursor] = useState({ visible: false, x: 0, y: 0 });
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [activeFilter, setActiveFilter] = useState('work');
   const [contactOpen, setContactOpen] = useState(false);
@@ -547,7 +548,7 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = '';
+    document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = ''; };
   }, []);
 
@@ -576,19 +577,22 @@ function Home() {
       {hoverCard && createPortal(
         <div style={{
           position: 'fixed',
-          left: hoverCard.x + 12,
-          top: hoverCard.y + 12,
-          width: '220px',
-          height: '160px',
-          background: '#ffffff',
-          borderRadius: '0px',
-          boxShadow: '0 4px 24px rgba(0,0,0,0.10)',
-          zIndex: 99999,
+          left: hoverCard.x + 16,
+          top: hoverCard.y + 16,
           pointerEvents: 'none',
-          overflow: 'hidden',
-          animation: 'hover-card-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+          zIndex: 99999,
+          backgroundColor: '#EFEFEF',
+          padding: '4px 8px',
+          fontFamily: "'Geist Mono', monospace",
+          fontSize: '14px',
+          fontWeight: 400,
+          color: '#555555',
+          textTransform: 'uppercase',
+          letterSpacing: '0.04em',
+          whiteSpace: 'nowrap',
+          opacity: 1,
         }}>
-          <img src={hoverCard.label === 'pogo' ? hoverImgPogo : hoverImgCisco} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          {hoverCard.label === 'pogo' ? 'Spring 2026' : hoverCard.label === 'cisco' ? 'Summer 2026' : 'Yep That\'s Me!'}
         </div>,
         document.body
       )}
@@ -621,7 +625,9 @@ function Home() {
       `}</style>
 
       {/* Two-column layout: 30% left panel (fixed) | 70% right work panel (scrollable) */}
-      <div style={{ display: 'flex', alignItems: 'flex-start', width: '100%', height: '100vh', overflow: 'hidden' }}>
+      {/* Backdrop blur when business card is open */}
+
+      <div style={{ display: 'flex', alignItems: 'flex-start', width: '100%', height: 'calc(100vh - 72px)', overflow: 'hidden' }}>
 
         {/* LEFT PANEL — 30%, fixed in place */}
         <div
@@ -629,7 +635,7 @@ function Home() {
           style={{
           width: '30%',
           flexShrink: 0,
-          height: '100vh',
+          height: 'calc(100vh - 72px)',
           overflowX: 'hidden',
           overflowY: 'auto',
           scrollbarWidth: 'none',
@@ -641,26 +647,20 @@ function Home() {
           {/* Hero text + experience */}
           <div className="home-anim-hero" style={{ padding: '40px 26px 0', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
-              Hey there. I'm <span style={{ textDecoration: 'underline', color: '#666666' }}>Nitish Gannu</span>, a designer who brings the precision of statistics to the pixels of product design.
+              Hey there. I'm <span onMouseEnter={e => handleLinkEnter(e, 'nitish')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'underline', color: '#666666', cursor: 'default' }}>Nitish Gannu</span>, a designer who brings the precision of statistics to the pixels of product design.
             </p>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
-              I was previously a design engineer at <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" onMouseEnter={e => { handleLinkEnter(e, 'pogo'); const t = e.currentTarget.querySelector('.link-text'); if(t){t.style.textDecoration='none';t.style.background='#555';t.style.color='#fff';} }} onMouseLeave={e => { handleLinkLeave(); const t = e.currentTarget.querySelector('.link-text'); if(t){t.style.textDecoration='underline';t.style.background='none';t.style.color='#666666';} }} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', verticalAlign: 'middle' }}><img src={pogoLogoNew} alt="" style={{ width: '19px', height: '19px', objectFit: 'cover', borderRadius: '0px', display: 'inline-block', flexShrink: 0 }} /><span className="link-text" style={{ color: '#666666', textDecoration: 'underline', transition: 'background 0.15s, color 0.15s' }}>Pogo</span></a> &amp; I'm envisioning the future of Mathematical Digital Twins at <a href="https://www.cisco.com/" target="_blank" rel="noreferrer" onMouseEnter={e => { handleLinkEnter(e, 'cisco'); const t = e.currentTarget.querySelector('.link-text'); if(t){t.style.textDecoration='none';t.style.background='#555';t.style.color='#fff';} }} onMouseLeave={e => { handleLinkLeave(); const t = e.currentTarget.querySelector('.link-text'); if(t){t.style.textDecoration='underline';t.style.background='none';t.style.color='#666666';} }} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', verticalAlign: 'middle' }}><img src={ciscoLogo} alt="" style={{ width: '19px', height: '19px', objectFit: 'cover', borderRadius: '0px', display: 'inline-block', flexShrink: 0 }} /><span className="link-text" style={{ color: '#666666', textDecoration: 'underline', transition: 'background 0.15s, color 0.15s' }}>Cisco</span></a>
+              I was previously a design engineer at <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" onMouseEnter={e => handleLinkEnter(e, 'pogo')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', verticalAlign: 'middle' }}><img src={pogoLogoNew} alt="" style={{ width: '19px', height: '19px', objectFit: 'cover', borderRadius: '0px', display: 'inline-block', flexShrink: 0 }} /><span className="link-text" style={{ color: '#666666', textDecoration: 'underline', transition: 'background 0.15s, color 0.15s' }}>Pogo</span></a> &amp; I'm envisioning the future of Mathematical Digital Twins at <a href="https://www.cisco.com/" target="_blank" rel="noreferrer" onMouseEnter={e => handleLinkEnter(e, 'cisco')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', verticalAlign: 'middle' }}><img src={ciscoLogo} alt="" style={{ width: '19px', height: '19px', objectFit: 'cover', borderRadius: '0px', display: 'inline-block', flexShrink: 0 }} /><span className="link-text" style={{ color: '#666666', textDecoration: 'underline', transition: 'background 0.15s, color 0.15s' }}>Cisco</span></a>
             </p>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
-              Inquiries: ng545 [at] cornell [dot] edu or just take my <span onClick={() => contactOpen ? setContactOpen(false) : setContactOpen(true)} style={{ textDecoration: 'underline', color: '#666666', cursor: 'pointer' }}>business card</span>
+              Inquiries: ng545 [at] cornell [dot] edu or just take my <span onClick={handleContactToggle} style={{ textDecoration: 'underline', color: '#666666', cursor: 'pointer' }}>business card</span>
             </p>
           </div>
 
-          {/* Inline business card — appears below hero text */}
-          {contactOpen && (
-            <div style={{ padding: '16px 26px 26px' }}>
-              <BusinessCard inline onClose={() => setContactOpen(false)} dismissRef={contactDismissRef} onDismissStart={() => {}} />
-            </div>
-          )}
         </div>
 
         {/* RIGHT PANEL — 70%, scrollable */}
-        <div ref={rightPanelRef} className="right-panel-scroll" style={{ flex: 1, minWidth: 0, height: '100vh', overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none', overscrollBehavior: 'none' }}>
+        <div ref={rightPanelRef} className="right-panel-scroll" style={{ flex: 1, minWidth: 0, height: 'calc(100vh - 72px)', overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none', overscrollBehavior: 'none' }}>
 
         {isCraft ? (
           /* CRAFT VIEW */
@@ -688,9 +688,56 @@ function Home() {
             </p>
           </div>
 
+          {/* Locked cursor label */}
+          <div style={{
+            position: 'fixed',
+            left: lockedCursor.x + 16,
+            top: lockedCursor.y + 16,
+            pointerEvents: 'none',
+            zIndex: 9999,
+            backgroundColor: '#EFEFEF',
+            padding: '4px 8px',
+            fontFamily: "'Geist Mono', monospace",
+            fontSize: '14px',
+            fontWeight: 400,
+            color: '#555555',
+            textTransform: 'uppercase',
+            letterSpacing: '0.04em',
+            whiteSpace: 'nowrap',
+            opacity: lockedCursor.visible ? 1 : 0,
+            transition: 'opacity 0.2s ease',
+          }}>
+            Locked
+          </div>
+
+          {/* ChatGPT cursor label */}
+          <div style={{
+            position: 'fixed',
+            left: chatgptCursor.x + 16,
+            top: chatgptCursor.y + 16,
+            pointerEvents: 'none',
+            zIndex: 9999,
+            backgroundColor: '#EFEFEF',
+            padding: '4px 8px',
+            fontFamily: "'Geist Mono', monospace",
+            fontSize: '14px',
+            fontWeight: 400,
+            color: '#555555',
+            textTransform: 'uppercase',
+            letterSpacing: '0.04em',
+            whiteSpace: 'nowrap',
+            opacity: chatgptCursor.visible ? 1 : 0,
+            transition: 'opacity 0.2s ease',
+          }}>
+            View Project
+          </div>
+
           {/* ChatGPT canvas */}
           <div
             onClick={() => navigate('/work/chatgpt/full')}
+            onMouseEnter={() => setChatgptCursor(c => ({ ...c, visible: true }))}
+            onMouseLeave={() => setChatgptCursor(c => ({ ...c, visible: false }))}
+            onMouseMove={(e) => setChatgptCursor({ visible: true, x: e.clientX, y: e.clientY })}
             style={{
               width: 'calc(100% - 72px)',
               margin: '16px 36px 0',
@@ -712,16 +759,24 @@ function Home() {
           {/* ChatGPT detail canvases — two side by side */}
           <div style={{ display: 'flex', gap: '12px', width: 'calc(100% - 72px)', margin: '12px 36px 0' }}>
             {[chatgptDetail1, chatgptDetail2].map((src, i) => (
-              <div key={i} style={{ flex: 1, height: '220px', background: '#ffffff', border: '1px solid rgba(0,0,0,0.08)', overflow: 'hidden', position: 'relative' }}>
+              <div
+                key={i}
+                onClick={() => navigate('/work/chatgpt/full')}
+                onMouseEnter={() => setChatgptCursor(c => ({ ...c, visible: true }))}
+                onMouseLeave={() => setChatgptCursor(c => ({ ...c, visible: false }))}
+                onMouseMove={(e) => setChatgptCursor({ visible: true, x: e.clientX, y: e.clientY })}
+                style={{ flex: 1, height: '220px', background: '#ffffff', border: '1px solid rgba(0,0,0,0.08)', overflow: 'hidden', position: 'relative', cursor: 'pointer' }}
+              >
                 <video src={src} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', transform: 'scale(1.15)', transformOrigin: 'center center' }} />
               </div>
             ))}
           </div>
 
           {/* Pogo meta */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '52px 36px 0' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '52px 36px 0' }}>
+            <img src={pogoLogoNew} alt="Pogo" style={{ width: '44px', height: '44px', objectFit: 'cover', borderRadius: '12px', flexShrink: 0 }} />
             <p className="new-hero-body" style={{ margin: 0, maxWidth: "460px", textAlign: "right", lineHeight: 1.7, fontSize: "16px" }}>
-              Designed end-to-end experiences for <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Pogo</a>, an AI-powered consumer insights platform. Series B, $32M Raised.
+              Designed end-to-end experiences for <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: '#666666', textDecoration: 'underline' }}>Pogo</a>, an AI-powered consumer insights platform. Series B, $32M Raised.
             </p>
           </div>
 
@@ -793,13 +848,13 @@ function Home() {
           {/* Pogo projects stacked */}
           <div style={{ padding: '20px 36px 0', display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {[
-              { label: 'Insights Library', sub: 'Visual Design, Interaction Design', className: 'cursor-view-project', onClick: () => navigate('/projects/insights-library'), content: <img src={ilThumbnail} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', top: '5px', left: 0, right: 0, bottom: '-5px' }} /> },
-              { label: 'Survey Branching', sub: 'Visual Design, Interaction Design', className: 'cursor-building', content: <img src={branchingThumbnail} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', inset: 0 }} /> },
+              { label: 'Insights Library', sub: 'Visual Design, Interaction Design', className: 'cursor-view-project', onClick: () => navigate('/projects/insights-library'), onMouseEnter: () => setChatgptCursor(c => ({ ...c, visible: true })), onMouseLeave: () => setChatgptCursor(c => ({ ...c, visible: false })), onMouseMove: (e) => setChatgptCursor({ visible: true, x: e.clientX, y: e.clientY }), content: <img src={ilThumbnail} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', top: '5px', left: 0, right: 0, bottom: '-5px' }} /> },
+              { label: 'Survey Branching', sub: 'Visual Design, Interaction Design', className: 'cursor-building', onMouseEnter: () => setLockedCursor(c => ({ ...c, visible: true })), onMouseLeave: () => setLockedCursor(c => ({ ...c, visible: false })), onMouseMove: (e) => setLockedCursor({ visible: true, x: e.clientX, y: e.clientY }), content: <img src={branchingThumbnail} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', inset: 0 }} /> },
               // { label: 'Interactive Question Picker', sub: 'Animation Design', className: 'cursor-building', content: <VideoCarousel /> },
               // { label: 'AI Chat Interactions', sub: 'Animation Design', className: 'cursor-building', content: <video src={addStudyAnimation} autoPlay loop muted playsInline style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block', transform: 'translateY(-18px)' }} /> },
-            ].map(({ label, sub, className, onClick, content }) => (
+            ].map(({ label, sub, className, onClick, onMouseEnter, onMouseLeave, onMouseMove, content }) => (
               <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <div className={className} onClick={onClick} style={{ width: '100%', aspectRatio: '2 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px', position: 'relative', overflow: 'hidden', cursor: onClick ? 'pointer' : 'default' }}>
+                <div className={className} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onMouseMove={onMouseMove} style={{ width: '100%', aspectRatio: '2 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px', position: 'relative', overflow: 'hidden', cursor: onClick ? 'pointer' : 'default' }}>
                   {content}
                 </div>
               </div>
@@ -807,30 +862,18 @@ function Home() {
           </div>
 
 
-          {/* Cisco section */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '52px 36px 0' }}>
-            <div style={{ width: '44px', height: '44px', flexShrink: 0, border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <img src={ciscoLogo} alt="Cisco" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />
-            </div>
-            <p className="new-hero-body" style={{ margin: 0, maxWidth: '420px', textAlign: 'right', lineHeight: 1.7, fontSize: '16px' }}>
-              Building the future of <span style={{ textDecoration: 'underline', color: '#666666' }}>mathematical digital twins</span> for Cisco, reimagining how networks understand themselves.
-            </p>
-          </div>
-          <div style={{ padding: '20px 36px 0' }}>
-            <div style={{ width: '100%', aspectRatio: '2 / 1', position: 'relative', overflow: 'hidden', border: '1px solid #E5E5E5' }}>
-              <iframe src="/router-particles.html" style={{ width: '200%', height: '200%', border: 'none', display: 'block', transform: 'scale(0.5)', transformOrigin: 'top left' }} title="Router Particles" />
-            </div>
-          </div>
-
           {/* Craft section */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '52px 36px 0' }}>
             <p className="new-hero-body" style={{ margin: 0, maxWidth: '460px', textAlign: 'right', lineHeight: 1.7, fontSize: '16px' }}>
-              Some cool crafts that I put together in my free time; a testament to my creativity
+              A collection of things I've made for fun, curiosity, and the occasional creative itch.
             </p>
           </div>
           <div style={{ padding: '20px 36px 120px' }}>
             <div
               onClick={openCraft}
+              onMouseEnter={() => setChatgptCursor(c => ({ ...c, visible: true }))}
+              onMouseLeave={() => setChatgptCursor(c => ({ ...c, visible: false }))}
+              onMouseMove={(e) => setChatgptCursor({ visible: true, x: e.clientX, y: e.clientY })}
               style={{ width: '100%', aspectRatio: '2 / 1', position: 'relative', overflow: 'hidden', border: '1px solid #E5E5E5', cursor: 'pointer' }}
             >
               <img src={craftBg} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
