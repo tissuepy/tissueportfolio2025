@@ -47,6 +47,12 @@ export default function ChatGPTFullCaseStudy() {
 
   useEffect(() => {
     if (rightPanelRef.current) rightPanelRef.current.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
   }, []);
 
   useEffect(() => {
