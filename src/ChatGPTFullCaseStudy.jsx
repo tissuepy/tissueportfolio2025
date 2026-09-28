@@ -53,9 +53,11 @@ export default function ChatGPTFullCaseStudy() {
     const onWheel = (e) => {
       const panel = rightPanelRef.current;
       if (!panel) return;
+      if (e.target === panel || panel.contains(e.target)) return;
+      e.preventDefault();
       panel.scrollTop += e.deltaY;
     };
-    window.addEventListener('wheel', onWheel, { passive: true });
+    window.addEventListener('wheel', onWheel, { passive: false });
     return () => window.removeEventListener('wheel', onWheel);
   }, []);
 
@@ -97,8 +99,7 @@ export default function ChatGPTFullCaseStudy() {
         padding: '40px 26px',
         boxSizing: 'border-box',
         borderRight: '1px solid rgba(0,0,0,0.06)',
-        overflowY: 'auto',
-        scrollbarWidth: 'none',
+        overflow: 'hidden',
       }}>
         {/* Back button */}
         <button
@@ -139,7 +140,7 @@ export default function ChatGPTFullCaseStudy() {
                 cursor: 'pointer',
                 textAlign: 'left',
                 fontFamily: "'Geist Mono', monospace",
-                fontSize: '15px',
+                fontSize: '14px',
                 fontWeight: 400,
                 textTransform: 'uppercase',
                 color: activeSection === id ? '#000' : '#AAAAAA',
