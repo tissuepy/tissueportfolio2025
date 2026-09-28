@@ -101,7 +101,7 @@ export default function ChatGPTFullCaseStudy() {
 
       {/* LEFT PANEL — 30% fixed */}
       <div style={{
-        width: '30%',
+        width: '20%',
         flexShrink: 0,
         height: '100vh',
         display: 'flex',
@@ -182,7 +182,7 @@ export default function ChatGPTFullCaseStudy() {
           backgroundColor: '#FFFFFF',
           border: '1px solid #E5E5E5',
           boxSizing: 'border-box',
-          height: '420px',
+          height: '520px',
           position: 'relative',
           overflow: 'hidden',
           display: 'flex',
@@ -200,7 +200,7 @@ export default function ChatGPTFullCaseStudy() {
               <span style={{ color: '#000' }}>ChatGPT</span><span style={{ color: '#AAAAAA' }}>, Concept Design</span>
             </span>
           </div>
-          <p className="new-hero-body" style={{ margin: 0, maxWidth: '380px', textAlign: 'left', lineHeight: 1.7, fontSize: '15px' }}>
+          <p className="new-hero-body" style={{ margin: 0, maxWidth: '520px', textAlign: 'left', lineHeight: 1.7, fontSize: '15px' }}>
             Design engineered an intuitive bookmarking experience for <span style={{ textDecoration: 'underline' }}>ChatGPT</span> across the web and mobile platforms.
           </p>
         </div>
@@ -218,7 +218,7 @@ export default function ChatGPTFullCaseStudy() {
             </p>
           </div>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', backgroundImage: 'linear-gradient(#F2F2F2 1px, transparent 1px), linear-gradient(90deg, #F2F2F2 1px, transparent 1px)', backgroundSize: '60px 60px', backgroundPosition: 'center center', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '400px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', backgroundImage: 'linear-gradient(#F2F2F2 1px, transparent 1px), linear-gradient(90deg, #F2F2F2 1px, transparent 1px)', backgroundSize: '60px 60px', backgroundPosition: 'center center', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
             <img src={hmwChatgpt} alt="" style={{ width: '45%', height: 'auto', display: 'block' }} />
           </div>
 
@@ -231,7 +231,7 @@ export default function ChatGPTFullCaseStudy() {
             </p>
           </div>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', backgroundImage: 'linear-gradient(#F2F2F2 1px, transparent 1px), linear-gradient(90deg, #F2F2F2 1px, transparent 1px)', backgroundSize: '60px 60px', backgroundPosition: 'center center', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '400px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', backgroundImage: 'linear-gradient(#F2F2F2 1px, transparent 1px), linear-gradient(90deg, #F2F2F2 1px, transparent 1px)', backgroundSize: '60px 60px', backgroundPosition: 'center center', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
             <img key={researchIndex} src={researchImages[researchIndex]} alt="" className="carousel-slide" style={{ width: '55%', height: 'auto', display: 'block' }} />
             <button onClick={() => setResearchIndex((researchIndex - 1 + researchImages.length) % researchImages.length)} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.8)', border: '1px solid #E5E5E5', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }} className="cursor-ignore">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -280,7 +280,7 @@ export default function ChatGPTFullCaseStudy() {
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Not everything ChatGPT says is worth remembering, and finding the things that are can be surprisingly difficult</h2>
           </div>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '420px', overflow: 'hidden', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '500px', overflow: 'hidden', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <video src={textFrameExample} autoPlay loop muted playsInline style={{ height: '100%', width: 'auto', display: 'block' }} />
           </div>
 
@@ -304,7 +304,7 @@ export default function ChatGPTFullCaseStudy() {
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '8px', paddingBottom: '4px' }}>
                   {icon && <img src={icon} alt="" style={{ width: '44px', height: '44px', objectFit: 'contain', display: 'block' }} />}
                   <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>{title}</h2>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px', maxWidth: '320px' }}>{body}</p>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px', maxWidth: '400px' }}>{body}</p>
                 </div>
               </div>
             ))}
@@ -319,7 +319,7 @@ export default function ChatGPTFullCaseStudy() {
             </p>
           </div>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '480px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
             <video src={bookmarkCreation2} autoPlay loop muted playsInline style={{ height: '88%', width: 'auto', display: 'block', position: 'relative', zIndex: 1 }} />
           </div>
 
@@ -330,7 +330,7 @@ export default function ChatGPTFullCaseStudy() {
             </p>
           </div>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '480px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
             <video src={viewBookmarksVideo} autoPlay loop muted playsInline style={{ height: '88%', width: 'auto', display: 'block', position: 'relative', zIndex: 1 }} />
           </div>
 
@@ -364,7 +364,7 @@ export default function ChatGPTFullCaseStudy() {
                 </div>
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '8px', paddingBottom: '4px' }}>
                   <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>{title}</h2>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px', maxWidth: '320px' }}>{body}</p>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px', maxWidth: '400px' }}>{body}</p>
                 </div>
               </div>
             ))}
@@ -374,7 +374,7 @@ export default function ChatGPTFullCaseStudy() {
             Bookmarks can be grouped into collections without losing their conversational context, allowing users to organize related information while still knowing exactly where each bookmark came from.
           </p>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '480px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
             <video src={finalizedFlowCollections} autoPlay loop muted playsInline style={{ height: '88%', width: 'auto', display: 'block', position: 'relative', zIndex: 1 }} />
           </div>
 
@@ -394,7 +394,7 @@ export default function ChatGPTFullCaseStudy() {
             </div>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '8px', paddingBottom: '4px' }}>
               <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>No collections created yet</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px', maxWidth: '320px' }}>I accounted for users who haven't created any collections yet by providing a clear starting point that introduces the value of collections and encourages them to create their first one.</p>
+              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px', maxWidth: '400px' }}>I accounted for users who haven't created any collections yet by providing a clear starting point that introduces the value of collections and encourages them to create their first one.</p>
             </div>
           </div>
 
@@ -405,7 +405,7 @@ export default function ChatGPTFullCaseStudy() {
             </div>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '8px', paddingBottom: '4px' }}>
               <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Collection with no bookmarks</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px', maxWidth: '320px' }}>I also accounted for collections that haven't received any bookmarks yet, using the empty state to explain what belongs there and guide users toward adding their first bookmark.</p>
+              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px', maxWidth: '400px' }}>I also accounted for collections that haven't received any bookmarks yet, using the empty state to explain what belongs there and guide users toward adding their first bookmark.</p>
             </div>
           </div>
 
@@ -419,7 +419,7 @@ export default function ChatGPTFullCaseStudy() {
             </p>
           </div>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '480px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
             <video
               src={chatgptWalkthrough1}
               autoPlay
@@ -439,8 +439,8 @@ export default function ChatGPTFullCaseStudy() {
             </p>
           </div>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '480px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
-            <img src={decision1} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
+            <img src={decision1} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
           </div>
 
           <div style={{ height: '80px' }} />
