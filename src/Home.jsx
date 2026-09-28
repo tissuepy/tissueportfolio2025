@@ -678,44 +678,52 @@ function Home() {
           </div>
         ) : (<>
 
-          {/* ChatGPT meta */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '52px 36px 0' }}>
-            <div style={{ width: '44px', height: '44px', flexShrink: 0, border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <img src={chatgptLogo} alt="ChatGPT" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />
-            </div>
-            <p className="new-hero-body" style={{ margin: 0, maxWidth: "420px", textAlign: "right", lineHeight: 1.7, fontSize: "16px" }}>
-              Design engineered an intuitive bookmarking experience for <a href="https://chatgpt.com" target="_blank" rel="noreferrer" style={{ color: '#666666', textDecoration: 'underline' }}>ChatGPT</a> across the web and mobile platforms.
-            </p>
-          </div>
-
-          {/* ChatGPT canvas */}
-          <div
-            onClick={() => navigate('/work/chatgpt/full')}
-            style={{
-              width: 'calc(100% - 72px)',
-              margin: '16px 36px 0',
-              height: '420px',
-              background: '#ffffff',
-              border: '1px solid rgba(0,0,0,0.08)',
-              boxSizing: 'border-box',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              overflow: 'hidden',
-              position: 'relative',
-              cursor: 'pointer',
-            }}
-          >
-            <video src={chatgptAnimation} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
-
-          {/* ChatGPT detail canvases — two side by side */}
-          <div style={{ display: 'flex', gap: '12px', width: 'calc(100% - 72px)', margin: '12px 36px 0' }}>
-            {[chatgptDetail1, chatgptDetail2].map((src, i) => (
-              <div key={i} style={{ flex: 1, height: '220px', background: '#ffffff', border: '1px solid rgba(0,0,0,0.08)', overflow: 'hidden', position: 'relative' }}>
-                <video src={src} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', transform: 'scale(1.15)', transformOrigin: 'center center' }} />
+          {/* ChatGPT section — 30/70 internal split */}
+          <div style={{ display: 'flex', width: '100%' }}>
+            {/* Left spacer 30% */}
+            <div style={{ width: '30%', flexShrink: 0 }} />
+            {/* Right content 70% */}
+            <div style={{ flex: 1, minWidth: 0, paddingRight: '28px' }}>
+              {/* ChatGPT meta */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '52px', paddingBottom: '0' }}>
+                <div style={{ width: '36px', height: '36px', flexShrink: 0, border: '1px solid rgba(0,0,0,0.08)', borderRadius: '10px', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img src={chatgptLogo} alt="ChatGPT" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
+                </div>
+                <p className="new-hero-body" style={{ margin: 0, maxWidth: '300px', textAlign: 'right', lineHeight: 1.7, fontSize: '13px' }}>
+                  Design engineered an intuitive bookmarking experience for <a href="https://chatgpt.com" target="_blank" rel="noreferrer" style={{ color: '#666666', textDecoration: 'underline' }}>ChatGPT</a> across the web and mobile platforms.
+                </p>
               </div>
-            ))}
+
+              {/* ChatGPT main canvas */}
+              <div
+                onClick={() => navigate('/work/chatgpt/full')}
+                style={{
+                  width: '100%',
+                  marginTop: '14px',
+                  height: '280px',
+                  background: '#ffffff',
+                  border: '1px solid rgba(0,0,0,0.08)',
+                  boxSizing: 'border-box',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  cursor: 'pointer',
+                }}
+              >
+                <video src={chatgptAnimation} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              </div>
+
+              {/* ChatGPT detail canvases — two side by side */}
+              <div style={{ display: 'flex', gap: '10px', width: '100%', marginTop: '10px' }}>
+                {[chatgptDetail1, chatgptDetail2].map((src, i) => (
+                  <div key={i} style={{ flex: 1, height: '160px', background: '#ffffff', border: '1px solid rgba(0,0,0,0.08)', overflow: 'hidden', position: 'relative' }}>
+                    <video src={src} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', transform: 'scale(1.15)', transformOrigin: 'center center' }} />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Pogo meta */}
