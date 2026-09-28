@@ -679,9 +679,12 @@ function Home() {
         ) : (<>
 
           {/* ChatGPT meta */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '52px 36px 0' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '52px 36px 0' }}>
+            <div style={{ width: '44px', height: '44px', flexShrink: 0, border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img src={chatgptLogo} alt="ChatGPT" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />
+            </div>
             <p className="new-hero-body" style={{ margin: 0, maxWidth: "420px", textAlign: "right", lineHeight: 1.7, fontSize: "16px" }}>
-              Design engineered an intuitive bookmarking experience for <span style={{ textDecoration: 'underline' }}>ChatGPT</span> across the web and mobile platforms.
+              Design engineered an intuitive bookmarking experience for <a href="https://chatgpt.com" target="_blank" rel="noreferrer" style={{ color: '#666666', textDecoration: 'underline' }}>ChatGPT</a> across the web and mobile platforms.
             </p>
           </div>
 
@@ -690,7 +693,7 @@ function Home() {
             onClick={() => navigate('/work/chatgpt/full')}
             style={{
               width: 'calc(100% - 72px)',
-              margin: '24px 36px 0',
+              margin: '16px 36px 0',
               height: '420px',
               background: '#ffffff',
               border: '1px solid rgba(0,0,0,0.08)',
@@ -803,6 +806,21 @@ function Home() {
             ))}
           </div>
 
+
+          {/* Cisco section */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '52px 36px 0' }}>
+            <div style={{ width: '44px', height: '44px', flexShrink: 0, border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img src={ciscoLogo} alt="Cisco" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />
+            </div>
+            <p className="new-hero-body" style={{ margin: 0, maxWidth: '420px', textAlign: 'right', lineHeight: 1.7, fontSize: '16px' }}>
+              Building the future of <span style={{ textDecoration: 'underline', color: '#666666' }}>mathematical digital twins</span> for Cisco, reimagining how networks understand themselves.
+            </p>
+          </div>
+          <div style={{ padding: '20px 36px 0' }}>
+            <div style={{ width: '100%', aspectRatio: '2 / 1', position: 'relative', overflow: 'hidden', border: '1px solid #E5E5E5' }}>
+              <iframe src="/router-particles.html" style={{ width: '200%', height: '200%', border: 'none', display: 'block', transform: 'scale(0.5)', transformOrigin: 'top left' }} title="Router Particles" />
+            </div>
+          </div>
 
           {/* Craft section */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '52px 36px 0' }}>
