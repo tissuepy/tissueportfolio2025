@@ -25,6 +25,7 @@ import collectionsVariety from './assets/collections-variety-1.png';
 import collectionsPage from './assets/collections-page.png';
 import chatgptLogo from './articles/chatgpt-logo.png';
 import chatgptWalkthrough1 from './assets/chatgpt-walkthrough-1.mp4';
+import decision1 from './assets/decision-1.png';
 
 const researchImages = [softwareEngineerQuote, ilrQuote, buQuote];
 const otherResearchImages = [redditQuote, chatgptQuote];
@@ -408,7 +409,6 @@ export default function ChatGPTFullCaseStudy() {
             </div>
           </div>
 
-        </div>
 
           {/* EXPANDING TO THE WEB */}
           <div id="web" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -419,7 +419,7 @@ export default function ChatGPTFullCaseStudy() {
             </p>
           </div>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#000', border: '1px solid #E5E5E5', boxSizing: 'border-box', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '480px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
             <video
               src={chatgptWalkthrough1}
               autoPlay
@@ -430,8 +430,22 @@ export default function ChatGPTFullCaseStudy() {
             />
           </div>
 
-        <div style={{ height: '80px' }} />
+          {/* DESIGN DECISION #1 */}
+          <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Design Decision #1</span>
+            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Choosing the right modal structure</h2>
+            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
+              I explored different ways to structure the bookmark creation modal, considering how much information and organization to surface without making a simple save action feel unnecessarily complex.
+            </p>
+          </div>
 
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '480px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
+            <img src={decision1} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          </div>
+
+          <div style={{ height: '80px' }} />
+
+        </div>
       </div>
     </div>
   );
