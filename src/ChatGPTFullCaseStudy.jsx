@@ -50,6 +50,16 @@ export default function ChatGPTFullCaseStudy() {
   }, []);
 
   useEffect(() => {
+    const onWheel = (e) => {
+      const panel = rightPanelRef.current;
+      if (!panel) return;
+      panel.scrollTop += e.deltaY;
+    };
+    window.addEventListener('wheel', onWheel, { passive: true });
+    return () => window.removeEventListener('wheel', onWheel);
+  }, []);
+
+  useEffect(() => {
     const panel = rightPanelRef.current;
     if (!panel) return;
     const onScroll = () => {
@@ -102,11 +112,10 @@ export default function ChatGPTFullCaseStudy() {
             padding: 0,
             cursor: 'pointer',
             marginBottom: '40px',
-            color: '#888',
+            color: '#AAAAAA',
             fontFamily: "'Geist Mono', monospace",
-            fontSize: '12px',
-            fontWeight: 300,
-            letterSpacing: '0.04em',
+            fontSize: '15px',
+            fontWeight: 400,
             textTransform: 'uppercase',
           }}
         >
@@ -130,13 +139,11 @@ export default function ChatGPTFullCaseStudy() {
                 cursor: 'pointer',
                 textAlign: 'left',
                 fontFamily: "'Geist Mono', monospace",
-                fontSize: '11px',
-                fontWeight: 300,
-                letterSpacing: '0.04em',
+                fontSize: '15px',
+                fontWeight: 400,
                 textTransform: 'uppercase',
                 color: activeSection === id ? '#000' : '#AAAAAA',
-                boxShadow: activeSection === id ? '0 1px 4px rgba(0,0,0,0.08)' : 'none',
-                transition: 'color 0.2s, background 0.2s, box-shadow 0.2s',
+                transition: 'color 0.2s, background 0.2s',
               }}
             >
               {label}
@@ -148,6 +155,7 @@ export default function ChatGPTFullCaseStudy() {
       {/* RIGHT PANEL — 70% scrollable */}
       <div
         ref={rightPanelRef}
+        className="chatgpt-right-panel"
         style={{
           flex: 1,
           minWidth: 0,
@@ -393,16 +401,7 @@ export default function ChatGPTFullCaseStudy() {
 
         </div>
 
-        {/* Footer */}
-        <div style={{ padding: '0 36px', marginTop: '64px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '12px', fontWeight: 300, color: '#8C8C8C', letterSpacing: '0.04em', textTransform: 'uppercase' }}>Reflections and Learnings</span>
-          </div>
-        </div>
-
-        <p className="new-hero-body" style={{ margin: '64px 0 60px', textAlign: 'center', color: '#BBBBBB', lineHeight: 1.7, fontSize: '14px' }}>
-          Thank you for making it this far! Reach out to me at <span style={{ color: '#555' }}>nitishgannu@gmail.com</span> if you want to learn more.
-        </p>
+        <div style={{ height: '80px' }} />
 
       </div>
     </div>
