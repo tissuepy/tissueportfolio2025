@@ -24,6 +24,7 @@ import finalizedFlowCollections from './assets/finalized-flow-for-collections.we
 import collectionsVariety from './assets/collections-variety-1.png';
 import collectionsPage from './assets/collections-page.png';
 import chatgptLogo from './articles/chatgpt-logo.png';
+import chatgptWalkthrough1 from './assets/chatgpt-walkthrough-1.mp4';
 
 const researchImages = [softwareEngineerQuote, ilrQuote, buQuote];
 const otherResearchImages = [redditQuote, chatgptQuote];
@@ -416,6 +417,17 @@ export default function ChatGPTFullCaseStudy() {
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               Since much of ChatGPT's value is experienced on the web, I explored how bookmarks could integrate into the desktop experience and give users a natural way to access and revisit saved information.
             </p>
+          </div>
+
+          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#000', border: '1px solid #E5E5E5', boxSizing: 'border-box', position: 'relative', overflow: 'hidden' }}>
+            <video
+              src={chatgptWalkthrough1}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+            />
           </div>
 
         <div style={{ height: '80px' }} />
