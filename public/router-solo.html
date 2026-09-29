@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Router — Solo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #faf9f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+    #__bundler_loading { position: fixed; bottom: 20px; right: 20px; font: 13px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; color: #666; background: #fff; padding: 8px 14px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); z-index: 10000; }
+    #__bundler_thumbnail { position: fixed; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #faf9f5; z-index: 9999; }
+    #__bundler_thumbnail svg { width: 100%; height: 100%; object-fit: contain; }
+    #__bundler_placeholder { color: #999; font-size: 14px; }
+  </style>
+  <noscript>
+    <style>#__bundler_loading { display: none; }</style>
+    <div style="position:fixed;bottom:12px;left:12px;font:13px/1.4 -apple-system,BlinkMacSystemFont,sans-serif;color:#999;background:rgba(255,255,255,0.9);padding:6px 12px;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.08);z-index:10000;">
+      This page requires JavaScript to display.
+    </div>
+  </noscript>
+</head>
+<body>
+  <div id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#ffffff"></rect><g fill="none" stroke="#2b2b2b" stroke-width="2"><path d="M30 55 L50 45 L70 55 L50 65 Z"></path><path d="M30 55 V62 L50 72 L70 62 V55"></path><path d="M50 65 V72"></path></g></svg></div>
+  <div id="__bundler_loading">Unpacking...</div>
+
+  <script>
+    
+document.addEventListener('DOMContentLoaded', async function() {
+  const loading = document.getElementById('__bundler_loading');
+  function setStatus(msg) { if (loading) loading.textContent = msg; }
+
+  const FONT_MIME = /^(font[/]|application[/](x-)?font-|application[/]vnd\.ms-fontobject)/i;
+  const MIME_TOKEN = /^[\w.+-]+[/][\w.+-]+$/;
+  function toBase64(bytes) {
+    let bin = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) {
+      bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    }
+    return btoa(bin);
+  }
+
+  // Error sink persists across replaceWith since it's on window, not the DOM.
+  window.addEventListener('error', function(e) {
+    // Failed resource loads (CSP-blocked links, scripts, images) fire plain
+    // events at the element — warn only; real JS errors carry message/error.
+    if (!e.message && !e.error && e.target && e.target !== window) {
+      console.warn('[bundle] resource failed to load:',
+        e.target.tagName, String(e.target.src || e.target.href || ''));
+      return;
+    }
+    var p = document.body || document.documentElement;
+    var d = document.getElementById('__bundler_err') || p.appendChild(document.createElement('div'));
+    d.id = '__bundler_err';
+    d.style.cssText = 'position:fixed;bottom:12px;left:12px;right:12px;font:12px/1.4 ui-monospace,monospace;background:#2a1215;color:#ff8a80;padding:10px 14px;border-radius:8px;border:1px solid #5c2b2e;z-index:99999;white-space:pre-wrap;max-height:40vh;overflow:auto';
+    d.textContent = (d.textContent ? d.textContent + String.fromCharCode(10) : '') +
+      '[bundle] ' + (e.message || e.type) +
+      (e.filename ? ' (' + e.filename.slice(0, 60) + ':' + e.lineno + ')' : '');
+  }, true);
+
+  try {
+    const manifestEl = document.querySelector('script[type="__bundler/manifest"]');
+    const templateEl = document.querySelector('script[type="__bundler/template"]');
+    if (!manifestEl || !templateEl) {
+      setStatus('Error: missing bundle data');
+      console.error('[bundler] Missing script tags — manifestEl:', !!manifestEl, 'templateEl:', !!templateEl);
+      return;
+    }
+
+    const manifest = JSON.parse(manifestEl.textContent);
+    let template = JSON.parse(templateEl.textContent);
+
+    // Nested page bundles (iframe targets). Each ships ONCE, in the ROOT
+    // document's manifest; frame srcs carry an about:blank#<uuid> marker
+    // instead of a substitutable uuid. Every document mints the blobs for
+    // its OWN frames — from local text at the root, or text obtained from
+    // its DIRECT parent over the relay protocol below — so each frame
+    // navigation stays same-origin with its initiator and a deduped page
+    // loads at any depth on any host, including a file:// download's
+    // opaque origins (where a blob minted by one document cannot be
+    // navigated to by another).
+    const pageOrderEl = document.querySelector('script[type="__bundler/page_order"]');
+    const pageOrder = pageOrderEl ? JSON.parse(pageOrderEl.textContent) : [];
+    const pageSet = new Set(pageOrder);
+    const pageTexts = {};
+
+    // ── Nested-page text protocol (parent-chain relay) ──
+    // Page bundles ship once, in the ROOT document's manifest. Every
+    // document mints the blobs for its OWN frames, obtaining page text
+    // through a strict parent-chain relay: a document only ever SENDS to
+    // its direct parent (which, for every document the publisher's own
+    // runtime minted, is another publisher document) and only ACCEPTS
+    // text from that direct parent; requests from below are honored only
+    // for the document's own child frames, and the ROOT never sends
+    // upward at all. That last rule is load-bearing: the artifact host's
+    // frame-ancestors allows claude.ai (and friends) to frame an
+    // artifact, so window.top can be a FOREIGN document — a top-addressed
+    // protocol would hand page uuids to that ancestor and accept forged
+    // "page text" from it, minting attacker HTML as an artifact-origin
+    // blob document. The chain never touches the ancestor: requests stop
+    // at the root, replies are origin-addressed per hop (never '*' when
+    // an origin exists), and both directions are origin-gated (on https
+    // a foreign sender's origin can never equal this document's; in
+    // opaque contexts — file:// — everything serializes as 'null', where
+    // an embedded EXTERNAL frame still fails the gate by carrying its
+    // own real origin, and a sandboxed child of such a frame is excluded
+    // by the own-child-frames check plus uuid unguessability). Shape is
+    // deny-by-default: one request form, one reply form, no error
+    // replies.
+    // window.origin is the SERIALIZED SECURITY origin ('null' in opaque
+    // contexts such as a sandboxed preview iframe) — location.origin is
+    // computed from the URL and stays 'https://…' even when the document
+    // is sandboxed, which would misgate every opaque chain.
+    const OWN_TARGET = /^https?:[/][/]/.test(window.origin || '')
+      ? window.origin
+      : '*';
+    function trustedOrigin(e) {
+      if (e.origin === window.origin) return true; // https chains; opaque==opaque
+      // file:// trees: Chrome serializes the file document's origin as
+      // 'file://' while the blob: documents it mints serialize as 'null',
+      // so the two legitimate shapes can never string-match — accept the
+      // pair in both directions. https origins never serialize as either,
+      // and sender identity (own child frame / direct parent) is checked
+      // separately.
+      return (
+        (e.origin === 'null' &&
+          (window.origin === 'file://' ||
+            window.location.protocol === 'file:')) ||
+        (/^file:/.test(e.origin) && window.origin === 'null')
+      );
+    }
+    // Non-empty only in the root document (nested bundles ship an empty
+    // island), so it doubles as the root marker: the root answers from
+    // local text and treats a miss as authoritative — never relaying to
+    // its (possibly foreign) parent.
+    const isPageRoot = pageOrder.length > 0;
+    const blobUrls = {};
+    const resourceBlobs = {};
+    const UUID_SHAPE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+    const pendingFrames = {}; // uuid -> [{el, frag}] awaiting text for own frames
+    const pendingRelays = {}; // uuid -> [childWindow] awaiting text to pass down
+    function mountPage(el, frag, text) {
+      const pageBlob = new Blob([text], { type: 'text/html' });
+      const u = URL.createObjectURL(pageBlob);
+      resourceBlobs[u] = pageBlob;
+      el.src = u + frag;
+    }
+    function deliverPage(uuid, text) {
+      const frames = pendingFrames[uuid];
+      delete pendingFrames[uuid];
+      if (frames) for (const f of frames) mountPage(f.el, f.frag, text);
+      const relays = pendingRelays[uuid];
+      delete pendingRelays[uuid];
+      if (relays) {
+        for (const cw of relays) {
+          try { cw.postMessage({ __bundler_page: uuid, __bundler_text: text }, OWN_TARGET); } catch (err) { /* gone */ }
+        }
+      }
+    }
+    function ownFrameWindows() {
+      const out = [];
+      for (const f of Array.from(document.querySelectorAll('iframe'))) {
+        try { if (f.contentWindow) out.push(f.contentWindow); } catch (err) { /* detached */ }
+      }
+      return out;
+    }
+    window.addEventListener('message', function (e) {
+      const d = e.data;
+      if (!d || typeof d !== 'object' || !e.source) return;
+      // Origin gate first; the structural checks below (own-child-frames
+      // for requests, direct-parent + solicited-uuid for replies, the
+      // root's never-relay rule) are what hold in fully opaque chains
+      // where origin strings can't discriminate — a sandboxed root's
+      // FOREIGN wrapper still fails all three even though both serialize
+      // as real-vs-'null' rather than matching.
+      if (!trustedOrigin(e)) return;
+      if (typeof d.__bundler_need === 'string' && UUID_SHAPE.test(d.__bundler_need)) {
+        // Requests are honored only for this document's own child frames.
+        if (ownFrameWindows().indexOf(e.source) < 0) return;
+        const uuid = d.__bundler_need;
+        const text = pageTexts[uuid];
+        if (typeof text === 'string') {
+          try { e.source.postMessage({ __bundler_page: uuid, __bundler_text: text }, OWN_TARGET); } catch (err) { /* gone */ }
+          return;
+        }
+        if (isPageRoot || window.parent === window) return; // authoritative miss
+        const waiting = pendingRelays[uuid];
+        if (waiting) {
+          if (waiting.indexOf(e.source) < 0) waiting.push(e.source);
+          return;
+        }
+        // Never-answered uuids would otherwise accumulate forever under a
+        // request spray; past the cap (far above any real page count) new
+        // relays are dropped rather than remembered.
+        if (Object.keys(pendingRelays).length >= 128) return;
+        pendingRelays[uuid] = [e.source];
+        window.parent.postMessage({ __bundler_need: uuid }, OWN_TARGET);
+      } else if (
+        typeof d.__bundler_page === 'string' &&
+        UUID_SHAPE.test(d.__bundler_page) &&
+        typeof d.__bundler_text === 'string'
+      ) {
+        // The shape test is load-bearing beyond tidiness: the solicited
+        // check below uses the in operator, which matches prototype keys
+        // ('__proto__', 'constructor') — an unshaped key would reach
+        // deliverPage and throw, painting the error banner.
+        // Text is accepted only from the direct parent — the document
+        // that minted this one.
+        if (e.source !== window.parent || window.parent === window) return;
+        if (!(d.__bundler_page in pendingFrames) && !(d.__bundler_page in pendingRelays)) return;
+        deliverPage(d.__bundler_page, d.__bundler_text);
+      }
+    });
+
+    const uuids = Object.keys(manifest);
+    setStatus('Unpacking ' + uuids.length + ' assets...');
+
+    await Promise.all(uuids.map(async (uuid) => {
+      const entry = manifest[uuid];
+      try {
+        const binaryStr = atob(entry.data);
+        const bytes = new Uint8Array(binaryStr.length);
+        for (let i = 0; i < binaryStr.length; i++) bytes[i] = binaryStr.charCodeAt(i);
+
+        let finalBytes = bytes;
+        if (entry.compressed) {
+          if (typeof DecompressionStream !== 'undefined') {
+            const ds = new DecompressionStream('gzip');
+            const writer = ds.writable.getWriter();
+            const reader = ds.readable.getReader();
+            writer.write(bytes);
+            writer.close();
+            const chunks = [];
+            let totalLen = 0;
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+              chunks.push(value);
+              totalLen += value.length;
+            }
+            finalBytes = new Uint8Array(totalLen);
+            let offset = 0;
+            for (const chunk of chunks) { finalBytes.set(chunk, offset); offset += chunk.length; }
+          } else {
+            console.warn('DecompressionStream not available, asset ' + uuid + ' may not render');
+          }
+        }
+
+        if (pageSet.has(uuid)) {
+          pageTexts[uuid] = new TextDecoder().decode(finalBytes);
+          return;
+        }
+        if (FONT_MIME.test(entry.mime) && MIME_TOKEN.test(entry.mime)) {
+          // Strict artifact hosts allow font-src data: but not blob:.
+          blobUrls[uuid] = 'data:' + entry.mime + ';base64,' +
+            (entry.compressed ? toBase64(finalBytes) : entry.data);
+        } else {
+          const blob = new Blob([finalBytes], { type: entry.mime });
+          blobUrls[uuid] = URL.createObjectURL(blob);
+          resourceBlobs[blobUrls[uuid]] = blob;
+        }
+      } catch (err) {
+        console.error('Failed to decode asset ' + uuid + ':', err);
+        const blob = new Blob([], { type: entry.mime });
+        blobUrls[uuid] = URL.createObjectURL(blob);
+        resourceBlobs[blobUrls[uuid]] = blob;
+      }
+    }));
+
+    const extResEl = document.querySelector('script[type="__bundler/ext_resources"]');
+    const extResources = extResEl ? JSON.parse(extResEl.textContent) : [];
+    const resourceMap = {};
+    for (const entry of extResources) {
+      if (blobUrls[entry.uuid]) resourceMap[entry.id] = blobUrls[entry.uuid];
+    }
+
+    // Artifact-host CSP (connect-src 'self') refuses fetch() of blob: URLs —
+    // consumers read these Blobs directly. Survives the swap like the error sink.
+    window.__resourceBlobs = resourceBlobs;
+
+    setStatus('Rendering...');
+    // Page uuids have no blob here — they ride inside about:blank#<uuid>
+    // frame markers the pass below resolves after the swap.
+    for (const uuid of uuids) {
+      if (pageSet.has(uuid)) continue;
+      template = template.split(uuid).join(blobUrls[uuid]);
+    }
+
+    // Strip integrity + crossorigin — blob URLs from a file:// document inherit
+    // a null origin, so crossorigin forces a CORS fetch that SRI then rejects.
+    // The manifest bytes are ours; SRI protects against CDN compromise, not this.
+    template = template.replace(/\s+integrity="[^"]*"/gi, '').replace(/\s+crossorigin="[^"]*"/gi, '');
+
+    const resourceScript = '<script>window.__resources = ' +
+      JSON.stringify(resourceMap).replace(/<\//g, '<\\/') +
+      ';</' + 'script>';
+    // Inject after <head> so the DOCTYPE stays first; prepending the script
+    // would push the parser into quirks mode. DOMParser always emits a <head>
+    // (synthesizing one if the source HTML omitted it) but may carry
+    // attributes through, so match the full opening tag. slice() rather than
+    // replace() keeps us clear of $-pattern substitution in resourceScript.
+    const headOpen = template.match(/<head[^>]*>/i);
+    if (headOpen) {
+      const i = headOpen.index + headOpen[0].length;
+      template = template.slice(0, i) + resourceScript + template.slice(i);
+    }
+
+    // Parse the template and swap the root element. Scripts inserted via
+    // DOMParser/replaceWith are inert per spec — re-create each with
+    // createElement so they execute, awaiting onload for src scripts to
+    // preserve ordering (React before ReactDOM before Babel before text/babel).
+    const doc = new DOMParser().parseFromString(template, 'text/html');
+    document.documentElement.replaceWith(doc.documentElement);
+
+    // Resolve page-frame markers: mint this document's own blob for each
+    // framed page — from local text when this is the root, otherwise by
+    // asking the direct parent over the relay protocol above. An
+    // unanswered request leaves the frame on about:blank, the same
+    // degraded state as a refused embed.
+    {
+      const MARKER = /^about:blank#([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(#.*)?$/;
+      const needed = [];
+      for (const el of Array.from(document.querySelectorAll('iframe'))) {
+        const m = MARKER.exec(el.getAttribute('src') || '');
+        if (!m) continue;
+        const text = pageTexts[m[1]];
+        if (typeof text === 'string') {
+          mountPage(el, m[2] || '', text);
+        } else if (window.parent !== window && !isPageRoot) {
+          const had = pendingFrames[m[1]];
+          (pendingFrames[m[1]] = had || []).push({ el: el, frag: m[2] || '' });
+          if (!had) needed.push(m[1]);
+        }
+      }
+      for (const uuid of needed) {
+        window.parent.postMessage({ __bundler_need: uuid }, OWN_TARGET);
+      }
+    }
+
+    const dead = Array.from(document.scripts);
+    for (const old of dead) {
+      const s = document.createElement('script');
+      for (const a of old.attributes) s.setAttribute(a.name, a.value);
+      s.textContent = old.textContent;
+      // text/babel scripts with a src: read and inline. transformScriptTags
+      // does XHR against the src, but blob:null/ from a file:// origin is
+      // silently dropped. Inlining makes it a plain inline babel script,
+      // which transformScriptTags handles unconditionally.
+      if ((s.type === 'text/babel' || s.type === 'text/jsx') && s.src) {
+        const pre = resourceBlobs[s.src.split('#')[0]];
+        s.textContent = pre ? await pre.text() : await (await fetch(s.src)).text();
+        s.removeAttribute('src');
+      }
+      const p = s.src ? new Promise(function(r) { s.onload = s.onerror = r; }) : null;
+      old.replaceWith(s);
+      if (p) await p;
+    }
+    // Babel standalone auto-transforms type=text/babel on DOMContentLoaded,
+    // which fired before we swapped the document. Trigger manually if present.
+    if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
+      window.Babel.transformScriptTags();
+    }
+  } catch (err) {
+    setStatus('Error unpacking: ' + err.message);
+    console.error('Bundle unpack error:', err);
+  }
+});
+
+  </script>
+
+  <script type="__bundler/manifest">
+{"486ac77b-52f1-4c7b-8fdf-159a8f15bc2b":{"mime":"application/javascript","compressed":true,"data":"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"}}
+  </script>
+
+  <script type="__bundler/ext_resources">
+[]
+  </script>
+
+  <script type="__bundler/page_order">
+[]
+  </script>
+
+  <script type="__bundler/template">
+"<!DOCTYPE html>\n<html lang=\"en\"><head>\n<meta charset=\"utf-8\">\n<title>Router — Solo<\u002Ftitle>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<script type=\"importmap\">\n{\n  \"imports\": {\n    \"three\": \"https://unpkg.com/three@0.184.0/build/three.module.js\",\n    \"three/addons/controls/OrbitControls.js\": \"https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js\",\n    \"three/addons/exporters/OBJExporter.js\": \"https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js\",\n    \"three/addons/exporters/GLTFExporter.js\": \"https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js\"\n  },\n  \"integrity\": {\n    \"https://unpkg.com/three@0.184.0/build/three.module.js\": \"sha384-8FCZ1eVO6it4+pbec2aDtnTrwjWXZLJRC+MAGCIPDgsYnUrl/E0A2YlF8ioMKI/J\",\n    \"https://unpkg.com/three@0.184.0/build/three.core.js\": \"sha384-dw2ooPewaEIrAgl6oFDBmmBWCE9oW9LxRGcfwZ0hLvEprzo202wXl7vCYHRlSnOT\",\n    \"https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js\": \"sha384-4rziNxOBZKQ69i+w+f89KJ55TCYquwchVbByQwmaOeIOXdOU2PLDn3kOfXHwIJC9\",\n    \"https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js\": \"sha384-nbwtoZENJD3Vq+ACK0CuGQdPMuDWHkamC2KJD70EV5nfg6jQjfppKOea07YJN+N3\",\n    \"https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js\": \"sha384-VofkvpG6HERhFCYbsUOHeNXBCqID2nfqkQqnVzE1jc/oPcz+qJ13ADdXH08hE+cQ\"\n  }\n}\n<\u002Fscript>\n<style>\n  html, body { margin: 0; height: 100%; background: #ffffff; overflow: hidden; font-family: ui-monospace, \"SF Mono\", Menlo, monospace; }\n  three-d-stage:not(:defined) { visibility: hidden; }\n  .legend { position: fixed; left: 24px; top: 24px; display: flex; flex-direction: column; gap: 10px; color: #3a3a3a; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; pointer-events: none; }\n  .legend div { display: flex; white-space: nowrap; align-items: center; gap: 10px; }\n  .sw { width: 12px; height: 12px; border: 1px solid #555; box-sizing: border-box; }\n<\u002Fstyle>\n\n<\u002Fhead>\n<body>\n<three-d-stage hide-toolbar=\"\" name=\"router-solo\" background=\"#ffffff\"><\u002Fthree-d-stage>\n<script src=\"486ac77b-52f1-4c7b-8fdf-159a8f15bc2b\"><\u002Fscript>\n<script type=\"module\">\nconst stage = document.querySelector('three-d-stage');\nconst { THREE } = await stage.ready;\n\nstage._key.castShadow = false;\nstage._ground.visible = false;\n\nconst fill = new THREE.MeshBasicMaterial({ name: 'paper', color: 0xffffff, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });\nconst ink = new THREE.LineBasicMaterial({ name: 'ink', color: 0x4a4a4a });\nconst inkEtch = new THREE.LineBasicMaterial({ name: 'ink_etch', color: 0x5c5c5c });\nconst inkDark = new THREE.LineBasicMaterial({ name: 'ink_dark', color: 0x2b2b2b });\nconst inkLight = new THREE.LineBasicMaterial({ name: 'ink_light', color: 0xb8b8b8 });\nconst inkFaint = new THREE.LineBasicMaterial({ name: 'ink_faint', color: 0xe4e4e4 });\nconst solidBlack = new THREE.MeshBasicMaterial({ name: 'ink_fill', color: 0x1e1e1e });\n\n// Solid = white paper fill + drawn edges\nfunction solid(parent, geo, name, x = 0, y = 0, z = 0, lineMat = ink) {\n  const m = new THREE.Mesh(geo, fill); m.name = name; m.position.set(x, y, z);\n  const e = new THREE.LineSegments(new THREE.EdgesGeometry(geo, 20), lineMat); e.name = `${name}_lines`;\n  m.add(e); parent.add(m); return m;\n}\nconst line = (parent, pts, mat, name) => {\n  const l = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), mat); l.name = name; parent.add(l); return l;\n};\n// Etched detail: flat segment list [x1,y1,z1,x2,y2,z2,...]\nfunction etch(parent, segs, name = 'etch', mat = inkEtch) {\n  const l = new THREE.LineSegments(new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute(segs, 3)), mat);\n  l.name = name; parent.add(l); return l;\n}\n// Rectangle on a plane facing +z at depth z\nconst rectZ = (x0, y0, x1, y1, z) => [x0,y0,z,x1,y0,z, x1,y0,z,x1,y1,z, x1,y1,z,x0,y1,z, x0,y1,z,x0,y0,z];\n// Short diagonal hatch dashes on a horizontal plane\nfunction hatch(x0, z0, x1, z1, y, step = 0.08, len = 0.05) {\n  const o = [];\n  for (let z = z0 + step / 2; z < z1; z += step) for (let x = x0 + step / 2; x < x1 - len; x += step * 1.4) {\n    const off = (Math.round((z - z0) / step) % 2) * step * 0.7;\n    const xx = x + off; if (xx + len > x1) continue;\n    o.push(xx, y, z, xx + len, y, z - len * 0.5);\n  }\n  return o;\n}\nconst box = (w, h, d) => new THREE.BoxGeometry(w, h, d);\nconst oct = (rt, rb, h) => { const g = new THREE.CylinderGeometry(rt, rb, h, 8); g.rotateY(Math.PI / 8); return g; };\n\nconst world = new THREE.Group(); world.name = 'router_network';\n\n// Flat grid, fading radially to paper\nconst G = 22, h = G / 2, step = 0.8, sub = 0.1, gy = 0;\nconst gp = [], gc = [], ink0 = new THREE.Color(0xbdbdbd), paper = new THREE.Color(0xffffff), tmp = new THREE.Color();\nconst shade = (x, z) => { const r = Math.hypot(x, z) / h; const k = Math.min(1, Math.max(0, (r - 0.12) / 0.5)); tmp.copy(ink0).lerp(paper, k * k * (3 - 2 * k)); return [tmp.r, tmp.g, tmp.b]; };\nfor (let v = -Math.floor(h / step) * step; v <= h + 1e-6; v += step) for (let u = -h; u < h - 1e-6; u += sub) {\n  gp.push(u, gy, v, u + sub, gy, v); gc.push(...shade(u, v), ...shade(u + sub, v));\n  gp.push(v, gy, u, v, gy, u + sub); gc.push(...shade(v, u), ...shade(v, u + sub));\n}\nconst gridGeo = new THREE.BufferGeometry();\ngridGeo.setAttribute('position', new THREE.Float32BufferAttribute(gp, 3));\ngridGeo.setAttribute('color', new THREE.Float32BufferAttribute(gc, 3));\nconst grid = new THREE.LineSegments(gridGeo, new THREE.LineBasicMaterial({ name: 'grid', vertexColors: true }));\ngrid.name = 'grid'; world.add(grid);\n\nconst SC = 2.6;\n// Router\nfunction makeRouter(id, x, z, rot) {\n  const g = new THREE.Group(); g.name = `router_${id}`; g.position.set(x, 0, z); g.rotation.y = rot;\n  solid(g, box(0.9, 0.16, 0.6), 'body', 0, 0.1, 0);\n  solid(g, box(0.78, 0.02, 0.48), 'top_plate', 0, 0.19, 0);\n  const zf = 0.3015, yt = 0.2015;\n  etch(g, [...rectZ(-0.41, 0.045, 0.41, 0.165, zf), -0.45, 0.035, zf, 0.45, 0.035, zf], 'front_bezel');\n  const ports = []; for (let i = 0; i < 3; i++) ports.push(...rectZ(0.1 + i * 0.09, 0.07, 0.16 + i * 0.09, 0.12, zf));\n  etch(g, ports, 'ports');\n  etch(g, [-0.36, yt, -0.21, 0.36, yt, -0.21, 0.36, yt, -0.21, 0.36, yt, 0.21, 0.36, yt, 0.21, -0.36, yt, 0.21, -0.36, yt, 0.21, -0.36, yt, -0.21], 'top_panel');\n  const logoTex = new THREE.TextureLoader().load('assets/cisco-logo.webp');\n  logoTex.colorSpace = THREE.SRGBColorSpace; logoTex.anisotropy = 8;\n  const logo = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4), new THREE.MeshBasicMaterial({ name: 'cisco_logo', map: logoTex, color: 0x3a3a3a, transparent: true, blending: THREE.MultiplyBlending, premultipliedAlpha: true, depthWrite: false }));\n  logo.name = 'cisco_logo'; logo.rotation.x = -Math.PI / 2; logo.position.set(0, yt + 0.0005, 0.01); g.add(logo);\n  for (const sx of [-1, 1]) {\n    const v = []; for (let z = -0.22; z <= 0.221; z += 0.055) v.push(sx * 0.4515, 0.06, z, sx * 0.4515, 0.14, z);\n    etch(g, v, 'side_vents');\n  }\n  const back = []; for (let x = -0.3; x <= 0.301; x += 0.06) back.push(x, 0.05, -0.3015, x, 0.15, -0.3015);\n  etch(g, back, 'rear_vents');\n  const leds = [];\n  for (let i = 0; i < 4; i++) {\n    const led = new THREE.Mesh(box(0.045, 0.022, 0.01), fill.clone()); led.material.name = 'led';\n    led.position.set(-0.3 + i * 0.09, 0.12, 0.306); led.name = 'led';\n    led.add(Object.assign(new THREE.LineSegments(new THREE.EdgesGeometry(led.geometry), ink), { name: 'led_lines' }));\n    g.add(led); leds.push(led.material);\n  }\n  for (const s of [-1, 1]) {\n    const a = new THREE.Group(); a.name = 'antenna'; a.position.set(s * 0.36, 0.2, -0.22); a.rotation.z = -s * 0.12; g.add(a);\n    solid(a, box(0.035, 0.08, 0.035), 'antenna_hinge', 0, 0.04, 0);\n    solid(a, box(0.022, 0.36, 0.022), 'antenna_rod', 0, 0.26, 0);\n    solid(a, box(0.05, 0.05, 0.05), 'antenna_tip', 0, 0.46, 0);\n  }\n  g.scale.setScalar(SC); g.position.y = -0.02 * SC;\n  world.add(g);\n  return { type: 'router', anchor: new THREE.Vector3(x, 0.44 * SC, z), leds, flash: 0, seed: Math.random() * 10 };\n}\n\nconst R = makeRouter(1, 0, 0, 0);\n// Ground pulse rings + rising signal arcs from the antennas\nconst circ = (r, y = 0) => { const p = []; for (let i = 0; i <= 256; i++) { const t = i / 256 * Math.PI * 2; p.push(new THREE.Vector3(Math.cos(t) * r, y, Math.sin(t) * r)); } return p; };\nconst pulses = [0, 1, 2, 3].map(i => { const l = line(world, circ(0.6 * SC, 0.012), new THREE.LineBasicMaterial({ name: 'pulse', color: 0x444444, transparent: true, depthWrite: false }), 'pulse_ring_' + i); l.renderOrder = 2; return l; });\nconst env = k => { const a = Math.min(1, k / 0.12); return a * a * (3 - 2 * a) * Math.pow(1 - k, 1.6); };\nconst easeOut = k => 1 - Math.pow(1 - k, 2);\nconst arcs = [];\nfor (const sx of [-1, 1]) {\n  const tip = new THREE.Vector3(sx * 0.36 * SC + sx * 0.06, 0.7 * SC, -0.22 * SC);\n  for (let i = 0; i < 3; i++) {\n    const g = new THREE.Group(); g.name = 'signal_' + sx + '_' + i; g.position.copy(tip); world.add(g);\n    const pts = []; for (let k = 0; k <= 96; k++) { const t = -0.9 + k / 96 * 1.8; pts.push(new THREE.Vector3(Math.sin(t) * sx * 0.15, Math.cos(t) * 0.15, 0)); }\n    const mat = new THREE.LineBasicMaterial({ name: 'signal', color: 0x2b2b2b, transparent: true, depthWrite: false });\n    line(g, pts, mat, 'arc'); g.rotation.z = -sx * 0.5;\n    arcs.push({ g, mat, i });\n  }\n}\nstage.setObject(world);\n\nconst cam = stage._camera, ctr = stage._controls;\nconst dist = cam.position.distanceTo(ctr.target);\ncam.fov = 6; cam.near = 10; cam.far = 400; cam.updateProjectionMatrix();\nctr.maxDistance = Infinity; ctr.minDistance = 0;\nctr.target.set(0, 0.5, 0);\ncam.position.copy(ctr.target).add(new THREE.Vector3(1, 1, 1).normalize().multiplyScalar(70));\nctr.update();\n\nconst WHITE = new THREE.Color(0xffffff), BLACK = new THREE.Color(0x1e1e1e);\nconst WHITE_ = WHITE;\nlet beat = 0;\nfunction tick(now) {\n  const t = now / 1000;\n  // heartbeat: double \"beep\" every 1.6s\n  const ph = t % 1.6, beep = ph < 0.12 || (ph > 0.24 && ph < 0.36);\n  R.leds[0].color.copy(beep ? BLACK : WHITE);\n  R.leds[1].color.copy(Math.sin(t * 7.3) > 0.2 ? BLACK : WHITE);\n  R.leds[2].color.copy(Math.sin(t * 11.1 + 1) > 0.5 ? BLACK : WHITE);\n  R.leds[3].color.copy(BLACK);\n  pulses.forEach((p, i) => { const k = (t / 4 + i / 4) % 1; p.scale.setScalar(0.85 + easeOut(k) * 1.8); p.material.opacity = env(k) * 0.85; });\n  arcs.forEach(({ g, mat, i }) => { const k = (t / 2.2 + i / 3) % 1; g.scale.setScalar(0.6 + easeOut(k) * 3); mat.opacity = env(k); });\n  requestAnimationFrame(tick);\n}\nrequestAnimationFrame(tick);\n<\u002Fscript>\n\n\n<\u002Fbody><\u002Fhtml>"
+  </script>
+</body>
+</html>

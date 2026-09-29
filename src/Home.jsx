@@ -28,6 +28,7 @@ import chatgptDetail2 from './assets/chatgpt-detail-2.mp4';
 import dotsPattern from './assets/chatgpt-dots-pattern.png';
 import pogoLogo from './assets/pogo-logo.png';
 import ciscoLogo from './assets/cisco-logo.png';
+import ciscoLogoBlue from './assets/cisco-logo-blue.png';
 import pogoLogoNew from './assets/pogo-logo-new.png';
 import ilThumbnail from './assets/insights-2-thumbnail.png';
 import surveyBranchingThumbnail from './assets/survey-branching-thumbnail.png';
@@ -861,6 +862,21 @@ function Home() {
             ))}
           </div>
 
+
+          {/* Cisco section */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '52px 36px 0' }}>
+            <div style={{ width: '44px', height: '44px', flexShrink: 0, border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img src={ciscoLogoBlue} alt="Cisco" style={{ width: '30px', height: '30px', objectFit: 'contain' }} />
+            </div>
+            <p className="new-hero-body" style={{ margin: 0, maxWidth: '420px', textAlign: 'right', lineHeight: 1.7, fontSize: '16px' }}>
+              Building the future of <span style={{ textDecoration: 'underline', color: '#666666' }}>mathematical digital twins</span> for Cisco, reimagining how networks understand themselves.
+            </p>
+          </div>
+          <div style={{ padding: '20px 36px 0' }}>
+            <div style={{ width: '100%', aspectRatio: '2 / 1', position: 'relative', overflow: 'hidden', border: '1px solid #E5E5E5' }}>
+              <iframe src="/router-solo.html" style={{ width: '200%', height: '200%', border: 'none', display: 'block', transform: 'scale(0.5)', transformOrigin: 'top left' }} title="Router Solo" />
+            </div>
+          </div>
 
           {/* Craft section */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '52px 36px 0' }}>
