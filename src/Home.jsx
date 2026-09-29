@@ -29,6 +29,7 @@ import dotsPattern from './assets/chatgpt-dots-pattern.png';
 import pogoLogo from './assets/pogo-logo.png';
 import ciscoLogo from './assets/cisco-logo.png';
 import ciscoLogoBlue from './assets/cisco-logo-blue.png';
+import ciscoRouter from './assets/cisco-router.mp4';
 import pogoLogoNew from './assets/pogo-logo-new.png';
 import ilThumbnail from './assets/insights-2-thumbnail.png';
 import surveyBranchingThumbnail from './assets/survey-branching-thumbnail.png';
@@ -874,7 +875,7 @@ function Home() {
           </div>
           <div style={{ padding: '20px 36px 0' }}>
             <div style={{ width: '100%', aspectRatio: '2 / 1', position: 'relative', overflow: 'hidden', border: '1px solid #E5E5E5' }}>
-              <iframe src="/router-solo.html" style={{ width: '200%', height: '200%', border: 'none', display: 'block', transform: 'scale(0.5)', transformOrigin: 'top left' }} title="Router Solo" />
+              <video src={ciscoRouter} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
           </div>
 
