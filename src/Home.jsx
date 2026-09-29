@@ -875,7 +875,7 @@ function Home() {
           </div>
           <div style={{ padding: '20px 36px 0' }}>
             <div style={{ width: '100%', aspectRatio: '2 / 1', position: 'relative', overflow: 'hidden', border: '1px solid #E5E5E5' }}>
-              <video src={ciscoRouter} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <video src={ciscoRouter} autoPlay loop muted playsInline style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%) scale(1.25)', width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
           </div>
 
