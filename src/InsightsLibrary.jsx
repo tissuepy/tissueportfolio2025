@@ -117,30 +117,33 @@ export default function InsightsLibrary() {
             color: '#AAAAAA',
             fontFamily: "'Geist Mono', monospace",
             fontSize: '15px',
-            fontWeight: 400,
+            fontWeight: 350,
             textTransform: 'uppercase',
           }}
         >
-          ← Back
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Work
         </button>
-        <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        <nav style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
           {SECTIONS.map(({ id, label }) => (
             <button
               key={id}
               onClick={() => scrollTo(id)}
               style={{
                 background: activeSection === id ? '#fff' : 'none',
+                border: 'none',
                 borderRadius: '8px',
                 padding: '7px 12px',
-                fontFamily: "'Geist Mono', monospace",
-                fontSize: '14px',
-                fontWeight: 400,
-                textTransform: 'uppercase',
-                color: activeSection === id ? '#000' : '#AAAAAA',
-                transition: 'color 0.2s, background 0.2s',
-                border: 'none',
                 cursor: 'pointer',
                 textAlign: 'left',
+                fontFamily: "'Geist Mono', monospace",
+                fontSize: '15px',
+                fontWeight: 350,
+                textTransform: 'uppercase',
+                color: activeSection === id ? '#2F7BFF' : '#AAAAAA',
+                transition: 'color 0.2s, background 0.2s',
               }}
             >
               {label}

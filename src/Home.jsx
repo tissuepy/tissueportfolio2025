@@ -775,7 +775,7 @@ function Home() {
       {/* Two-column layout: 30% left panel (fixed) | 70% right work panel (scrollable) */}
       {/* Backdrop blur when business card is open */}
 
-      <div className="home-layout" style={{ display: 'flex', alignItems: 'flex-start', width: '100%', height: '100vh', overflow: 'hidden', padding: '0 2%' }}>
+      <div className="home-layout" style={{ display: 'flex', alignItems: 'flex-start', width: '100%', maxWidth: '1440px', margin: '0 auto', height: '100vh', overflow: 'hidden', padding: '0 2%' }}>
 
         {/* LEFT PANEL — 30%, fixed in place */}
         <div

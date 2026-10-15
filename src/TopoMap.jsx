@@ -8,19 +8,22 @@ import chatgptLogo from './articles/chatgpt-logo.png';
 import chatgptThumbnailVideo from './assets/chatgpt-final-padded.mp4';
 import insightsLibraryThumbnail from './assets/insights-2-thumbnail.png';
 import surveyBranchingThumbnail from './assets/survey-branching-thumbnail.png';
+import airportIphoneWebm from './assets/airport-iphone.webm';
+import businessCardsWebm from './assets/business-cards-iphone.webm';
+import craftBg from './assets/craft-bg.avif';
 
 const MW = 1080, MH = 680, FX = 60, FY = 60;
 
 const PEAKS = [
   { text: 'DESIGN', dots: [[-95, -40, 'in'], [88, -58], [72, 72]], x: 230, y: 210, h: 1.0, s: 105,
     projects: [
-      { title: 'ChatGPT', subtitle: 'Concept', logoType: 'openai', video: chatgptThumbnailVideo, route: '/chatgpt' },
+      { title: 'ChatGPT', subtitle: 'Bookmarks', logoType: 'openai', video: chatgptThumbnailVideo, route: '/chatgpt' },
       { title: 'Pogo', subtitle: 'Insights Library', subtitleSize: 15, image: insightsLibraryThumbnail, imageScale: 1.4, imageOffsetX: 10, imageOffsetY: 2, route: '/projects/insights-library' },
-      { title: 'Pogo', subtitle: 'Survey Branching', image: surveyBranchingThumbnail, imageScale: 1, imageOffsetY: 8, route: '/work/pogo/sections' },
+      { title: 'Pogo', subtitle: 'Survey Branching', image: surveyBranchingThumbnail, imageScale: 1, imageOffsetY: 8, locked: true, comingSoon: true },
     ]
   },
-  { text: 'RESEARCH', dots: [[-88, -46]], x: 790, y: 170, h: 0.9, s: 100, projects: [null] },
-  { text: 'CRAFT', dots: [[-92, 36], [82, -58]], x: 380, y: 510, h: 0.95, s: 100, projects: [null, null] },
+  { text: 'RESEARCH', dots: [[-88, -46]], x: 790, y: 170, h: 0.9, s: 100, projects: [{ title: 'Research', locked: true, comingSoon: true, tooltipOnly: true }] },
+  { text: 'CRAFT', dots: [[-92, 36], [82, -58]], x: 380, y: 510, h: 0.95, s: 100, projects: [{ title: 'Craft', subtitle: 'Airport App', video: airportIphoneWebm, lightbox: true }, { title: 'Craft', subtitle: 'Networking Cards', video: businessCardsWebm, lightbox: true }] },
 ];
 
 const TERRAIN = [
@@ -214,6 +217,20 @@ export default function TopoMap() {
   const dotHoverClearTimer = useRef(null);
   const [videoHover, setVideoHover] = useState(false);
   const [videoCursor, setVideoCursor] = useState({ x: 0, y: 0 });
+  const [dotButtonHover, setDotButtonHover] = useState(false);
+  const [dotButtonCursor, setDotButtonCursor] = useState({ x: 0, y: 0 });
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxClosing, setLightboxClosing] = useState(false);
+  const [lightboxVideo, setLightboxVideo] = useState(null);
+
+  const openLightbox = (videoSrc) => { setLightboxVideo(videoSrc); setLightboxOpen(true); setLightboxClosing(false); };
+  const closeLightbox = useCallback(() => { setLightboxClosing(true); setTimeout(() => { setLightboxOpen(false); setLightboxClosing(false); }, 350); }, []);
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') closeLightbox(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [closeLightbox]);
 
   const setState = useCallback((updates) => {
     const upd = typeof updates === 'function' ? updates(stateRef.current) : updates;
@@ -311,6 +328,7 @@ export default function TopoMap() {
     <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fbfbfa', fontFamily: "'Geist Mono', ui-monospace, monospace" }}>
       <style>{`
         @keyframes dotTooltipIn { from { opacity: 0; transform: translate(-50%, 4px); } to { opacity: 1; transform: translate(-50%, 16px); } }
+        @keyframes dotTooltipInUp { from { opacity: 0; transform: translate(-50%, -4px) translateY(-100%); } to { opacity: 1; transform: translate(-50%, -16px) translateY(-100%); } }
         .topo-zoom-btn:hover { background: #2F7BFF !important; color: #FFFFFF !important; }
         .topo-dot-inner { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
         .topo-dot-inner:hover { transform: scale(1.35); }
@@ -337,16 +355,18 @@ export default function TopoMap() {
           animation: topo-labels-in 0.4s ease 0.65s both;
         }
       `}</style>
-      <div style={{ position: 'relative', width: 'min(88%, 120vh)', aspectRatio: '3/2' }}>
+      <div
+        onPointerDown={handleDown}
+        onPointerMove={handleMove}
+        onPointerUp={handleUp}
+        onPointerLeave={handleLeave}
+        style={{ position: 'relative', width: 'min(88%, 120vh)', aspectRatio: '3/2', cursor, touchAction: 'none', userSelect: 'none' }}
+      >
         <svg
           ref={svgRef}
           viewBox="0 0 1200 800"
           preserveAspectRatio="xMidYMid meet"
-          onPointerDown={handleDown}
-          onPointerMove={handleMove}
-          onPointerUp={handleUp}
-          onPointerLeave={handleLeave}
-          style={{ width: '100%', height: '100%', display: 'block', cursor, touchAction: 'none', userSelect: 'none' }}
+          style={{ width: '100%', height: '100%', display: 'block', pointerEvents: 'none' }}
         >
           <defs>
             <clipPath id="topo-frame"><rect x="60" y="60" width="1080" height="680" /></clipPath>
@@ -378,7 +398,7 @@ export default function TopoMap() {
         </div>
 
         {/* Dot tooltip portal */}
-        {dotHover && dotHover.project && createPortal(
+        {dotHover && dotHover.project && !dotHover.project.tooltipOnly && createPortal(
           <>
             <div
               onMouseEnter={() => { clearTimeout(dotHoverClearTimer.current); }}
@@ -387,7 +407,7 @@ export default function TopoMap() {
                 position: 'fixed',
                 left: dotHover.x,
                 top: dotHover.y,
-                transform: 'translate(-50%, 16px)',
+                transform: dotHover.flipUp ? 'translate(-50%, calc(-100% - 16px))' : 'translate(-50%, 16px)',
                 zIndex: 99999,
                 width: '260px',
                 background: '#ffffff',
@@ -396,15 +416,19 @@ export default function TopoMap() {
                 border: '1px solid #E2E4E7',
                 boxShadow: '0 4px 16px rgba(0,0,0,0.07)',
                 pointerEvents: 'auto',
-                animation: 'dotTooltipIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both',
+                animation: dotHover.flipUp ? 'dotTooltipInUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both' : 'dotTooltipIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both',
               }}>
               {/* Header */}
               <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', padding: '11px 14px', borderBottom: '1px solid #E2E4E7' }}>
                 <span style={{ fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 350, color: '#777777' }}>
                   {dotHover.project.title}
                 </span>
-                {dotHover.project.subtitle && (
-                  <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: `${dotHover.project.subtitleSize || 16}px`, fontWeight: 350, color: '#2F7BFF', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                {dotHover.project.locked ? (
+                  <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '13px', fontWeight: 400, color: '#AAAAAA', textTransform: 'uppercase', letterSpacing: '0.06em', background: '#F5F5F5', padding: '2px 7px', borderRadius: '4px' }}>
+                    {dotHover.project.subtitle}
+                  </span>
+                ) : dotHover.project.subtitle && (
+                  <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '13px', fontWeight: 400, color: '#2F7BFF', textTransform: 'uppercase', letterSpacing: '0.06em', background: '#EBF2FF', padding: '2px 7px', borderRadius: '4px' }}>
                     {dotHover.project.subtitle}
                   </span>
                 )}
@@ -415,10 +439,26 @@ export default function TopoMap() {
                   onMouseEnter={() => setVideoHover(true)}
                   onMouseLeave={() => setVideoHover(false)}
                   onMouseMove={e => setVideoCursor({ x: e.clientX, y: e.clientY })}
-                  onClick={() => dotHover.project.route && navigate(dotHover.project.route)}
-                  style={{ position: 'relative', overflow: 'hidden', cursor: dotHover.project.route ? 'pointer' : 'default' }}
+                  onClick={() => {
+                    if (dotHover.project.locked) return;
+                    if (dotHover.project.lightbox) { openLightbox(dotHover.project.video); return; }
+                    if (dotHover.project.route) navigate(dotHover.project.route);
+                  }}
+                  style={{ position: 'relative', overflow: 'hidden', cursor: dotHover.project.locked ? 'default' : (dotHover.project.route || dotHover.project.lightbox ? 'pointer' : 'default') }}
                 >
                   {dotHover.project.video ? (
+                    dotHover.project.lightbox ? (
+                      <div style={{ width: '100%', height: '140px', backgroundImage: `url(${craftBg})`, backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.3)' }} />
+                        <video
+                          key={dotHover.project.video}
+                          autoPlay muted loop playsInline
+                          style={{ position: 'relative', zIndex: 1, height: '110px', width: 'auto', borderRadius: '6px' }}
+                        >
+                          <source src={dotHover.project.video} type="video/webm" />
+                        </video>
+                      </div>
+                    ) : (
                     <video
                       key={dotHover.project.video}
                       autoPlay muted loop playsInline
@@ -426,6 +466,7 @@ export default function TopoMap() {
                     >
                       <source src={dotHover.project.video} type={dotHover.project.video.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
                     </video>
+                    )
                   ) : (
                     <img
                       src={dotHover.project.image}
@@ -433,22 +474,22 @@ export default function TopoMap() {
                       style={{ width: '100%', height: '140px', display: 'block', objectFit: 'cover', transform: dotHover.project.imageScale ? `scale(${dotHover.project.imageScale}) translate(${dotHover.project.imageOffsetX || 0}%, ${dotHover.project.imageOffsetY || 0}%)` : 'none' }}
                     />
                   )}
-                  {dotHover.project.route && (
+                  {(dotHover.project.route || dotHover.project.locked) && (
                     <div style={{
                       position: 'absolute', inset: 0,
-                      background: videoHover ? 'rgba(0,0,0,0.28)' : 'rgba(0,0,0,0)',
+                      background: videoHover && !dotHover.project.locked ? 'rgba(0,0,0,0.28)' : 'rgba(0,0,0,0)',
                       transition: 'background 0.2s ease',
                     }} />
                   )}
                 </div>
               )}
             </div>
-            {/* VIEW cursor tooltip */}
-            {videoHover && dotHover.project.route && (
+            {/* VIEW / LOCKED / EXPAND cursor tooltip — shows on dot hover or thumbnail hover */}
+            {(videoHover || dotButtonHover) && (dotHover.project.route || dotHover.project.locked || dotHover.project.comingSoon || dotHover.project.lightbox) && (
               <div style={{
                 position: 'fixed',
-                left: videoCursor.x + 16,
-                top: videoCursor.y + 16,
+                left: (videoHover ? videoCursor.x : dotButtonCursor.x) + 16,
+                top: (videoHover ? videoCursor.y : dotButtonCursor.y) + 16,
                 pointerEvents: 'none',
                 zIndex: 100000,
                 backgroundColor: '#EFEFEF',
@@ -461,25 +502,60 @@ export default function TopoMap() {
                 letterSpacing: '0.04em',
                 whiteSpace: 'nowrap',
               }}>
-                VIEW
+                {dotHover.project.comingSoon ? 'COMING SOON' : dotHover.project.lightbox ? 'EXPAND' : 'VIEW'}
               </div>
             )}
           </>,
           document.body
         )}
 
+        {/* Standalone cursor tooltip for tooltipOnly projects */}
+        {dotHover && dotHover.project && dotHover.project.tooltipOnly && dotButtonHover && createPortal(
+          <div style={{
+            position: 'fixed',
+            left: dotButtonCursor.x + 16,
+            top: dotButtonCursor.y + 16,
+            pointerEvents: 'none',
+            zIndex: 100000,
+            backgroundColor: '#EFEFEF',
+            padding: '4px 8px',
+            fontFamily: "'Geist Mono', monospace",
+            fontSize: '14px',
+            fontWeight: 400,
+            color: '#555555',
+            textTransform: 'uppercase',
+            letterSpacing: '0.04em',
+            whiteSpace: 'nowrap',
+          }}>
+            COMING SOON
+          </div>,
+          document.body
+        )}
+
         {/* Dots + labels */}
-        <div className="topo-labels-anim" style={{ position: 'absolute', left: '5%', top: '7.5%', width: '90%', height: '85%', overflow: 'hidden', pointerEvents: 'none' }}>
+        <div className="topo-labels-anim" style={{ position: 'absolute', left: '5%', top: '7.5%', width: '90%', height: '85%', overflow: 'hidden', pointerEvents: 'none', zIndex: 2 }}>
           {dots.map((d, i) => (
             <div key={i} style={{ position: 'absolute', left: d.left, top: d.top, width: 0, height: 0, pointerEvents: 'auto' }}>
               <div
                 className="topo-dot-inner"
-                onMouseEnter={d.project ? e => {
+                onMouseEnter={d.project && !d.project.alwaysBlue ? e => {
+                  clearTimeout(dotHoverClearTimer.current);
                   const r = e.currentTarget.getBoundingClientRect();
-                  setDotHover({ project: d.project, x: r.left + r.width / 2, y: r.bottom });
+                  const flipUp = r.bottom + 220 > window.innerHeight;
+                  setDotHover({ project: d.project, x: r.left + r.width / 2, y: flipUp ? r.top : r.bottom, flipUp });
+                  setDotButtonHover(true);
+                  setDotButtonCursor({ x: e.clientX, y: e.clientY });
                 } : undefined}
-                onMouseLeave={d.project ? () => { dotHoverClearTimer.current = setTimeout(() => setDotHover(null), 80); } : undefined}
-                style={{ position: 'absolute', left: '-9px', top: '-9px', width: '18px', height: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', background: '#2F7BFF', cursor: d.project ? 'pointer' : 'default' }}
+                onMouseLeave={d.project && !d.project.alwaysBlue ? () => {
+                  dotHoverClearTimer.current = setTimeout(() => setDotHover(null), 80);
+                  setDotButtonHover(false);
+                } : undefined}
+                onMouseMove={d.project && !d.project.alwaysBlue ? e => setDotButtonCursor({ x: e.clientX, y: e.clientY }) : undefined}
+                onClick={d.project && !d.project.locked && !d.project.comingSoon && !d.project.alwaysBlue ? () => {
+                  if (d.project.lightbox) { openLightbox(d.project.video); return; }
+                  if (d.project.route) navigate(d.project.route);
+                } : undefined}
+                style={{ position: 'absolute', left: '-9px', top: '-9px', width: '18px', height: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', background: (!d.project || d.project.locked || d.project.comingSoon) ? '#C4C8CD' : '#2F7BFF', cursor: d.project && !d.project.locked && !d.project.comingSoon && !d.project.alwaysBlue ? 'pointer' : 'default' }}
               >
                 <svg width="8" height="8" viewBox="0 0 8 8" style={{ display: 'block' }}>
                   <path d="M4 0.5v7M0.5 4h7" stroke="#FFFFFF" strokeWidth="1" fill="none" />
@@ -516,6 +592,78 @@ export default function TopoMap() {
           </button>
         </div>
       </div>
+
+      {/* Lightbox portal */}
+      {lightboxOpen && lightboxVideo && createPortal(
+        <>
+          <style>{`
+            @keyframes lb-in  { from { opacity: 0; transform: translate(-50%,-50%) scale(0.88); } to { opacity: 1; transform: translate(-50%,-50%) scale(1); } }
+            @keyframes lb-out { from { opacity: 1; transform: translate(-50%,-50%) scale(1); } to { opacity: 0; transform: translate(-50%,-50%) scale(0.88); } }
+            @keyframes lb-bg-in  { from { opacity: 0; } to { opacity: 1; } }
+            @keyframes lb-bg-out { from { opacity: 1; } to { opacity: 0; } }
+          `}</style>
+          {/* Dark full-screen overlay */}
+          <div
+            onClick={closeLightbox}
+            style={{
+              position: 'fixed', inset: 0, zIndex: 199997,
+              background: 'rgba(0,0,0,0.72)',
+              animation: lightboxClosing ? 'lb-bg-out 0.35s ease forwards' : 'lb-bg-in 0.35s ease forwards',
+            }}
+          />
+          {/* craftBg card + video, centered */}
+          <div
+            style={{
+              position: 'fixed',
+              top: '50%', left: '50%',
+              zIndex: 199998,
+              width: 'min(72vw, 900px)',
+              height: 'min(78vh, 760px)',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              backgroundImage: `url(${craftBg})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              animation: lightboxClosing ? 'lb-out 0.35s cubic-bezier(0.22,1,0.36,1) forwards' : 'lb-in 0.4s cubic-bezier(0.22,1,0.36,1) forwards',
+            }}
+          >
+            {/* Fade overlay behind the video */}
+            <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.35)' }} />
+            <video
+              key={lightboxVideo}
+              autoPlay loop muted playsInline
+              style={{
+                position: 'relative', zIndex: 1,
+                maxWidth: '72%',
+                maxHeight: '90%',
+                width: 'auto',
+                height: 'auto',
+                borderRadius: '12px',
+                pointerEvents: 'none',
+              }}
+            >
+              <source src={lightboxVideo} type="video/webm" />
+            </video>
+          </div>
+          {/* Close hint */}
+          <div
+            onClick={closeLightbox}
+            style={{
+              position: 'fixed', top: '24px', right: '28px', zIndex: 200000,
+              fontFamily: "'Geist Mono', monospace", fontSize: '13px', fontWeight: 400,
+              color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.06em',
+              cursor: 'pointer',
+              animation: lightboxClosing ? 'lb-bg-out 0.25s ease forwards' : 'lb-bg-in 0.5s ease 0.2s both',
+            }}
+          >
+            ESC TO CLOSE
+          </div>
+        </>,
+        document.body
+      )}
     </div>
   );
 }

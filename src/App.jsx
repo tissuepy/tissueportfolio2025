@@ -368,8 +368,8 @@ function App() {
       <div className="site-container">
 
       {/* Page content with transition */}
-      <div className={`page-wrapper ${fadeClass}`} style={{ paddingTop: (currentPath === '/' || currentPath === '/chatgpt') ? '0' : '72px' }}>
-        {currentPath !== '/' && currentPath !== '/chatgpt' && <SiteNav />}
+      <div className={`page-wrapper ${fadeClass}`} style={{ paddingTop: (currentPath === '/' || currentPath === '/chatgpt' || currentPath === '/projects/insights-library') ? '0' : '72px' }}>
+        {currentPath !== '/' && currentPath !== '/chatgpt' && currentPath !== '/projects/insights-library' && <SiteNav />}
         <Routes location={{ pathname: currentPath }}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
