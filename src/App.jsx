@@ -303,7 +303,7 @@ function Breadcrumb({ pathname }) {
   );
 }
 
-const NO_NOISE_ROUTES = ['/work/searchneu', '/work/wrap', '/work/safehub', '/work/chatgpt', '/work/pogo', '/work/pogo/sections', '/writing', '/writing/rejection', '/writing/moving-out', '/work/chatgpt/article', '/work/chatgpt/full', '/projects', '/projects/monadic', '/projects/insights-library'];
+const NO_NOISE_ROUTES = ['/work/searchneu', '/work/wrap', '/work/safehub', '/work/chatgpt', '/work/pogo', '/work/pogo/sections', '/writing', '/writing/rejection', '/writing/moving-out', '/work/chatgpt/article', '/chatgpt', '/projects', '/projects/monadic', '/projects/insights-library'];
 
 function App() {
   const location = useLocation();
@@ -368,8 +368,8 @@ function App() {
       <div className="site-container">
 
       {/* Page content with transition */}
-      <div className={`page-wrapper ${fadeClass}`} style={{ paddingTop: '72px' }}>
-        <SiteNav />
+      <div className={`page-wrapper ${fadeClass}`} style={{ paddingTop: (currentPath === '/' || currentPath === '/chatgpt') ? '0' : '72px' }}>
+        {currentPath !== '/' && currentPath !== '/chatgpt' && <SiteNav />}
         <Routes location={{ pathname: currentPath }}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -388,11 +388,11 @@ function App() {
           <Route path="/writing/moving-out" element={<MovingOut />} />
           <Route path="/test" element={<Test />} />
           <Route path="/work/chatgpt/article" element={<ChatGPTArticle />} />
-          <Route path="/work/chatgpt/full" element={<ChatGPTFullCaseStudy />} />
+          <Route path="/chatgpt" element={<ChatGPTFullCaseStudy />} />
         </Routes>
       </div>
 
-      {currentPath !== '/photos' && currentPath !== '/' && currentPath !== '/work/chatgpt/full' && currentPath !== '/projects/insights-library' && currentPath !== '/about' && <SiteFooter />}
+      {currentPath !== '/photos' && currentPath !== '/' && currentPath !== '/chatgpt' && currentPath !== '/projects/insights-library' && currentPath !== '/about' && <SiteFooter />}
       </div>{/* end site-container */}
 
       </div>

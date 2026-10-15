@@ -2,7 +2,8 @@
 import './App.css';
 import '@fontsource/geist-mono/300.css';
 import '@fontsource-variable/geist';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import TopoMap from './TopoMap';
 import { createPortal } from 'react-dom';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import craftWalkthrough from './assets/craft-walkthrough.mp4';
@@ -58,7 +59,11 @@ import hoverImgCisco from './assets/cisco-13.jpeg';
 import craftBg from './assets/craft-bg.avif';
 import airportIphoneMov from './assets/airport-iphone.mov';
 import airportIphoneWebm from './assets/airport-iphone.webm';
-import { BusinessCard } from './SiteFooter';
+import pencilSparkleIcon from './assets/pencil-sparkle-figma.svg';
+import copyFigmaIcon from './assets/copy-figma.svg';
+import arrowUpRightFigmaIcon from './assets/arrow-upright-figma.svg';
+import warpedGridBg from './assets/warped-grid-transparent-2.png';
+
 
 const POGO_VIDEOS = [journeyVideo, monadicVideo, screenerVideo];
 
@@ -461,6 +466,33 @@ function HomeContactCard({ onClose, navBottom, buttonRight }) {
   );
 }
 
+function AboutPhoto({ src, alt, onMouseEnter, onMouseLeave, onMouseMove, onClick, hideCursor }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <div
+      onMouseEnter={(e) => { setHovered(true); onMouseEnter?.(e); }}
+      onMouseLeave={(e) => { setHovered(false); onMouseLeave?.(e); }}
+      onMouseMove={onMouseMove}
+      onClick={onClick}
+      style={{
+        width: '60vh', aspectRatio: '1 / 1', borderRadius: '0px', overflow: 'hidden', flexShrink: 0,
+        cursor: hideCursor ? 'none' : undefined,
+      }}
+    >
+      <img
+        src={src}
+        alt={alt}
+        style={{
+          width: '100%', height: '100%', objectFit: 'cover', display: 'block',
+          filter: hovered ? 'grayscale(0%)' : 'grayscale(100%)',
+          transition: 'filter 0.08s ease',
+          pointerEvents: 'none',
+        }}
+      />
+    </div>
+  );
+}
+
 function Home() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -468,8 +500,81 @@ function Home() {
   const workSectionRef = useRef(null);
   const rightPanelRef = useRef(null);
   const leftPanelRef = useRef(null);
+  const [activeTab, setActiveTab] = useState('work');
+  const tabRefs = useRef({});
+  const [tabIndicator, setTabIndicator] = useState({ left: 0, width: 0 });
+  const [activeFootnote, setActiveFootnote] = useState(null); // 1 or 2
+  const [footnoteClosing, setFootnoteClosing] = useState(false);
+  const footnoteRefs = useRef({});
+  const [footnotePos, setFootnotePos] = useState({ x: 0, y: 0 });
+  const [homeCardOpen, setHomeCardOpen] = useState(false);
+  const [homeCardClosing, setHomeCardClosing] = useState(false);
+  const [homeCardPos, setHomeCardPos] = useState({ x: 0, y: 0 });
+  const [hoveredCardLink, setHoveredCardLink] = useState(null);
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('ng545@cornell.edu').then(() => {
+      setEmailCopied(true);
+      setHoverCard(prev => prev ? { ...prev, label: 'card-email-copied' } : null);
+      setTimeout(() => {
+        setEmailCopied(false);
+        setHoverCard(prev => prev ? { ...prev, label: 'card-email' } : null);
+      }, 2000);
+    });
+  };
+  const businessCardTextRef = useRef(null);
+
+  const openHomeCard = (e) => {
+    if (homeCardOpen) { closeHomeCard(); return; }
+    const rect = e.currentTarget.getBoundingClientRect();
+    setHomeCardPos({ x: rect.left + 115, y: rect.top - 205 });
+    setHomeCardOpen(true);
+    setHomeCardClosing(false);
+  };
+
+  const closeHomeCard = () => {
+    setHomeCardClosing(true);
+    setTimeout(() => { setHomeCardOpen(false); setHomeCardClosing(false); }, 450);
+  };
+
+  const footnoteContent = {
+    1: <>So far: statistics, machine learning, UX research, <span style={{ color: '#2F7BFF' }}>product design</span>, and product management.</>,
+    2: 'I tend to ask a lot of "why" questions. Statistics encouraged that habit, and design gives me plenty of reasons to keep asking.',
+  };
+
+  const closeFootnote = () => {
+    setFootnoteClosing(true);
+    setTimeout(() => { setActiveFootnote(null); setFootnoteClosing(false); }, 180);
+  };
+
+  const handleFootnoteClick = (num, e) => {
+    if (activeFootnote === num) { closeFootnote(); return; }
+    if (activeFootnote !== null) { setActiveFootnote(null); }
+    const rect = e.currentTarget.getBoundingClientRect();
+    setFootnotePos({ x: rect.right + 8, y: rect.top + rect.height / 2 });
+    setActiveFootnote(num);
+    setFootnoteClosing(false);
+  };
+
+  useLayoutEffect(() => {
+    const el = tabRefs.current[activeTab];
+    if (el) setTabIndicator({ left: el.offsetLeft, width: el.offsetWidth });
+  }, [activeTab]);
   const [hoverCard, setHoverCard] = useState(null); // { label, x, y }
+  const [nyTime, setNyTime] = useState('');
+  useEffect(() => {
+    const update = () => {
+      const t = new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+      setNyTime(t);
+    };
+    update();
+    const id = setInterval(update, 1000);
+    return () => clearInterval(id);
+  }, []);
   const hoverCardMousePos = useRef({ x: 0, y: 0 });
+  const lastMouseRef = useRef({ x: 0, t: 0 });
+  const [tooltipTilt, setTooltipTilt] = useState(0);
   const [craftOpen, setCraftOpen] = useState(false);
   const [craftClosing, setCraftClosing] = useState(false);
   const [craftRect, setCraftRect] = useState(null);
@@ -487,52 +592,52 @@ function Home() {
   };
 
   const handleLinkEnter = (e, label) => {
+    lastMouseRef.current = { x: e.clientX, t: Date.now() };
     hoverCardMousePos.current = { x: e.clientX, y: e.clientY };
     setHoverCard({ label, x: e.clientX, y: e.clientY });
+    setTooltipTilt(0);
   };
-  const handleLinkLeave = () => setHoverCard(null);
+  const handleLinkLeave = () => {
+    setHoverCard(null);
+    setTooltipTilt(0);
+  };
   const handleLinkMouseMove = (e) => {
     if (hoverCard) {
+      const now = Date.now();
+      const dt = now - lastMouseRef.current.t;
+      const dx = e.clientX - lastMouseRef.current.x;
+      const vx = dt > 0 ? dx / dt : 0;
+      setTooltipTilt(Math.max(-20, Math.min(20, vx * 10)));
+      lastMouseRef.current = { x: e.clientX, t: now };
       hoverCardMousePos.current = { x: e.clientX, y: e.clientY };
       setHoverCard(prev => prev ? { ...prev, x: e.clientX, y: e.clientY } : null);
     }
   };
+
+  const aboutPhotosRef = useRef(null);
+  const [potCursor, setPotCursor] = useState({ visible: false, x: 0, y: 0 });
+  const [potCursorTilted, setPotCursorTilted] = useState(false);
 
   useEffect(() => {
     const el = leftPanelRef.current;
     if (!el) return;
     const handler = (e) => {
       e.preventDefault();
-      if (rightPanelRef.current) rightPanelRef.current.scrollTop += e.deltaY;
+      const target = activeTab === 'about' ? aboutPhotosRef.current : rightPanelRef.current;
+      if (target) target.scrollTop += e.deltaY;
     };
     el.addEventListener('wheel', handler, { passive: false });
     return () => el.removeEventListener('wheel', handler);
-  }, []);
+  }, [activeTab]);
   const [copied, setCopied] = useState(false);
   const [ilHovered, setIlHovered] = useState(false);
   const [chatgptCursor, setChatgptCursor] = useState({ visible: false, x: 0, y: 0 });
   const [lockedCursor, setLockedCursor] = useState({ visible: false, x: 0, y: 0 });
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [activeFilter, setActiveFilter] = useState('work');
-  const [contactOpen, setContactOpen] = useState(false);
   const [navBottom, setNavBottom] = useState(60);
   const [buttonRight, setButtonRight] = useState(null);
-  const contactBtnRef = useRef(null);
-  const contactDismissRef = useRef(null);
 
-  const handleContactToggle = useCallback(() => {
-    if (contactOpen) {
-      if (contactDismissRef.current) contactDismissRef.current();
-      else setContactOpen(false);
-    } else {
-      if (contactBtnRef.current) {
-        const rect = contactBtnRef.current.getBoundingClientRect();
-        setNavBottom(rect.bottom + 8);
-        setButtonRight(rect.right);
-      }
-      setContactOpen(true);
-    }
-  }, [contactOpen]);
 
   const folderPhotos = [
     { src: folderPhoto1, cls: 'hero-folder-photo--1' },
@@ -576,6 +681,29 @@ function Home() {
 
   return (
     <>
+      {potCursor.visible && createPortal(
+        <img
+          src="/pot-cursor.png"
+          alt=""
+          style={{
+            position: 'fixed',
+            left: potCursor.x,
+            top: potCursor.y,
+            width: '100px',
+            height: '90px',
+            objectFit: 'contain',
+            pointerEvents: 'none',
+            zIndex: 99999,
+            transform: potCursorTilted
+              ? 'translate(-50%, -50%) rotate(-25deg) translateY(12px)'
+              : 'translate(-50%, -50%) rotate(0deg) translateY(0px)',
+            transition: potCursorTilted
+              ? 'transform 0.15s cubic-bezier(0.22,1,0.36,1)'
+              : 'transform 0.6s cubic-bezier(0.22,1,0.36,1)',
+          }}
+        />,
+        document.body
+      )}
       {hoverCard && createPortal(
         <div style={{
           position: 'fixed',
@@ -593,8 +721,11 @@ function Home() {
           letterSpacing: '0.04em',
           whiteSpace: 'nowrap',
           opacity: 1,
+          transform: `rotate(${tooltipTilt}deg) translateY(${Math.abs(tooltipTilt) * 0.25}px)`,
+          transition: 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+          transformOrigin: 'top center',
         }}>
-          {hoverCard.label === 'pogo' ? 'Spring 2026' : hoverCard.label === 'cisco' ? 'Summer 2026' : 'Yep That\'s Me!'}
+          {hoverCard.label === 'pogo' ? 'Spring 2026' : hoverCard.label === 'cisco' ? 'Summer 2026' : hoverCard.label === 'cornell1' ? 'SUNSHINE AND RAINBOWS' : hoverCard.label === 'cornell2' ? '<3' : hoverCard.label === 'miami1' ? 'MIAMI BEACH' : hoverCard.label === 'miami3' ? 'MID-BLINK' : hoverCard.label === 'card-email' ? 'COPY EMAIL' : hoverCard.label === 'card-email-copied' ? 'EMAIL COPIED' : hoverCard.label === 'card-linkedin' ? 'LINKEDIN' : hoverCard.label === 'card-x' ? 'X' : hoverCard.label === 'business-card' ? 'CLICK TO OPEN' : hoverCard.label === 'cornell' ? 'GO BIG RED' : 'Yep That\'s Me!'}
         </div>,
         document.body
       )}
@@ -624,286 +755,303 @@ function Home() {
         .home-anim-hero {
           animation: home-slide-up 0.7s cubic-bezier(0.22,1,0.36,1) 0.75s both;
         }
+        @keyframes tab-content-in {
+          from { opacity: 0; transform: translateY(8px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .tab-content-anim {
+          animation: tab-content-in 0.25s ease both;
+          will-change: opacity, transform;
+        }
+        .about-photos-scroll::-webkit-scrollbar { display: none; }
+        @media (max-width: 768px) {
+          .home-layout { flex-direction: column !important; height: auto !important; overflow: visible !important; padding: 0 !important; }
+          .home-left-panel { width: 100% !important; height: auto !important; overflow: visible !important; padding-bottom: 24px; }
+          .home-anim-hero { padding: 80px 24px 0 24px !important; }
+          .home-right-panel { width: 100% !important; height: 80vw !important; min-height: 400px; max-height: 640px; }
+        }
       `}</style>
 
       {/* Two-column layout: 30% left panel (fixed) | 70% right work panel (scrollable) */}
       {/* Backdrop blur when business card is open */}
 
-      <div style={{ display: 'flex', alignItems: 'flex-start', width: '100%', height: 'calc(100vh - 72px)', overflow: 'hidden' }}>
+      <div className="home-layout" style={{ display: 'flex', alignItems: 'flex-start', width: '100%', height: '100vh', overflow: 'hidden', padding: '0 2%' }}>
 
         {/* LEFT PANEL — 30%, fixed in place */}
         <div
           ref={leftPanelRef}
+          className="home-left-panel"
           style={{
-          width: '30%',
+          width: '33%',
           flexShrink: 0,
-          height: 'calc(100vh - 72px)',
+          height: '100vh',
           overflowX: 'hidden',
           overflowY: 'auto',
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
           display: 'flex',
           flexDirection: 'column',
+          justifyContent: 'flex-start',
           position: 'relative',
         }}>
-          {/* Hero text + experience */}
-          <div className="home-anim-hero" style={{ padding: '40px 26px 0', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
-              Hey there. I'm <span onMouseEnter={e => handleLinkEnter(e, 'nitish')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'underline', color: '#666666', cursor: 'default' }}>Nitish Gannu</span>, a designer who brings the precision of statistics to the pixels of product design.
-            </p>
-            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
-              I was previously a design engineer at <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" onMouseEnter={e => handleLinkEnter(e, 'pogo')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', verticalAlign: 'middle' }}><img src={pogoLogoNew} alt="" style={{ width: '19px', height: '19px', objectFit: 'cover', borderRadius: '0px', display: 'inline-block', flexShrink: 0 }} /><span className="link-text" style={{ color: '#666666', textDecoration: 'underline', transition: 'background 0.15s, color 0.15s' }}>Pogo</span></a> &amp; I'm envisioning the future of Mathematical Digital Twins at <a href="https://www.cisco.com/" target="_blank" rel="noreferrer" onMouseEnter={e => handleLinkEnter(e, 'cisco')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', verticalAlign: 'middle' }}><img src={ciscoLogo} alt="" style={{ width: '19px', height: '19px', objectFit: 'cover', borderRadius: '0px', display: 'inline-block', flexShrink: 0 }} /><span className="link-text" style={{ color: '#666666', textDecoration: 'underline', transition: 'background 0.15s, color 0.15s' }}>Cisco</span></a>
-            </p>
-            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px' }}>
-              Inquiries: ng545 [at] cornell [dot] edu or just take my <span onClick={handleContactToggle} style={{ textDecoration: 'underline', color: '#666666', cursor: 'pointer' }}>business card</span>
-            </p>
-          </div>
-
-        </div>
-
-        {/* RIGHT PANEL — 70%, scrollable */}
-        <div ref={rightPanelRef} className="right-panel-scroll" style={{ flex: 1, minWidth: 0, height: 'calc(100vh - 72px)', overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none', overscrollBehavior: 'none' }}>
-
-        {isCraft ? (
-          /* CRAFT VIEW */
-          <div style={{ padding: '40px 36px 60px' }}>
-            <div style={{ borderRadius: '16px', overflow: 'hidden', background: '#000', aspectRatio: '16 / 10', maxWidth: '520px', position: 'relative' }}>
-              <video
-                src={craftWalkthrough}
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              />
-            </div>
-          </div>
-        ) : (<>
-
-          {/* ChatGPT meta */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '52px 36px 0' }}>
-            <div style={{ width: '44px', height: '44px', flexShrink: 0, border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <img src={chatgptLogo} alt="ChatGPT" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />
-            </div>
-            <p className="new-hero-body" style={{ margin: 0, maxWidth: "420px", textAlign: "right", lineHeight: 1.7, fontSize: "16px" }}>
-              Design engineered an intuitive bookmarking experience for <a href="https://chatgpt.com" target="_blank" rel="noreferrer" style={{ color: '#666666', textDecoration: 'underline' }}>ChatGPT</a> across the web and mobile platforms.
-            </p>
-          </div>
-
-          {/* Locked cursor label */}
-          <div style={{
-            position: 'fixed',
-            left: lockedCursor.x + 16,
-            top: lockedCursor.y + 16,
-            pointerEvents: 'none',
-            zIndex: 9999,
-            backgroundColor: '#EFEFEF',
-            padding: '4px 8px',
-            fontFamily: "'Geist Mono', monospace",
-            fontSize: '14px',
-            fontWeight: 400,
-            color: '#555555',
-            textTransform: 'uppercase',
-            letterSpacing: '0.04em',
-            whiteSpace: 'nowrap',
-            opacity: lockedCursor.visible ? 1 : 0,
-            transition: 'opacity 0.2s ease',
-          }}>
-            Locked
-          </div>
-
-          {/* ChatGPT cursor label */}
-          <div style={{
-            position: 'fixed',
-            left: chatgptCursor.x + 16,
-            top: chatgptCursor.y + 16,
-            pointerEvents: 'none',
-            zIndex: 9999,
-            backgroundColor: '#EFEFEF',
-            padding: '4px 8px',
-            fontFamily: "'Geist Mono', monospace",
-            fontSize: '14px',
-            fontWeight: 400,
-            color: '#555555',
-            textTransform: 'uppercase',
-            letterSpacing: '0.04em',
-            whiteSpace: 'nowrap',
-            opacity: chatgptCursor.visible ? 1 : 0,
-            transition: 'opacity 0.2s ease',
-          }}>
-            View Project
-          </div>
-
-          {/* ChatGPT canvas */}
-          <div
-            onClick={() => navigate('/work/chatgpt/full')}
-            onMouseEnter={() => setChatgptCursor(c => ({ ...c, visible: true }))}
-            onMouseLeave={() => setChatgptCursor(c => ({ ...c, visible: false }))}
-            onMouseMove={(e) => setChatgptCursor({ visible: true, x: e.clientX, y: e.clientY })}
-            style={{
-              width: 'calc(100% - 72px)',
-              margin: '16px 36px 0',
-              height: '420px',
-              background: '#ffffff',
-              border: '1px solid rgba(0,0,0,0.08)',
-              boxSizing: 'border-box',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              overflow: 'hidden',
-              position: 'relative',
-              cursor: 'pointer',
-            }}
-          >
-            <video src={chatgptAnimation} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
-
-          {/* ChatGPT detail canvases — two side by side */}
-          <div style={{ display: 'flex', gap: '12px', width: 'calc(100% - 72px)', margin: '12px 36px 0' }}>
-            {[chatgptDetail1, chatgptDetail2].map((src, i) => (
-              <div
-                key={i}
-                onClick={() => navigate('/work/chatgpt/full')}
-                onMouseEnter={() => setChatgptCursor(c => ({ ...c, visible: true }))}
-                onMouseLeave={() => setChatgptCursor(c => ({ ...c, visible: false }))}
-                onMouseMove={(e) => setChatgptCursor({ visible: true, x: e.clientX, y: e.clientY })}
-                style={{ flex: 1, height: '220px', background: '#ffffff', border: '1px solid rgba(0,0,0,0.08)', overflow: 'hidden', position: 'relative', cursor: 'pointer' }}
-              >
-                <video src={src} autoPlay loop muted playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', transform: 'scale(1.15)', transformOrigin: 'center center' }} />
-              </div>
-            ))}
-          </div>
-
-          {/* Pogo meta */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '52px 36px 0' }}>
-            <img src={pogoLogoNew} alt="Pogo" style={{ width: '44px', height: '44px', objectFit: 'cover', borderRadius: '12px', flexShrink: 0 }} />
-            <p className="new-hero-body" style={{ margin: 0, maxWidth: "460px", textAlign: "right", lineHeight: 1.7, fontSize: "16px" }}>
-              Designed end-to-end experiences for <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" style={{ color: '#666666', textDecoration: 'underline' }}>Pogo</a>, an AI-powered consumer insights platform. Series B, $32M Raised.
-            </p>
-          </div>
-
-          {/* Craft lightbox state */}
-          {craftOpen && craftRect && createPortal(
-            <>
-              <style>{`
-                @keyframes craft-overlay-in  { from { opacity:0 } to { opacity:1 } }
-                @keyframes craft-overlay-out { from { opacity:1 } to { opacity:0 } }
-                @keyframes craft-pull-in {
-                  from {
-                    top: var(--craft-y); left: var(--craft-x);
-                    width: var(--craft-w); height: var(--craft-h);
-                    transform: none; border-radius: 4px;
-                  }
-                  to {
-                    top: 50%; left: 50%;
-                    width: min(82vw, 960px); height: auto;
-                    transform: translate(-50%, -50%); border-radius: 12px;
-                  }
-                }
-                @keyframes craft-pull-out {
-                  from {
-                    top: 50%; left: 50%;
-                    width: min(82vw, 960px); height: auto;
-                    transform: translate(-50%, -50%); border-radius: 12px;
-                  }
-                  to {
-                    top: var(--craft-y); left: var(--craft-x);
-                    width: var(--craft-w); height: var(--craft-h);
-                    transform: none; border-radius: 4px;
-                  }
-                }
-              `}</style>
-              <div
-                onClick={closeCraft}
-                style={{
-                  position: 'fixed', inset: 0, zIndex: 88888,
-                  backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)',
-                  backgroundColor: 'rgba(0,0,0,0.32)',
-                  animation: craftClosing
-                    ? 'craft-overlay-out 0.45s ease forwards'
-                    : 'craft-overlay-in 0.35s ease forwards',
-                }}
-              />
+          {/* Fixed tab nav at top */}
+          <div style={{ position: 'absolute', top: '86px', left: '58px', zIndex: 2 }}>
+            <div style={{ position: 'relative', display: 'inline-flex' }}>
               <div style={{
-                position: 'fixed', zIndex: 88889,
-                aspectRatio: '2 / 1',
-                overflow: 'hidden',
-                pointerEvents: 'none',
-                '--craft-x': `${craftRect.left}px`,
-                '--craft-y': `${craftRect.top}px`,
-                '--craft-w': `${craftRect.width}px`,
-                '--craft-h': `${craftRect.height}px`,
-                animation: craftClosing
-                  ? 'craft-pull-out 0.48s cubic-bezier(0.4,0,0.2,1) forwards'
-                  : 'craft-pull-in 0.6s cubic-bezier(0.16,1,0.3,1) forwards',
-              }}>
-                <img src={craftBg} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                <video ref={craftLightboxVideoRef} autoPlay loop muted playsInline style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', height: '90%', width: 'auto' }}>
-                  <source src={airportIphoneMov} type="video/mp4; codecs=hvc1" />
-                  <source src={airportIphoneWebm} type="video/webm" />
-                </video>
-              </div>
-            </>,
-            document.body
-          )}
+                position: 'absolute',
+                top: 0, bottom: 0,
+                left: tabIndicator.left,
+                width: tabIndicator.width,
+                background: '#2F7BFF',
+                transition: 'left 0.4s cubic-bezier(0.22, 1, 0.36, 1), width 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+              }} />
+              {[{ label: 'WORK', tab: 'work' }, { label: 'ABOUT', tab: 'about' }].map(({ label, tab }) => (
+                <span
+                  key={label}
+                  ref={el => { tabRefs.current[tab] = el; }}
+                  onClick={() => setActiveTab(tab)}
+                  style={{
+                    position: 'relative',
+                    zIndex: 1,
+                    fontFamily: "'Geist Mono', monospace",
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.04em',
+                    padding: '3px 8px',
+                    cursor: 'pointer',
+                    color: activeTab === tab ? '#ffffff' : 'rgba(50, 64, 79, 0.4)',
+                    transition: 'color 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+                    userSelect: 'none',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
+          </div>
 
-          {/* Pogo projects stacked */}
-          <div style={{ padding: '20px 36px 0', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            {[
-              { label: 'Insights Library', sub: 'Visual Design, Interaction Design', className: 'cursor-view-project', onClick: () => navigate('/projects/insights-library'), onMouseEnter: () => setChatgptCursor(c => ({ ...c, visible: true })), onMouseLeave: () => setChatgptCursor(c => ({ ...c, visible: false })), onMouseMove: (e) => setChatgptCursor({ visible: true, x: e.clientX, y: e.clientY }), content: <img src={ilThumbnail} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', top: '5px', left: 0, right: 0, bottom: '-5px' }} /> },
-              { label: 'Survey Branching', sub: 'Visual Design, Interaction Design', className: 'cursor-building', onMouseEnter: () => setLockedCursor(c => ({ ...c, visible: true })), onMouseLeave: () => setLockedCursor(c => ({ ...c, visible: false })), onMouseMove: (e) => setLockedCursor({ visible: true, x: e.clientX, y: e.clientY }), content: <img src={branchingThumbnail} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', inset: 0 }} /> },
-              // { label: 'Interactive Question Picker', sub: 'Animation Design', className: 'cursor-building', content: <VideoCarousel /> },
-              // { label: 'AI Chat Interactions', sub: 'Animation Design', className: 'cursor-building', content: <video src={addStudyAnimation} autoPlay loop muted playsInline style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block', transform: 'translateY(-18px)' }} /> },
-            ].map(({ label, sub, className, onClick, onMouseEnter, onMouseLeave, onMouseMove, content }) => (
-              <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <div className={className} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} onMouseMove={onMouseMove} style={{ width: '100%', aspectRatio: '2 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '24px', position: 'relative', overflow: 'hidden', cursor: onClick ? 'pointer' : 'default' }}>
-                  {content}
+          {/* Hero text + experience */}
+          <div className="home-anim-hero" style={{ padding: '30vh 26px 0 58px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div key={activeTab} className="tab-content-anim" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            {activeTab === 'work' ? (
+              <>
+                <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px', color: '#777777' }}>
+                  <span onMouseEnter={e => handleLinkEnter(e, 'nitish')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', color: '#2F7BFF', cursor: 'default' }}>Nitish Gannu</span> is a designer who brings the precision of statistics to the pixels of design, with the occasional hike in between.
+                </p>
+                <div className="new-hero-body" style={{ display: 'flex', flexDirection: 'column', gap: 0, fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontWeight: 350, fontSize: '16px', color: '#777777', lineHeight: 1.7, margin: 0 }}>
+                  <div>Statistics @ <a href="https://www.cornell.edu/" target="_blank" rel="noreferrer" onMouseEnter={e => handleLinkEnter(e, 'cornell')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', color: '#2F7BFF' }}>Cornell</a></div>
+                  <div>Previously @ <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" onMouseEnter={e => handleLinkEnter(e, 'pogo')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', color: '#2F7BFF' }}>Pogo</a>, <a href="https://www.cisco.com/" target="_blank" rel="noreferrer" onMouseEnter={e => handleLinkEnter(e, 'cisco')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', color: '#2F7BFF' }}>Cisco</a></div>
                 </div>
+                <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px', color: '#777777' }}>
+                  Inquiries: ng545 [at] cornell [dot] edu or just take my <span ref={businessCardTextRef} onClick={openHomeCard} onMouseEnter={e => handleLinkEnter(e, 'business-card')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ color: '#2F7BFF', cursor: 'pointer' }}>business card</span>
+                </p>
+              </>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px', color: '#777777' }}>
+                  I've always been told to dip my toes into multiple pools. This time, I'm dipping into design.<span onClick={(e) => handleFootnoteClick(1, e)} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '19px', height: '19px', background: activeFootnote === 1 ? '#1a5fd4' : '#2F7BFF', borderRadius: '7px', color: '#ffffff', fontSize: '12px', fontFamily: "'Geist Mono', monospace", fontWeight: 500, cursor: 'pointer', verticalAlign: 'middle', marginLeft: '4px', position: 'relative', top: '-2px', flexShrink: 0, lineHeight: 1, transition: 'background 0.15s' }}>1</span>
+                </p>
+                <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px', color: '#777777' }}>
+                  I approach design by breaking down complex problems and understanding what sits underneath them. Appreciating statistics has made me naturally curious about patterns, details, and the reasons behind them.<span onClick={(e) => handleFootnoteClick(2, e)} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '19px', height: '19px', background: activeFootnote === 2 ? '#1a5fd4' : '#2F7BFF', borderRadius: '7px', color: '#ffffff', fontSize: '12px', fontFamily: "'Geist Mono', monospace", fontWeight: 500, cursor: 'pointer', verticalAlign: 'middle', marginLeft: '4px', position: 'relative', top: '-2px', flexShrink: 0, lineHeight: 1, transition: 'background 0.15s' }}>2</span> I try to bring that same rigor into the things I build.
+                </p>
               </div>
+            )}
+            </div>
+          </div>
+
+        </div>
+
+
+        {/* RIGHT PANEL */}
+        <div ref={rightPanelRef} className="home-right-panel" style={{
+          flex: 1, minWidth: 0, height: '100vh', overflow: 'hidden',
+          display: activeTab === 'work' ? 'block' : 'none',
+        }}>
+          <TopoMap />
+        </div>
+        {activeTab === 'about' && (
+          <div ref={aboutPhotosRef} className="tab-content-anim about-photos-scroll" style={{
+            flex: 1, minWidth: 0, height: '100vh', overflowY: 'auto',
+            display: 'flex', flexDirection: 'column', gap: '16px',
+            padding: '86px 0 40px 32px', boxSizing: 'border-box',
+            scrollbarWidth: 'none', msOverflowStyle: 'none',
+          }}>
+            {[
+              { src: new URL('./assets/cornell1.JPEG', import.meta.url).href, alt: 'Cornell 1', label: 'cornell1' },
+              { src: new URL('./assets/cornell2.jpg', import.meta.url).href, alt: 'Cornell 2', label: 'cornell2' },
+              { src: new URL('./assets/miami1.JPG', import.meta.url).href, alt: 'Miami 1', label: 'miami1' },
+              { src: new URL('./assets/miami3.jpg', import.meta.url).href, alt: 'Miami 3', label: 'miami3' },
+              { src: new URL('./assets/performative.JPEG', import.meta.url).href, alt: 'Performative', label: null, teapot: true },
+            ].map(({ src, alt, label, teapot }) => (
+              <AboutPhoto
+                key={alt} src={src} alt={alt}
+                onMouseEnter={teapot ? (e) => setPotCursor({ visible: true, x: e.clientX, y: e.clientY }) : label ? e => handleLinkEnter(e, label) : undefined}
+                onMouseLeave={teapot ? () => setPotCursor(p => ({ ...p, visible: false })) : label ? handleLinkLeave : undefined}
+                onMouseMove={teapot ? (e) => setPotCursor({ visible: true, x: e.clientX, y: e.clientY }) : label ? handleLinkMouseMove : undefined}
+                onClick={teapot ? () => { setPotCursorTilted(true); setTimeout(() => setPotCursorTilted(false), 2000); } : undefined}
+                hideCursor={teapot}
+              />
             ))}
           </div>
-
-
-          {/* Cisco section */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '52px 36px 0' }}>
-            <div style={{ width: '44px', height: '44px', flexShrink: 0, border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <img src={ciscoLogoBlue} alt="Cisco" style={{ width: '30px', height: '30px', objectFit: 'contain' }} />
-            </div>
-            <p className="new-hero-body" style={{ margin: 0, maxWidth: '420px', textAlign: 'right', lineHeight: 1.7, fontSize: '16px' }}>
-              Building the future of <span style={{ textDecoration: 'underline', color: '#666666' }}>mathematical digital twins</span> for Cisco, reimagining how networks understand themselves.
-            </p>
-          </div>
-          <div style={{ padding: '20px 36px 0' }}>
-            <div style={{ width: '100%', aspectRatio: '2 / 1', position: 'relative', overflow: 'hidden', border: '1px solid #E5E5E5' }}>
-              <video src={ciscoRouter} autoPlay loop muted playsInline style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%) scale(1.25)', width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-          </div>
-
-          {/* Craft section */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '52px 36px 0' }}>
-            <p className="new-hero-body" style={{ margin: 0, maxWidth: '460px', textAlign: 'right', lineHeight: 1.7, fontSize: '16px' }}>
-              A collection of things I've made for fun, curiosity, and the occasional creative itch.
-            </p>
-          </div>
-          <div style={{ padding: '20px 36px 120px' }}>
-            <div
-              onClick={openCraft}
-              onMouseEnter={() => setChatgptCursor(c => ({ ...c, visible: true }))}
-              onMouseLeave={() => setChatgptCursor(c => ({ ...c, visible: false }))}
-              onMouseMove={(e) => setChatgptCursor({ visible: true, x: e.clientX, y: e.clientY })}
-              style={{ width: '100%', aspectRatio: '2 / 1', position: 'relative', overflow: 'hidden', border: '1px solid #E5E5E5', cursor: 'pointer' }}
-            >
-              <img src={craftBg} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-              <video autoPlay loop muted playsInline style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', height: '90%', width: 'auto' }}>
-                <source src={airportIphoneMov} type="video/mp4; codecs=hvc1" />
-                <source src={airportIphoneWebm} type="video/webm" />
-              </video>
-            </div>
-          </div>
-
-        </>)}
-        </div>
+        )}
       </div>
+
+      {/* Footnote popover */}
+      {activeFootnote !== null && createPortal(
+        <>
+          <div
+            onClick={closeFootnote}
+            style={{
+              position: 'fixed', inset: 0, zIndex: 9000,
+              background: 'rgba(0,0,0,0.08)',
+              animation: footnoteClosing ? 'footnote-dim-out 0.18s ease forwards' : 'footnote-dim-in 0.2s ease forwards',
+            }}
+          />
+          <div style={{
+            position: 'fixed',
+            left: Math.min(footnotePos.x, window.innerWidth - 320),
+            top: footnotePos.y,
+            transform: 'translateY(-50%)',
+            zIndex: 9001,
+            background: '#ffffff',
+            borderRadius: '14px',
+            boxShadow: 'none',
+            padding: '14px 20px',
+            maxWidth: '380px',
+            fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif",
+            fontSize: '16px',
+            fontWeight: 350,
+            color: '#777777',
+            lineHeight: 1.5,
+            pointerEvents: 'none',
+            animation: footnoteClosing ? 'footnote-pop-out 0.18s cubic-bezier(0.22,1,0.36,1) forwards' : 'footnote-pop-in 0.2s cubic-bezier(0.22,1,0.36,1) forwards',
+          }}>
+            {footnoteContent[activeFootnote]}
+          </div>
+          <style>{`
+            @keyframes footnote-dim-in  { from { opacity: 0; } to { opacity: 1; } }
+            @keyframes footnote-dim-out { from { opacity: 1; } to { opacity: 0; } }
+            @keyframes footnote-pop-in  { from { opacity: 0; transform: translateY(-50%) scale(0.92); } to { opacity: 1; transform: translateY(-50%) scale(1); } }
+            @keyframes footnote-pop-out { from { opacity: 1; transform: translateY(-50%) scale(1); } to { opacity: 0; transform: translateY(-50%) scale(0.92); } }
+          `}</style>
+        </>,
+        document.body
+      )}
+
+      {/* Home business card portal */}
+      {homeCardOpen && createPortal(
+        <>
+          <div
+            onClick={closeHomeCard}
+            style={{
+              position: 'fixed', inset: 0, zIndex: 9000,
+              background: 'rgba(0,0,0,0.08)',
+              animation: homeCardClosing ? 'footnote-dim-out 0.45s ease forwards' : 'footnote-dim-in 0.2s ease forwards',
+            }}
+          />
+          <div style={{
+            position: 'fixed',
+            left: Math.max(16, Math.min(homeCardPos.x, window.innerWidth - 476)),
+            top: homeCardPos.y,
+            zIndex: 9001,
+            width: '400px',
+            aspectRatio: '820 / 480',
+            background: '#ffffff',
+            borderRadius: '24px',
+            overflow: 'hidden',
+            boxShadow: 'none',
+            border: 'none',
+            pointerEvents: 'auto',
+            animation: homeCardClosing
+              ? 'hcard-out 0.35s cubic-bezier(0.22,1,0.36,1) forwards'
+              : 'hcard-in 0.25s cubic-bezier(0.22,1,0.36,1) forwards',
+          }}>
+            {/* Warped grid background */}
+            <img src={warpedGridBg} alt="" style={{
+              position: 'absolute', top: '-30%', left: '-45%',
+              width: '175%', height: '175%', objectFit: 'cover',
+              opacity: 0.15, pointerEvents: 'none',
+            }} />
+            {/* Pencil Sparkle icon top-left */}
+            <img src={pencilSparkleIcon} alt="" style={{
+              position: 'absolute', top: '14px', left: '16px',
+              width: '30px', height: '30px',
+            }} />
+            {/* Contact links top-right */}
+            <div style={{
+              position: 'absolute', top: '18px', right: '18px',
+              display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'flex-end',
+            }}>
+              {/* Email — copy to clipboard */}
+              {[
+                { icon: copyFigmaIcon, label: 'NG545@CORNELL.EDU', cardLabel: 'card-email', idx: 0, isEmail: true },
+                { icon: arrowUpRightFigmaIcon, label: 'LINKEDIN.COM/IN/TISSUE', cardLabel: 'card-linkedin', href: 'https://www.linkedin.com/in/nitishgannu/', idx: 1 },
+                { icon: arrowUpRightFigmaIcon, label: 'X.COM/NITISHGANNU', cardLabel: 'card-x', href: 'https://x.com/nitishgannu', idx: 2 },
+              ].map(({ icon, label, cardLabel, href, idx, isEmail }) => {
+                const Tag = isEmail ? 'div' : 'a';
+                const linkProps = isEmail
+                  ? { onClick: handleCopyEmail, style: { cursor: 'pointer' } }
+                  : { href, target: '_blank', rel: 'noopener noreferrer' };
+                return (
+                  <Tag key={label} {...linkProps}
+                    onMouseEnter={e => { setHoveredCardLink(idx); handleLinkEnter(e, cardLabel); }}
+                    onMouseLeave={() => { setHoveredCardLink(null); handleLinkLeave(); }}
+                    onMouseMove={handleLinkMouseMove}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none',
+                      opacity: hoveredCardLink !== null && hoveredCardLink !== idx ? 0.35 : 1,
+                      transition: 'opacity 0.15s ease',
+                      cursor: 'pointer',
+                      ...(linkProps.style || {}),
+                    }}>
+                    <div style={{ width: '18px', height: '18px', position: 'relative', flexShrink: 0 }}>
+                      <img src={icon} alt="" style={{
+                        position: 'absolute', inset: 0, width: '18px', height: '18px',
+                        opacity: isEmail && emailCopied ? 0 : 1,
+                        transition: 'opacity 0.2s ease',
+                      }} />
+                      {isEmail && (
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{
+                          position: 'absolute', inset: 0,
+                          opacity: emailCopied ? 1 : 0,
+                          transform: emailCopied ? 'scale(1)' : 'scale(0.6)',
+                          transition: 'opacity 0.2s ease, transform 0.2s cubic-bezier(0.22,1,0.36,1)',
+                        }}>
+                          <path d="M3 9.5L7 13.5L15 5" stroke="#007EFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      )}
+                    </div>
+                    <span style={{
+                      fontFamily: "'Geist Mono', monospace", fontSize: '15px',
+                      fontWeight: 300, color: '#7c7c7c', letterSpacing: '0.02em', whiteSpace: 'nowrap',
+                    }}>{label}</span>
+                  </Tag>
+                );
+              })}
+            </div>
+            {/* Bottom: name + roles */}
+            <div style={{
+              position: 'absolute', bottom: '16px', left: '18px', right: '18px',
+              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+            }}>
+              <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 300, color: '#7c7c7c', letterSpacing: '0.02em' }}>NITISH GANNU</span>
+              <div style={{ display: 'flex', gap: '5px', alignItems: 'center' }}>
+                <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 300, color: '#007EFF', letterSpacing: '0.02em' }}>DESIGNER</span>
+                <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 300, color: '#007EFF' }}>·</span>
+                <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 300, color: '#007EFF', letterSpacing: '0.02em' }}>BUILDER</span>
+              </div>
+            </div>
+          </div>
+          <style>{`
+            @keyframes hcard-in  { from { opacity: 0; transform: scale(0.94) translateY(-6px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+            @keyframes hcard-out { from { opacity: 1; transform: scale(1) translateY(0); } to { opacity: 0; transform: scale(0.94) translateY(-6px); } }
+          `}</style>
+        </>,
+        document.body
+      )}
+
     </>
   );
 }

@@ -128,7 +128,7 @@ export default function ChatGPTFullCaseStudy() {
             color: '#AAAAAA',
             fontFamily: "'Geist Mono', monospace",
             fontSize: '15px',
-            fontWeight: 400,
+            fontWeight: 350,
             textTransform: 'uppercase',
           }}
         >
@@ -153,9 +153,9 @@ export default function ChatGPTFullCaseStudy() {
                 textAlign: 'left',
                 fontFamily: "'Geist Mono', monospace",
                 fontSize: '15px',
-                fontWeight: 400,
+                fontWeight: 350,
                 textTransform: 'uppercase',
-                color: activeSection === id ? '#000' : '#AAAAAA',
+                color: activeSection === id ? '#2F7BFF' : '#AAAAAA',
                 transition: 'color 0.2s, background 0.2s',
               }}
             >
@@ -190,7 +190,7 @@ export default function ChatGPTFullCaseStudy() {
           justifyContent: 'center',
           alignItems: 'flex-start',
         }}>
-          <img src={bookmarksThumbnail} alt="" style={{ width: '85%', height: 'auto', display: 'block', position: 'absolute', top: '24px', border: 'none' }} />
+          <img src={bookmarksThumbnail} alt="" style={{ width: '85%', height: 'auto', display: 'block', position: 'absolute', top: '60px', border: 'none' }} />
         </div>
 
         {/* Project meta row */}
@@ -378,38 +378,6 @@ export default function ChatGPTFullCaseStudy() {
           <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', position: 'relative' }}>
             <video src={finalizedFlowCollections} autoPlay loop muted playsInline style={{ height: '88%', width: 'auto', display: 'block', position: 'relative', zIndex: 1 }} />
           </div>
-
-          {/* DETAILS */}
-          <div id="details" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Sweating the Details</span>
-            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Designing for the moments when users have nothing saved yet</h2>
-            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
-              One of the final things I considered was how this experience would feel for newer users who haven't saved anything yet, and where empty states could help introduce them to bookmarks and collections.
-            </p>
-          </div>
-
-          <div style={{ marginTop: '32px', display: 'flex', gap: '28px', alignItems: 'stretch' }}>
-            <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', overflow: 'hidden', position: 'relative' }}>
-              <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, #B8B8B8 1.5px, transparent 1.5px)', backgroundSize: '18px 18px', WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)', maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} className="dot-wave" />
-              <video src={emptyStateCollections} autoPlay loop muted playsInline style={{ width: '62%', height: 'auto', display: 'block', position: 'absolute', top: '75%', left: '50%', transform: 'translate(-50%, -50%)' }} />
-            </div>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '8px', paddingBottom: '4px' }}>
-              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>No collections created yet</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px', maxWidth: '400px' }}>I accounted for users who haven't created any collections yet by providing a clear starting point that introduces the value of collections and encourages them to create their first one.</p>
-            </div>
-          </div>
-
-          <div style={{ marginTop: '32px', display: 'flex', gap: '28px', alignItems: 'stretch' }}>
-            <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', overflow: 'hidden', position: 'relative' }}>
-              <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, #B8B8B8 1.5px, transparent 1.5px)', backgroundSize: '18px 18px', WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)', maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} className="dot-wave" />
-              <video src={emptyStateInsideCollection} autoPlay loop muted playsInline style={{ width: '62%', height: 'auto', display: 'block', position: 'absolute', top: '75%', left: '50%', transform: 'translate(-50%, -50%)' }} />
-            </div>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '8px', paddingBottom: '4px' }}>
-              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Collection with no bookmarks</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px', maxWidth: '400px' }}>I also accounted for collections that haven't received any bookmarks yet, using the empty state to explain what belongs there and guide users toward adding their first bookmark.</p>
-            </div>
-          </div>
-
 
           {/* EXPANDING TO THE WEB */}
           <div id="web" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
