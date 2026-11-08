@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ChatGPTFullCaseStudy.css';
 import './articles/MovingOut.css';
-import pogoBranchingVideo from './assets/pogo-ai-branching-video.mp4';
+import pogoBranchingVideo from './assets/branching-video-frame.mp4';
 import pogoLogoNew from './assets/pogo-logo-new.png';
 
 const SECTIONS = [

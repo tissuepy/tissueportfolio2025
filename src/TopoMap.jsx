@@ -8,7 +8,7 @@ import chatgptLogo from './articles/chatgpt-logo.png';
 import chatgptThumbnailVideo from './assets/chatgpt-final-padded.mp4';
 import insightsLibraryThumbnail from './assets/insights-2-thumbnail.png';
 import surveyBranchingThumbnail from './assets/survey-branching-thumbnail.png';
-import pogoBranchingVideo from './assets/pogo-ai-branching-video.mp4';
+import pogoBranchingVideo from './assets/branching-video-frame.mp4';
 import airportIphoneWebm from './assets/airport-iphone.webm';
 import businessCardsWebm from './assets/business-cards-iphone.webm';
 import craftBg from './assets/craft-bg.avif';
