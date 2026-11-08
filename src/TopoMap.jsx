@@ -18,13 +18,13 @@ const MW = 1080, MH = 680, FX = 60, FY = 60;
 const PEAKS = [
   { text: 'DESIGN', dots: [[-95, -40, 'in'], [88, -58], [72, 72]], x: 230, y: 210, h: 1.0, s: 105,
     projects: [
-      { title: 'ChatGPT', subtitle: 'Bookmarks', logoType: 'openai', video: chatgptThumbnailVideo, route: '/chatgpt' },
-      { title: 'Pogo', subtitle: 'Insights Library', subtitleSize: 15, image: insightsLibraryThumbnail, imageScale: 1.4, imageOffsetX: 10, imageOffsetY: 2, route: '/projects/insights-library' },
-      { title: 'Pogo', subtitle: 'Survey Branching', video: pogoBranchingVideo, route: '/projects/survey-branching' },
+      { title: 'ChatGPT', subtitle: 'Bookmarks', meta: 'Shipped 2026', logoType: 'openai', video: chatgptThumbnailVideo, route: '/chatgpt' },
+      { title: 'Pogo', subtitle: 'Insights Library', meta: 'Shipped 2026', subtitleSize: 15, image: insightsLibraryThumbnail, imageScale: 1.4, imageOffsetX: 10, imageOffsetY: 2, route: '/projects/insights-library' },
+      { title: 'Pogo', subtitle: 'Survey Branching', meta: 'Shipped 2026', video: pogoBranchingVideo, route: '/projects/survey-branching' },
     ]
   },
   { text: 'RESEARCH', dots: [[-88, -46]], x: 790, y: 170, h: 0.9, s: 100, projects: [{ title: 'Research', locked: true, comingSoon: true, tooltipOnly: true }] },
-  { text: 'CRAFT', dots: [[-92, 36], [82, -58]], x: 380, y: 510, h: 0.95, s: 100, projects: [{ title: 'Craft', subtitle: 'Airport App', video: airportIphoneWebm, lightbox: true }, { title: 'Craft', subtitle: 'Networking Cards', video: businessCardsWebm, lightbox: true }] },
+  { text: 'CRAFT', dots: [[-92, 36], [82, -58]], x: 380, y: 510, h: 0.95, s: 100, projects: [{ title: 'Craft', subtitle: 'Airport App', meta: 'Shipped 2026', video: airportIphoneWebm, lightbox: true }, { title: 'Craft', subtitle: 'Networking Cards', meta: 'Shipped 2026', video: businessCardsWebm, lightbox: true }] },
 ];
 
 const TERRAIN = [
@@ -420,17 +420,13 @@ export default function TopoMap() {
                 animation: dotHover.flipUp ? 'dotTooltipInUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both' : 'dotTooltipIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both',
               }}>
               {/* Header */}
-              <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', padding: '11px 14px', borderBottom: '1px solid #E2E4E7' }}>
-                <span style={{ fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 350, color: '#777777' }}>
+              <div style={{ padding: '11px 14px', borderBottom: '1px solid #E2E4E7' }}>
+                <span style={{ fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 350, color: '#1A1A1A' }}>
                   {dotHover.project.title}
                 </span>
-                {dotHover.project.locked ? (
-                  <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '13px', fontWeight: 400, color: '#AAAAAA', textTransform: 'uppercase', letterSpacing: '0.06em', background: '#F5F5F5', padding: '2px 7px', borderRadius: '4px' }}>
-                    {dotHover.project.subtitle}
-                  </span>
-                ) : dotHover.project.subtitle && (
-                  <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '13px', fontWeight: 400, color: '#2F7BFF', textTransform: 'uppercase', letterSpacing: '0.06em', background: '#EBF2FF', padding: '2px 7px', borderRadius: '4px' }}>
-                    {dotHover.project.subtitle}
+                {dotHover.project.meta && (
+                  <span style={{ fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 350, color: '#BBBBBB' }}>
+                    {' / '}{dotHover.project.meta}
                   </span>
                 )}
               </div>
