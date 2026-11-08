@@ -161,7 +161,14 @@ export default function SurveyBranching() {
             loop
             muted
             playsInline
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '200%',
+              height: 'auto',
+            }}
           />
         </div>
 
