@@ -8,6 +8,7 @@ import chatgptLogo from './articles/chatgpt-logo.png';
 import chatgptThumbnailVideo from './assets/chatgpt-final-padded.mp4';
 import insightsLibraryThumbnail from './assets/insights-2-thumbnail.png';
 import surveyBranchingThumbnail from './assets/survey-branching-thumbnail.png';
+import pogoBranchingVideo from './assets/pogo-ai-branching-video.mp4';
 import airportIphoneWebm from './assets/airport-iphone.webm';
 import businessCardsWebm from './assets/business-cards-iphone.webm';
 import craftBg from './assets/craft-bg.avif';
@@ -19,7 +20,7 @@ const PEAKS = [
     projects: [
       { title: 'ChatGPT', subtitle: 'Bookmarks', logoType: 'openai', video: chatgptThumbnailVideo, route: '/chatgpt' },
       { title: 'Pogo', subtitle: 'Insights Library', subtitleSize: 15, image: insightsLibraryThumbnail, imageScale: 1.4, imageOffsetX: 10, imageOffsetY: 2, route: '/projects/insights-library' },
-      { title: 'Pogo', subtitle: 'Survey Branching', image: surveyBranchingThumbnail, imageScale: 1, imageOffsetY: 8, locked: true, comingSoon: true },
+      { title: 'Pogo', subtitle: 'Survey Branching', video: pogoBranchingVideo, route: '/projects/survey-branching' },
     ]
   },
   { text: 'RESEARCH', dots: [[-88, -46]], x: 790, y: 170, h: 0.9, s: 100, projects: [{ title: 'Research', locked: true, comingSoon: true, tooltipOnly: true }] },
@@ -409,7 +410,7 @@ export default function TopoMap() {
                 top: dotHover.y,
                 transform: dotHover.flipUp ? 'translate(-50%, calc(-100% - 16px))' : 'translate(-50%, 16px)',
                 zIndex: 99999,
-                width: '260px',
+                width: '320px',
                 background: '#ffffff',
                 borderRadius: '0px',
                 overflow: 'hidden',
@@ -448,12 +449,12 @@ export default function TopoMap() {
                 >
                   {dotHover.project.video ? (
                     dotHover.project.lightbox ? (
-                      <div style={{ width: '100%', height: '140px', backgroundImage: `url(${craftBg})`, backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                      <div style={{ width: '100%', height: '190px', backgroundImage: `url(${craftBg})`, backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
                         <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.3)' }} />
                         <video
                           key={dotHover.project.video}
                           autoPlay muted loop playsInline
-                          style={{ position: 'relative', zIndex: 1, height: '110px', width: 'auto', borderRadius: '6px' }}
+                          style={{ position: 'relative', zIndex: 1, height: '155px', width: 'auto', borderRadius: '6px' }}
                         >
                           <source src={dotHover.project.video} type="video/webm" />
                         </video>
@@ -462,7 +463,7 @@ export default function TopoMap() {
                     <video
                       key={dotHover.project.video}
                       autoPlay muted loop playsInline
-                      style={{ width: '100%', height: '140px', display: 'block', objectFit: 'cover' }}
+                      style={{ width: '100%', height: '190px', display: 'block', objectFit: 'cover' }}
                     >
                       <source src={dotHover.project.video} type={dotHover.project.video.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
                     </video>
@@ -471,7 +472,7 @@ export default function TopoMap() {
                     <img
                       src={dotHover.project.image}
                       alt=""
-                      style={{ width: '100%', height: '140px', display: 'block', objectFit: 'cover', transform: dotHover.project.imageScale ? `scale(${dotHover.project.imageScale}) translate(${dotHover.project.imageOffsetX || 0}%, ${dotHover.project.imageOffsetY || 0}%)` : 'none' }}
+                      style={{ width: '100%', height: '190px', display: 'block', objectFit: 'cover', transform: dotHover.project.imageScale ? `scale(${dotHover.project.imageScale}) translate(${dotHover.project.imageOffsetX || 0}%, ${dotHover.project.imageOffsetY || 0}%)` : 'none' }}
                     />
                   )}
                   {(dotHover.project.route || dotHover.project.locked) && (
@@ -541,7 +542,7 @@ export default function TopoMap() {
                 onMouseEnter={d.project && !d.project.alwaysBlue ? e => {
                   clearTimeout(dotHoverClearTimer.current);
                   const r = e.currentTarget.getBoundingClientRect();
-                  const flipUp = r.bottom + 220 > window.innerHeight;
+                  const flipUp = r.bottom + 270 > window.innerHeight;
                   setDotHover({ project: d.project, x: r.left + r.width / 2, y: flipUp ? r.top : r.bottom, flipUp });
                   setDotButtonHover(true);
                   setDotButtonCursor({ x: e.clientX, y: e.clientY });

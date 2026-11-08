@@ -18,6 +18,7 @@ import Writing from './Writing';
 import Projects from './Projects';
 import Monadic from './Monadic';
 import InsightsLibrary from './InsightsLibrary';
+import SurveyBranching from './SurveyBranching';
 import Test from './Test';
 import Rejection from './articles/Rejection';
 import MovingOut from './articles/MovingOut';
@@ -368,8 +369,8 @@ function App() {
       <div className="site-container">
 
       {/* Page content with transition */}
-      <div className={`page-wrapper ${fadeClass}`} style={{ paddingTop: (currentPath === '/' || currentPath === '/chatgpt' || currentPath === '/projects/insights-library') ? '0' : '72px' }}>
-        {currentPath !== '/' && currentPath !== '/chatgpt' && currentPath !== '/projects/insights-library' && <SiteNav />}
+      <div className={`page-wrapper ${fadeClass}`} style={{ paddingTop: (currentPath === '/' || currentPath === '/chatgpt' || currentPath === '/projects/insights-library' || currentPath === '/projects/survey-branching') ? '0' : '72px' }}>
+        {currentPath !== '/' && currentPath !== '/chatgpt' && currentPath !== '/projects/insights-library' && currentPath !== '/projects/survey-branching' && <SiteNav />}
         <Routes location={{ pathname: currentPath }}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -384,6 +385,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/monadic" element={<Monadic />} />
           <Route path="/projects/insights-library" element={<InsightsLibrary />} />
+          <Route path="/projects/survey-branching" element={<SurveyBranching />} />
           <Route path="/writing/rejection" element={<Rejection />} />
           <Route path="/writing/moving-out" element={<MovingOut />} />
           <Route path="/test" element={<Test />} />
