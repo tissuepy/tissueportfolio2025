@@ -415,7 +415,7 @@ export default function TopoMap() {
                 borderRadius: '0px',
                 overflow: 'hidden',
                 border: '1px solid #E2E4E7',
-                boxShadow: '0 4px 16px rgba(0,0,0,0.07)',
+                boxShadow: '0 16px 40px rgba(0,0,0,0.13)',
                 pointerEvents: 'auto',
                 animation: dotHover.flipUp ? 'dotTooltipInUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both' : 'dotTooltipIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both',
               }}>
