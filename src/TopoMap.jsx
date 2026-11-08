@@ -420,14 +420,15 @@ export default function TopoMap() {
                 animation: dotHover.flipUp ? 'dotTooltipInUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both' : 'dotTooltipIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both',
               }}>
               {/* Header */}
-              <div style={{ padding: '11px 14px', borderBottom: '1px solid #E2E4E7' }}>
+              <div style={{ padding: '11px 14px', borderBottom: '1px solid #E2E4E7', display: 'flex', alignItems: 'baseline', gap: '8px' }}>
                 <span style={{ fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 350, color: '#1A1A1A' }}>
                   {dotHover.project.title}
                 </span>
                 {dotHover.project.meta && (
-                  <span style={{ fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 350, color: '#BBBBBB' }}>
-                    {' / '}{dotHover.project.meta}
-                  </span>
+                  <>
+                    <span style={{ fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 350, color: '#BBBBBB' }}>/</span>
+                    <span style={{ fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 350, color: '#BBBBBB' }}>{dotHover.project.meta}</span>
+                  </>
                 )}
               </div>
               {/* Video or image */}
