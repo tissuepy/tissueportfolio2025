@@ -114,17 +114,17 @@ export default function InsightsLibrary() {
             padding: 0,
             cursor: 'pointer',
             marginBottom: '40px',
-            color: '#AAAAAA',
-            fontFamily: "'Geist Mono', monospace",
+            fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif",
             fontSize: '15px',
-            fontWeight: 350,
-            textTransform: 'uppercase',
+            fontWeight: 300,
           }}
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ color: '#AAAAAA', flexShrink: 0, position: 'relative', top: '0.5px' }}>
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Work
+          <span style={{ color: '#AAAAAA' }}>Work</span>
+          <span style={{ color: '#AAAAAA', margin: '0 2px' }}>/</span>
+          <span style={{ color: '#555555' }}>Insights Library</span>
         </button>
         <nav style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
           {SECTIONS.map(({ id, label }) => (
@@ -148,8 +148,8 @@ export default function InsightsLibrary() {
                 whiteSpace: 'nowrap',
               }}
             >
-              <span style={{ display: 'inline-block', width: '44px', textAlign: 'center', color: activeSection === id ? '#555555' : '#CCCCCC', flexShrink: 0, letterSpacing: 0 }}>
-                [<span style={{ color: activeSection === id ? '#2F7BFF' : 'transparent' }}>•</span>]
+              <span style={{ color: activeSection === id ? '#555555' : '#CCCCCC', flexShrink: 0, letterSpacing: 0 }}>
+                [<span style={{ letterSpacing: '4px' }}>&thinsp;</span><span style={{ color: activeSection === id ? '#2F7BFF' : 'transparent' }}>•</span><span style={{ letterSpacing: '4px' }}>&thinsp;</span>]
               </span>
               {label}
             </button>

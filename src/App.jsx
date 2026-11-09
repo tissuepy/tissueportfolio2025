@@ -185,7 +185,7 @@ function SiteNav() {
           <span style={{ opacity: 0.5 }}>·</span>
           <span>{time}</span>
         </div>
-        <div style={{ display: 'flex', gap: '20px', fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, textTransform: 'uppercase', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: '20px', fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, alignItems: 'center' }}>
           <div style={{
             display: 'flex', gap: '20px', alignItems: 'center',
             transform: contactOpen ? 'translateX(-12px)' : 'translateX(0)',
