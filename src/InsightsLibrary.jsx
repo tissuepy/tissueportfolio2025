@@ -25,9 +25,9 @@ const SECTIONS = [
   { id: 'problem',    label: 'Problem' },
   { id: 'solution',  label: 'Solution' },
   { id: 'research',  label: 'Research' },
-  { id: 'decision-1', label: 'Decision #1' },
-  { id: 'decision-2', label: 'Decision #2' },
-  { id: 'decision-3', label: 'Decision #3' },
+  { id: 'decision-1', label: 'Card Design' },
+  { id: 'decision-2', label: 'Intuitive Searching' },
+  { id: 'decision-3', label: 'AI Capabilities' },
 ];
 
 export default function InsightsLibrary() {
@@ -292,7 +292,7 @@ export default function InsightsLibrary() {
 
           {/* Design Decision #1 */}
           <div id="decision-1" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Design Decision #1</span>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Card Design</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>What actually goes on a card</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               For Pogo specifically, the card layout couldn't be arbitrary, since there was a clear order in which clients needed to scan the library: title first, then category and brand, then wave, then report type and methodology, with sample size last.
@@ -347,7 +347,7 @@ export default function InsightsLibrary() {
 
           {/* Design Decision #2 */}
           <div id="decision-2" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Design Decision #2</span>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Intuitive Searching</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Making thousands of studies discoverable</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
               As the library grew, clients needed a way to find the right study without digging through the interface or losing their place in it. I explored search and filtering patterns that stay out of the way by default, but bring the experience into focus the moment a client needs to narrow things down.
@@ -400,7 +400,7 @@ export default function InsightsLibrary() {
 
           {/* Design Decision #3 */}
           <div id="decision-3" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Design Decision #3</span>
+            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>AI Capabilities</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Supporting customers by expanding AI search capabilities</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
               Customers often need to connect insights across multiple studies to answer a single business question. I introduced a persistent AI assistant that lets them search across the library, synthesize findings, and get to relevant answers without manually digging through individual studies.
