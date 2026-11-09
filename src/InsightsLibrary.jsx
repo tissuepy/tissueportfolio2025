@@ -148,8 +148,8 @@ export default function InsightsLibrary() {
                 whiteSpace: 'nowrap',
               }}
             >
-              <span style={{ color: activeSection === id ? '#2F7BFF' : '#BBBBBB', flexShrink: 0, letterSpacing: 0 }}>
-                {activeSection === id ? '[✦]' : '[ ]'}
+              <span style={{ color: '#BBBBBB', flexShrink: 0, letterSpacing: 0 }}>
+                [<span style={{ color: activeSection === id ? '#2F7BFF' : 'transparent' }}>•</span>]
               </span>
               {label}
             </button>
