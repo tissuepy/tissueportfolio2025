@@ -24,7 +24,7 @@ const PEAKS = [
     ]
   },
   { text: 'RESEARCH', dots: [[-88, -46]], x: 790, y: 170, h: 0.9, s: 100, projects: [{ title: 'Research', locked: true, comingSoon: true, tooltipOnly: true }] },
-  { text: 'CRAFT', dots: [[-92, 36], [82, -58]], x: 380, y: 510, h: 0.95, s: 100, projects: [{ title: 'Craft', subtitle: 'Airport App', meta: 'Shipped 2026', video: airportIphoneWebm, lightbox: true }, { title: 'Craft', subtitle: 'Networking Cards', meta: 'Shipped 2026', video: businessCardsWebm, lightbox: true }] },
+  { text: 'CRAFT', dots: [[-92, 36], [82, -58]], x: 380, y: 510, h: 0.95, s: 100, projects: [{ title: 'Craft', subtitle: 'Airport App', meta: 'Shipped 2026', video: airportIphoneWebm, lightbox: true, forceFlipUp: true }, { title: 'Craft', subtitle: 'Networking Cards', meta: 'Shipped 2026', video: businessCardsWebm, lightbox: true, forceFlipUp: true }] },
 ];
 
 const TERRAIN = [
@@ -539,7 +539,7 @@ export default function TopoMap() {
                 onMouseEnter={d.project && !d.project.alwaysBlue ? e => {
                   clearTimeout(dotHoverClearTimer.current);
                   const r = e.currentTarget.getBoundingClientRect();
-                  const flipUp = r.bottom + 320 > window.innerHeight;
+                  const flipUp = d.project.forceFlipUp || r.bottom + 320 > window.innerHeight;
                   setDotHover({ project: d.project, x: r.left + r.width / 2, y: flipUp ? r.top : r.bottom, flipUp });
                   setDotButtonHover(true);
                   setDotButtonCursor({ x: e.clientX, y: e.clientY });
