@@ -240,6 +240,12 @@ export default function InsightsLibrary() {
             </p>
           </div>
 
+          {/* Problem canvases */}
+          <div style={{ marginTop: '20px', display: 'flex', gap: '16px' }}>
+            <div style={{ flex: 1, height: '400px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box' }} />
+            <div style={{ flex: 1, height: '400px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box' }} />
+          </div>
+
           {/* Solution */}
           <div id="solution" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Solution</span>
