@@ -56,7 +56,7 @@ export default function BlueSquareCursor() {
         transform: 'translate(-50%, -50%)',
         opacity: visible ? 1 : 0,
         transition: 'opacity 0.15s ease, width 0.12s ease, height 0.12s ease',
-        borderRadius: '1px',
+        borderRadius: '0px',
       }}
     />
   );
