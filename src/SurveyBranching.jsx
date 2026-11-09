@@ -153,7 +153,7 @@ export default function SurveyBranching() {
               style={{
                 background: 'none',
                 border: 'none',
-                padding: '5px 12px',
+                padding: '5px 12px 5px 0',
                 cursor: 'none',
                 textAlign: 'left',
                 fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif",
