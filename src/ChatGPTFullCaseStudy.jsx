@@ -39,7 +39,6 @@ const SECTIONS = [
   { id: 'problem',       label: 'Problem' },
   { id: 'solution',      label: 'Solution' },
   { id: 'collections',   label: 'Collections' },
-  { id: 'details',       label: 'Details' },
   { id: 'web',           label: 'Expanding to the Web' },
   { id: 'reflections',   label: 'Reflections' },
 ];
