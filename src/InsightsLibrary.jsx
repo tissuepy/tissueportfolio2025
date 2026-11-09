@@ -35,7 +35,11 @@ export default function InsightsLibrary() {
   const [thumbAlt, setThumbAlt] = useState(false);
   const [activeSection, setActiveSection] = useState('problem');
   const [breadcrumbHovered, setBreadcrumbHovered] = useState(false);
+  const [hoveredSection, setHoveredSection] = useState(null);
+  const [dotY, setDotY] = useState(0);
   const rightPanelRef = useRef(null);
+  const navContainerRef = useRef(null);
+  const btnRefs = useRef({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -80,6 +84,12 @@ export default function InsightsLibrary() {
     window.addEventListener('wheel', onWheel, { passive: false });
     return () => window.removeEventListener('wheel', onWheel);
   }, []);
+
+  useEffect(() => {
+    const targetId = hoveredSection ?? activeSection;
+    const btn = btnRefs.current[targetId];
+    if (btn) setDotY(btn.offsetTop + btn.offsetHeight / 2);
+  }, [hoveredSection, activeSection]);
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
@@ -131,30 +141,50 @@ export default function InsightsLibrary() {
           <span style={{ color: '#AAAAAA', margin: '0 2px' }}>/</span>
           <span style={{ color: '#555555' }}>Insights Library</span>
         </button>
-        <nav style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+        <nav
+          ref={navContainerRef}
+          onMouseLeave={() => setHoveredSection(null)}
+          style={{ display: 'flex', flexDirection: 'column', gap: '0px', position: 'relative' }}
+        >
+          <div style={{
+            position: 'absolute',
+            width: '5px',
+            height: '5px',
+            borderRadius: '50%',
+            backgroundColor: '#2F7BFF',
+            left: '23px',
+            top: dotY + 'px',
+            transform: 'translate(-50%, -50%)',
+            transition: 'top 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            pointerEvents: 'none',
+            zIndex: 1,
+          }} />
+
           {SECTIONS.map(({ id, label }) => (
             <button
               key={id}
+              ref={el => { btnRefs.current[id] = el; }}
               onClick={() => scrollTo(id)}
+              onMouseEnter={() => setHoveredSection(id)}
               style={{
                 background: 'none',
                 border: 'none',
                 padding: '5px 12px',
-                cursor: 'pointer',
+                cursor: 'none',
                 textAlign: 'left',
                 fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif",
                 fontSize: '15px',
                 fontWeight: 300,
-                color: activeSection === id ? '#555555' : '#CCCCCC',
-                transition: 'color 0.2s',
+                color: hoveredSection === id ? '#2F7BFF' : (activeSection === id ? '#555555' : '#CCCCCC'),
+                transition: 'color 0.15s',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '10px',
                 whiteSpace: 'nowrap',
               }}
             >
-              <span style={{ color: activeSection === id ? '#555555' : '#CCCCCC', flexShrink: 0, letterSpacing: 0 }}>
-                [<span style={{ letterSpacing: '4px' }}>&thinsp;</span><span style={{ color: activeSection === id ? '#2F7BFF' : 'transparent' }}>•</span><span style={{ letterSpacing: '4px' }}>&thinsp;</span>]
+              <span style={{ color: (activeSection === id || hoveredSection === id) ? '#555555' : '#CCCCCC', flexShrink: 0, letterSpacing: 0, transition: 'color 0.15s' }}>
+                [<span style={{ letterSpacing: '4px' }}>&thinsp;</span><span style={{ color: 'transparent' }}>•</span><span style={{ letterSpacing: '4px' }}>&thinsp;</span>]
               </span>
               {label}
             </button>

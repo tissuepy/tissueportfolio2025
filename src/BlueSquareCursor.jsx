@@ -52,7 +52,7 @@ export default function BlueSquareCursor() {
         transform: 'translate(-50%, -50%)',
         opacity: visible ? 1 : 0,
         transition: 'opacity 0.15s ease',
-        borderRadius: '1.5px',
+        borderRadius: '0px',
       }}
     />
   );
