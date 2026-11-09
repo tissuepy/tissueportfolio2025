@@ -421,13 +421,13 @@ export default function TopoMap() {
               }}>
               {/* Header */}
               <div style={{ padding: '11px 14px', borderBottom: '1px solid #E2E4E7', display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-                <span style={{ fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 350, color: '#1A1A1A' }}>
+                <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 300, color: '#1A1A1A' }}>
                   {dotHover.project.title}
                 </span>
                 {dotHover.project.meta && (
                   <>
-                    <span style={{ fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 350, color: '#BBBBBB' }}>/</span>
-                    <span style={{ fontFamily: "'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 350, color: '#BBBBBB' }}>{dotHover.project.meta}</span>
+                    <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 300, color: '#BBBBBB' }}>/</span>
+                    <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '16px', fontWeight: 300, color: '#BBBBBB' }}>{dotHover.project.meta}</span>
                   </>
                 )}
               </div>
