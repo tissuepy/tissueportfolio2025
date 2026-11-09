@@ -63,7 +63,7 @@ export default function BlueSquareCursor() {
         ...size,
         backgroundColor: '#2F7BFF',
         pointerEvents: 'none',
-        zIndex: 99999,
+        zIndex: 2147483647,
         transform: 'translate(-50%, -50%)',
         opacity: visible ? 1 : 0,
         transition: 'opacity 0.15s ease, width 0.12s ease, height 0.12s ease',
