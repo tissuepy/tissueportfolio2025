@@ -446,12 +446,12 @@ export default function TopoMap() {
                 >
                   {dotHover.project.video ? (
                     dotHover.project.lightbox ? (
-                      <div style={{ width: '100%', height: '240px', backgroundImage: `url(${craftBg})`, backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                      <div style={{ width: '100%', height: '300px', backgroundImage: `url(${craftBg})`, backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
                         <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.3)' }} />
                         <video
                           key={dotHover.project.video}
                           autoPlay muted loop playsInline
-                          style={{ position: 'relative', zIndex: 1, height: '195px', width: 'auto', borderRadius: '6px' }}
+                          style={{ position: 'relative', zIndex: 1, height: '245px', width: 'auto', borderRadius: '6px' }}
                         >
                           <source src={dotHover.project.video} type="video/webm" />
                         </video>
@@ -460,7 +460,7 @@ export default function TopoMap() {
                     <video
                       key={dotHover.project.video}
                       autoPlay muted loop playsInline
-                      style={{ width: '100%', height: '240px', display: 'block', objectFit: 'cover' }}
+                      style={{ width: '100%', height: '300px', display: 'block', objectFit: 'cover' }}
                     >
                       <source src={dotHover.project.video} type={dotHover.project.video.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
                     </video>
@@ -469,7 +469,7 @@ export default function TopoMap() {
                     <img
                       src={dotHover.project.image}
                       alt=""
-                      style={{ width: '100%', height: '240px', display: 'block', objectFit: 'cover', transform: dotHover.project.imageScale ? `scale(${dotHover.project.imageScale}) translate(${dotHover.project.imageOffsetX || 0}%, ${dotHover.project.imageOffsetY || 0}%)` : 'none' }}
+                      style={{ width: '100%', height: '300px', display: 'block', objectFit: 'cover', transform: dotHover.project.imageScale ? `scale(${dotHover.project.imageScale}) translate(${dotHover.project.imageOffsetX || 0}%, ${dotHover.project.imageOffsetY || 0}%)` : 'none' }}
                     />
                   )}
                   {(dotHover.project.route || dotHover.project.locked) && (
