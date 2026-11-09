@@ -18,7 +18,7 @@ const MW = 1080, MH = 680, FX = 60, FY = 60;
 const PEAKS = [
   { text: 'DESIGN', dots: [[-95, -40, 'in'], [88, -58], [72, -10]], x: 230, y: 210, h: 1.0, s: 105,
     projects: [
-      { title: 'ChatGPT', subtitle: 'Bookmarks', meta: 'Shipped 2026', logoType: 'openai', video: chatgptThumbnailVideo, route: '/chatgpt' },
+      { title: 'ChatGPT', subtitle: 'Bookmarks', meta: 'Concept 2026', logoType: 'openai', video: chatgptThumbnailVideo, route: '/chatgpt' },
       { title: 'Pogo', subtitle: 'Insights Library', meta: 'Shipped 2026', video: insightsLibraryAnimation, route: '/projects/insights-library' },
       { title: 'Pogo', subtitle: 'Survey Branching', meta: 'Shipped 2026', video: pogoBranchingVideo, route: '/projects/survey-branching' },
     ]
