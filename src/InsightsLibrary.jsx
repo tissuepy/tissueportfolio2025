@@ -31,7 +31,7 @@ const SECTIONS = [
 ];
 
 export default function InsightsLibrary() {
-  const [thumbAlt, setThumbAlt] = useState(false);
+  const [thumbAlt, setThumbAlt] = useState(false); // kept for compat, unused
   const [activeSection, setActiveSection] = useState('problem');
   const [breadcrumbHovered, setBreadcrumbHovered] = useState(false);
   const [hoveredSection, setHoveredSection] = useState(null);
@@ -211,32 +211,8 @@ export default function InsightsLibrary() {
       >
 
         {/* Hero banner */}
-        <div style={{ margin: '60px 36px 24px', position: 'relative', overflow: 'hidden' }}>
-          <img
-            src={bannerDefault}
-            alt="Insights Library"
-            style={{
-              width: '100%',
-              height: 'auto',
-              display: 'block',
-              opacity: thumbAlt ? 0 : 1,
-              transition: 'none',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-            }}
-          />
-          <img
-            src={bannerPurple}
-            alt="Insights Library"
-            style={{
-              width: '100%',
-              height: 'auto',
-              display: 'block',
-              opacity: thumbAlt ? 1 : 0,
-              transition: 'none',
-            }}
-          />
+        <div style={{ margin: '60px 36px 24px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', position: 'relative', height: '560px' }}>
+          <img src="/insights-library.png" alt="Insights Library" style={{ width: '110%', height: 'auto', display: 'block', position: 'absolute', top: '60px', left: '10%' }} />
         </div>
 
         {/* Meta */}
