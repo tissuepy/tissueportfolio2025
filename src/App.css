@@ -54,6 +54,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'TWK Lausanne';
+  src: url('/fonts/Lausanne-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 html, body {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -170,7 +178,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'TWK Lausanne', 'ABC Diatype', 'Apfel Grotezk', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   /* Layer 1: base colour */
   background-color: var(--bg-color);
   color: #000000;
