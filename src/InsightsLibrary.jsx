@@ -252,7 +252,8 @@ export default function InsightsLibrary() {
 
           {/* Problem statements */}
           <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>...but with 2,000 studies and no structure comes a set of real problems.</p>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Problem</span>
+            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>...but with 2,000 studies and no structure comes a set of real problems.</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', alignItems: 'start' }}>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
