@@ -539,7 +539,7 @@ export default function TopoMap() {
                 onMouseEnter={d.project && !d.project.alwaysBlue ? e => {
                   clearTimeout(dotHoverClearTimer.current);
                   const r = e.currentTarget.getBoundingClientRect();
-                  const flipUp = r.bottom + 420 > window.innerHeight;
+                  const flipUp = r.bottom + 320 > window.innerHeight;
                   setDotHover({ project: d.project, x: r.left + r.width / 2, y: flipUp ? r.top : r.bottom, flipUp });
                   setDotButtonHover(true);
                   setDotButtonCursor({ x: e.clientX, y: e.clientY });
