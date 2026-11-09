@@ -104,7 +104,7 @@ export default function ChatGPTFullCaseStudy() {
 
       {/* LEFT PANEL — 30% fixed */}
       <div style={{
-        width: '20%',
+        width: '240px',
         flexShrink: 0,
         height: '100vh',
         display: 'flex',
@@ -150,16 +150,14 @@ export default function ChatGPTFullCaseStudy() {
                 padding: '5px 12px',
                 cursor: 'pointer',
                 textAlign: 'left',
-                fontFamily: "'Geist Mono', monospace",
-                fontSize: '12px',
-                fontWeight: 400,
-                textTransform: 'uppercase',
+                fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif",
+                fontSize: '15px',
+                fontWeight: 300,
                 color: '#AAAAAA',
                 transition: 'color 0.2s',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '10px',
-                letterSpacing: '0.03em',
                 whiteSpace: 'nowrap',
               }}
             >
