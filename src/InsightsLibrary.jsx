@@ -250,6 +250,38 @@ export default function InsightsLibrary() {
             </div>
           </div>
 
+          {/* Problem statements */}
+          <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>...but with 2,000 studies and no structure comes a set of real problems.</p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', alignItems: 'start' }}>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>No identity at scale</h3>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>2,000+ studies with near-identical titles, categories, and formats — clients had no way to tell them apart or know which one was relevant.</p>
+                </div>
+                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>No way to discover what's there</h3>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Without filtering, search, or hierarchy, finding the right study meant scrolling through everything — which stopped working the moment the library grew.</p>
+                </div>
+                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>No way to request what's missing</h3>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clients had no path to request studies they didn't have access to — if something wasn't in the library, there was no way to surface that need.</p>
+                </div>
+                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
+              </div>
+
+            </div>
+          </div>
+
           {/* Solution */}
           <div id="solution" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Solution</span>
