@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import BlueSquareCursor from './BlueSquareCursor';
 import './App.css';
 import './ChatGPTFullCaseStudy.css';
 import './articles/MovingOut.css';
@@ -33,6 +34,7 @@ const SECTIONS = [
 export default function InsightsLibrary() {
   const [thumbAlt, setThumbAlt] = useState(false);
   const [activeSection, setActiveSection] = useState('problem');
+  const [breadcrumbHovered, setBreadcrumbHovered] = useState(false);
   const rightPanelRef = useRef(null);
   const navigate = useNavigate();
 
@@ -91,6 +93,7 @@ export default function InsightsLibrary() {
 
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'hidden', width: '100%' }}>
+      <BlueSquareCursor />
 
       {/* LEFT PANEL */}
       <div style={{
@@ -105,6 +108,8 @@ export default function InsightsLibrary() {
       }}>
         <button
           onClick={() => navigate('/')}
+          onMouseEnter={() => setBreadcrumbHovered(true)}
+          onMouseLeave={() => setBreadcrumbHovered(false)}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -112,17 +117,17 @@ export default function InsightsLibrary() {
             background: 'none',
             border: 'none',
             padding: 0,
-            cursor: 'pointer',
+            cursor: 'none',
             marginBottom: '40px',
             fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif",
             fontSize: '15px',
             fontWeight: 300,
           }}
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ color: '#AAAAAA', flexShrink: 0, marginTop: '-1.5px' }}>
-            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ color: breadcrumbHovered ? '#2F7BFF' : '#AAAAAA', flexShrink: 0, marginTop: '-1.5px', transition: 'color 0.15s' }}>
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          <span style={{ color: '#AAAAAA' }}>Work</span>
+          <span style={{ color: breadcrumbHovered ? '#2F7BFF' : '#AAAAAA', transition: 'color 0.15s' }}>Work</span>
           <span style={{ color: '#AAAAAA', margin: '0 2px' }}>/</span>
           <span style={{ color: '#555555' }}>Insights Library</span>
         </button>
