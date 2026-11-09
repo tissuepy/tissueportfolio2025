@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ChatGPTFullCaseStudy.css';
 import './articles/MovingOut.css';
-import BlueSquareCursor from './BlueSquareCursor';
 import bookmarksThumbnail from './assets/bookmarks-thumbnail.png';
 import hmwChatgpt from './assets/hmw-chatgpt.png';
 import softwareEngineerQuote from './assets/software-engineer-quote.png';
@@ -122,8 +121,6 @@ export default function ChatGPTFullCaseStudy() {
 
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'hidden', width: '100%' }}>
-      <BlueSquareCursor />
-
       {/* LEFT PANEL — 30% fixed */}
       <div style={{
         width: '240px',

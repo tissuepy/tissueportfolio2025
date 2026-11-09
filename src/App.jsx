@@ -28,6 +28,7 @@ import BackgroundAnimation from './BackgroundAnimation';
 import DotCursor from './DotCursor';
 import CustomCursor from './CustomCursor';
 import SiteFooter, { BusinessCard } from './SiteFooter';
+import BlueSquareCursor from './BlueSquareCursor';
 import logo from './assets/logo.png';
 import notionFace from './assets/notion-nitu.png';
 import matchaImage from './drink/matcha 1.png';
@@ -363,6 +364,7 @@ function App() {
     <>
       {showLoader && <LoadingScreen onComplete={handleLoaderComplete} />}
       <div className={contentReady ? 'content-visible' : 'content-hidden'}>
+      <BlueSquareCursor />
       {/* <DotCursor /> */}
       {/* <CustomCursor /> */}{/* old red cursor — kept for reference */}
       {/* BackgroundAnimation removed */}

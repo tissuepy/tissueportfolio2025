@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import BlueSquareCursor from './BlueSquareCursor';
 import './ChatGPTFullCaseStudy.css';
 import './articles/MovingOut.css';
 import pogoBranchingVideo from './assets/branching-video-frame.mp4';
@@ -89,8 +88,6 @@ export default function SurveyBranching() {
 
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'hidden', width: '100%' }}>
-      <BlueSquareCursor />
-
       {/* LEFT PANEL */}
       <div style={{
         width: '240px',

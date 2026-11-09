@@ -795,7 +795,7 @@ function Home() {
           position: 'relative',
         }}>
           {/* Fixed tab nav at top */}
-          <div style={{ position: 'absolute', top: '86px', left: '58px', zIndex: 2 }}>
+          <div style={{ position: 'absolute', top: '110px', left: '58px', zIndex: 2 }}>
             <div style={{ position: 'relative', display: 'inline-flex' }}>
               <div style={{
                 position: 'absolute',
@@ -805,7 +805,7 @@ function Home() {
                 background: '#2F7BFF',
                 transition: 'left 0.4s cubic-bezier(0.22, 1, 0.36, 1), width 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
               }} />
-              {[{ label: 'WORK', tab: 'work' }, { label: 'ABOUT', tab: 'about' }].map(({ label, tab }) => (
+              {[{ label: 'Work', tab: 'work' }, { label: 'About', tab: 'about' }].map(({ label, tab }) => (
                 <span
                   key={label}
                   ref={el => { tabRefs.current[tab] = el; }}
@@ -813,11 +813,9 @@ function Home() {
                   style={{
                     position: 'relative',
                     zIndex: 1,
-                    fontFamily: "'Geist Mono', monospace",
+                    fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif",
                     fontSize: '15px',
-                    fontWeight: 400,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.04em',
+                    fontWeight: 300,
                     padding: '3px 8px',
                     cursor: 'pointer',
                     color: activeTab === tab ? '#ffffff' : 'rgba(50, 64, 79, 0.4)',
@@ -840,7 +838,7 @@ function Home() {
                 <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, fontSize: '16px', color: '#777777' }}>
                   <span onMouseEnter={e => handleLinkEnter(e, 'nitish')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', color: '#2F7BFF', cursor: 'default' }}>Nitish Gannu</span> is a designer who brings the precision of statistics to the pixels of design, with the occasional hike in between.
                 </p>
-                <div className="new-hero-body" style={{ display: 'flex', flexDirection: 'column', gap: 0, fontWeight: 300, fontSize: '16px', color: '#777777', lineHeight: 1.7, margin: 0 }}>
+                <div className="new-hero-body" style={{ display: 'flex', flexDirection: 'column', gap: 0, fontWeight: 250, fontSize: '16px', color: '#777777', lineHeight: 1.7, margin: 0 }}>
                   <div>Statistics @ <a href="https://www.cornell.edu/" target="_blank" rel="noreferrer" onMouseEnter={e => handleLinkEnter(e, 'cornell')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', color: '#2F7BFF' }}>Cornell</a></div>
                   <div>Previously @ <a href="https://www.joinpogo.com/" target="_blank" rel="noreferrer" onMouseEnter={e => handleLinkEnter(e, 'pogo')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', color: '#2F7BFF' }}>Pogo</a>, <a href="https://www.cisco.com/" target="_blank" rel="noreferrer" onMouseEnter={e => handleLinkEnter(e, 'cisco')} onMouseLeave={handleLinkLeave} onMouseMove={handleLinkMouseMove} style={{ textDecoration: 'none', color: '#2F7BFF' }}>Cisco</a></div>
                 </div>

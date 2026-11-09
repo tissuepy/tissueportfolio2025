@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import BlueSquareCursor from './BlueSquareCursor';
 import './App.css';
 import './ChatGPTFullCaseStudy.css';
 import './articles/MovingOut.css';
@@ -112,8 +111,6 @@ export default function InsightsLibrary() {
 
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'hidden', width: '100%' }}>
-      <BlueSquareCursor />
-
       {/* LEFT PANEL */}
       <div style={{
         width: '240px',
