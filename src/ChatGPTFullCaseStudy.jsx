@@ -257,7 +257,7 @@ export default function ChatGPTFullCaseStudy() {
 
           {/* BACKGROUND */}
           <div id="background" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Background</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Background</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>ChatGPT conversations are long and finding something you've already seen is hard</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               I recently realized I rarely use ChatGPT's mobile app. The experience just never felt as smooth or intuitive as the desktop version. Was it just me? Or were other users also struggling to rely on ChatGPT on the go? Information retrieval on the mobile app often felt like a hassle with overlapping conversations, limited screen space, and a compact interface making it difficult to find important messages or revisit past insights.<br /><br />
@@ -271,7 +271,7 @@ export default function ChatGPTFullCaseStudy() {
 
           {/* USER RESEARCH */}
           <div id="user-research" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>User Research</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>User Research</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Discovering how others felt through User Research</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               I conducted informal interviews with a small but diverse group of ChatGPT users: a mix of software engineers and college students.
@@ -295,7 +295,7 @@ export default function ChatGPTFullCaseStudy() {
 
           {/* OTHER RESEARCH */}
           <div id="other-research" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Other Research</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Other Research</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>I found the same frustrations beyond the interviews.</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               I examined Reddit, OpenAI Developer Community discussions, and other platforms to uncover recurring frustrations with finding, revisiting, and organizing information within long ChatGPT conversations.
@@ -323,7 +323,7 @@ export default function ChatGPTFullCaseStudy() {
 
           {/* PROBLEM */}
           <div id="problem" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Problem</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Problem</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Not everything ChatGPT says is worth remembering, and finding the things that are can be surprisingly difficult</h2>
           </div>
 
@@ -359,7 +359,7 @@ export default function ChatGPTFullCaseStudy() {
 
           {/* SOLUTION */}
           <div id="solution" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Solution</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Solution</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Bookmarks: Save what matters, not the whole conversation</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               Bookmarks let users save specific messages or pieces of information from any ChatGPT conversation, making important content easy to revisit and organize into collections without having to search through long conversation histories.
@@ -383,7 +383,7 @@ export default function ChatGPTFullCaseStudy() {
 
           {/* COLLECTIONS */}
           <div id="collections" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Collections</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Collections</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Organizing bookmarks across conversations</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               As I thought more about how people would actually use bookmarks, I realized that they wouldn't always come from the same conversation. If I wanted users to collect useful information around a topic, bookmarks needed to be organized across conversations, not just live within the chats they came from.
@@ -427,7 +427,7 @@ export default function ChatGPTFullCaseStudy() {
 
           {/* EXPANDING TO THE WEB */}
           <div id="web" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Expanding to the Web</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Expanding to the Web</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Adapting the experience for web</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               Since much of ChatGPT's value is experienced on the web, I explored how bookmarks could integrate into the desktop experience and give users a natural way to access and revisit saved information.
@@ -447,7 +447,7 @@ export default function ChatGPTFullCaseStudy() {
 
           {/* DESIGN DECISION #1 */}
           <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Design Decision #1</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Design Decision #1</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Choosing the right modal structure</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               I explored different ways to structure the bookmark creation modal, considering how much information and organization to surface without making a simple save action feel unnecessarily complex.
@@ -460,7 +460,7 @@ export default function ChatGPTFullCaseStudy() {
 
           {/* DESIGN DECISION #2 */}
           <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Design Decision #2</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Design Decision #2</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Making bookmark customization feel effortless</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               I explored how to present bookmark customization, giving users a lightweight way to personalize the color and icon without adding friction to the saving process.
@@ -473,7 +473,7 @@ export default function ChatGPTFullCaseStudy() {
 
           {/* DESIGN DECISION #3 */}
           <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Design Decision #3</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Design Decision #3</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Making bookmarks accessible in context</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               I explored how to surface bookmark actions when users return to saved content, using a contextual tooltip to provide quick access without disrupting the conversation.
@@ -486,7 +486,7 @@ export default function ChatGPTFullCaseStudy() {
 
           {/* REFLECTIONS */}
           <div id="reflections" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Reflections</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Reflections</span>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Think beyond the feature</h2>
