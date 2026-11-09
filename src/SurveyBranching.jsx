@@ -168,7 +168,7 @@ export default function SurveyBranching() {
               }}
             >
               <span style={{ color: (activeSection === id || hoveredSection === id) ? '#555555' : '#CCCCCC', flexShrink: 0, letterSpacing: 0, transition: 'color 0.15s' }}>
-                [<span style={{ letterSpacing: '4px' }}>&thinsp;</span><span style={{ color: 'transparent' }}>•</span><span style={{ letterSpacing: '4px' }}>&thinsp;</span>]
+                [<span style={{ letterSpacing: '2px' }}>&thinsp;</span><span style={{ color: 'transparent' }}>•</span><span style={{ letterSpacing: '2px' }}>&thinsp;</span>]
               </span>
               {label}
             </button>
