@@ -1058,16 +1058,16 @@ html {
 }
 
 .new-hero-body {
-  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif;
   font-size: 18px;
-  font-weight: 350;
+  font-weight: 300;
   color: #8C8C8C;
   line-height: 2;
   margin: 0 0 16px 0;
 }
 
 .new-hero-body-grey {
-  font-family: 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
+  font-family: 'TWK Lausanne', 'ABC Diatype', 'Apfel Grotezk', 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.4);
