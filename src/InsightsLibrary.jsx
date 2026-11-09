@@ -22,7 +22,7 @@ import filtersFinalMock from './assets/filters-final-mock.webm';
 import pogoLogoNew from './assets/pogo-logo-new.png';
 
 const SECTIONS = [
-  { id: 'problem',    label: 'Problem' },
+  { id: 'problem',    label: 'Background' },
   { id: 'solution',  label: 'Solution' },
   { id: 'research',  label: 'Research' },
   { id: 'decision-1', label: 'Card Design' },
@@ -233,10 +233,10 @@ export default function InsightsLibrary() {
 
           {/* Problem */}
           <div id="problem" style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Problem</span>
-            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Hundreds of near-identical studies, no way to tell them apart</h2>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Background</span>
+            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>The Insights Library is Pogo's corpus of AI-generated research</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
-              Pogo's data pipeline was generating studies for clients faster than the product had anywhere to put them, going from about 20 categories to roughly 2,000 studies within 30 to 60 days. They needed a dedicated place to house Pogo-run research, separate from the Studies page where clients manage their own work.
+              Pogo's data pipeline continuously generates consumer research studies at scale, producing a living corpus that currently supports 2,000+ studies for Fortune 500 enterprise clients. The Insights Library is the dedicated home for this research — separate from the Studies page where clients manage their own work — giving enterprise teams a single place to browse, filter, and access everything Pogo's pipeline produces.
             </p>
           </div>
 
