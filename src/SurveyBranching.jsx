@@ -236,7 +236,7 @@ export default function SurveyBranching() {
 
           {/* BACKGROUND */}
           <div id="background" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Background</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Background</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Survey logic is powerful — but building it shouldn't require an engineering degree</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               Pogo is a research platform that helps teams run studies and collect insights. One of the most requested features from researchers was smarter survey branching — the ability to route respondents to different questions based on their previous answers.<br /><br />
@@ -246,7 +246,7 @@ export default function SurveyBranching() {
 
           {/* PROBLEM */}
           <div id="problem" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Problem</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Problem</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Existing branching tools demand too much cognitive overhead</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               Researchers building conditional surveys had to manually configure every branch path. A single study with 10 questions and 3 answer variants could require dozens of explicit rule definitions — and one mistake would silently break the entire flow.<br /><br />
@@ -256,7 +256,7 @@ export default function SurveyBranching() {
 
           {/* SOLUTION */}
           <div id="solution" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Solution</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Solution</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>AI suggests the branching — researchers just approve</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               I designed an AI-assisted branching interface where the system proposes logical branch paths based on the survey's existing questions and answer options. Researchers can accept, modify, or override any suggestion — keeping them in control while dramatically reducing setup time.<br /><br />
@@ -266,7 +266,7 @@ export default function SurveyBranching() {
 
           {/* PROCESS */}
           <div id="process" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Process</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Process</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Case study coming soon</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               The full process writeup — including user research, iteration history, and final design decisions — is currently being documented and will be published here shortly.
@@ -275,7 +275,7 @@ export default function SurveyBranching() {
 
           {/* REFLECTIONS */}
           <div id="reflections" style={{ marginTop: '56px', marginBottom: '80px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Reflections</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Reflections</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Coming soon</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               Reflections and learnings will be added alongside the full process documentation.

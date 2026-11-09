@@ -257,7 +257,7 @@ export default function InsightsLibrary() {
 
           {/* Problem */}
           <div id="problem" style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Problem</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Problem</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Hundreds of near-identical studies, no way to tell them apart</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
               Pogo's data pipeline was generating studies for clients faster than the product had anywhere to put them, going from about 20 categories to roughly 2,000 studies within 30 to 60 days. They needed a dedicated place to house Pogo-run research, separate from the Studies page where clients manage their own work.
@@ -266,7 +266,7 @@ export default function InsightsLibrary() {
 
           {/* Solution */}
           <div id="solution" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Solution</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Solution</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Rebuilding the library around what makes each study unique, from the card up</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
               In 2 months, I rebuilt the Insights Library around a scalable card system, making each study easier to understand, discover, filter, and access as the library grew.
@@ -279,7 +279,7 @@ export default function InsightsLibrary() {
 
           {/* Research */}
           <div id="research" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Research</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Research</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Studying card patterns across other platforms</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               Before designing the study card, I looked at how platforms like Cloudflare, Databricks, and Snowflake display dense technical information through cards. Seeing how they handled scannability, metadata hierarchy, and disambiguation at scale gave me a clearer sense of what information the card actually needed and how it should be prioritized.
@@ -292,7 +292,7 @@ export default function InsightsLibrary() {
 
           {/* Design Decision #1 */}
           <div id="decision-1" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Card Design</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Card Design</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>What actually goes on a card</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
               For Pogo specifically, the card layout couldn't be arbitrary, since there was a clear order in which clients needed to scan the library: title first, then category and brand, then wave, then report type and methodology, with sample size last.
@@ -347,7 +347,7 @@ export default function InsightsLibrary() {
 
           {/* Design Decision #2 */}
           <div id="decision-2" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>Intuitive Searching</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>Intuitive Searching</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Making thousands of studies discoverable</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
               As the library grew, clients needed a way to find the right study without digging through the interface or losing their place in it. I explored search and filtering patterns that stay out of the way by default, but bring the experience into focus the moment a client needs to narrow things down.
@@ -400,7 +400,7 @@ export default function InsightsLibrary() {
 
           {/* Design Decision #3 */}
           <div id="decision-3" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'Geist Mono', monospace", fontSize: '15px', fontWeight: 400, color: '#8C8C8C', textTransform: 'uppercase' }}>AI Capabilities</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C', textTransform: 'uppercase' }}>AI Capabilities</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Supporting customers by expanding AI search capabilities</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
               Customers often need to connect insights across multiple studies to answer a single business question. I introduced a persistent AI assistant that lets them search across the library, synthesize findings, and get to relevant answers without manually digging through individual studies.
