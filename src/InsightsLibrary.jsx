@@ -236,7 +236,7 @@ export default function InsightsLibrary() {
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Background</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>The Insights Library is Pogo's corpus of AI-generated research</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
-              Pogo's data pipeline continuously generates consumer research studies at scale, producing a living corpus that currently supports 2,000+ studies for Fortune 500 enterprise clients. The Insights Library is the dedicated home for this research — separate from the Studies page where clients manage their own work — giving enterprise teams a single place to browse, filter, and access everything Pogo's pipeline produces.
+              Pogo's data pipeline generates consumer research studies automatically, building up a corpus that now sits at 2,000+ studies for Fortune 500 clients. The Insights Library is where all of that research lives — a dedicated space separate from the Studies page, where clients run their own work.
             </p>
           </div>
 
