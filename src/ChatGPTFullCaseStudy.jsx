@@ -485,28 +485,30 @@ export default function ChatGPTFullCaseStudy() {
           </div>
 
           {/* REFLECTIONS */}
-          <div id="reflections" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+          <div id="reflections" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Reflections</span>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Think beyond the feature</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
-                A feature doesn't exist in isolation, so I learned to think in systems and consider how it affects the rest of the product while making sure it feels native to the tool.
-              </p>
-            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '32px', alignItems: 'start' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Think beyond the feature</h2>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
+                  A feature doesn't exist in isolation, so I learned to think in systems and consider how it affects the rest of the product while making sure it feels native to the tool.
+                </p>
+              </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Design with engineering</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
-                Working with design engineering revealed interactions and edge cases that are easy to overlook when designing only with static screens.
-              </p>
-            </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Design with engineering</h2>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
+                  Working with design engineering revealed interactions and edge cases that are easy to overlook when designing only with static screens.
+                </p>
+              </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Do the homework first</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
-                Research helped me understand what users actually needed, streamline the design process, and narrow down the potential solutions before investing heavily in one direction.
-              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Do the homework first</h2>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
+                  Research helped me understand what users actually needed, streamline the design process, and narrow down the potential solutions before investing heavily in one direction.
+                </p>
+              </div>
             </div>
           </div>
 

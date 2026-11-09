@@ -274,7 +274,7 @@ export default function InsightsLibrary() {
           </div>
 
           <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', overflow: 'hidden', position: 'relative', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
-            <img src={ilSolutionCanvas} alt="" style={{ width: '110%', height: 'auto', display: 'block', position: 'absolute', top: '60px', left: '10%' }} />
+            <img src="/insights-library.png" alt="" style={{ width: '110%', height: 'auto', display: 'block', position: 'absolute', top: '60px', left: '10%' }} />
           </div>
 
           {/* Research */}
