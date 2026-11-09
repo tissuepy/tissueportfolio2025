@@ -37,6 +37,7 @@ export default function InsightsLibrary() {
   const [breadcrumbHovered, setBreadcrumbHovered] = useState(false);
   const [hoveredSection, setHoveredSection] = useState(null);
   const [dotY, setDotY] = useState(0);
+  const [dotX, setDotX] = useState(23);
   const rightPanelRef = useRef(null);
   const navContainerRef = useRef(null);
   const btnRefs = useRef({});
@@ -86,10 +87,18 @@ export default function InsightsLibrary() {
   }, []);
 
   useEffect(() => {
-    const targetId = hoveredSection ?? activeSection;
-    const btn = btnRefs.current[targetId];
-    if (btn) setDotY(btn.offsetTop + btn.offsetHeight / 2);
-  }, [hoveredSection, activeSection]);
+    const btn = btnRefs.current[activeSection];
+    const nav = navContainerRef.current;
+    if (btn && nav) {
+      setDotY(btn.offsetTop + btn.offsetHeight / 2);
+      const bracketSpan = btn.querySelector('span');
+      if (bracketSpan) {
+        const spanRect = bracketSpan.getBoundingClientRect();
+        const navRect = nav.getBoundingClientRect();
+        setDotX(spanRect.left - navRect.left + spanRect.width / 2);
+      }
+    }
+  }, [activeSection]);
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
@@ -152,10 +161,10 @@ export default function InsightsLibrary() {
             height: '5px',
             borderRadius: '50%',
             backgroundColor: '#2F7BFF',
-            left: '23px',
+            left: dotX + 'px',
             top: dotY + 'px',
             transform: 'translate(-50%, -50%)',
-            transition: 'top 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            transition: 'top 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)',
             pointerEvents: 'none',
             zIndex: 1,
           }} />
