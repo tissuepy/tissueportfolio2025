@@ -5,7 +5,7 @@ export default function BlueSquareCursor() {
 
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
-  const [isText, setIsText] = useState(false);
+  const [mode, setMode] = useState('default'); // 'default' | 'link' | 'text'
 
   useEffect(() => {
     const el = ref.current;
@@ -23,7 +23,15 @@ export default function BlueSquareCursor() {
       setVisible(true);
 
       const target = document.elementFromPoint(e.clientX, e.clientY);
-      setIsText(target ? isTextNode(target) : false);
+      if (!target) { setMode('default'); return; }
+
+      if (isLink(target)) {
+        setMode('link');
+      } else if (isTextNode(target)) {
+        setMode('text');
+      } else {
+        setMode('default');
+      }
     };
 
     const onLeave = () => setVisible(false);
@@ -41,6 +49,10 @@ export default function BlueSquareCursor() {
     };
   }, []);
 
+  const size = mode === 'text' ? { width: '2.5px', height: '22px' }
+             : mode === 'link' ? { width: '8px', height: '8px' }
+             : { width: '11px', height: '11px' };
+
   return (
     <div
       ref={ref}
@@ -48,8 +60,7 @@ export default function BlueSquareCursor() {
         position: 'fixed',
         top: '-100px',
         left: '-100px',
-        width: isText ? '2.5px' : '11px',
-        height: isText ? '22px' : '11px',
+        ...size,
         backgroundColor: '#2F7BFF',
         pointerEvents: 'none',
         zIndex: 99999,
@@ -63,17 +74,31 @@ export default function BlueSquareCursor() {
 }
 
 const TEXT_TAGS = new Set(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'td', 'th', 'blockquote', 'label']);
-const INLINE_TAGS = new Set(['span', 'a', 'em', 'strong', 'b', 'i', 'u', 'small', 'mark', 'code', 'button']);
+const INLINE_TAGS = new Set(['span', 'em', 'strong', 'b', 'i', 'u', 'small', 'mark', 'code']);
+
+function isLink(el) {
+  if (!el) return false;
+  const tag = el.tagName?.toLowerCase();
+  if (tag === 'a' || tag === 'button') return true;
+  // Walk up to check if inside a link/button
+  let node = el.parentElement;
+  let depth = 0;
+  while (node && depth < 4) {
+    const t = node.tagName?.toLowerCase();
+    if (t === 'a' || t === 'button') return true;
+    node = node.parentElement;
+    depth++;
+  }
+  return false;
+}
 
 function isTextNode(el) {
   if (!el || el === document.body || el === document.documentElement) return false;
   const tag = el.tagName?.toLowerCase();
   if (!tag) return false;
 
-  // Block-level text containers are always text
   if (TEXT_TAGS.has(tag)) return true;
 
-  // Inline elements: check if they directly contain a non-trivial text node
   if (INLINE_TAGS.has(tag) || tag === 'div') {
     for (const node of el.childNodes) {
       if (node.nodeType === 3 && node.textContent.trim().length > 2) return true;
