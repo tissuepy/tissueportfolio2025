@@ -566,7 +566,7 @@ export default function TopoMap() {
               {l.isDesign && <img src={pencilSparkle} alt="" style={{ width: '16px', height: '16px', display: 'block' }} />}
               {l.isResearch && <img src={testTubeIcon} alt="" style={{ width: '16px', height: '16px', display: 'block' }} />}
               {l.isCraft && <img src={sparklesBold} alt="" style={{ width: '16px', height: '16px', display: 'block' }} />}
-              <div style={{ fontSize: '11px', fontWeight: 400, letterSpacing: '-0.3px', textTransform: 'uppercase', color: '#2F7BFF', whiteSpace: 'nowrap', lineHeight: 1, textShadow: '0 0 3px #fbfbfa, 0 0 3px #fbfbfa, 0 0 6px #fbfbfa' }}>
+              <div style={{ fontSize: '13px', fontWeight: 400, letterSpacing: '-0.3px', textTransform: 'uppercase', color: '#2F7BFF', whiteSpace: 'nowrap', lineHeight: 1, textShadow: '0 0 3px #fbfbfa, 0 0 3px #fbfbfa, 0 0 6px #fbfbfa' }}>
                 {l.text}
               </div>
             </div>
