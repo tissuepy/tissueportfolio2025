@@ -6,7 +6,7 @@ import testTubeIcon from './assets/TestTube.png';
 import sparklesBold from './assets/Sparkles3Bold.png';
 import chatgptLogo from './articles/chatgpt-logo.png';
 import chatgptThumbnailVideo from './assets/chatgpt-final-padded.mp4';
-import insightsLibraryThumbnail from './assets/insights-2-thumbnail.png';
+import insightsLibraryAnimation from './assets/insights-library-animation.mp4';
 import surveyBranchingThumbnail from './assets/survey-branching-thumbnail.png';
 import pogoBranchingVideo from './assets/branching-video-frame.mp4';
 import airportIphoneWebm from './assets/airport-iphone.webm';
@@ -19,7 +19,7 @@ const PEAKS = [
   { text: 'DESIGN', dots: [[-95, -40, 'in'], [88, -58], [72, 72]], x: 230, y: 210, h: 1.0, s: 105,
     projects: [
       { title: 'ChatGPT', subtitle: 'Bookmarks', meta: 'Shipped 2026', logoType: 'openai', video: chatgptThumbnailVideo, route: '/chatgpt' },
-      { title: 'Pogo', subtitle: 'Insights Library', meta: 'Shipped 2026', subtitleSize: 15, image: insightsLibraryThumbnail, imageScale: 1.4, imageOffsetX: 10, imageOffsetY: 2, route: '/projects/insights-library' },
+      { title: 'Pogo', subtitle: 'Insights Library', meta: 'Shipped 2026', video: insightsLibraryAnimation, route: '/projects/insights-library' },
       { title: 'Pogo', subtitle: 'Survey Branching', meta: 'Shipped 2026', video: pogoBranchingVideo, route: '/projects/survey-branching' },
     ]
   },
