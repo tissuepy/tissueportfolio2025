@@ -153,7 +153,7 @@ export default function ChatGPTFullCaseStudy() {
                 fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif",
                 fontSize: '15px',
                 fontWeight: 300,
-                color: '#AAAAAA',
+                color: activeSection === id ? '#1A1A1A' : '#CCCCCC',
                 transition: 'color 0.2s',
                 display: 'flex',
                 alignItems: 'center',
@@ -161,7 +161,7 @@ export default function ChatGPTFullCaseStudy() {
                 whiteSpace: 'nowrap',
               }}
             >
-              <span style={{ color: '#BBBBBB', flexShrink: 0, letterSpacing: 0 }}>
+              <span style={{ display: 'inline-block', width: '36px', textAlign: 'center', color: '#CCCCCC', flexShrink: 0, letterSpacing: 0 }}>
                 [<span style={{ color: activeSection === id ? '#2F7BFF' : 'transparent' }}>•</span>]
               </span>
               {label}
