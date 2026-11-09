@@ -119,7 +119,7 @@ export default function InsightsLibrary() {
             fontWeight: 300,
           }}
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ color: '#AAAAAA', flexShrink: 0 }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ color: '#AAAAAA', flexShrink: 0, marginTop: '-1.5px' }}>
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
           <span style={{ color: '#AAAAAA' }}>Work</span>
