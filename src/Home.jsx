@@ -816,7 +816,7 @@ function Home() {
                     fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif",
                     fontSize: '15px',
                     fontWeight: 300,
-                    padding: '3px 8px',
+                    padding: '7px 10px',
                     cursor: 'pointer',
                     color: activeTab === tab ? '#ffffff' : 'rgba(50, 64, 79, 0.4)',
                     transition: 'color 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
