@@ -23,10 +23,7 @@ export default function BlueSquareCursor() {
       setVisible(true);
 
       const target = document.elementFromPoint(e.clientX, e.clientY);
-      if (target) {
-        const computed = window.getComputedStyle(target).cursor;
-        setIsText(computed === 'text' || computed === 'auto' && isTextElement(target));
-      }
+      setIsText(target ? isTextNode(target) : false);
     };
 
     const onLeave = () => setVisible(false);
@@ -51,29 +48,37 @@ export default function BlueSquareCursor() {
         position: 'fixed',
         top: '-100px',
         left: '-100px',
-        width: isText ? '3px' : '11px',
-        height: isText ? '20px' : '11px',
+        width: isText ? '2.5px' : '11px',
+        height: isText ? '22px' : '11px',
         backgroundColor: '#2F7BFF',
         pointerEvents: 'none',
         zIndex: 99999,
         transform: 'translate(-50%, -50%)',
         opacity: visible ? 1 : 0,
-        transition: 'opacity 0.15s ease, width 0.1s ease, height 0.1s ease',
-        borderRadius: '0px',
+        transition: 'opacity 0.15s ease, width 0.12s ease, height 0.12s ease',
+        borderRadius: '1px',
       }}
     />
   );
 }
 
-function isTextElement(el) {
+const TEXT_TAGS = new Set(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'td', 'th', 'blockquote', 'label']);
+const INLINE_TAGS = new Set(['span', 'a', 'em', 'strong', 'b', 'i', 'u', 'small', 'mark', 'code', 'button']);
+
+function isTextNode(el) {
+  if (!el || el === document.body || el === document.documentElement) return false;
   const tag = el.tagName?.toLowerCase();
-  const textTags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'td', 'th', 'blockquote', 'label'];
-  if (textTags.includes(tag)) return true;
-  // span/div with direct text nodes
-  if ((tag === 'span' || tag === 'div') && el.childNodes.length > 0) {
+  if (!tag) return false;
+
+  // Block-level text containers are always text
+  if (TEXT_TAGS.has(tag)) return true;
+
+  // Inline elements: check if they directly contain a non-trivial text node
+  if (INLINE_TAGS.has(tag) || tag === 'div') {
     for (const node of el.childNodes) {
-      if (node.nodeType === 3 && node.textContent.trim().length > 0) return true;
+      if (node.nodeType === 3 && node.textContent.trim().length > 2) return true;
     }
   }
+
   return false;
 }
