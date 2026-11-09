@@ -118,7 +118,7 @@ export default function SurveyBranching() {
                 fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif",
                 fontSize: '15px',
                 fontWeight: 300,
-                color: activeSection === id ? '#1A1A1A' : '#CCCCCC',
+                color: activeSection === id ? '#555555' : '#CCCCCC',
                 transition: 'color 0.2s',
                 display: 'flex',
                 alignItems: 'center',
@@ -126,7 +126,7 @@ export default function SurveyBranching() {
                 whiteSpace: 'nowrap',
               }}
             >
-              <span style={{ display: 'inline-block', width: '36px', textAlign: 'center', color: '#CCCCCC', flexShrink: 0, letterSpacing: 0 }}>
+              <span style={{ display: 'inline-block', width: '44px', textAlign: 'center', color: activeSection === id ? '#555555' : '#CCCCCC', flexShrink: 0, letterSpacing: 0 }}>
                 [<span style={{ color: activeSection === id ? '#2F7BFF' : 'transparent' }}>•</span>]
               </span>
               {label}
