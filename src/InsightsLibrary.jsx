@@ -242,7 +242,7 @@ export default function InsightsLibrary() {
 
           {/* Problem canvases */}
           <div style={{ marginTop: '20px', display: 'flex', gap: '16px', alignItems: 'stretch' }}>
-            <div style={{ flex: 1, aspectRatio: '1522 / 1080', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', overflow: 'hidden', position: 'relative' }}>
+            <div style={{ flex: 1, aspectRatio: '1522 / 1080', backgroundColor: '#FFFFFF', overflow: 'hidden', position: 'relative' }}>
               <video src="/il-story-1.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             <div style={{ flex: 1, aspectRatio: '1522 / 1080', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box' }} />
