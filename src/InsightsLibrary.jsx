@@ -132,20 +132,27 @@ export default function InsightsLibrary() {
               key={id}
               onClick={() => scrollTo(id)}
               style={{
-                background: activeSection === id ? '#fff' : 'none',
+                background: 'none',
                 border: 'none',
-                borderRadius: '8px',
-                padding: '7px 12px',
+                padding: '5px 12px',
                 cursor: 'pointer',
                 textAlign: 'left',
                 fontFamily: "'Geist Mono', monospace",
-                fontSize: '15px',
-                fontWeight: 350,
+                fontSize: '12px',
+                fontWeight: 400,
                 textTransform: 'uppercase',
-                color: activeSection === id ? '#2F7BFF' : '#AAAAAA',
-                transition: 'color 0.2s, background 0.2s',
+                color: '#AAAAAA',
+                transition: 'color 0.2s',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                letterSpacing: '0.03em',
+                whiteSpace: 'nowrap',
               }}
             >
+              <span style={{ color: activeSection === id ? '#2F7BFF' : '#BBBBBB', flexShrink: 0, letterSpacing: 0 }}>
+                {activeSection === id ? '[✦]' : '[ ]'}
+              </span>
               {label}
             </button>
           ))}
