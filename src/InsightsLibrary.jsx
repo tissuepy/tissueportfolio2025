@@ -261,7 +261,9 @@ export default function InsightsLibrary() {
                   <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>No identity at scale</h3>
                   <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>2,000+ studies with near-identical titles, categories, and formats, with no way to tell them apart or know which one was relevant.</p>
                 </div>
-                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
+                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
+                  <img src="/il-problem-1.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                </div>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
