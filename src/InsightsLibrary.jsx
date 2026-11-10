@@ -236,7 +236,7 @@ export default function InsightsLibrary() {
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Background</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>The Insights Library is Pogo's corpus of AI-generated research</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
-              Pogo's data pipeline generates consumer research studies automatically, building up a corpus that now sits at 2,000+ studies for Fortune 500 clients. The Insights Library is where all of that research lives — a dedicated space separate from the Studies page, where clients run their own work.
+              Pogo's data pipeline generates consumer research studies automatically, building up a corpus that now sits at 2,000+ studies for Fortune 500 clients. The Insights Library is where all of that research lives, a dedicated space separate from the Studies page, where clients run their own work.
             </p>
           </div>
 
@@ -259,7 +259,7 @@ export default function InsightsLibrary() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>No identity at scale</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>2,000+ studies with near-identical titles, categories, and formats — clients had no way to tell them apart or know which one was relevant.</p>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>2,000+ studies with near-identical titles, categories, and formats, with no way to tell them apart or know which one was relevant.</p>
                 </div>
                 <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
               </div>
@@ -267,7 +267,7 @@ export default function InsightsLibrary() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>No way to discover what's there</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Without filtering, search, or hierarchy, finding the right study meant scrolling through everything — which stopped working the moment the library grew.</p>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Without filtering, search, or hierarchy, finding the right study meant scrolling through everything, which stopped working the moment the library grew.</p>
                 </div>
                 <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
               </div>
@@ -275,7 +275,7 @@ export default function InsightsLibrary() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>No way to request what's missing</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clients had no path to request studies they didn't have access to — if something wasn't in the library, there was no way to surface that need.</p>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clients had no path to request studies they didn't have access to. If something wasn't in the library, there was no way to surface that need.</p>
                 </div>
                 <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
               </div>
@@ -405,7 +405,7 @@ export default function InsightsLibrary() {
           <div style={{ marginTop: '48px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Final filter flow</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
-              After several iterations, I landed on a filter pattern that feels native to the interface — surfacing controls when needed without competing with the content.
+              After several iterations, I landed on a filter pattern that feels native to the interface, surfacing controls when needed without competing with the content.
             </p>
           </div>
 
