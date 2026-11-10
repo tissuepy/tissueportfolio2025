@@ -300,7 +300,7 @@ export default function InsightsLibrary() {
 
           {/* Ask Pogo */}
           <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Creating "Ask Pogo"</span>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Motivation: Creating "Ask Pogo"</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Executives are too busy to read 2,000 studies</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
               A majority of Pogo's users already find value through AI-moderated studies and insights, but the nature of a corpus like the Insights Library is that clients needed a faster way to consolidate what they were seeing across similar studies rather than opening each one individually.
