@@ -298,10 +298,6 @@ export default function InsightsLibrary() {
             </p>
           </div>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', overflow: 'hidden', position: 'relative', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
-            <img src="/insights-library.png" alt="" style={{ width: '110%', height: 'auto', display: 'block', position: 'absolute', top: '60px', left: '10%' }} />
-          </div>
-
           {/* Research */}
           <div id="research" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Research</span>
