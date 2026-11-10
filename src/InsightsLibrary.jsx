@@ -259,7 +259,7 @@ export default function InsightsLibrary() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>No identity at scale</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>2,000+ studies with near-identical titles, categories, and formats, with no way to tell them apart or know which one was relevant.</p>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>2,000+ studies with near-identical titles and formats, with no way to tell them apart.</p>
                 </div>
                 <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
                   <img src="/il-problem-1.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
@@ -269,7 +269,7 @@ export default function InsightsLibrary() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>No way to discover what's there</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Without filtering, search, or hierarchy, finding the right study meant scrolling through everything, which stopped working the moment the library grew.</p>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Without filtering or search, finding anything meant scrolling through everything.</p>
                 </div>
                 <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
                   <img src="/il-problem-2.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
@@ -279,7 +279,7 @@ export default function InsightsLibrary() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>No way to request what's missing</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clients had no path to request studies they didn't have access to. If something wasn't in the library, there was no way to surface that need.</p>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>If a study wasn't already in the library, clients had no way to ask for it.</p>
                 </div>
                 <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
                   <img src="/il-problem-3.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
