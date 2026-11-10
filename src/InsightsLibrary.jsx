@@ -281,7 +281,9 @@ export default function InsightsLibrary() {
                   <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>No way to request what's missing</h3>
                   <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clients had no path to request studies they didn't have access to. If something wasn't in the library, there was no way to surface that need.</p>
                 </div>
-                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
+                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
+                  <img src="/il-problem-3.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                </div>
               </div>
 
             </div>
