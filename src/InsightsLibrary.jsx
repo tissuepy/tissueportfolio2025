@@ -23,7 +23,7 @@ import pogoLogoNew from './assets/pogo-logo-new.png';
 
 const SECTIONS = [
   { id: 'problem',    label: 'Background' },
-  { id: 'solution',  label: 'Solution' },
+  { id: 'solution',  label: 'My role' },
   { id: 'research',  label: 'Research' },
   { id: 'decision-1', label: 'Card Design' },
   { id: 'decision-2', label: 'Intuitive Searching' },
@@ -291,10 +291,10 @@ export default function InsightsLibrary() {
 
           {/* Solution */}
           <div id="solution" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Solution</span>
-            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Rebuilding the library around what makes each study unique, from the card up</h2>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>My role</span>
+            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Here is what I accomplished throughout a 1 month sprint</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
-              In 2 months, I rebuilt the Insights Library around a scalable card system, making each study easier to understand, discover, filter, and access as the library grew.
+              I redesigned the card system to make each study identifiable at a glance, built filtering and search that scaled with the library, and introduced an AI chat feature for surfacing insights without having to browse.
             </p>
           </div>
 
