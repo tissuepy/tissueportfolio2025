@@ -375,10 +375,7 @@ export default function InsightsLibrary() {
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Card Design</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>What actually goes on a card</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
-              For Pogo specifically, the card layout couldn't be arbitrary, since there was a clear order in which clients needed to scan the library: title first, then category and brand, then wave, then report type and methodology, with sample size last.
-            </p>
-            <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
-              I didn't land on this ranking right away though, it came out clearer in some of the later iterations as I kept testing what clients actually needed to see first.
+              There was a natural order clients needed to scan: title, then category and brand, then wave, then report type, with sample size last. That ranking wasn't obvious upfront — it came out through iteration.
             </p>
           </div>
 
