@@ -325,7 +325,7 @@ export default function InsightsLibrary() {
 
           <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Highlights</span>
-            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>What I'm most proud of</h2>
+            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>The details that make it actually work</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', alignItems: 'stretch' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
