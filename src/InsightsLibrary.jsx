@@ -386,7 +386,7 @@ export default function InsightsLibrary() {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>First pass</h3>
-                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Starting point. All the right fields but no clear hierarchy — everything competed for attention.</p>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>No visual hierarchy. Every field had the same weight, so nothing stood out and scanning felt like reading a list.</p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -394,8 +394,8 @@ export default function InsightsLibrary() {
                 <img src="/il-cards-2.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Getting there</h3>
-                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Category got pulled to the top and given color. The scan order started to make sense.</p>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Revisiting the fields</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Wave got removed from the PRD entirely. I also started pushing for the audience and cohort breakdown to have more presence, since it felt like something clients actually cared about.</p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -404,7 +404,7 @@ export default function InsightsLibrary() {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Final card</h3>
-                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clean hierarchy, each field in the right place. Title leads, category carries color, everything else falls into line.</p>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Category became the core decision factor, everything else was supporting metadata. The title got its own color to separate it from the rest and keep the card from feeling cluttered.</p>
               </div>
             </div>
           </div>
