@@ -92,9 +92,9 @@ function LockedVideoPlayer({ src }) {
           style={{
             width: '32px',
             height: '32px',
-            borderRadius: '7px',
-            backgroundColor: 'rgba(255,255,255,0.9)',
-            border: '1px solid rgba(0,0,0,0.08)',
+            borderRadius: '50%',
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            border: 'none',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
@@ -105,12 +105,12 @@ function LockedVideoPlayer({ src }) {
         >
           {isPlaying ? (
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <rect x="1.5" y="1.5" width="3" height="9" rx="1" fill="#000"/>
-              <rect x="7.5" y="1.5" width="3" height="9" rx="1" fill="#000"/>
+              <rect x="2" y="2" width="3" height="8" rx="0.75" fill="white"/>
+              <rect x="7" y="2" width="3" height="8" rx="0.75" fill="white"/>
             </svg>
           ) : (
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 1.5L11 6L3 10.5V1.5Z" fill="#000"/>
+              <path d="M3.5 2L10 6L3.5 10V2Z" fill="white"/>
             </svg>
           )}
         </button>
@@ -119,9 +119,9 @@ function LockedVideoPlayer({ src }) {
           style={{
             width: '32px',
             height: '32px',
-            borderRadius: '7px',
-            backgroundColor: 'rgba(255,255,255,0.9)',
-            border: '1px solid rgba(0,0,0,0.08)',
+            borderRadius: '50%',
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            border: 'none',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
@@ -131,9 +131,8 @@ function LockedVideoPlayer({ src }) {
           }}
         >
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-            <path d="M2 6.5C2 4.015 4.015 2 6.5 2C8.1 2 9.513 2.845 10.33 4.1" stroke="#000" strokeWidth="1.4" strokeLinecap="round"/>
-            <path d="M11 6.5C11 8.985 8.985 11 6.5 11C4.9 11 3.487 10.155 2.67 8.9" stroke="#000" strokeWidth="1.4" strokeLinecap="round"/>
-            <path d="M8.5 2.5L10.5 4.5L8.5 6" stroke="#000" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M6.5 2.5C4.29 2.5 2.5 4.29 2.5 6.5C2.5 8.71 4.29 10.5 6.5 10.5C8.71 10.5 10.5 8.71 10.5 6.5C10.5 5.18 9.84 4.01 8.83 3.29" stroke="white" strokeWidth="1.4" strokeLinecap="round"/>
+            <path d="M6.5 2.5L8.5 4.5M6.5 2.5L8.5 0.5" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
       </div>
