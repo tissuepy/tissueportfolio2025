@@ -412,7 +412,7 @@ export default function InsightsLibrary() {
           {/* Square canvas pairs */}
           <div style={{ marginTop: '40px', display: 'flex', gap: '32px', alignItems: 'stretch' }}>
             <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <img src={visualHierarchy} alt="" style={{ width: '80%', height: 'auto', display: 'block' }} />
+              <img src="/il-color-vs-mono.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
               <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Category leads the hierarchy</h2>
