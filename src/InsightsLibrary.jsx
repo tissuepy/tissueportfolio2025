@@ -319,7 +319,11 @@ export default function InsightsLibrary() {
             </p>
           </div>
 
-          <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div style={{ width: '100%', marginTop: '32px', aspectRatio: '2796 / 1440', overflow: 'hidden', position: 'relative' }}>
+            <video src="/il-ask-pogo.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          </div>
+
+          <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
 
             <div style={{ display: 'flex', gap: '32px', alignItems: 'stretch' }}>
               <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
@@ -351,10 +355,6 @@ export default function InsightsLibrary() {
               </div>
             </div>
 
-          </div>
-
-          <div style={{ width: '100%', marginTop: '24px', aspectRatio: '2796 / 1440', overflow: 'hidden', position: 'relative' }}>
-            <video src="/il-ask-pogo.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
 
           {/* Research */}
