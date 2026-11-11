@@ -311,6 +311,42 @@ export default function InsightsLibrary() {
             <video src="/il-one-at-a-time.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
 
+          {/* Ask Pogo Solution */}
+          <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Solution: Creating an intuitive AI Search</h2>
+            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
+              I designed a conversational AI layer directly inside the Insights Library, letting clients ask questions in plain language and get back synthesized answers drawn from across the entire corpus, without having to open a single study.
+            </p>
+          </div>
+
+          <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+
+            <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start' }}>
+              <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', paddingTop: '4px' }}>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Ask anything, get a direct answer</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clients type a question in natural language and get a synthesized response pulled from the studies most relevant to their query.</p>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start' }}>
+              <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', paddingTop: '4px' }}>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Grounded in the corpus</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Every answer surfaces the specific studies it drew from, so clients can verify the source and dig deeper when they need to.</p>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start' }}>
+              <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', paddingTop: '4px' }}>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Built for how executives work</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>The interface fits into the library without disrupting the existing browsing flow, so it works as a shortcut rather than a replacement.</p>
+              </div>
+            </div>
+
+          </div>
+
           {/* Research */}
           <div id="research" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Research</span>
