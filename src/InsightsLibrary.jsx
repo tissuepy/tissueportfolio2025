@@ -344,8 +344,8 @@ export default function InsightsLibrary() {
             <div style={{ display: 'flex', gap: '32px', alignItems: 'stretch' }}>
               <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', textAlign: 'left' }}>
-                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Built for how executives work</h3>
-                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>The interface fits into the library without disrupting the existing browsing flow, so it works as a shortcut rather than a replacement.</p>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>A folder that knows what's inside it</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>A small graphic on the chat input changes based on whether you have studies attached. It's a tiny thing, but it tells you exactly where you stand before you send anything.</p>
               </div>
             </div>
 
