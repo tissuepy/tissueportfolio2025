@@ -422,11 +422,11 @@ export default function InsightsLibrary() {
 
           <div style={{ marginTop: '40px', display: 'flex', gap: '32px', alignItems: 'stretch' }}>
             <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
-              <img src={colorWeight} alt="" style={{ width: '70%', height: 'auto', display: 'block', marginTop: '6%' }} />
+              <img src="/il-scanning.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
-              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Why only category gets color</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>With clients navigating thousands of studies, color gives them an immediate way to visually scan and identify relevant categories.</p>
+              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Scanning across categories</h2>
+              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>With many categories in the library, clients needed a way to move between them without losing their place. I used a horizontal pill-style navigation where a colored underline flair marks the active set, so it's always clear which category you're browsing.</p>
             </div>
           </div>
 
