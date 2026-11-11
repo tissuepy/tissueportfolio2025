@@ -416,7 +416,7 @@ export default function InsightsLibrary() {
             </div>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
               <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Polychromatic vs. monochromatic</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Neither was wrong. Color on category won because it's the fastest decision signal clients have.</p>
+              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Neither approach was inherently wrong. We landed on color for category because it's the one field clients use to make a snap judgment on whether a study is even relevant to them.</p>
             </div>
           </div>
 
@@ -426,7 +426,7 @@ export default function InsightsLibrary() {
             </div>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
               <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Scanning across categories</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>With a lot of categories to move between, I used a selection rail to mark the active one — a colored vertical bar that makes it immediately obvious which set of studies you're in.</p>
+              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>With a lot of categories to navigate, I went with a selection rail pattern. A colored vertical bar sits next to the active category so clients always know which set of studies they're looking at without having to read the label twice.</p>
             </div>
           </div>
 
