@@ -337,7 +337,7 @@ export default function InsightsLibrary() {
               </div>
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', textAlign: 'left' }}>
                 <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Transparent reasoning for power users</h3>
-                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Power users can observe the agent's thinking in real time — seeing which studies it pulled, why it chose them, and how it reasoned its way to a final answer or document.</p>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Power users can follow the agent's thinking in real time: which studies it pulled, why it chose them, and how it got to a final answer or document.</p>
               </div>
             </div>
 
