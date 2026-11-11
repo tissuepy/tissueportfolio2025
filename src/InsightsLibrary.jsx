@@ -348,7 +348,7 @@ export default function InsightsLibrary() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>The folder knows what's in it</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>A little graphic on the chat tells you if studies are attached. Empty folder, no context. Full folder, you're set.</p>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Empty folder, no context. Full folder, you're set.</p>
                 </div>
                 <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
                   <img src="/il-solution-3.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
