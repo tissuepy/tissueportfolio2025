@@ -326,7 +326,7 @@ export default function InsightsLibrary() {
                 <img src="/il-solution-1.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </div>
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', textAlign: 'left', maxWidth: '260px' }}>
-                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Create artifacts from any set of studies</h3>
+                <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Create artifacts from any set of studies</span>
                 <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clients can generate summaries and reports directly from search results, turning a filtered slice of the library into a shareable artifact.</p>
               </div>
             </div>
@@ -336,7 +336,7 @@ export default function InsightsLibrary() {
                 <img src="/il-solution-2.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </div>
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', textAlign: 'left', maxWidth: '260px' }}>
-                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Transparent reasoning for power users</h3>
+                <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Transparent reasoning for power users</span>
                 <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Power users can follow the agent's thinking in real time: which studies it pulled, why it chose them, and how it got to a final answer or document.</p>
               </div>
             </div>
@@ -346,7 +346,7 @@ export default function InsightsLibrary() {
                 <img src="/il-solution-3.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </div>
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', textAlign: 'left', maxWidth: '260px' }}>
-                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>A folder that knows what's inside it</h3>
+                <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>A folder that knows what's inside it</span>
                 <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>A small graphic on the chat input changes based on whether you have studies attached. It's a tiny thing, but it tells you exactly where you stand before you send anything.</p>
               </div>
             </div>
