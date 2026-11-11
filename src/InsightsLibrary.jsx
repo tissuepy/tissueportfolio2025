@@ -21,6 +21,126 @@ import finalFlowAiChat from './assets/final-flow-ai-chat.webm';
 import filtersFinalMock from './assets/filters-final-mock.webm';
 import pogoLogoNew from './assets/pogo-logo-new.png';
 
+function LockedVideoPlayer({ src }) {
+  const videoRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().then(() => setIsPlaying(true)).catch(() => {});
+        } else {
+          video.pause();
+          setIsPlaying(false);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  const handlePlayPause = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isPlaying) {
+      video.pause();
+      setIsPlaying(false);
+    } else {
+      video.play().then(() => setIsPlaying(true)).catch(() => {});
+    }
+  };
+
+  const handleReset = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = 0;
+    video.play().then(() => setIsPlaying(true)).catch(() => {});
+  };
+
+  return (
+    <div
+      style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '520px', position: 'relative', overflow: 'hidden' }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <video
+        ref={videoRef}
+        src={src}
+        loop
+        muted
+        playsInline
+        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+      />
+      <div style={{
+        position: 'absolute',
+        top: '16px',
+        right: '16px',
+        display: 'flex',
+        gap: '6px',
+        zIndex: 10,
+        opacity: isHovered ? 1 : 0,
+        transition: 'opacity 0.15s',
+        pointerEvents: isHovered ? 'auto' : 'none',
+      }}>
+        <button
+          onClick={handlePlayPause}
+          style={{
+            width: '32px',
+            height: '32px',
+            borderRadius: '7px',
+            backgroundColor: 'rgba(255,255,255,0.9)',
+            border: '1px solid rgba(0,0,0,0.08)',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backdropFilter: 'blur(8px)',
+            padding: 0,
+          }}
+        >
+          {isPlaying ? (
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <rect x="1.5" y="1.5" width="3" height="9" rx="1" fill="#000"/>
+              <rect x="7.5" y="1.5" width="3" height="9" rx="1" fill="#000"/>
+            </svg>
+          ) : (
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M3 1.5L11 6L3 10.5V1.5Z" fill="#000"/>
+            </svg>
+          )}
+        </button>
+        <button
+          onClick={handleReset}
+          style={{
+            width: '32px',
+            height: '32px',
+            borderRadius: '7px',
+            backgroundColor: 'rgba(255,255,255,0.9)',
+            border: '1px solid rgba(0,0,0,0.08)',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backdropFilter: 'blur(8px)',
+            padding: 0,
+          }}
+        >
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+            <path d="M2 6.5C2 4.015 4.015 2 6.5 2C8.1 2 9.513 2.845 10.33 4.1" stroke="#000" strokeWidth="1.4" strokeLinecap="round"/>
+            <path d="M11 6.5C11 8.985 8.985 11 6.5 11C4.9 11 3.487 10.155 2.67 8.9" stroke="#000" strokeWidth="1.4" strokeLinecap="round"/>
+            <path d="M8.5 2.5L10.5 4.5L8.5 6" stroke="#000" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
+}
+
 const SECTIONS = [
   { id: 'problem',    label: 'Background' },
   { id: 'solution',  label: 'My role' },
@@ -434,9 +554,7 @@ export default function InsightsLibrary() {
           <p className="new-hero-body" style={{ margin: '12px 0 0', color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Not every client has access to every study, but it was still important for them to see what research exists outside their plan, since that visibility is what shows them the value they could unlock.</p>
           <p className="new-hero-body" style={{ margin: '12px 0 0', color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>The next problem became figuring out how to clearly differentiate locked cards from accessible ones without making the locked state feel like clutter or confusing it with a broken or empty card.</p>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '520px', position: 'relative', overflow: 'hidden' }}>
-            <video src="/il-locked.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
+          <LockedVideoPlayer src="/il-locked.mp4" />
 
           <div style={{ marginTop: '40px', display: 'flex', gap: '32px', alignItems: 'stretch' }}>
             <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
