@@ -104,6 +104,7 @@ function VideoPlayer({ src, containerStyle, videoStyle }) {
 const SECTIONS = [
   { id: 'problem',    label: 'Background' },
   { id: 'solution',  label: 'My role' },
+  { id: 'ask-pogo', label: 'Ask Pogo' },
   { id: 'research',  label: 'Research' },
   { id: 'decision-1', label: 'Card Design' },
   { id: 'decision-2', label: 'Intuitive Searching' },
@@ -380,7 +381,7 @@ export default function InsightsLibrary() {
           </div>
 
           {/* Ask Pogo */}
-          <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <div id="ask-pogo" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Motivation: Creating "Ask Pogo"</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Executives are too busy to read 2,000 studies</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
