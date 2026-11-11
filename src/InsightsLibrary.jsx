@@ -551,8 +551,7 @@ export default function InsightsLibrary() {
           </div>
 
           <h2 className="moving-out-title" style={{ color: '#000', margin: '48px 0 0', fontSize: '24px' }}>Designing locked cards</h2>
-          <p className="new-hero-body" style={{ margin: '12px 0 0', color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Not every client has access to every study, but it was still important for them to see what research exists outside their plan, since that visibility is what shows them the value they could unlock.</p>
-          <p className="new-hero-body" style={{ margin: '12px 0 0', color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>The next problem became figuring out how to clearly differentiate locked cards from accessible ones without making the locked state feel like clutter or confusing it with a broken or empty card.</p>
+          <p className="new-hero-body" style={{ margin: '12px 0 0', color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Not every client has access to every study, but seeing what exists beyond their plan is what shows them the value they could unlock. The problem was making locked cards feel intentional rather than broken or missing.</p>
 
           <LockedVideoPlayer src="/il-locked.mp4" />
 
