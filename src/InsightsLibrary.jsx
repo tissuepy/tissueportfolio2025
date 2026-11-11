@@ -321,25 +321,25 @@ export default function InsightsLibrary() {
 
           <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
 
-            <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start' }}>
+            <div style={{ display: 'flex', gap: '32px', alignItems: 'stretch' }}>
               <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
-              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', paddingTop: '4px' }}>
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', textAlign: 'right' }}>
                 <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Ask anything, get a direct answer</h3>
                 <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clients type a question in natural language and get a synthesized response pulled from the studies most relevant to their query.</p>
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start' }}>
+            <div style={{ display: 'flex', gap: '32px', alignItems: 'stretch' }}>
               <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
-              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', paddingTop: '4px' }}>
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', textAlign: 'right' }}>
                 <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Grounded in the corpus</h3>
                 <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Every answer surfaces the specific studies it drew from, so clients can verify the source and dig deeper when they need to.</p>
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start' }}>
+            <div style={{ display: 'flex', gap: '32px', alignItems: 'stretch' }}>
               <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
-              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', paddingTop: '4px' }}>
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', textAlign: 'right' }}>
                 <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Built for how executives work</h3>
                 <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>The interface fits into the library without disrupting the existing browsing flow, so it works as a shortcut rather than a replacement.</p>
               </div>
