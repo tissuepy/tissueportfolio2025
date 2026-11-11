@@ -21,7 +21,45 @@ import finalFlowAiChat from './assets/final-flow-ai-chat.webm';
 import filtersFinalMock from './assets/filters-final-mock.webm';
 import pogoLogoNew from './assets/pogo-logo-new.png';
 
-function LockedVideoPlayer({ src }) {
+const btnStyle = {
+  width: '32px',
+  height: '32px',
+  borderRadius: '50%',
+  backgroundColor: 'rgba(0,0,0,0.5)',
+  border: 'none',
+  cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backdropFilter: 'blur(8px)',
+  padding: 0,
+  flexShrink: 0,
+};
+
+function VideoControls({ isHovered, isPlaying, onPlayPause, onReset }) {
+  return (
+    <div style={{
+      position: 'absolute',
+      top: '16px',
+      right: '16px',
+      display: 'flex',
+      gap: '6px',
+      zIndex: 10,
+      opacity: isHovered ? 1 : 0,
+      transition: 'opacity 0.15s',
+      pointerEvents: isHovered ? 'auto' : 'none',
+    }}>
+      <button onClick={onPlayPause} style={btnStyle}>
+        <img src={isPlaying ? '/Pause.png' : '/Play.png'} alt={isPlaying ? 'Pause' : 'Play'} style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+      </button>
+      <button onClick={onReset} style={btnStyle}>
+        <img src="/ArrowRotateClockwise.png" alt="Restart" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+      </button>
+    </div>
+  );
+}
+
+function VideoPlayer({ src, containerStyle, videoStyle }) {
   const videoRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -47,12 +85,8 @@ function LockedVideoPlayer({ src }) {
   const handlePlayPause = () => {
     const video = videoRef.current;
     if (!video) return;
-    if (isPlaying) {
-      video.pause();
-      setIsPlaying(false);
-    } else {
-      video.play().then(() => setIsPlaying(true)).catch(() => {});
-    }
+    if (isPlaying) { video.pause(); setIsPlaying(false); }
+    else { video.play().then(() => setIsPlaying(true)).catch(() => {}); }
   };
 
   const handleReset = () => {
@@ -64,78 +98,12 @@ function LockedVideoPlayer({ src }) {
 
   return (
     <div
-      style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '520px', position: 'relative', overflow: 'hidden' }}
+      style={{ position: 'relative', ...containerStyle }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <video
-        ref={videoRef}
-        src={src}
-        loop
-        muted
-        playsInline
-        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-      />
-      <div style={{
-        position: 'absolute',
-        top: '16px',
-        right: '16px',
-        display: 'flex',
-        gap: '6px',
-        zIndex: 10,
-        opacity: isHovered ? 1 : 0,
-        transition: 'opacity 0.15s',
-        pointerEvents: isHovered ? 'auto' : 'none',
-      }}>
-        <button
-          onClick={handlePlayPause}
-          style={{
-            width: '32px',
-            height: '32px',
-            borderRadius: '50%',
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            border: 'none',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backdropFilter: 'blur(8px)',
-            padding: 0,
-          }}
-        >
-          {isPlaying ? (
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <rect x="2" y="2" width="3" height="8" rx="0.75" fill="white"/>
-              <rect x="7" y="2" width="3" height="8" rx="0.75" fill="white"/>
-            </svg>
-          ) : (
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3.5 2L10 6L3.5 10V2Z" fill="white"/>
-            </svg>
-          )}
-        </button>
-        <button
-          onClick={handleReset}
-          style={{
-            width: '32px',
-            height: '32px',
-            borderRadius: '50%',
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            border: 'none',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backdropFilter: 'blur(8px)',
-            padding: 0,
-          }}
-        >
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-            <path d="M6.5 2.5C4.29 2.5 2.5 4.29 2.5 6.5C2.5 8.71 4.29 10.5 6.5 10.5C8.71 10.5 10.5 8.71 10.5 6.5C10.5 5.18 9.84 4.01 8.83 3.29" stroke="white" strokeWidth="1.4" strokeLinecap="round"/>
-            <path d="M6.5 2.5L8.5 4.5M6.5 2.5L8.5 0.5" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-      </div>
+      <video ref={videoRef} src={src} loop muted playsInline style={videoStyle} />
+      <VideoControls isHovered={isHovered} isPlaying={isPlaying} onPlayPause={handlePlayPause} onReset={handleReset} />
     </div>
   );
 }
@@ -361,9 +329,11 @@ export default function InsightsLibrary() {
 
           {/* Problem canvases */}
           <div style={{ marginTop: '20px', display: 'flex', gap: '16px', alignItems: 'stretch' }}>
-            <div style={{ flex: 1, aspectRatio: '1522 / 1080', backgroundColor: '#FFFFFF', overflow: 'hidden', position: 'relative' }}>
-              <video src="/il-story-1.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
+            <VideoPlayer
+              src="/il-story-1.mp4"
+              containerStyle={{ flex: 1, aspectRatio: '1522 / 1080', backgroundColor: '#FFFFFF', overflow: 'hidden' }}
+              videoStyle={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
             <div style={{ flex: 1, aspectRatio: '1522 / 1080', backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
               <img src="/il-story-2.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
@@ -426,9 +396,11 @@ export default function InsightsLibrary() {
             </p>
           </div>
 
-          <div style={{ width: '100%', marginTop: '20px', aspectRatio: '2806 / 1440', overflow: 'hidden', position: 'relative' }}>
-            <video src="/il-walkthrough-1.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
+          <VideoPlayer
+            src="/il-walkthrough-1.mp4"
+            containerStyle={{ width: '100%', marginTop: '20px', aspectRatio: '2806 / 1440', overflow: 'hidden' }}
+            videoStyle={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
 
           {/* Ask Pogo Solution */}
           <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -438,9 +410,11 @@ export default function InsightsLibrary() {
             </p>
           </div>
 
-          <div style={{ width: '100%', marginTop: '32px', aspectRatio: '2796 / 1440', overflow: 'hidden', position: 'relative' }}>
-            <video src="/il-final-mock.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          </div>
+          <VideoPlayer
+            src="/il-final-mock.mp4"
+            containerStyle={{ width: '100%', marginTop: '32px', aspectRatio: '2796 / 1440', overflow: 'hidden' }}
+            videoStyle={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
 
           <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Highlights</span>
@@ -552,12 +526,18 @@ export default function InsightsLibrary() {
           <h2 className="moving-out-title" style={{ color: '#000', margin: '48px 0 0', fontSize: '24px' }}>Designing locked cards</h2>
           <p className="new-hero-body" style={{ margin: '12px 0 0', color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Not every client has access to every study, but seeing what exists beyond their plan is what shows them the value they could unlock. The problem was making locked cards feel intentional rather than broken or missing.</p>
 
-          <LockedVideoPlayer src="/il-locked.mp4" />
+          <VideoPlayer
+            src="/il-locked.mp4"
+            containerStyle={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '520px', overflow: 'hidden' }}
+            videoStyle={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
 
           <div style={{ marginTop: '40px', display: 'flex', gap: '32px', alignItems: 'stretch' }}>
-            <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <video src="/il-locked-animation.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
+            <VideoPlayer
+              src="/il-locked-animation.mp4"
+              containerStyle={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+              videoStyle={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
               <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Just a little shake</h2>
               <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>When a client hovers over a locked study, the lock icon gives a small shake, a subtle way of signaling the card is intentionally restricted rather than broken, without needing any extra text or a modal to explain it.</p>
@@ -583,9 +563,11 @@ export default function InsightsLibrary() {
           </div>
 
           <div style={{ marginTop: '40px', display: 'flex', gap: '32px', alignItems: 'stretch' }}>
-            <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <video src={operatorAnimation} autoPlay loop muted playsInline style={{ width: '80%', height: 'auto' }} />
-            </div>
+            <VideoPlayer
+              src={operatorAnimation}
+              containerStyle={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+              videoStyle={{ width: '80%', height: 'auto' }}
+            />
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
               <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Letting clients flip the logic</h2>
               <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Each filter's operator can be changed directly on the chip, giving clients the flexibility to include or exclude a set of values without deleting and rebuilding the filter from scratch.</p>
@@ -593,9 +575,11 @@ export default function InsightsLibrary() {
           </div>
 
           <div style={{ marginTop: '40px', display: 'flex', gap: '32px', alignItems: 'stretch' }}>
-            <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <video src={truncatedOptionsAnimation} autoPlay loop muted playsInline style={{ width: '88%', height: 'auto' }} />
-            </div>
+            <VideoPlayer
+              src={truncatedOptionsAnimation}
+              containerStyle={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+              videoStyle={{ width: '88%', height: 'auto' }}
+            />
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
               <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Truncating to reduce clutter</h2>
               <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>When a client selects more than a few values within a single filter, the chip collapses into a summary instead of listing every value out, keeping the filter row compact and readable even when a client is filtering on a lot of criteria at once.</p>
@@ -609,9 +593,11 @@ export default function InsightsLibrary() {
             </p>
           </div>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', overflow: 'hidden', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
-            <video src={filtersFinalMock} autoPlay loop muted playsInline style={{ width: '90%', height: 'auto', marginTop: '80px' }} />
-          </div>
+          <VideoPlayer
+            src={filtersFinalMock}
+            containerStyle={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}
+            videoStyle={{ width: '90%', height: 'auto', marginTop: '80px' }}
+          />
 
           <div style={{ width: '100%', marginTop: '32px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', overflow: 'hidden', position: 'relative' }}>
             <img src={ilSolutionCanvasWithSearch} alt="" style={{ width: '110%', height: 'auto', display: 'block', position: 'absolute', top: '60px', left: '10%' }} />
@@ -630,9 +616,11 @@ export default function InsightsLibrary() {
             <img src={chatboxIterations} alt="" style={{ width: '65%', height: 'auto', display: 'block', maxHeight: '100%', objectFit: 'contain' }} />
           </div>
 
-          <div style={{ width: '100%', marginTop: '24px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', overflow: 'hidden', position: 'relative' }}>
-            <video src={finalFlowAiChat} autoPlay loop muted playsInline style={{ width: '72%', height: 'auto', display: 'block', marginTop: '40px' }} />
-          </div>
+          <VideoPlayer
+            src={finalFlowAiChat}
+            containerStyle={{ width: '100%', marginTop: '24px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}
+            videoStyle={{ width: '72%', height: 'auto', display: 'block', marginTop: '40px' }}
+          />
 
           <p className="new-hero-body" style={{ marginTop: '56px', color: '#8C8C8C', lineHeight: 1.7, fontSize: '17px', textAlign: 'center', maxWidth: '480px', margin: '56px auto 0' }}>
             Thank you for making it this far! Reach out to me at <a href="mailto:nitishgannu@gmail.com" style={{ color: '#555555', fontWeight: 400, textDecoration: 'none' }}>nitishgannu@gmail.com</a> if you want to learn more.
