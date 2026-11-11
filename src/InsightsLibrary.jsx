@@ -332,7 +332,7 @@ export default function InsightsLibrary() {
                   <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Create artifacts from search results</h3>
                   <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Generate a summary or report from any filtered slice of the library and share it directly.</p>
                 </div>
-                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
+                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
                   <img src="/il-solution-1.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
@@ -341,7 +341,7 @@ export default function InsightsLibrary() {
                   <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Ask Pogo inside any study</h3>
                   <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Click into a study and ask Pogo about it right there in the preview, without leaving the page.</p>
                 </div>
-                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
+                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
                   <img src="/il-solution-2.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
@@ -350,7 +350,7 @@ export default function InsightsLibrary() {
                   <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>A folder that knows what's inside</h3>
                   <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>The chat input shows a live indicator of whether you have studies attached before you send anything.</p>
                 </div>
-                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
+                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
                   <img src="/il-solution-3.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
