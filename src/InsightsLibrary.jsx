@@ -375,12 +375,38 @@ export default function InsightsLibrary() {
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Card Design</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>What actually goes on a card</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
-              There was a natural order clients needed to scan: title, then category and brand, then wave, then report type, with sample size last. That ranking wasn't obvious upfront — it came out through iteration.
+              There was a natural order clients needed to scan: title, then category and brand, then wave, then report type, with sample size last. That ranking got clearer through iteration.
             </p>
           </div>
 
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', position: 'relative', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <img src={cardDecisions} alt="" style={{ width: '92%', height: 'auto', display: 'block', maxHeight: '100%', objectFit: 'contain' }} />
+          <div style={{ marginTop: '20px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', alignItems: 'start' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
+                <img src="/il-cards-1.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>First pass</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Starting point. All the right fields but no clear hierarchy — everything competed for attention.</p>
+              </div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
+                <img src="/il-cards-2.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Getting there</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Category got pulled to the top and given color. The scan order started to make sense.</p>
+              </div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
+                <img src="/il-cards-3.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Final card</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clean hierarchy, each field in the right place. Title leads, category carries color, everything else falls into line.</p>
+              </div>
+            </div>
           </div>
 
           {/* Square canvas pairs */}
