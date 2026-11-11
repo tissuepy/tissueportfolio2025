@@ -332,10 +332,12 @@ export default function InsightsLibrary() {
             </div>
 
             <div style={{ display: 'flex', gap: '32px', alignItems: 'stretch' }}>
-              <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
+              <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
+                <img src="/il-solution-2.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              </div>
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', textAlign: 'left' }}>
-                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Grounded in the corpus</h3>
-                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Every answer surfaces the specific studies it drew from, so clients can verify the source and dig deeper when they need to.</p>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Transparent reasoning for power users</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Power users can observe the agent's thinking in real time — seeing which studies it pulled, why it chose them, and how it reasoned its way to a final answer or document.</p>
               </div>
             </div>
 
