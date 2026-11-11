@@ -320,7 +320,7 @@ export default function InsightsLibrary() {
           </div>
 
           <div style={{ width: '100%', marginTop: '32px', aspectRatio: '2796 / 1440', overflow: 'hidden', position: 'relative' }}>
-            <video src="/il-ai-chat.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <video src="/il-final-mock.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
 
           <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
