@@ -322,10 +322,12 @@ export default function InsightsLibrary() {
           <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
 
             <div style={{ display: 'flex', gap: '32px', alignItems: 'stretch' }}>
-              <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5' }} />
+              <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
+                <img src="/il-solution-1.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              </div>
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', textAlign: 'right' }}>
-                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Ask anything, get a direct answer</h3>
-                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clients type a question in natural language and get a synthesized response pulled from the studies most relevant to their query.</p>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '20px' }}>Create artifacts from any set of studies</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clients can generate summaries and reports directly from search results, turning a filtered slice of the library into a shareable artifact.</p>
               </div>
             </div>
 
