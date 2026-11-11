@@ -326,29 +326,29 @@ export default function InsightsLibrary() {
           <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Highlights</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Three things the feature gets really right</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', alignItems: 'start' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', alignItems: 'stretch' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Create artifacts from any set of studies</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Clients can generate summaries and reports directly from search results, turning a filtered slice of the library into a shareable artifact.</p>
+                  <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Create artifacts from search results</h3>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Generate a summary or report from any filtered slice of the library and share it directly.</p>
                 </div>
                 <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
                   <img src="/il-solution-1.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Transparent reasoning for power users</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Power users can follow the agent's thinking in real time: which studies it pulled, why it chose them, and how it got to a final answer or document.</p>
+                  <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Ask Pogo inside any study</h3>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Click into a study and ask Pogo about it right there in the preview, without leaving the page.</p>
                 </div>
                 <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
                   <img src="/il-solution-2.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>A folder that knows what's inside it</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>A small graphic on the chat input changes based on whether you have studies attached. It's a tiny thing, but it tells you exactly where you stand before you send anything.</p>
+                  <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>A folder that knows what's inside</h3>
+                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>The chat input shows a live indicator of whether you have studies attached before you send anything.</p>
                 </div>
                 <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
                   <img src="/il-solution-3.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
