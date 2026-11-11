@@ -415,8 +415,8 @@ export default function InsightsLibrary() {
               <img src="/il-color-vs-mono.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
-              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Category leads the hierarchy</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Category sits at the top of the card and is the only field that carries color, since it's the fastest signal of relevance a client can act on.</p>
+              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Polychromatic vs. monochromatic</h2>
+              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Neither approach was wrong. We went with color on category because it's the one piece of metadata clients use to make an instant call on whether a study is worth opening.</p>
             </div>
           </div>
 
