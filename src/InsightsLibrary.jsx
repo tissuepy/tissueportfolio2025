@@ -308,7 +308,7 @@ export default function InsightsLibrary() {
           </div>
 
           <div style={{ width: '100%', marginTop: '20px', aspectRatio: '2806 / 1440', overflow: 'hidden', position: 'relative' }}>
-            <video src="/il-one-at-a-time.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <video src="/il-walkthrough-1.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
 
           {/* Ask Pogo Solution */}
