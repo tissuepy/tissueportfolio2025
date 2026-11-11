@@ -367,7 +367,7 @@ export default function InsightsLibrary() {
           </div>
 
           <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '520px', position: 'relative', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <img src={scatterOfResearch} alt="" style={{ width: '92%', height: 'auto', display: 'block', maxHeight: '100%', objectFit: 'contain' }} />
+            <img src={scatterOfResearch} alt="" style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover' }} />
           </div>
 
           {/* Design Decision #1 */}
