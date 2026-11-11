@@ -6,19 +6,12 @@ import './articles/MovingOut.css';
 import bannerDefault from './assets/insights-library-banner.png';
 import bannerPurple from './assets/insights-library-banner-purple.png';
 import ilSolutionCanvas from './assets/il-solution-canvas.png';
-import ilSolutionCanvasWithSearch from './assets/il-solution-canvas-with-search.png';
 import scatterOfResearch from './assets/scatter-of-research.png';
 import cardDecisions from './assets/card-decisions.png';
 import visualHierarchy from './assets/visual-hierarchy.png';
 import colorWeight from './assets/color-weight.png';
 import lockedCards from './assets/locked-cards.png';
 import vibratingCard from './assets/vibrating-card.webm';
-import filtersIteration from './assets/filters-iteration.png';
-import operatorAnimation from './assets/operator-animation.webm';
-import truncatedOptionsAnimation from './assets/truncated-options-animation.webm';
-import chatboxIterations from './assets/chatbox-iterations.png';
-import finalFlowAiChat from './assets/final-flow-ai-chat.webm';
-import filtersFinalMock from './assets/filters-final-mock.webm';
 import pogoLogoNew from './assets/pogo-logo-new.png';
 
 const btnStyle = {
@@ -114,7 +107,6 @@ const SECTIONS = [
   { id: 'research',  label: 'Research' },
   { id: 'decision-1', label: 'Card Design' },
   { id: 'decision-2', label: 'Intuitive Searching' },
-  { id: 'decision-3', label: 'AI Capabilities' },
 ];
 
 export default function InsightsLibrary() {
@@ -552,75 +544,6 @@ export default function InsightsLibrary() {
               As the library grew, clients needed a way to find the right study without digging through the interface or losing their place in it. I explored search and filtering patterns that stay out of the way by default, but bring the experience into focus the moment a client needs to narrow things down.
             </p>
           </div>
-
-          <h2 className="moving-out-title" style={{ color: '#000', margin: '32px 0 0', fontSize: '24px' }}>Filters that don't get in the way</h2>
-          <p className="new-hero-body" style={{ margin: '12px 0 0', lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
-            Filters needed to stay lightweight and easy to reach without cluttering the interface at rest. I looked through a few patterns before landing on one that balanced visibility with control, so filtering felt like a light touch rather than a separate mode.
-          </p>
-
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', position: 'relative', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <img src={filtersIteration} alt="" style={{ width: '65%', height: 'auto', display: 'block', maxHeight: '100%', objectFit: 'contain' }} />
-          </div>
-
-          <div style={{ marginTop: '40px', display: 'flex', gap: '32px', alignItems: 'stretch' }}>
-            <VideoPlayer
-              src={operatorAnimation}
-              containerStyle={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-              videoStyle={{ width: '80%', height: 'auto' }}
-            />
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
-              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Letting clients flip the logic</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Each filter's operator can be changed directly on the chip, giving clients the flexibility to include or exclude a set of values without deleting and rebuilding the filter from scratch.</p>
-            </div>
-          </div>
-
-          <div style={{ marginTop: '40px', display: 'flex', gap: '32px', alignItems: 'stretch' }}>
-            <VideoPlayer
-              src={truncatedOptionsAnimation}
-              containerStyle={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-              videoStyle={{ width: '88%', height: 'auto' }}
-            />
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', gap: '10px', paddingBottom: '4px' }}>
-              <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Truncating to reduce clutter</h2>
-              <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>When a client selects more than a few values within a single filter, the chip collapses into a summary instead of listing every value out, keeping the filter row compact and readable even when a client is filtering on a lot of criteria at once.</p>
-            </div>
-          </div>
-
-          <div style={{ marginTop: '48px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Final filter flow</h2>
-            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
-              After several iterations, I landed on a filter pattern that feels native to the interface, surfacing controls when needed without competing with the content.
-            </p>
-          </div>
-
-          <VideoPlayer
-            src={filtersFinalMock}
-            containerStyle={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}
-            videoStyle={{ width: '90%', height: 'auto', marginTop: '80px' }}
-          />
-
-          <div style={{ width: '100%', marginTop: '32px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', overflow: 'hidden', position: 'relative' }}>
-            <img src={ilSolutionCanvasWithSearch} alt="" style={{ width: '110%', height: 'auto', display: 'block', position: 'absolute', top: '60px', left: '10%' }} />
-          </div>
-
-          {/* Design Decision #3 */}
-          <div id="decision-3" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>AI Capabilities</span>
-            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Supporting customers by expanding AI search capabilities</h2>
-            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
-              Customers often need to connect insights across multiple studies to answer a single business question. I introduced a persistent AI assistant that lets them search across the library, synthesize findings, and get to relevant answers without manually digging through individual studies.
-            </p>
-          </div>
-
-          <div style={{ width: '100%', marginTop: '20px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', position: 'relative', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <img src={chatboxIterations} alt="" style={{ width: '65%', height: 'auto', display: 'block', maxHeight: '100%', objectFit: 'contain' }} />
-          </div>
-
-          <VideoPlayer
-            src={finalFlowAiChat}
-            containerStyle={{ width: '100%', marginTop: '24px', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', boxSizing: 'border-box', height: '560px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}
-            videoStyle={{ width: '72%', height: 'auto', display: 'block', marginTop: '40px' }}
-          />
 
           <p className="new-hero-body" style={{ marginTop: '56px', color: '#8C8C8C', lineHeight: 1.7, fontSize: '17px', textAlign: 'center', maxWidth: '480px', margin: '56px auto 0' }}>
             Thank you for making it this far! Reach out to me at <a href="mailto:nitishgannu@gmail.com" style={{ color: '#555555', fontWeight: 400, textDecoration: 'none' }}>nitishgannu@gmail.com</a> if you want to learn more.
