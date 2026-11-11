@@ -362,7 +362,7 @@ export default function InsightsLibrary() {
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Research</span>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Studying card patterns across other platforms</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
-              Before designing the study card, I looked at how platforms like Cloudflare, Databricks, and Snowflake display dense technical information through cards. Seeing how they handled scannability, metadata hierarchy, and disambiguation at scale gave me a clearer sense of what information the card actually needed and how it should be prioritized.
+              I looked at how platforms like Cloudflare, Databricks, and Snowflake handle dense information in cards before designing this one. It helped me figure out what actually needed to be on the card and in what order.
             </p>
           </div>
 
