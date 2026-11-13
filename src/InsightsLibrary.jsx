@@ -106,8 +106,8 @@ const SECTIONS = [
   { id: 'solution',  label: 'My role' },
   { id: 'ask-pogo', label: 'Ask Pogo' },
   { id: 'research',  label: 'Research' },
-  { id: 'decision-1', label: 'Card Design & Discovery' },
-  { id: 'decision-2', label: 'Intuitive Searching' },
+  { id: 'decision-1', label: 'Card Design' },
+  { id: 'decision-2', label: 'Discovery' },
 ];
 
 export default function InsightsLibrary() {
@@ -459,9 +459,9 @@ export default function InsightsLibrary() {
           {/* Design Decision #1 */}
           <div id="decision-1" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Card Design</span>
-            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>What actually goes on a card</h2>
+            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Making cards scannable, findable, and scalable</h2>
             <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>
-              There was a natural order clients needed to scan: title, then category and brand, then wave, then report type, with sample size last. That ranking got clearer through iteration.
+              With 2,000+ studies in the library, the card had to do a lot of work. Clients needed to scan dozens of them at a glance, understand what a study was about without opening it, and distinguish between what they had access to and what they didn't. Getting the information hierarchy right was the first problem to solve.
             </p>
           </div>
 
@@ -539,10 +539,10 @@ export default function InsightsLibrary() {
 
           {/* Design Decision #2 */}
           <div id="decision-2" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Intuitive Searching</span>
-            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Making thousands of studies discoverable</h2>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Discovery</span>
+            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Helping clients actually find the study they're looking for</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
-              As the library grew, clients needed a way to find the right study without digging through the interface or losing their place in it. I explored search and filtering patterns that stay out of the way by default, but bring the experience into focus the moment a client needs to narrow things down.
+              A well-designed card only helps if clients can get to the right one. With thousands of studies in the library, the second problem was navigation: how do you let someone locate a specific study without asking them to scroll through everything or remember exactly what it was called.
             </p>
           </div>
 
