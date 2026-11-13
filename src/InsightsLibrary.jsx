@@ -106,7 +106,7 @@ const SECTIONS = [
   { id: 'solution',  label: 'My role' },
   { id: 'ask-pogo', label: 'Ask Pogo' },
   { id: 'research',  label: 'Research' },
-  { id: 'decision-1', label: 'Card Design' },
+  { id: 'decision-1', label: 'Card Design & Discovery' },
   { id: 'decision-2', label: 'Intuitive Searching' },
 ];
 
