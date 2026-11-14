@@ -104,10 +104,10 @@ function VideoPlayer({ src, containerStyle, videoStyle }) {
 const SECTIONS = [
   { id: 'problem',    label: 'Background' },
   { id: 'solution',  label: 'My role' },
-  { id: 'ask-pogo', label: 'Ask Pogo' },
   { id: 'research',  label: 'Research' },
   { id: 'decision-1', label: 'Card Design' },
   { id: 'decision-2', label: 'Discovery' },
+  { id: 'ask-pogo',  label: 'AI Search' },
 ];
 
 export default function InsightsLibrary() {
@@ -380,69 +380,6 @@ export default function InsightsLibrary() {
             </p>
           </div>
 
-          {/* Ask Pogo */}
-          <div id="ask-pogo" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Motivation: Creating "Ask Pogo"</span>
-            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Executives are too busy to read 2,000 studies</h2>
-            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
-              A majority of Pogo's users already find value through AI-moderated studies and insights, but the nature of a corpus like the Insights Library is that clients needed a faster way to consolidate what they were seeing across similar studies rather than opening each one individually.
-            </p>
-          </div>
-
-          <VideoPlayer
-            src="/il-walkthrough-1.mp4"
-            containerStyle={{ width: '100%', marginTop: '20px', aspectRatio: '2806 / 1440', overflow: 'hidden' }}
-            videoStyle={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-          />
-
-          {/* Ask Pogo Solution */}
-          <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Solution: Creating an intuitive AI Search</h2>
-            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
-              I designed a conversational AI layer directly inside the Insights Library, letting clients ask questions in plain language and get back synthesized answers drawn from across the entire corpus, without having to open a single study.
-            </p>
-          </div>
-
-          <VideoPlayer
-            src="/il-final-mock.mp4"
-            containerStyle={{ width: '100%', marginTop: '32px', aspectRatio: '2796 / 1440', overflow: 'hidden' }}
-            videoStyle={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-          />
-
-          <div style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Highlights</span>
-            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>The details that make it actually work</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', alignItems: 'stretch' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', justifyContent: 'space-between' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Create artifacts from search results</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Generate a summary or report from any filtered slice of the library and share it directly.</p>
-                </div>
-                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
-                  <img src="/il-solution-1.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                </div>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', justifyContent: 'space-between' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Ask Pogo inside any study</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Click into a study and ask Pogo about it right there in the preview, without leaving the page.</p>
-                </div>
-                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
-                  <img src="/il-solution-2.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                </div>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', justifyContent: 'space-between' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>The folder knows what's in it</h3>
-                  <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>A playful illustration that shows up when studies are being used as context for a query.</p>
-                </div>
-                <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
-                  <img src="/il-solution-3.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Research */}
           <div id="research" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>Research</span>
@@ -465,7 +402,9 @@ export default function InsightsLibrary() {
             </p>
           </div>
 
-          <div style={{ marginTop: '20px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', alignItems: 'start' }}>
+          <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '13px', fontWeight: 300, color: '#BBBBBB', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '32px', display: 'block' }}>Exploration</span>
+
+          <div style={{ marginTop: '12px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', alignItems: 'start' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
                 <img src="/il-cards-1.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
@@ -495,8 +434,10 @@ export default function InsightsLibrary() {
             </div>
           </div>
 
+          <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '13px', fontWeight: 300, color: '#BBBBBB', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '48px', display: 'block' }}>Design details</span>
+
           {/* Square canvas pairs */}
-          <div style={{ marginTop: '40px', display: 'flex', gap: '32px', alignItems: 'stretch' }}>
+          <div style={{ marginTop: '20px', display: 'flex', gap: '32px', alignItems: 'stretch' }}>
             <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <img src="/il-color-vs-mono.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
@@ -544,6 +485,68 @@ export default function InsightsLibrary() {
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
               A well-designed card only helps if clients can get to the right one. With thousands of studies in the library, the second problem was navigation: how do you let someone locate a specific study without asking them to scroll through everything or remember exactly what it was called.
             </p>
+          </div>
+
+          {/* AI Search */}
+          <div id="ask-pogo" style={{ marginTop: '56px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '15px', fontWeight: 300, color: '#8C8C8C' }}>AI Search</span>
+            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Executives are too busy to read 2,000 studies</h2>
+            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
+              A majority of Pogo's users already find value through AI-moderated studies and insights, but the nature of a corpus like the Insights Library is that clients needed a faster way to consolidate what they were seeing across similar studies rather than opening each one individually.
+            </p>
+          </div>
+
+          <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '13px', fontWeight: 300, color: '#BBBBBB', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '32px', display: 'block' }}>Exploration</span>
+
+          <VideoPlayer
+            src="/il-walkthrough-1.mp4"
+            containerStyle={{ width: '100%', marginTop: '12px', aspectRatio: '2806 / 1440', overflow: 'hidden' }}
+            videoStyle={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+
+          <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '13px', fontWeight: 300, color: '#BBBBBB', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '48px', display: 'block' }}>Design details</span>
+
+          <div style={{ marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Creating an intuitive AI Search</h2>
+            <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
+              I designed a conversational AI layer directly inside the Insights Library, letting clients ask questions in plain language and get back synthesized answers drawn from across the entire corpus, without having to open a single study.
+            </p>
+          </div>
+
+          <VideoPlayer
+            src="/il-final-mock.mp4"
+            containerStyle={{ width: '100%', marginTop: '20px', aspectRatio: '2796 / 1440', overflow: 'hidden' }}
+            videoStyle={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+
+          <div style={{ marginTop: '40px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', alignItems: 'stretch' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Create artifacts from search results</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Generate a summary or report from any filtered slice of the library and share it directly.</p>
+              </div>
+              <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
+                <img src="/il-solution-1.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              </div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>Ask Pogo inside any study</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>Click into a study and ask Pogo about it right there in the preview, without leaving the page.</p>
+              </div>
+              <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
+                <img src="/il-solution-2.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              </div>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <h3 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '18px' }}>The folder knows what's in it</h3>
+                <p className="new-hero-body" style={{ margin: 0, color: '#8C8C8C', lineHeight: 1.7, fontSize: '15px' }}>A playful illustration that shows up when studies are being used as context for a query.</p>
+              </div>
+              <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
+                <img src="/il-solution-3.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              </div>
+            </div>
           </div>
 
           <p className="new-hero-body" style={{ marginTop: '56px', color: '#8C8C8C', lineHeight: 1.7, fontSize: '17px', textAlign: 'center', maxWidth: '480px', margin: '56px auto 0' }}>
