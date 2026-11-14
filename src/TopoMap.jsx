@@ -23,7 +23,7 @@ const PEAKS = [
     ]
   },
   { text: 'RESEARCH', dots: [[-88, -46]], x: 790, y: 170, h: 0.9, s: 100, projects: [{ title: 'Research', locked: true, comingSoon: true, tooltipOnly: true }] },
-  { text: 'CRAFT', dots: [[-92, 36], [82, -58]], x: 380, y: 510, h: 0.95, s: 100, projects: [{ title: 'Craft', subtitle: 'Airport App', meta: 'Shipped 2026', video: airportIphoneWebm, lightbox: true, forceFlipUp: true }, { title: 'Craft', subtitle: 'Card Cut', meta: 'Shipped 2026', video: '/card-cut.mov', bg: '/sunset-background.png', lightbox: true, overflowThumb: true, forceFlipUp: true }] },
+  { text: 'CRAFT', dots: [[-92, 36], [82, -58]], x: 380, y: 510, h: 0.95, s: 100, projects: [{ title: 'Craft', subtitle: 'Airport App', meta: 'Shipped 2026', video: airportIphoneWebm, lightbox: true, forceFlipUp: true }, { title: 'Cut your Cards', subtitle: 'Concept 2026', meta: 'Concept 2026', video: '/card-cut.mov', bg: '/sunset-background.png', lightbox: true, overflowThumb: true, forceFlipUp: true }] },
 ];
 
 const TERRAIN = [
