@@ -23,7 +23,7 @@ const PEAKS = [
     ]
   },
   { text: 'RESEARCH', dots: [[-88, -46]], x: 790, y: 170, h: 0.9, s: 100, projects: [{ title: 'Research', locked: true, comingSoon: true, tooltipOnly: true }] },
-  { text: 'CRAFT', dots: [[-92, 36], [82, -58]], x: 380, y: 510, h: 0.95, s: 100, projects: [{ title: 'Craft', subtitle: 'Airport App', meta: 'Shipped 2026', video: airportIphoneWebm, lightbox: true, forceFlipUp: true }, { title: 'Craft', subtitle: 'Card Cut', meta: 'Shipped 2026', video: '/card cut.mov', bg: '/sunset background.png', lightbox: true, overflowThumb: true, forceFlipUp: true }] },
+  { text: 'CRAFT', dots: [[-92, 36], [82, -58]], x: 380, y: 510, h: 0.95, s: 100, projects: [{ title: 'Craft', subtitle: 'Airport App', meta: 'Shipped 2026', video: airportIphoneWebm, lightbox: true, forceFlipUp: true }, { title: 'Craft', subtitle: 'Card Cut', meta: 'Shipped 2026', video: '/card-cut.mov', bg: '/sunset-background.png', lightbox: true, overflowThumb: true, forceFlipUp: true }] },
 ];
 
 const TERRAIN = [
@@ -446,12 +446,12 @@ export default function TopoMap() {
                 >
                   {dotHover.project.video ? (
                     dotHover.project.lightbox ? (
-                      <div style={{ width: '100%', height: '300px', backgroundImage: `url(${dotHover.project.bg || craftBg})`, backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: dotHover.project.overflowThumb ? 'flex-end' : 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+                      <div style={{ width: '100%', height: '300px', backgroundImage: `url(${dotHover.project.bg || craftBg})`, backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: dotHover.project.overflowThumb ? 'flex-start' : 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
                         <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.3)' }} />
                         <video
                           key={dotHover.project.video}
                           autoPlay muted loop playsInline
-                          style={{ position: 'relative', zIndex: 1, height: dotHover.project.overflowThumb ? '340px' : '245px', width: 'auto', borderRadius: '6px', marginBottom: dotHover.project.overflowThumb ? '-80px' : '0' }}
+                          style={{ position: 'relative', zIndex: 1, height: dotHover.project.overflowThumb ? '480px' : '245px', width: 'auto', borderRadius: '6px' }}
                         >
                           <source src={dotHover.project.video} type={dotHover.project.video.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
                         </video>
