@@ -402,9 +402,7 @@ export default function InsightsLibrary() {
             </p>
           </div>
 
-          <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '13px', fontWeight: 300, color: '#BBBBBB', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '32px', display: 'block' }}>Exploration</span>
-
-          <div style={{ marginTop: '12px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', alignItems: 'start' }}>
+          <div style={{ marginTop: '32px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px', alignItems: 'start' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div style={{ aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden' }}>
                 <img src="/il-cards-1.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
@@ -434,10 +432,8 @@ export default function InsightsLibrary() {
             </div>
           </div>
 
-          <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '13px', fontWeight: 300, color: '#BBBBBB', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '48px', display: 'block' }}>Design details</span>
-
           {/* Square canvas pairs */}
-          <div style={{ marginTop: '20px', display: 'flex', gap: '32px', alignItems: 'stretch' }}>
+          <div style={{ marginTop: '40px', display: 'flex', gap: '32px', alignItems: 'stretch' }}>
             <div style={{ flex: '0 0 38%', aspectRatio: '1 / 1', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', overflow: 'hidden', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <img src="/il-color-vs-mono.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
@@ -496,17 +492,13 @@ export default function InsightsLibrary() {
             </p>
           </div>
 
-          <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '13px', fontWeight: 300, color: '#BBBBBB', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '32px', display: 'block' }}>Exploration</span>
-
           <VideoPlayer
             src="/il-walkthrough-1.mp4"
-            containerStyle={{ width: '100%', marginTop: '12px', aspectRatio: '2806 / 1440', overflow: 'hidden' }}
+            containerStyle={{ width: '100%', marginTop: '32px', aspectRatio: '2806 / 1440', overflow: 'hidden' }}
             videoStyle={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />
 
-          <span style={{ fontFamily: "'TWK Lausanne', 'Geist', ui-sans-serif, system-ui, sans-serif", fontSize: '13px', fontWeight: 300, color: '#BBBBBB', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '48px', display: 'block' }}>Design details</span>
-
-          <div style={{ marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <h2 className="moving-out-title" style={{ color: '#000', margin: 0, fontSize: '24px' }}>Creating an intuitive AI Search</h2>
             <p className="new-hero-body" style={{ margin: 0, lineHeight: 1.7, color: '#8C8C8C', fontSize: '15px' }}>
               I designed a conversational AI layer directly inside the Insights Library, letting clients ask questions in plain language and get back synthesized answers drawn from across the entire corpus, without having to open a single study.
