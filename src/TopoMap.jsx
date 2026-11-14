@@ -10,7 +10,6 @@ import insightsLibraryAnimation from './assets/insights-library-animation.mp4';
 import surveyBranchingThumbnail from './assets/survey-branching-thumbnail.png';
 import pogoBranchingVideo from './assets/branching-video-frame.mp4';
 import airportIphoneWebm from './assets/airport-iphone.webm';
-import businessCardsWebm from './assets/business-cards-iphone.webm';
 import craftBg from './assets/craft-bg.avif';
 
 const MW = 1080, MH = 680, FX = 60, FY = 60;
@@ -24,7 +23,7 @@ const PEAKS = [
     ]
   },
   { text: 'RESEARCH', dots: [[-88, -46]], x: 790, y: 170, h: 0.9, s: 100, projects: [{ title: 'Research', locked: true, comingSoon: true, tooltipOnly: true }] },
-  { text: 'CRAFT', dots: [[-92, 36], [82, -58]], x: 380, y: 510, h: 0.95, s: 100, projects: [{ title: 'Craft', subtitle: 'Airport App', meta: 'Shipped 2026', video: airportIphoneWebm, lightbox: true, forceFlipUp: true }, { title: 'Craft', subtitle: 'Networking Cards', meta: 'Shipped 2026', video: businessCardsWebm, lightbox: true, forceFlipUp: true }] },
+  { text: 'CRAFT', dots: [[-92, 36], [82, -58]], x: 380, y: 510, h: 0.95, s: 100, projects: [{ title: 'Craft', subtitle: 'Airport App', meta: 'Shipped 2026', video: airportIphoneWebm, lightbox: true, forceFlipUp: true }, { title: 'Craft', subtitle: 'Card Cut', meta: 'Shipped 2026', video: '/card cut.mov', bg: '/sunset background.png', lightbox: true, overflowThumb: true, forceFlipUp: true }] },
 ];
 
 const TERRAIN = [
@@ -223,8 +222,9 @@ export default function TopoMap() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxClosing, setLightboxClosing] = useState(false);
   const [lightboxVideo, setLightboxVideo] = useState(null);
+  const [lightboxBg, setLightboxBg] = useState(null);
 
-  const openLightbox = (videoSrc) => { setLightboxVideo(videoSrc); setLightboxOpen(true); setLightboxClosing(false); };
+  const openLightbox = (videoSrc, bgSrc) => { setLightboxVideo(videoSrc); setLightboxBg(bgSrc || null); setLightboxOpen(true); setLightboxClosing(false); };
   const closeLightbox = useCallback(() => { setLightboxClosing(true); setTimeout(() => { setLightboxOpen(false); setLightboxClosing(false); }, 350); }, []);
 
   useEffect(() => {
@@ -439,21 +439,21 @@ export default function TopoMap() {
                   onMouseMove={e => setVideoCursor({ x: e.clientX, y: e.clientY })}
                   onClick={() => {
                     if (dotHover.project.locked) return;
-                    if (dotHover.project.lightbox) { openLightbox(dotHover.project.video); return; }
+                    if (dotHover.project.lightbox) { openLightbox(dotHover.project.video, dotHover.project.bg); return; }
                     if (dotHover.project.route) navigate(dotHover.project.route);
                   }}
                   style={{ position: 'relative', overflow: 'hidden', cursor: dotHover.project.locked ? 'default' : (dotHover.project.route || dotHover.project.lightbox ? 'pointer' : 'default') }}
                 >
                   {dotHover.project.video ? (
                     dotHover.project.lightbox ? (
-                      <div style={{ width: '100%', height: '300px', backgroundImage: `url(${craftBg})`, backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                      <div style={{ width: '100%', height: '300px', backgroundImage: `url(${dotHover.project.bg || craftBg})`, backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: dotHover.project.overflowThumb ? 'flex-end' : 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
                         <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.3)' }} />
                         <video
                           key={dotHover.project.video}
                           autoPlay muted loop playsInline
-                          style={{ position: 'relative', zIndex: 1, height: '245px', width: 'auto', borderRadius: '6px' }}
+                          style={{ position: 'relative', zIndex: 1, height: dotHover.project.overflowThumb ? '340px' : '245px', width: 'auto', borderRadius: '6px', marginBottom: dotHover.project.overflowThumb ? '-80px' : '0' }}
                         >
-                          <source src={dotHover.project.video} type="video/webm" />
+                          <source src={dotHover.project.video} type={dotHover.project.video.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
                         </video>
                       </div>
                     ) : (
@@ -550,7 +550,7 @@ export default function TopoMap() {
                 } : undefined}
                 onMouseMove={d.project && !d.project.alwaysBlue ? e => setDotButtonCursor({ x: e.clientX, y: e.clientY }) : undefined}
                 onClick={d.project && !d.project.locked && !d.project.comingSoon && !d.project.alwaysBlue ? () => {
-                  if (d.project.lightbox) { openLightbox(d.project.video); return; }
+                  if (d.project.lightbox) { openLightbox(d.project.video, d.project.bg); return; }
                   if (d.project.route) navigate(d.project.route);
                 } : undefined}
                 style={{ position: 'absolute', left: '-9px', top: '-9px', width: '18px', height: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', background: (!d.project || d.project.locked || d.project.comingSoon) ? '#C4C8CD' : '#2F7BFF', cursor: d.project && !d.project.locked && !d.project.comingSoon && !d.project.alwaysBlue ? 'pointer' : 'default' }}
@@ -619,7 +619,7 @@ export default function TopoMap() {
               height: 'min(78vh, 760px)',
               borderRadius: '20px',
               overflow: 'hidden',
-              backgroundImage: `url(${craftBg})`,
+              backgroundImage: `url(${lightboxBg || craftBg})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               display: 'flex',
@@ -643,7 +643,7 @@ export default function TopoMap() {
                 pointerEvents: 'none',
               }}
             >
-              <source src={lightboxVideo} type="video/webm" />
+              <source src={lightboxVideo} type={lightboxVideo && lightboxVideo.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
             </video>
           </div>
           {/* Close hint */}
