@@ -451,7 +451,7 @@ export default function TopoMap() {
                         <video
                           key={dotHover.project.video}
                           autoPlay muted loop playsInline
-                          style={{ position: 'relative', zIndex: 1, height: dotHover.project.overflowThumb ? '480px' : '245px', width: 'auto', borderRadius: '6px' }}
+                          style={{ position: 'relative', zIndex: 1, height: dotHover.project.overflowThumb ? '480px' : '245px', width: 'auto', borderRadius: '6px', marginTop: dotHover.project.overflowThumb ? '60px' : '0' }}
                         >
                           <source src={dotHover.project.video} type={dotHover.project.video.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
                         </video>
